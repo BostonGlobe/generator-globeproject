@@ -1,0 +1,90 @@
+/* Globe-specific print formatting & overrides across sections
+  * note: inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+*/
+
+/* hide print-only content on screen */
+.print-only { display: none; }
+
+@media print {
+	/*first some general resets */
+	a, a:visited {
+		color: #444 !important;
+	}
+	#masthead a {
+		text-decoration: none;
+	}
+	.logo-bg {
+	  margin-bottom: 0;
+	}
+	pre, blockquote {
+		border: 1px solid #999; 
+		page-break-inside: avoid;
+	}
+	thead {
+		display: table-header-group;
+	} /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+	tr, img {
+		page-break-inside: avoid;
+	}
+	@page {
+		margin: 0.5cm;
+	}
+	p, h2, h3 {
+		orphans: 3; widows: 3;
+	}
+	h2, h3 {
+		page-break-after: avoid;
+	}
+	
+	.article .header a {
+		display: block;
+	}
+	.article .header a:after {
+		font-size: 14px;
+		display: block;
+		font-weight: normal;
+		margin-bottom: 1em; 
+	}
+	.article abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+	
+	/* show print-only content on print */
+	.print-only { display: block; }
+	
+	
+	/* kill floats on article body */
+	#main .article {
+		float: none;
+		width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.bg-copy {
+		border: none;
+	}
+
+	/* hide elements that are unnecessary to print experience */
+	.nav-primary,
+	.bg-high-value,
+	#masthead nav.sections,
+	#masthead nav.section,
+	.section-nav,
+	.saved-panel,
+	.score-nav,
+	.fblike,
+	.ad,
+	.tools,
+	.article-cats,
+	form.search,
+	.utils,
+	#masthead .weather,
+	.bg-footer .lead,
+	.bg-footer .sub nav,
+	.collapsible-heading-status,
+	.slidecontrols {
+		display: none !important;
+	}
+
+}
