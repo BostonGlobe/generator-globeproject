@@ -14,9 +14,11 @@ var rimraf = require('gulp-rimraf');
 var jshint_stylish = require('jshint-stylish');
 var jshint = require('gulp-jshint');
 var smoosher = require('gulp-smoosher');
-
-// .pipe(jshint())
-// .pipe(jshint.reporter('jshint-stylish'));
+var through = require('through2');
+var cheerio = require('cheerio');
+var gutil = require('gulp-util');
+var fs = require('fs');
+var path = require('path');
 
 var LIVERELOAD_PORT = 35728;
 var EXPRESS_PORT = 5000;
@@ -103,26 +105,68 @@ gulp.task('build-html', function() {
 		.pipe(gulp.dest('.'));
 });
 
-gulp.task('build-html-prod', function() {
+gulp.task('jshint', function() {
+
+	return gulp.src('PROD.jpt')
+		.pipe(through.obj(function(file, enc, callback) {
+
+			var input = String(file.contents);
+
+			var $ = cheerio.load(input);
+
+			var self = this;
+			var files = $('script').map(function(index, element) {
+				var src = $(element).attr('src');
+				var filepath = path.join(__dirname, src);
+				var contents = fs.readFileSync(filepath, 'utf8');
+				var file = new gutil.File({
+					path: filepath,
+					contents: new Buffer(contents)
+				});
+				self.push(file);
+			});
+
+			callback(null);
+		}))
+		.pipe(jshint())
+		.pipe(jshint.reporter('jshint-stylish'));
+
+});
+
+gulp.task('minify', function() {
 
 	var jsFilter = filter('.tmp/*.js');
-    var cssFilter = filter('.tmp/*.css');
+	var cssFilter = filter('.tmp/*.css');
 
-	return gulp.src('parts/prod.html')
-		.pipe(fileinclude())
-		.pipe(rename('PROD.jpt'))
-		.pipe(gulp.dest('.'))
+	return gulp.src('PROD.jpt')
+
+		// begin useref
 		.pipe(useref.assets())
+
+		// uglify js
 		.pipe(jsFilter)
 		.pipe(uglify())
 		.pipe(jsFilter.restore())
+
+		// minify css
 		.pipe(cssFilter)
 		.pipe(csso())
 		.pipe(cssFilter.restore())
+
+		// complete useref
 		.pipe(useref.restore())
 		.pipe(useref())
 		.pipe(gulp.dest('.'))
+
+		// smoosh html
 		.pipe(smoosher())
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('build-html-prod', function() {
+	return gulp.src('parts/prod.html')
+		.pipe(fileinclude())
+		.pipe(rename('PROD.jpt'))
 		.pipe(gulp.dest('.'));
 });
 
@@ -160,7 +204,9 @@ gulp.task('prod', function() {
 	runSequence(
 		'clean',
 		'compile-sass-all',
-		'build-html-prod'
+		'build-html-prod',
+		'jshint',
+		'minify'
 	);
 
 });

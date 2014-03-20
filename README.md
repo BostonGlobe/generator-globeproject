@@ -1,1 +1,3 @@
-what next? include the default css
+## TODO:
+
+- add support for images
