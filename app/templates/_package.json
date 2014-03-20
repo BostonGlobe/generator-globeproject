@@ -1,5 +1,5 @@
 {
-  "name": "package",
+  "name": "<%= _.slugify(graphicName) %>",
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
@@ -8,6 +8,7 @@
     "gulp-file-include": "^0.2.0",
     "gulp-livereload": "^1.2.0",
     "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.4.0",
     "http-rewrite-middleware": "^0.1.5",
     "run-sequence": "^0.3.6"
   }

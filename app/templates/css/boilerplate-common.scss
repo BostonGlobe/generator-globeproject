@@ -1,0 +1,43 @@
+/* apply a natural box layout model to all elements */
+/* from http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+#gf *,
+#gf *:before,
+#gf *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* style source and credit ------------------------------------------------ */
+#source-and-credit {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 1em;
+
+	> p {
+		margin: 0;
+		text-align: right;
+	}
+
+	.source span {
+		font-size: 0.75em;
+		font-weight: bold;
+	}
+
+	.credit span {
+		color: #999;
+		text-transform: uppercase;
+		font-size: 0.6em;
+		letter-spacing: 0.05em;	
+	}
+
+	@media screen and (min-width:600px) {
+		.source {
+			float: left;
+		}
+
+		.credit {
+			float: right;
+		}
+	}
+}

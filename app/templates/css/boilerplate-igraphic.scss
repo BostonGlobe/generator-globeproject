@@ -1,0 +1,32 @@
+/* full width content ----------------------------------------------------- */
+.section-nav {
+	display: none;
+}
+
+.article {
+	float: none;
+	width: 100%;
+	margin: 0;
+
+	/* hide default byline date ----------------------------------------------- */
+	> .byline {
+		display: none;
+	}
+}
+
+
+
+
+/* hide asides ------------------------------------------------------------ */
+.aside {
+	display:none;
+}
+
+
+
+/* style subtitle --------------------------------------------------------- */
+p.subtitle {
+	font-size: 1.25em;
+	font-family: "Miller Headline Roman","Times New Roman",Times,Georgia,serif;
+	margin:0 0 1.5em 0;
+}

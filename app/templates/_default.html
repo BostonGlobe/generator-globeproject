@@ -73,6 +73,7 @@
 <script src="/js/lib/jquery.js,lib/magnific.js,globe-modal-login.js,globe-modal-meter.js?v=1.3"></script>
 <link rel="stylesheet" type="text/css" media="all" href="/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-saved.css,globe-main.css,globe-footer.css,globe-trialHeaders.css,modal-login.css?v=1.3"/>
 <link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=1.3"/>
+@@include('html/css.html')
 <!-- webtype is igraphic section is  adPageType other oas_sitepage -->
 
 <!--  lowestRank:  taxonomy:  section:  --> 
@@ -292,8 +293,7 @@
 	<!--  Headline Section -->
 	<div class="header">
 	<p class="hed-cat"></p>
-	<h1 class="main-hed">
-</h1>
+	<h1 class="main-hed"><%= _.slugify(graphicName) %></h1>
 	<h2 class="subhed"></h2>
 	</div>
 
@@ -312,6 +312,7 @@
 
 <div class="article-body">		
 	@@include('html/graphic.html')
+	@@include('html/js.html')
 </div>
     
     
