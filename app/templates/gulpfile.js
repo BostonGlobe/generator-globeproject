@@ -68,7 +68,20 @@ function server(callback) {
 
 // start livereload
 function startLivereload() {
-	livereload(LIVERELOAD_PORT);
+	var server = livereload(LIVERELOAD_PORT);
+
+	// watch for changes to html and rebuild
+	gulp.watch(['parts/default.html', 'html/*'], ['build-html']);
+
+	// watch for changes to scss and recompile
+	gulp.watch(['css/*'], function(e) {
+		compileSass(e.path);
+	});
+
+	// watch for changes to index.html, dest files, js files, and notify livereload
+	gulp.watch(['index.html', '.tmp/**/*.css', 'js/**/*.js'], function(e) {
+		server.changed(e.path);
+	});
 }
 
 gulp.task('build-html', function() {
