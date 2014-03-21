@@ -7,4 +7,18 @@ Also known as **MAGIC**.
 ## Prerequisites
 
 - Install [Node.js](http://nodejs.org/).
-- Install Yeoman: `npm install -g yo`.
+- Install Yeoman: `sudo npm install -g yo`.
+- Install the generator: `sudo npm install -g generator-globegraphic`.
+
+## Create a new project
+- Create the folder and cd into it: `mkdir myProject && cd myProject`.
+- Invoke the generator and pass it the project name: `yo globegraphic myProject`.
+- Follow all prompts.
+
+## Usage
+- Run `gulp` to start the server at http://localhost:5000.
+- Run `gulp prod` to deploy all assets to PROD.jpt.
+ 
+## License
+
+MIT © [The Boston Globe](http://github.com/BostonGlobe)
