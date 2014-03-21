@@ -171,7 +171,7 @@ gulp.task('build-html-prod', function() {
 });
 
 gulp.task('compile-sass-all', function() {
-	return compileSass('css/*.scss');
+	return compileSass('css/*');
 });
 
 function compileSass(path) {
