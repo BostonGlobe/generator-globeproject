@@ -4,6 +4,8 @@ Yeoman generator for a Boston Globe graphic.
 
 Also known as **MAGIC**.
 
+Please note: do not reproduce Boston Globe logos or fonts without written permission.
+
 ## Prerequisites
 
 - Install [Node.js](http://nodejs.org/).
