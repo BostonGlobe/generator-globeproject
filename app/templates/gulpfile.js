@@ -38,6 +38,7 @@ function server(callback) {
 		{from: '^/js/lib/jquery.js,lib/magnific.js,globe-modal-login.js,globe-modal-meter.js', to: '/parts/globe/js/jquery.js,magnific.js,globe-modal-login.js,globe-modal-meter.js', redirect: 'permanent' },
 		{from: '^/js/lib/psswrd.js', to: '/parts/globe/js/psswrd.js', redirect: 'permanent' },
 		{from: '^/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js', to: '/parts/globe/js/1d2f16c5cb4bc0ef6e8c021e859162c9.js', redirect: 'permanent' },
+		{from: '^/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,lib/jquery.touch.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js', to: '/parts/globe/js/b64e446da1d964728ada260c53144a35.js', redirect: 'permanent' },
 
 		{from: '^/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg.png', to: '/parts/globe/images/logo-bg.png', redirect: 'permanent'},
 		{from: '^/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/White-B-Logo-non-transparent.jpg', to: '/parts/globe/images/White-B-Logo-non-transparent.jpg', redirect: 'permanent'},
@@ -171,7 +172,7 @@ gulp.task('build-html-prod', function() {
 });
 
 gulp.task('compile-sass-all', function() {
-	return compileSass('css/*');
+	return compileSass('css/*.scss');
 });
 
 function compileSass(path) {
