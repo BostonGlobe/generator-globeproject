@@ -41,6 +41,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.mkdir('parts');
 
     this.template('_default.html', 'parts/default.html');
+    this.template('_README.md', 'README.md');
     this.copy('prod.html', 'parts/prod.html');
 
     this.directory('globe', 'parts/globe');
