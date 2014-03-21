@@ -39,6 +39,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
   app: function () {
 
     this.mkdir('parts');
+
     this.template('_default.html', 'parts/default.html');
     this.copy('prod.html', 'parts/prod.html');
 
@@ -46,6 +47,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.directory('html');
     this.directory('css');
     this.directory('js');
+    this.mkdir('js/templates');
 
     this.copy('gulpfile.js');
     this.copy('.bowerrc');
