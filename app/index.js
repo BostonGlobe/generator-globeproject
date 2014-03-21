@@ -44,6 +44,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
 
     this.copy('gulpfile.js');
     this.copy('.bowerrc');
+    this.copy('.gitignore');
 
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
