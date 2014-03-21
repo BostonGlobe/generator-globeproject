@@ -9,9 +9,14 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
+    // from http://stackoverflow.com/questions/18841273/how-to-run-a-grunt-task-after-my-yeoman-generator-finishes-installing
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        this.installDependencies();
+        this.installDependencies({
+          callback: function () {
+            this.spawnCommand('sh', ['bitbucket.sh']);
+          }.bind(this) // bind the callback to the parent scope
+        });
       }
     });
   },
@@ -45,15 +50,14 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.copy('gulpfile.js');
     this.copy('.bowerrc');
     this.copy('.gitignore');
+    this.copy('globegraphic.sublime-project');
 
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
+    this.template('_bitbucket.sh', 'bitbucket.sh');
   },
 
-  projectfiles: function () {
-    // this.copy('editorconfig', '.editorconfig');
-    // this.copy('jshintrc', '.jshintrc');
-  }
+  projectfiles: function () {}
 });
 
 module.exports = GlobegraphicGenerator;

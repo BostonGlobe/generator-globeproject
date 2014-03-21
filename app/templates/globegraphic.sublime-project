@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": ".",
+			"folder_exclude_patterns": [
+				".tmp",
+				".sass-cache",
+				"node_modules",
+				"parts"
+			],
+			"file_exclude_patterns": [
+				".bowerrc",
+				"bitbucket.sh",
+				"bower.json",
+				".gitignore",
+				"globegraphic.sublime-project",
+				"gulpfile.js",
+				"index.html",
+				"package.json"
+			]
+		}
+	]
+}
