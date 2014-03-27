@@ -31,7 +31,7 @@
 		letter-spacing: 0.05em;	
 	}
 
-	@media screen and (min-width:600px) {
+	@include breakpoint(600px) {
 		.source {
 			float: left;
 		}

@@ -54,6 +54,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.copy('.bowerrc');
     this.copy('_gitignore', '.gitignore');
     this.copy('globegraphic.sublime-project');
+    this.copy('config.rb');
 
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');

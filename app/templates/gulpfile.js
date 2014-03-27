@@ -91,9 +91,7 @@ function startLivereload() {
 	gulp.watch(['parts/default.html', 'html/*'], ['build-html']);
 
 	// watch for changes to scss and recompile
-	gulp.watch(['css/*'], function(e) {
-		compileSass(e.path);
-	});
+	gulp.watch(['css/*'], ['compile-sass-all']);
 
 	// watch for changes to index.html, dest files, js files, and notify livereload
 	gulp.watch(['index.html', '.tmp/**/*.css', 'js/**/*.js'], function(e) {
@@ -194,7 +192,9 @@ gulp.task('compile-templates', function() {
 
 function compileSass(path) {
 	return gulp.src(path)
-		.pipe(sass())
+		.pipe(sass({
+			compass: true
+		}))
 		.pipe(gulp.dest('.tmp'));
 }
 
