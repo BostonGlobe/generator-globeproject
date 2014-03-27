@@ -10,6 +10,8 @@ git add bower.json
 git add globegraphic.sublime-project
 git add gulpfile.js
 git add package.json
+git add README.md
+git add config.rb
 
 git commit -m 'first commit'
 
