@@ -30,9 +30,17 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     // replace it with a short and sweet description of your generator
     this.log(chalk.magenta('You\'re using the fantastic Globegraphic generator.'));
 
-    this.graphicName = process.argv[3];
+    var prompts = [{
+      name: 'graphicName',
+      message: 'Enter the project name:',
+      default: 'project'
+    }];
 
-    done();
+    this.prompt(prompts, function(props) {
+      this.graphicName = props.graphicName;
+
+      done();
+    }.bind(this));
 
   },
 

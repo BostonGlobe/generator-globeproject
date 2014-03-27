@@ -9,7 +9,8 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 ## Prerequisites
 
 - Install [Node.js](http://nodejs.org/).
-- Install Yeoman: `sudo npm install -g yo`.
+- Install [hub](https://github.com/github/hub): `brew install hub`.
+- Install [Yeoman](http://yeoman.io/): `sudo npm install -g yo`.
 - Install the generator: `sudo npm install -g generator-globegraphic`.
 
 ## Create a new project
