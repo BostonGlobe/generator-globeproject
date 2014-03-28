@@ -23,15 +23,15 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 
 The generator creates various folders and files. Here's a guide to the important bits.
 
-### HTML
+### Editing HTML
 
-Put your graphic's html in `html/graphic.html`, specifically inside `<div id='gf'></div>`. Don't delete this element, otherwise the graphic won't load.
+Put your graphic's html in `html/graphic.html`, specifically inside `<div id='gf'></div>`.
 
-### CSS
+### Editing CSS
 
 Put your CSS in `css/_layout.scss`.
 
-### JavaScript
+### Editing JavaScript
 
 Put your JavaScript in `js/globe.graphic.js`, specifically inside the `globe.graphic` function. If you need to load external libraries (e.g. [Leaflet](http://leafletjs.com/) or [D3](http://d3js.org/)), there are two ways to do it:
 
@@ -41,16 +41,19 @@ Put your JavaScript in `js/globe.graphic.js`, specifically inside the `globe.gra
 Either way, you'll now have to reference the library in `html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
 
 ## Usage
-- Run `gulp` to start the server at [http://localhost:5000](http://localhost:5000).
-- Run `gulp prod` to deploy all assets to PROD.jpt.
+- Run `gulp` to start the server at [http://localhost:5000](http://localhost:5000). The generator will auto-reload the browser on file changes.
+- Run `gulp prod` to create PROD.jpt. This file will contain everything inlined - HTML, CSS, JS - so you can copy+paste into Methode.
 
-## TODO
+## Extras
 
-- mention sublime project and hiding
-- mention templates
-- explain why no delete gf
-- add basic templ
-- explain what happens during minification/compression 
+### Sublime shortcut
+
+- Install [Sublime Text](http://www.sublimetext.com/3) and [setup](http://crabonature.pl/posts/20-sublime-text-3-on-os-x-terminal) the super-handy `subl` alias.
+- Now, from the command line, run `subl globegraphic.sublime-project`. Sublime Text will hide all non-essentials folders and files. Much cleaner!
+
+### Lodash templates
+
+- [Lodash templates are cool!](http://lodash.com/docs#template) And this generator supports them out of the box. Create a lodash template, place it in `js/templates`, and make sure to name it `*.template` (e.g. `js/templates/table.template`). The generator will automatically compile all templates to `js/templates/templates.js`. Add this file to `html/js.html`, and done!
 
 ## License
 
