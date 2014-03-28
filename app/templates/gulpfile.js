@@ -163,7 +163,16 @@ gulp.task('minify', function() {
 		.pipe(gulp.dest('.'))
 
 		// smoosh html
-		.pipe(smoosher())
+		.pipe(smoosher({
+			cssTags: {
+				begin: '<p:style>',
+				end: '</p:style>'
+			},
+			jsTags: {
+				begin: '<p:script>',
+				end: '</p:script>'
+			}
+		}))
 		.pipe(gulp.dest('.'));
 });
 
