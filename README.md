@@ -1,10 +1,14 @@
 # generator-globegraphic
 
-Yeoman generator for a Boston Globe graphic.
+Yeoman generator for a Boston Globe graphic. Supports SASS, Compass, Lodash templates, includes Bitbucket/GitHub integration. Concatenates/uglifies/minifies everything to one file.
 
 Also known as **MAGIC**.
 
 Please note: do not reproduce Boston Globe logos or fonts without written permission.
+
+## Why?
+
+This small tool helps us (data/graphic journalists at the [Boston Globe](http://bostonglobe.com)) quickly spin up a new graphic template.
 
 ## Prerequisites
 
