@@ -6,10 +6,6 @@ Also known as **MAGIC**.
 
 Please note: do not reproduce Boston Globe logos or fonts without written permission.
 
-## Why?
-
-This small tool helps us (data/graphic journalists at the [Boston Globe](http://bostonglobe.com)) quickly spin up a new graphic template.
-
 ## Prerequisites
 
 - Install [Node.js](http://nodejs.org/).
