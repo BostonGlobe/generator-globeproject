@@ -19,7 +19,7 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Follow all prompts.
 
 ## Usage
-- Run `gulp` to start the server at http://localhost:5000.
+- Run `gulp` to start the server at [http://localhost:5000](http://localhost:5000).
 - Run `gulp prod` to deploy all assets to PROD.jpt.
  
 ## License
