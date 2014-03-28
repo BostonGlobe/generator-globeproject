@@ -51,6 +51,7 @@ Either way, you'll now have to reference the library in `html/js.html`. For exam
 - explain why no delete gf
 - add basic templ
 - explain what happens during minification/compression 
+
 ## License
 
 MIT © [The Boston Globe](http://github.com/BostonGlobe)
