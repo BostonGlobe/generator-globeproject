@@ -14,8 +14,8 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Install the generator: `sudo npm install -g generator-globegraphic`.
 
 ## Create a new project
-- Create the folder and cd into it: `mkdir myProject && cd myProject`.
-- Invoke the generator and pass it the project name: `yo globegraphic myProject`.
+- Create the folder and cd into it: `mkdir myProject && cd $_`.
+- Invoke the generator: `yo globegraphic`.
 - Follow all prompts.
 
 ## Usage
