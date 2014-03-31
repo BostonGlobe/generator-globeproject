@@ -31,7 +31,7 @@ Put your graphic's html in `html/graphic.html`, specifically inside `<div id='gf
 
 ### Editing CSS
 
-Put your CSS in `css/_layout.scss`.
+Put your CSS in `css/layout.css` (or `css/_layout.scss`, if you're using Sass).
 
 ### Editing JavaScript
 
