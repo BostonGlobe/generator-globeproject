@@ -11,7 +11,7 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Install [Node.js](http://nodejs.org/).
 - Install [hub](https://github.com/github/hub) (on OS X, using [Homebrew](http://brew.sh)): `brew install hub`.
 - Install [Yeoman](http://yeoman.io/): `sudo npm install -g yo`.
-- Install the generator: `sudo npm install -g generator-globegraphic`.
+- Install this generator: `sudo npm install -g generator-globegraphic`.
 - If you want to commit your project to version control (highly recommended), you'll need to create a [GitHub](http://github.com) or [Bitbucket](http://bitbucket.org) account. Bitbucket offers unlimited free repositories. GitHub does not, but it is a much better tool. You decide.
 - Install [Sass](http://sass-lang.com), [Compass](http://compass-style.org/) and [Breakpoint](http://breakpoint-sass.com/).
 
