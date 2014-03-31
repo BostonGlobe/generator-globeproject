@@ -91,7 +91,7 @@ function startLivereload() {
 	gulp.watch(['parts/default.html', 'html/*'], ['build-html']);
 
 	// watch for changes to scss and recompile
-	gulp.watch(['css/*'], ['compile-sass-all']);
+	gulp.watch(['css/*'], ['compile-stylesheets']);
 
 	// watch for changes to index.html, dest files, js files, and notify livereload
 	gulp.watch(['index.html', '.tmp/**/*.css', 'js/**/*.js'], function(e) {
@@ -183,7 +183,7 @@ gulp.task('build-html-prod', function() {
 		.pipe(gulp.dest('.'));
 });
 
-gulp.task('compile-sass-all', function() {
+gulp.task('compile-stylesheets', function() {
 	return gulp.src('css/*')
 		.pipe(sass({
 			compass: true
@@ -212,7 +212,7 @@ gulp.task('start-livereload', function(callback) {
 gulp.task('default', function() {
 	runSequence(
 		'clean',
-		'compile-sass-all',
+		'compile-stylesheets',
 		'compile-templates',
 		'build-html',
 		'start-livereload'
@@ -231,7 +231,7 @@ gulp.task('prod', function() {
 
 	runSequence(
 		'clean',
-		'compile-sass-all',
+		'compile-stylesheets',
 		'compile-templates',
 		'build-html-prod',
 		'jshint',
