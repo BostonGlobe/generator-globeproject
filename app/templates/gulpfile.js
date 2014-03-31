@@ -184,7 +184,11 @@ gulp.task('build-html-prod', function() {
 });
 
 gulp.task('compile-sass-all', function() {
-	return compileSass('css/*');
+	return gulp.src('css/*')
+		.pipe(sass({
+			compass: true
+		}))
+		.pipe(gulp.dest('.tmp'));
 });
 
 gulp.task('compile-templates', function() {
@@ -198,14 +202,6 @@ gulp.task('compile-templates', function() {
 		.pipe(concat('templates.js'))
 		.pipe(gulp.dest('js/templates'));
 });
-
-function compileSass(path) {
-	return gulp.src(path)
-		.pipe(sass({
-			compass: true
-		}))
-		.pipe(gulp.dest('.tmp'));
-}
 
 gulp.task('start-livereload', function(callback) {
 	server(startLivereload);
