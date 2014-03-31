@@ -185,9 +185,11 @@ gulp.task('build-html-prod', function() {
 
 gulp.task('compile-stylesheets', function() {
 	return gulp.src('css/*')
-		.pipe(sass({
-			compass: true
-		}))
+<% if (includeSass) { %>
+		.pipe(sass({compass: <%= includeCompass %>}))
+<% } else { %>
+		.pipe(concat('main.css'))
+<% } %>
 		.pipe(gulp.dest('.tmp'));
 });
 
