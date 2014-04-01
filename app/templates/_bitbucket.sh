@@ -11,7 +11,10 @@ git add globegraphic.sublime-project
 git add gulpfile.js
 git add package.json
 git add README.md
+
+<% if (includeCompass) { %>
 git add config.rb
+<% } %>
 
 git commit -m 'first commit'
 
