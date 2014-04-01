@@ -106,6 +106,8 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.copy('.bowerrc');
     this.copy('_gitignore', '.gitignore');
     this.copy('globegraphic.sublime-project');
+    this.copy('.jshintignore');
+    this.copy('.jshintrc');
 
     if (this.includeCompass) {
       this.template('_config.rb', 'config.rb');

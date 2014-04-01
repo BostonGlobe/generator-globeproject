@@ -14,10 +14,13 @@
 				".bowerrc",
 				"bitbucket.sh",
 				"bower.json",
+				"config.rb",
 				".gitignore",
 				"globegraphic.sublime-project",
 				"gulpfile.js",
 				"index.html",
+				".jshintignore",
+				".jshintrc",
 				"package.json"
 			]
 		}

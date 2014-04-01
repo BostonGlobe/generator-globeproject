@@ -4,9 +4,13 @@ git add css
 git add html
 git add js
 git add parts
+
 git add .bowerrc
 git add .gitignore
+git add .jshintignore
+git add .jshintrc
 git add bower.json
+git add config.rb
 git add globegraphic.sublime-project
 git add gulpfile.js
 git add package.json
