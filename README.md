@@ -42,8 +42,9 @@ Put your JavaScript in `js/globe.graphic.js`, specifically inside the `globe.gra
 Either way, you'll now have to reference the library in `html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
 
 ## Usage
-- Run `gulp` to start the server at [http://localhost:5000](http://localhost:5000). The generator will auto-reload the browser on file changes.
-- Run `gulp prod` to create PROD.jpt. This file will contain everything inlined - HTML, CSS, JS - so you can copy+paste into Methode.
+- Run `gulp` to start the development server at [http://localhost:5000](http://localhost:5000). The generator will auto-reload the browser on file changes.
+- Run `gulp prod` to start the production server at [http://localhost:5000](http://localhost:5000). The generator will also create PROD.jpt. This file will contain everything inlined - HTML, CSS, JS - so you can copy+paste into Methode.
+- Hit `control+c` to stop either server.
 
 ## Extras
 

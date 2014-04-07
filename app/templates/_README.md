@@ -10,7 +10,7 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 
 ## Usage
 - `gulp` to run the development server.
-- `gulp prod` to prepare the production version.
+- `gulp prod` to run the production server and concatenate everything to `PROD.jpt`.
 
 <% if (includeLicense) { %>
 ## License

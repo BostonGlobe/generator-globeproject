@@ -154,7 +154,7 @@ gulp.task('minify', function() {
 
 		// minify css
 		.pipe(cssFilter)
-		.pipe(csso())
+		.pipe(csso(true))
 		.pipe(cssFilter.restore())
 
 		// complete useref
@@ -167,12 +167,15 @@ gulp.task('minify', function() {
 			cssTags: {
 				begin: '<p:style>',
 				end: '</p:style>'
-			},
-			jsTags: {
-				begin: '<p:script>',
-				end: '</p:script>'
 			}
 		}))
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('build-html-default-prod', function() {
+	return gulp.src('parts/default-prod.html')
+		.pipe(fileinclude())
+		.pipe(rename('index.html'))
 		.pipe(gulp.dest('.'));
 });
 
@@ -209,7 +212,13 @@ gulp.task('start-livereload', function(callback) {
 	server(startLivereload);
 
 	callback && callback();
-})
+});
+
+gulp.task('start', function(callback) {
+	server();
+
+	callback && callback();
+});
 
 gulp.task('default', function() {
 	runSequence(
@@ -237,7 +246,9 @@ gulp.task('prod', function() {
 		'compile-templates',
 		'build-html-prod',
 		'jshint',
-		'minify'
+		'minify',
+		'build-html-default-prod',
+		'start'
 	);
 
 });
