@@ -1,6 +1,6 @@
 {
   "name": "generator-globegraphic",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
