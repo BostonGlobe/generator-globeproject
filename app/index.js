@@ -60,6 +60,11 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
       }, {
         name: 'Vertical Rhythm'
       }]
+    }, {
+      name: 'includeLicense',
+      type: 'confirm',
+      message: 'Add MIT License?',
+      default: false
     }];
 
     this.prompt(prompts, function(props) {
@@ -68,6 +73,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
       this.includeCompass = props.includeCompass;
       this.includeBreakpoint = _.contains(props.compassPlugins, 'Breakpoint');
       this.includeVerticalRhythm = _.contains(props.compassPlugins, 'Vertical Rhythm');
+      this.includeLicense = props.includeLicense;
 
       done();
     }.bind(this));
@@ -111,6 +117,10 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
 
     if (this.includeCompass) {
       this.template('_config.rb', 'config.rb');
+    }
+
+    if (this.includeLicense) {
+      this.template('_LICENSE.md', 'LICENSE.md');
     }
 
     this.template('_package.json', 'package.json');

@@ -16,6 +16,10 @@ git add gulpfile.js
 git add package.json
 git add README.md
 
+<% if (includeLicense) { %>
+git add LICENSE.md
+<% } %>
+
 <% if (includeCompass) { %>
 git add config.rb
 <% } %>
