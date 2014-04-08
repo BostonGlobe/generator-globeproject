@@ -34,7 +34,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     var prompts = [{
       name: 'graphicName',
       message: 'Enter the project name:',
-      default: 'project'
+      default: this.env.cwd.split('/').slice(-1)[0]
     }, {
       name: 'includeSass',
       type: 'confirm',
