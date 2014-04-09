@@ -24,6 +24,7 @@ var template       = require('gulp-template-compile');
 
 var LIVERELOAD_PORT = 35728;
 var EXPRESS_PORT = 5000;
+var isStandalone = true;
 
 // start server
 function server(callback) {
@@ -88,7 +89,10 @@ function startLivereload() {
 	var server = livereload(LIVERELOAD_PORT);
 
 	// watch for changes to html and rebuild
-	gulp.watch(['parts/default.html', 'html/*'], ['build-html']);
+	gulp.watch([
+		isStandalone ? 'parts/standalone.html' : 'parts/homepage.html',
+		'html/*'
+	], ['build-html']);
 
 	// watch for changes to scss and recompile
 	gulp.watch(['css/*'], ['compile-stylesheets']);
@@ -101,13 +105,6 @@ function startLivereload() {
 	// watch for changes to templates and recompile
 	gulp.watch(['js/templates/*.template'], ['compile-templates']);
 }
-
-gulp.task('build-html', function() {
-	return gulp.src('parts/default.html')
-		.pipe(fileinclude())
-		.pipe(rename('index.html'))
-		.pipe(gulp.dest('.'));
-});
 
 gulp.task('jshint', function() {
 
@@ -172,8 +169,14 @@ gulp.task('minify', function() {
 		.pipe(gulp.dest('.'));
 });
 
-gulp.task('build-html-default-prod', function() {
-	return gulp.src('parts/default-prod.html')
+gulp.task('choose-css', function() {
+	return gulp.src(isStandalone ? 'css/standalone.template' : 'css/homepage.template')
+		.pipe(rename('main.scss'))
+		.pipe(gulp.dest('css'));
+});
+
+gulp.task('build-html', function() {
+	return gulp.src(isStandalone ? 'parts/standalone.html' : 'parts/homepage.html')
 		.pipe(fileinclude())
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('.'));
@@ -187,7 +190,7 @@ gulp.task('build-html-prod', function() {
 });
 
 gulp.task('compile-stylesheets', function() {
-	return gulp.src('css/*')
+	return gulp.src(['css/*', '!css/*.template'])
 <% if (includeSass) { %>
 		.pipe(sass({compass: <%= includeCompass %>}))
 <% } else { %>
@@ -214,41 +217,54 @@ gulp.task('start-livereload', function(callback) {
 	callback && callback();
 });
 
-gulp.task('start', function(callback) {
-	server();
-
-	callback && callback();
+gulp.task('clean', function() {
+	return gulp.src([
+		'.tmp',
+		'PROD.jpt',
+		'css/main.scss',
+		'js/templates/templates.js'
+	], {read:false}).pipe(rimraf());
 });
 
-gulp.task('default', function() {
+function devBuild(_isStandalone) {
+	isStandalone = _isStandalone;
 	runSequence(
 		'clean',
+		'choose-css',
 		'compile-stylesheets',
 		'compile-templates',
 		'build-html',
 		'start-livereload'
 	);
-});
+}
 
-gulp.task('clean', function() {
-	return gulp.src([
-		'.tmp',
-		'PROD.jpt',
-		'js/templates/templates.js'
-	], {read:false}).pipe(rimraf());
-});
-
-gulp.task('prod', function() {
-
+function prodBuild(_isStandalone) {
+	isStandalone = _isStandalone;
 	runSequence(
 		'clean',
+		'choose-css',
 		'compile-stylesheets',
 		'compile-templates',
 		'build-html-prod',
 		'jshint',
-		'minify',
-		'build-html-default-prod',
-		'start'
+		'minify'
 	);
+}
 
+gulp.task('standalone', function() {
+	devBuild(true);
 });
+
+gulp.task('homepage', function() {
+	devBuild(false);
+});
+
+gulp.task('standalone-prod', function() {
+	prodBuild(true);
+});
+
+gulp.task('homepage-prod', function() {
+	prodBuild(false);
+});
+
+gulp.task('default', ['standalone']);

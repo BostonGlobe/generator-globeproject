@@ -1,0 +1,145 @@
+div[id*='circularhub_module'] .jcarousel-skin-widget_js_format_1 .jcarousel-container-horizontal {
+	width:100%;
+	height:133px;
+	padding:0;
+}
+div[id*='circularhub_module'] .jcarousel-skin-widget_js_format_1 .jcarousel-clip {
+	overflow:hidden;
+}
+div[id*='circularhub_module'] .jcarousel-skin-widget_js_format_1 .jcarousel-clip-horizontal {
+	width:97%;
+	height:133px;
+}
+div[id*='circularhub_module'] .jcarousel-skin-widget_js_format_1 .jcarousel-item {
+	width:142px;
+	height:133px;
+}
+div[id*='circularhub_module'] {
+	font-family:Arial,Helvetica,sans-serif;
+	width:100%;
+	height:230px;
+	margin:0;
+	overflow:hidden;
+}
+div[id*='circularhub_module'] ul {
+	width:105%;
+	list-style-type:none;
+	padding:0;
+	margin:0
+}
+div[id*='circularhub_module'] ul li {
+	left:0;
+}
+
+div[id*='circularhub_module'] ul li a:hover {
+	text-decoration:underline;
+}
+div[id*='circularhub_module'] a {
+	display:block;
+}
+div[id*='circularhub_module'] div {
+	display:block;
+	overflow:hidden
+}
+div[id*='circularhub_module'] div.flyer_types {
+	width:97%;
+	height:133px;
+	padding-left:5px
+}
+#flyer_type_list {
+	width:97%;
+	float:left
+}
+#flyer_type_list img {
+	border:none
+}
+#flyer_type_list li{
+	float:left;
+	padding-right:2em;
+}
+#flyer_type_list a.thumbnail {
+	width:140px;
+	height:100px;
+	border:1px solid #DCDCDC;
+	overflow:hidden
+}
+#flyer_type_list div.title {
+	width:142px;
+	line-height:15px;
+	padding-top:4px;
+	overflow:hidden
+}
+#flyer_type_list .title a {
+	font-family:Arial;
+	font-size:12px;
+	color:#000;
+	text-decoration:none;
+	font-weight:400
+}
+#flyer_type_list div.sub_title {
+	width:142px;
+	line-height:12px;
+	overflow:hidden
+}
+#flyer_type_list .sub_title a {
+	font-family:Arial;
+	font-weight:400;
+	font-size:10px;
+	color:#999;
+	text-decoration:none;
+}
+div[id*='circularhub_module'] div.heading {
+	width:97%;
+	padding:10px 0 9px 0px;
+	text-align:left;
+	line-height:16px;
+	border-top: 1px solid #DBDBDB;
+	border-bottom:1px solid #DBDBDB;
+	margin-bottom:1em;
+	font: normal 1.7em/1.1 "Benton Sans Bold", Arial, Helvetica, sans-serif;	
+	
+}
+div[id*='circularhub_module'] div.heading a {
+	text-decoration:none!important;
+}
+div[id*='circularhub_module'] div.heading a:after {
+    background: url("//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/arrow-red-chunky.gif") no-repeat 50% 0.2em;
+	display: inline-block;
+	height: 1em;
+	width: 1.5em;
+	content: "\00A0";
+}
+div[id*='circularhub_module'] div.heading a:hover {
+	text-decoration:underline
+}
+div[id*='circularhub_module'] div.heading span {
+	text-decoration:none;
+	font-weight:700;
+	text-transform:uppercase;
+	color:#000;
+	font-size:11px
+}
+div[id*='circularhub_module'] div.footer {
+	width:97%;
+	padding:10px 10px 9px 0;
+	text-align:right;
+}
+div[id*='circularhub_module'] div.footer a {
+	font-weight:400;
+	font-size:10px;
+	line-height: 13px;
+	color:#9B1518;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+div[id*='circularhub_module'] div.footer a:after {
+	content: '\2192';
+	color:#9B1518;
+	margin-left: 3px;
+}
+div[id*='circularhub_module'] div.footer a:hover {
+	text-decoration:none
+}
+div[id*='circularhub_module'] div.footer em {
+	color: #999
+}
