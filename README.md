@@ -13,6 +13,7 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Install [Yeoman](http://yeoman.io/): `sudo npm install -g yo`.
 - Install [Gulp](https://github.com/gulpjs/gulp): `sudo npm install -g gulp`.
 - Install this generator: `sudo npm install -g generator-globegraphic`.
+- Install various CSS utilities: `gem install sass compass breakpoint`.
 - If you want to commit your project to version control (highly recommended), you'll need to create a [GitHub](http://github.com) or [Bitbucket](http://bitbucket.org) account. Bitbucket offers unlimited free repositories. GitHub does not, but it is a much better tool. You decide.
 
 ## Creating a new project
