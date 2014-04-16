@@ -36,30 +36,10 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
       message: 'Enter the project name:',
       default: this.env.cwd.split('/').slice(-1)[0]
     }, {
-      name: 'includeSass',
+      name: 'includeMobileTemplate',
       type: 'confirm',
-      message: 'Include Sass?',
+      message: 'Go full-screen on touch devices?',
       default: false
-    }, {
-      when: function(response) {
-        return response.includeSass;
-      },
-      name: 'includeCompass',
-      type: 'confirm',
-      message: 'Include Compass?',
-      default: false
-    }, {
-      when: function(response) {
-        return response.includeCompass;
-      },
-      name: 'compassPlugins',
-      type: 'checkbox',
-      message: 'Select Compass plugins:',
-      choices: [{
-        name: 'Breakpoint'
-      }, {
-        name: 'Vertical Rhythm'
-      }]
     }, {
       name: 'includeLicense',
       type: 'confirm',
@@ -69,10 +49,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function(props) {
       this.graphicName = props.graphicName;
-      this.includeSass = props.includeSass;
-      this.includeCompass = props.includeCompass;
-      this.includeBreakpoint = _.contains(props.compassPlugins, 'Breakpoint');
-      this.includeVerticalRhythm = _.contains(props.compassPlugins, 'Vertical Rhythm');
+      this.includeMobileTemplate = props.includeMobileTemplate;
       this.includeLicense = props.includeLicense;
 
       done();
@@ -91,21 +68,28 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
 
     this.mkdir('css');
 
-    if (this.includeSass) {
-      this.template('css/_boilerplate-common.scss');
-      this.template('css/_boilerplate-igraphic.scss');
-      this.copy('css/_layout.scss');
-      this.copy('css/_type.scss');
-      this.copy('css/homepage.template');
-      this.copy('css/standalone.template');
-    } else {
-      this.copy('css/boilerplate-common.css');
-      this.copy('css/boilerplate-igraphic.css');
-      this.copy('css/_layout.scss', 'css/layout.css');
-    }
+    this.template('css/_boilerplate-common.scss');
+    this.template('css/_boilerplate-igraphic.scss');
+    this.copy('css/_layout.scss');
+    this.copy('css/_type.scss');
+    this.copy('css/homepage.template');
+    this.copy('css/standalone.template');
 
-    this.directory('js');
+    this.mkdir('js');
     this.mkdir('js/templates');
+
+    this.copy('js/globe.graphicLogSource.js');
+    this.copy('js/init.js');
+    this.template('js/_globe.graphic.js', 'js/globe.graphic.js');
+
+    if (this.includeMobileTemplate) {
+      this.copy('css/_touch.scss');
+      this.copy('js/globe.graphicMobile.js');
+      this.copy('js/templates/mobile.template');
+
+      this.mkdir('img');
+      this.copy('img/b-richblack-48w.png');
+    }
 
     this.copy('gulpfile.js');
     this.copy('.bowerrc');
@@ -113,10 +97,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.copy('globegraphic.sublime-project');
     this.copy('.jshintignore');
     this.copy('.jshintrc');
-
-    if (this.includeCompass) {
-      this.template('_config.rb', 'config.rb');
-    }
+    this.copy('config.rb');
 
     if (this.includeLicense) {
       this.template('_LICENSE.md', 'LICENSE.md');

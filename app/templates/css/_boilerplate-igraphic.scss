@@ -24,12 +24,10 @@
 
 
 /* style subtitle --------------------------------------------------------- */
-p.subtitle {
+#gf p.subtitle {
 	font-size: 1.25em;
-<% if (includeSass) { %>
+
 	font-family: $serifStrong;
-<% } else { %>
-	font-family: "Miller Headline Roman", "Times New Roman", Times, Georgia, serif;
-<% } %>
+
 	margin:0 0 1.5em 0;
 }

@@ -191,11 +191,7 @@ gulp.task('build-html-prod', function() {
 
 gulp.task('compile-stylesheets', function() {
 	return gulp.src(['css/*', '!css/*.template'])
-<% if (includeSass) { %>
-		.pipe(sass({compass: <%= includeCompass %>}))
-<% } else { %>
-		.pipe(concat('main.css'))
-<% } %>
+		.pipe(sass({compass: true}))
 		.pipe(gulp.dest('.tmp'));
 });
 

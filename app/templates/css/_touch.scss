@@ -1,0 +1,201 @@
+$rich_black: rgba(35, 31, 32, 1);
+$rich_black_transparent: rgba(35, 31, 32, 0);
+%vertical-align {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	top: 50%;
+	@include translateY(-50%);
+}
+
+.touch {
+
+	body {
+		width: 100%;
+		height: 100%;
+	}
+
+	#contain,
+	#main,
+	#gf {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	body,
+	#main,
+	#contain,
+	.article-body,
+	.article {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	#contain {
+
+		width: 100%;
+
+		> header,
+		> footer,
+		.header {
+			display: none;
+		}
+	}
+
+	#gf {
+		.subtitle {
+			display: none;
+		}
+
+		$header-height: 3em;
+		$header-padding: 0.5em;
+		$header-inside-dimension: $header-height - 2*$header-padding;
+		$header-transition-duration: 0.5s;
+
+		.mobile-header {
+			height: $header-height;
+			width: 100%;
+			padding: $header-padding;
+			border-bottom: solid $rich_black 1px;
+			position: absolute;
+			z-index: 1000000;
+			top: 0;
+			left: 0;
+			background-color: white;
+
+			h1 {
+				@include rhythm(0, 0, 0, 0);
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				padding: $header-padding;
+				text-align: center;
+				font-family: $serifStrong;
+				@include adjust-font-size-to(22px);
+				line-height: 1em;
+			}
+
+			&.expanded {
+				border-bottom: solid $rich_black_transparent 1px;
+			}
+
+			.logo {
+				$logo: 'img/b-richblack-48w.png';
+				$logo_width: image-width($logo);
+				$logo_height: image-height($logo);
+
+				background-image: inline-image($logo);
+				display: inline-block;
+				width: $logo_width*1/2;
+				height: $logo_height*1/2;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				position: absolute;
+				z-index: 100;
+			}
+
+			.navicon {
+				position: absolute;
+				top: $header-padding;
+				right: $header-padding;
+				height: $header-inside-dimension;
+				width: $header-inside-dimension;
+				cursor: pointer;
+
+				&.minus {
+					span {
+						&:before,
+						&:after {
+							@include translateY(0px);
+						}
+					}
+				}
+
+				span {
+					position: absolute;
+					display: inline-block;
+					background: $rich_black;
+					width: 100%;
+					height: 4px;
+					border-radius: 1px;
+					font-family: Helvetica, Arial, sans-serif;
+					left: 0;
+					@extend %vertical-align;
+					overflow: inherit;
+
+					&:before,
+					&:after {
+						@include single-transition(transform, $header-transition-duration, ease-in-out, 0s);
+
+						position: absolute;
+						display: inline-block;
+						content: '';
+						background: $rich_black;
+						width: 100%;
+						height: 4px;
+						font-family: Helvetica, Arial, sans-serif;
+						@include translateY(10px);
+						left: 0;
+						border-radius: 1px;
+					}
+					&:before {
+						@include translateY(-10px);
+					}
+
+				}
+
+			}
+
+		}
+
+		.mobile-drawer {
+			position: absolute;
+			z-index: 100000;
+			background: white;
+			top: $header-height;
+			width: 100%;
+			border-bottom: solid $rich_black 1px;
+			padding: 2*$header-padding $header-padding;
+			@include translateY(-100%);
+			@include single-transition(transform, $header-transition-duration, ease-in-out, 0s);
+
+			&.expanded {
+				@include translateY(0%);
+			}
+
+			.subtitle {
+				display: block;
+				font-size: 1em;
+			}
+
+			.source-and-credit {
+				display: block;
+			}
+
+		}
+
+		.mobile-body {
+			position: absolute;
+			top: $header-height;
+			bottom: 0;
+			width: 100%;
+		}
+
+	}
+
+	.source-and-credit {
+		display: none;
+	}
+}
+
+@media (orientation:landscape) {
+	html.ipad.ios7 > body {
+		position: fixed;
+		bottom: 0;
+		height: 672px !important;
+	}
+}

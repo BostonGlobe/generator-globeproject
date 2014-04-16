@@ -1,6 +1,12 @@
 <!-- smoosh -->
 <!-- build:js .tmp/combined.js -->
+<% if (includeMobileTemplate) { %>
+<script src='js/globe.graphicMobile.js'></script>
+<% } %>
 <script src='js/globe.graphic.js'></script>
+<% if (includeMobileTemplate) { %>
+<script src='js/templates/templates.js'></script>
+<% } %>
 <script src='js/init.js'></script>
 <!-- endbuild -->
 <!-- endsmoosh -->

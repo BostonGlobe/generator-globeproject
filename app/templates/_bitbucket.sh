@@ -5,6 +5,10 @@ git add html
 git add js
 git add parts
 
+<% if (includeMobileTemplate) { %>
+git add img
+<% } %>
+
 git add .bowerrc
 git add .gitignore
 git add .jshintignore
@@ -19,9 +23,7 @@ git add README.md
 git add LICENSE.md
 <% } %>
 
-<% if (includeCompass) { %>
 git add config.rb
-<% } %>
 
 git commit -m 'first commit'
 
