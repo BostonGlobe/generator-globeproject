@@ -4,9 +4,13 @@
 		If you have a graphic subtitle, place it here.
 	</p>
 
+	<% if (includeMobileTemplate) { %>
 	<div class='content'>
 		Place your content here.
 	</div>
+	<% } else { %>
+	Place your content here.
+	<% } %>
 
 	<div class='source-and-credit'>
 		<p class='source'><span>DATA: Data source</span></p>
