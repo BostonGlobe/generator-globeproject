@@ -16,6 +16,10 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Install various CSS utilities: `gem install sass compass breakpoint`.
 - If you want to commit your project to version control (highly recommended), you'll need to create a [GitHub](http://github.com) or [Bitbucket](http://bitbucket.org) account. Bitbucket offers unlimited free repositories. GitHub does not, but it is a much better tool. You decide.
 
+## Updating
+
+- To update the generator: `sudo npm update -g generator-globegraphic`.
+
 ## Creating a new project
 - Create the folder and cd into it: `mkdir myProject && cd $_`.
 - Invoke the generator: `yo globegraphic`.
