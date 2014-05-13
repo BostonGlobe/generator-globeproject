@@ -18,7 +18,7 @@
     "gulp-smoosher": "^0.0.4",
     "gulp-template-compile": "^0.2.0",
     "gulp-uglify": "^0.2.1",
-    "gulp-useref": "^0.2.2",
+    "gulp-useref": "^0.4.3",
     "gulp-util": "^2.2.14",
     "http-rewrite-middleware": "^0.1.5",
     "jshint-stylish": "^0.1.5",
