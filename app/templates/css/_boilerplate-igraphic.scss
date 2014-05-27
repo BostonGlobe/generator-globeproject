@@ -25,9 +25,6 @@
 
 /* style subtitle --------------------------------------------------------- */
 #gf p.subtitle {
-	font-size: 1.25em;
-
 	font-family: $serifStrong;
-
-	margin:0 0 1.5em 0;
+	@include adjust-font-size-to(20px, 1.25);
 }
