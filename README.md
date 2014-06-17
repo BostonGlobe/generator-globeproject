@@ -24,6 +24,8 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Create the folder and cd into it: `mkdir myProject && cd $_`.
 - Invoke the generator: `yo globegraphic`.
 - Follow all prompts.
+- Once the generator finishes scaffolding, run `bower install` and `npm install`.
+
 
 ## Guide
 

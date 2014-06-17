@@ -10,15 +10,8 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
-    // from http://stackoverflow.com/questions/18841273/how-to-run-a-grunt-task-after-my-yeoman-generator-finishes-installing
     this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies({
-          callback: function () {
-            this.spawnCommand('sh', ['bitbucket.sh']);
-          }.bind(this) // bind the callback to the parent scope
-        });
-      }
+      this.spawnCommand('sh', ['bitbucket.sh']);
     });
   },
 

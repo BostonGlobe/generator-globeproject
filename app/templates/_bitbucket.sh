@@ -35,3 +35,5 @@ select gbn in "GitHub" "Bitbucket" "None"; do
 		None ) break;;
 	esac
 done
+
+echo "Done. Make sure to run <bower install> & <npm install> next."
