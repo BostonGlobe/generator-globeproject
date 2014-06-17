@@ -25,7 +25,7 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Invoke the generator: `yo globegraphic`.
 - Follow all prompts.
 - Once the generator finishes scaffolding, run `bower install` and `npm install`.
-
+- NOTE: if you get an error mentioning "Please try running this command again as root/Administrator.", try running the same command as **super-user**. E.g. `sudo bower install`.
 
 ## Guide
 
