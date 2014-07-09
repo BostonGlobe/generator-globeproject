@@ -1,5 +1,6 @@
 var express        = require('express');
 var gulp           = require('gulp');
+var gulpif         = require('gulp-if');
 var livereload     = require('gulp-livereload');
 var rename         = require('gulp-rename');
 var runSequence    = require('run-sequence');
@@ -7,7 +8,6 @@ var fileinclude    = require('gulp-file-include');
 var rewriteModule  = require('http-rewrite-middleware');
 var sass           = require('gulp-ruby-sass');
 var useref         = require('gulp-useref');
-var filter         = require('gulp-filter');
 var uglify         = require('gulp-uglify');
 var csso           = require('gulp-csso');
 var rimraf         = require('gulp-rimraf');
@@ -136,30 +136,18 @@ gulp.task('jshint', function() {
 
 gulp.task('minify', function() {
 
-	var jsFilter = filter('.tmp/*.js');
-	var cssFilter = filter('.tmp/*.css');
-
 	return gulp.src('PROD.jpt')
-
-		// begin useref
 		.pipe(useref.assets())
-
-		// uglify js
-		.pipe(jsFilter)
-		.pipe(uglify())
-		.pipe(jsFilter.restore())
-
-		// minify css
-		.pipe(cssFilter)
-		.pipe(csso(true))
-		.pipe(cssFilter.restore())
-
-		// complete useref
+		.pipe(gulpif('*.js', uglify()))
+		.pipe(gulpif('*.css', csso(true)))
 		.pipe(useref.restore())
 		.pipe(useref())
-		.pipe(gulp.dest('.'))
+		.pipe(gulp.dest('.'));
+});
 
-		// smoosh html
+gulp.task('smoosher', function() {
+
+	return gulp.src('PROD.jpt')
 		.pipe(smoosher({
 			cssTags: {
 				begin: '<p:style>',
@@ -243,7 +231,8 @@ function prodBuild(_isStandalone) {
 		'compile-templates',
 		'build-html-prod',
 		'jshint',
-		'minify'
+		'minify',
+		'smoosher'
 	);
 }
 
