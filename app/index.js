@@ -62,7 +62,6 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.template('_standalone.html', 'parts/standalone.html');
 
     this.mkdir('css');
-    this.mkdir('data');
 
     this.template('css/_boilerplate-common.scss');
     this.template('css/_boilerplate-igraphic.scss');
@@ -70,6 +69,10 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.copy('css/_type.scss');
     this.copy('css/homepage.template');
     this.copy('css/standalone.template');
+
+    this.mkdir('data');
+
+    this.template('data/_analysis.Rmd', 'data/' + _.slugify(this.graphicName) + '.Rmd');
 
     this.mkdir('js');
     this.mkdir('js/templates');
