@@ -11,6 +11,7 @@
 				"parts"
 			],
 			"file_exclude_patterns": [
+				".Rhistory",
 				".bowerrc",
 				"bitbucket.sh",
 				"bower.json",

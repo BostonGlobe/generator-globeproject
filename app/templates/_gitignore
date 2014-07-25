@@ -8,3 +8,6 @@ globegraphic.sublime-workspace
 js/templates/templates.js
 css/main.scss
 js/libs/
+data/<%= _.slugify(graphicName) %>.html
+data/<%= _.slugify(graphicName) %>_files
+.Rhistory
