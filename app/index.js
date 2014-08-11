@@ -4,7 +4,8 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var _ = require('lodash');
-
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
 
 var GlobegraphicGenerator = yeoman.generators.Base.extend({
   init: function () {
