@@ -28,3 +28,10 @@
 	font-family: $serifStrong;
 	@include adjust-font-size-to(20px, 1.25);
 }
+
+
+
+/* hide top yellow bar --------------------------------------------------------- */
+.global-bar {
+	display: none !important;
+}
