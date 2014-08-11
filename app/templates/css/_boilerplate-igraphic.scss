@@ -32,6 +32,7 @@
 
 
 /* hide top yellow bar --------------------------------------------------------- */
-.global-bar {
+a.global-bar,
+a.bar-yellow {
 	display: none !important;
 }
