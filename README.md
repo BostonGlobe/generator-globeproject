@@ -75,7 +75,7 @@ The following commands will create a PROD.jpt. This file will contain everything
 
 - [Lodash templates are cool!](http://lodash.com/docs#template) And this generator supports them out of the box. Create a lodash template, place it in `js/templates`, and make sure to name it `*.template` (e.g. `js/templates/table.template`). The generator will automatically compile all templates to `js/templates/templates.js`. Add this file to `html/js.html`, and done! To reference the template: `window.JST['story.template']({name: "gabriel"})`.
 
--- Note: if the `templates/templates.js` file is not there or has been deleted, run `gulp` again in the command line.
+- Note: if the `templates/templates.js` file is not there or has been deleted, run `gulp` again in the command line.
 
 ## License
 
