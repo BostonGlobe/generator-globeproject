@@ -18,6 +18,8 @@ git add globegraphic.sublime-project
 git add gulpfile.js
 git add package.json
 git add README.md
+git add Makefile
+git add data/
 
 <% if (includeLicense) { %>
 git add LICENSE.md
