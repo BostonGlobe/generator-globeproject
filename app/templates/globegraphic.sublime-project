@@ -21,7 +21,6 @@
 				"gulpfile.js",
 				"index.html",
 				"LICENSE.md",
-				".jshintignore",
 				".jshintrc",
 				"package.json"
 			]

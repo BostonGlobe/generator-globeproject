@@ -1,25 +1,27 @@
 git init
 
-git add css
-git add html
-git add js
-git add parts
+# git add css
+# git add html
+# git add js
+# git add parts
 
-<% if (includeMobileTemplate) { %>
-git add img
-<% } %>
+# if (includeMobileTemplate)
+# git add img
+# 
 
 git add .bowerrc
 git add .gitignore
-git add .jshintignore
 git add .jshintrc
+git add Makefile
+git add README.md
 git add bower.json
+git add common
 git add globegraphic.sublime-project
 git add gulpfile.js
+git add middleware.json
 git add package.json
-git add README.md
-git add Makefile
-git add data/
+git add data
+git add parts
 
 <% if (includeLicense) { %>
 git add LICENSE.md

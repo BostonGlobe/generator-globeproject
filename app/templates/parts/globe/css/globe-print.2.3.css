@@ -1,0 +1,125 @@
+/* Globe-specific print formatting & overrides across sections
+  * note: inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+*/
+/* hide print-only content on screen */
+/* line 6, ../styles/globe-print.scss */
+.print-only {
+  display: none;
+}
+
+@media print {
+  /*first some general resets */
+  /* line 10, ../styles/globe-print.scss */
+  a, a:visited {
+    color: #444 !important;
+  }
+
+  /* line 13, ../styles/globe-print.scss */
+  #masthead a {
+    text-decoration: none;
+  }
+
+  /* line 16, ../styles/globe-print.scss */
+  .logo-bg {
+    margin-bottom: 0;
+  }
+
+  /* line 19, ../styles/globe-print.scss */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 23, ../styles/globe-print.scss */
+  thead {
+    display: table-header-group;
+  }
+
+  /* css-discuss.incutio.com/wiki/Printing_Tables */
+  /* line 26, ../styles/globe-print.scss */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 32, ../styles/globe-print.scss */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 35, ../styles/globe-print.scss */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* line 39, ../styles/globe-print.scss */
+  .article .header a {
+    display: block;
+  }
+
+  /* line 42, ../styles/globe-print.scss */
+  .article .header a:after {
+    font-size: 14px;
+    display: block;
+    font-weight: normal;
+    margin-bottom: 1em;
+  }
+
+  /* line 48, ../styles/globe-print.scss */
+  .article abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* show print-only content on print */
+  /* line 53, ../styles/globe-print.scss */
+  .print-only {
+    display: block;
+  }
+
+  /* kill floats on article body */
+  /* line 57, ../styles/globe-print.scss */
+  #main .article {
+    float: none;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 64, ../styles/globe-print.scss */
+  .bg-copy {
+    border: none;
+  }
+
+  /* hide elements that are unnecessary to print experience */
+  /* line 92, ../styles/globe-print.scss */
+  .nav-primary,
+  .bg-high-value,
+  header#masthead,
+  #masthead,
+  #masthead nav.sections,
+  #masthead nav.section,
+  .section-nav,
+  .saved-panel,
+  .score-nav,
+  .fblike,
+  .ad,
+  .tools,
+  .article-cats,
+  form.search,
+  .utils,
+  #masthead .weather,
+  .bg-footer .lead,
+  .bg-footer .sub nav,
+  .collapsible-heading-status,
+  .slidecontrols,
+  a.global-bar.bar-yellow,
+  .in-section,
+  .signup-growler,
+  .flashsale {
+    display: none !important;
+  }
+}
