@@ -4,6 +4,6 @@ node_modules
 PROD.jpt
 git.sh
 index.html
-globegraphic.sublime-workspace
-data/<%= _.slugify(graphicName) %>.html
-data/<%= _.slugify(graphicName) %>_files
+globeproject.sublime-workspace
+data/<%= _.slugify(projectName) %>.html
+data/<%= _.slugify(projectName) %>_files

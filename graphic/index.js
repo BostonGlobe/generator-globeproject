@@ -5,8 +5,11 @@ var chalk = require('chalk');
 
 var GraphicGenerator = yeoman.generators.Base.extend({
   init: function () {
+    this.on('end', function () {
+      var baseDir = 'graphics' + '/' + this.graphicName;
+      this.spawnCommand('sh', [baseDir + '/' + 'git.sh']);
+    });
   },
-
 	askFor: function () {
     var done = this.async();
 
@@ -62,6 +65,7 @@ var GraphicGenerator = yeoman.generators.Base.extend({
 
     this.template('_template-prod.html', baseDir + '/' + 'template-prod.html');
     this.template('_' + this.graphicType + '.html', baseDir + '/' + 'template.html'); 
+    this.template('_git.sh', baseDir + '/' + 'git.sh');
   }
 });
 

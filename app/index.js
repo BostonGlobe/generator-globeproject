@@ -7,7 +7,7 @@ var _ = require('lodash');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-var GlobegraphicGenerator = yeoman.generators.Base.extend({
+var GlobeprojectGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
@@ -22,7 +22,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.log(chalk.magenta('This generator will create a new project.'));
 
     var prompts = [{
-      name: 'graphicName',
+      name: 'projectName',
       message: 'Enter the project name:',
       default: this.env.cwd.split('/').slice(-1)[0]
     }, {
@@ -33,7 +33,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function(props) {
-      this.graphicName = props.graphicName;
+      this.projectName = props.projectName;
       this.includeLicense = props.includeLicense;
 
       done();
@@ -49,7 +49,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.copy('gulpfile.js');
     this.copy('.bowerrc');
     this.template('_gitignore', '.gitignore');
-    this.copy('globegraphic.sublime-project');
+    this.copy('globeproject.sublime-project');
     this.copy('.jshintrc');
     this.copy('config.rb');
     this.copy('middleware.json');
@@ -65,7 +65,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.directory('common');
 
     this.mkdir('data');
-    this.template('data/_analysis.Rmd', 'data/' + _.slugify(this.graphicName) + '.Rmd');
+    this.template('data/_analysis.Rmd', 'data/' + _.slugify(this.projectName) + '.Rmd');
 
     this.directory('parts');
 
@@ -73,4 +73,4 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = GlobegraphicGenerator;
+module.exports = GlobeprojectGenerator;

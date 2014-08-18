@@ -1,14 +1,14 @@
 {
-  "name": "generator-globegraphic",
-  "version": "1.0.7",
+  "name": "generator-globeproject",
+  "version": "2.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BostonGlobe/generator-globegraphic.git"
+    "url": "https://github.com/BostonGlobe/generator-globeproject.git"
   },
-  "bugs": "https://github.com/BostonGlobe/generator-globegraphic/issues",
+  "bugs": "https://github.com/BostonGlobe/generator-globeproject/issues",
   "author": {
     "name": "Gabriel Florit",
     "email": "",

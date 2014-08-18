@@ -17,11 +17,12 @@
 				"bower.json",
 				"config.rb",
 				".gitignore",
-				"globegraphic.sublime-project",
+				"globeproject.sublime-project",
 				"gulpfile.js",
 				"index.html",
 				"LICENSE.md",
 				".jshintrc",
+				"middleware.json",
 				"package.json"
 			]
 		}

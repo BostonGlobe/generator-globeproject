@@ -1,5 +1,5 @@
 ---
-title: "<%= _.slugify(graphicName) %>"
+title: "<%= _.slugify(projectName) %>"
 author: ""
 output:
   html_document:
@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, echo=FALSE, results='hide', warning=FALSE, message=FALSE}
-setwd("~/Documents/dev/<%= _.slugify(graphicName) %>/data")
+setwd("~/Documents/dev/<%= _.slugify(projectName) %>/data")
 ```
 
 ```{r, echo=FALSE, fig.width=12, fig.height=7}

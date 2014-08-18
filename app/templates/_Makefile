@@ -1,10 +1,10 @@
 R:
 
-	Rscript -e "rmarkdown::render('data/<%= _.slugify(graphicName) %>.Rmd')"
-	open data/<%= _.slugify(graphicName) %>.html
+	Rscript -e "rmarkdown::render('data/<%= _.slugify(projectName) %>.Rmd')"
+	open data/<%= _.slugify(projectName) %>.html
 
 R_deploy:
 
-	cp data/<%= _.slugify(graphicName) %>.html /Volumes/www_html/multimedia/graphics/projectFiles/Rmd/
-	rsync -rv data/<%= _.slugify(graphicName) %>_files /Volumes/www_html/multimedia/graphics/projectFiles/Rmd
-	open http://private.boston.com/multimedia/graphics/projectFiles/Rmd/<%= _.slugify(graphicName) %>.html
+	cp data/<%= _.slugify(projectName) %>.html /Volumes/www_html/multimedia/graphics/projectFiles/Rmd/
+	rsync -rv data/<%= _.slugify(projectName) %>_files /Volumes/www_html/multimedia/graphics/projectFiles/Rmd
+	open http://private.boston.com/multimedia/graphics/projectFiles/Rmd/<%= _.slugify(projectName) %>.html

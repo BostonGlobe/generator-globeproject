@@ -3,5 +3,5 @@ node_js:
   - '0.10'
 before_install:
   - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-globegraphic' ]; then cd .. && eval "mv $currentfolder generator-globegraphic" && cd generator-globegraphic; fi
+  - if [ "$currentfolder" != 'generator-globeproject' ]; then cd .. && eval "mv $currentfolder generator-globeproject" && cd generator-globeproject; fi
 
