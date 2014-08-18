@@ -207,7 +207,7 @@ gulp.task('setup', function(done) {
 	},{
 		type: 'confirm',
 		name: 'packageToJPT',
-		message: 'Do you want to package as a JPT?',
+		message: 'Do you want to package to JPT?',
 		default: false
 	}], function(answers) {
 
