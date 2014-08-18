@@ -9,25 +9,25 @@ git init
 # git add img
 # 
 
-git add .bowerrc
-git add .gitignore
-git add .jshintrc
-git add Makefile
-git add README.md
-git add bower.json
-git add common
-git add globegraphic.sublime-project
-git add gulpfile.js
-git add middleware.json
-git add package.json
-git add data
-git add parts
+# git add .bowerrc
+# git add .gitignore
+# git add .jshintrc
+# git add Makefile
+# git add README.md
+# git add bower.json
+# git add common
+# git add globegraphic.sublime-project
+# git add gulpfile.js
+# git add middleware.json
+# git add package.json
+# git add data
+# git add parts
 
 <% if (includeLicense) { %>
 git add LICENSE.md
 <% } %>
 
-git add config.rb
+# git add config.rb
 
 git commit -m 'first commit'
 
@@ -40,4 +40,6 @@ select gbn in "GitHub" "Bitbucket" "None"; do
 	esac
 done
 
-echo "Done. Make sure to run <bower install> & <npm install> next."
+echo "Next steps:"
+echo "1. run <npm install>."
+echo "2. run <yo globeproject:graphic> to add a new graphic to your project."

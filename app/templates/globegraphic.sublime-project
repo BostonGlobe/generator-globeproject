@@ -13,7 +13,7 @@
 			"file_exclude_patterns": [
 				".Rhistory",
 				".bowerrc",
-				"bitbucket.sh",
+				"git.sh",
 				"bower.json",
 				"config.rb",
 				".gitignore",

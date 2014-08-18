@@ -12,7 +12,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.pkg = require('../package.json');
 
     this.on('end', function () {
-      this.spawnCommand('sh', ['bitbucket.sh']);
+      this.spawnCommand('sh', ['git.sh']);
     });
   },
 
@@ -60,7 +60,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
 
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
-    this.template('_bitbucket.sh', 'bitbucket.sh');
+    this.template('_git.sh', 'git.sh');
 
     this.directory('common');
 

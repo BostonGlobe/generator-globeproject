@@ -2,7 +2,7 @@
 .tmp
 node_modules
 PROD.jpt
-bitbucket.sh
+git.sh
 index.html
 globegraphic.sublime-workspace
 data/<%= _.slugify(graphicName) %>.html
