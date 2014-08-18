@@ -45,7 +45,7 @@ Put your CSS in `graphics/<graphic>/css/_layout.scss`.
 Put your JavaScript in `graphics/<graphic>/js/globe.graphic.js`, specifically inside the `globe.graphic` function. If you need to load external libraries (e.g. [D3](http://d3js.org/)):
 
 1. Use [Bower](http://bower.io/). If you're not familiar with this tool,
-2. Download the library manually. Place it in the `js/libs` folder.
+2. Download the library manually. Place it in the `libs` folder.
 
 Either way, you'll now have to reference the library in `graphics/<graphic>/html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
 

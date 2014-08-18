@@ -69,7 +69,7 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
 
     this.directory('parts');
 
-    this.mkdir('js/libs');
+    this.mkdir('libs');
   }
 });
 
