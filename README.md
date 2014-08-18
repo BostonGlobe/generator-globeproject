@@ -38,7 +38,7 @@ Put your graphic's html in `graphics/<graphic>/html/graphic.html`, specifically 
 
 ### Editing CSS
 
-Put your CSS in `graphics/<graphic>/css/layout.scss`.
+Put your CSS in `graphics/<graphic>/css/_layout.scss`.
 
 ### Editing JavaScript
 
