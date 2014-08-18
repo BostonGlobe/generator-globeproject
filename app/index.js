@@ -19,18 +19,12 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
   askFor: function () {
     var done = this.async();
 
-    // replace it with a short and sweet description of your generator
-    this.log(chalk.magenta('You\'re using the fantastic Globegraphic generator.'));
+    this.log(chalk.magenta('This generator will create a new project.'));
 
     var prompts = [{
       name: 'graphicName',
       message: 'Enter the project name:',
       default: this.env.cwd.split('/').slice(-1)[0]
-    // }, {
-    //   name: 'includeMobileTemplate',
-    //   type: 'confirm',
-    //   message: 'Go full-screen on touch devices?',
-    //   default: false
     }, {
       name: 'includeLicense',
       type: 'confirm',
@@ -40,7 +34,6 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function(props) {
       this.graphicName = props.graphicName;
-      // this.includeMobileTemplate = props.includeMobileTemplate;
       this.includeLicense = props.includeLicense;
 
       done();
@@ -77,37 +70,6 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     this.directory('parts');
 
     this.mkdir('js/libs');
-
-
-    // this.directory('html');
-
-    // this.directory('parts');
-    // this.template('_standalone.html', 'parts/standalone.html');
-
-    // this.mkdir('css');
-    // this.template('css/_boilerplate-common.scss');
-    // this.template('css/_boilerplate-igraphic.scss');
-    // this.copy('css/_layout.scss');
-    // this.copy('css/_type.scss');
-    // this.copy('css/homepage.template');
-    // this.copy('css/standalone.template');
-
-
-    // this.mkdir('js');
-    // this.mkdir('js/templates');
-    // this.copy('js/globe.graphicLogSource.js');
-    // this.copy('js/init.js');
-    // this.template('js/_globe.graphic.js', 'js/globe.graphic.js');
-
-    // if (this.includeMobileTemplate) {
-    //   this.copy('css/_touch.scss');
-    //   this.copy('js/globe.graphicMobile.js');
-    //   this.copy('js/templates/mobile.template');
-
-    //   this.mkdir('img');
-    //   this.copy('img/b-richblack-48w.png');
-    // }
-
   }
 });
 
