@@ -21,9 +21,17 @@ var concat         = require('gulp-concat');
 var template       = require('gulp-template-compile');
 var browserSync    = require('browser-sync');
 var argv           = require('yargs').argv;
+var inquirer       = require('inquirer');
 
 var REWRITE_MIDDLEWARE;
 var GRAPHIC;
+var PACKAGE_TO_JPT;
+
+function getDirectories(baseDir) {
+	return fs.readdirSync(baseDir).filter(function (file) {
+		return fs.statSync(baseDir + '/' + file).isDirectory();
+	});
+}
 
 function initMiddleware() {
 
@@ -158,44 +166,62 @@ gulp.task('smoosher', function() {
 		.pipe(gulp.dest('.'));
 });
 
-function devBuild() {
+function build() {
 
-	initMiddleware();
+	if (PACKAGE_TO_JPT) {
 
-	runSequence(
-		'clean'
-		,'compile-stylesheets'
-		,'compile-templates'
-		,'build-html'
-		,'browser-sync'
-	);
-}
+		runSequence(
+			'clean'
+			,'compile-stylesheets'
+			,'compile-templates'
+			,'build-html-prod'
+			,'jshint'
+			,'minify'
+			,'smoosher'
+		);
 
-function prodBuild() {
-	runSequence(
-		'clean'
-		,'compile-stylesheets'
-		,'compile-templates'
-		,'build-html-prod'
-		,'jshint'
-		,'minify'
-		,'smoosher'
-	);
-}
-
-gulp.task('default', function() {
-
-	GRAPHIC = argv.graphic;
-
-	if (!GRAPHIC) {
-		console.log('ERROR: please specify a <graphic> parameter. E.g. gulp --graphic=myGraphic');
-		process.exit(1);
-	}
-
-	if (argv.env === 'prod') {
-		prodBuild();
 	} else {
-		devBuild();
+
+		initMiddleware();
+
+		runSequence(
+			'clean'
+			,'compile-stylesheets'
+			,'compile-templates'
+			,'build-html'
+			,'browser-sync'
+		);
 	}
+
+}
+
+gulp.task('setup', function(done) {
+
+	var graphicChoices = getDirectories('graphics');
+
+	inquirer.prompt([{
+		type: 'list',
+		name: 'graphicName',
+		message: 'Choose a graphic',
+		choices: graphicChoices
+	},{
+		type: 'confirm',
+		name: 'packageToJPT',
+		message: 'Do you want to package as a JPT?',
+		default: false
+	}], function(answers) {
+
+		GRAPHIC = answers.graphicName;
+		PACKAGE_TO_JPT = answers.packageToJPT;
+
+		done();
+
+	});
+
+});
+
+gulp.task('default', ['setup'], function() {
+
+	build();
 
 });
