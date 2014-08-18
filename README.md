@@ -1,5 +1,7 @@
 # generator-globeproject
 
+## NOTE: this project has recently been renamed to **generator-globeproject**. Update your setup accordingly.
+
 Yeoman generator for a Boston Globe project. Supports SASS, Compass, Lodash templates, includes Bitbucket/GitHub integration. Concatenates/uglifies/minifies everything to one file.
 
 Also known as **MAGIC**.
