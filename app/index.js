@@ -19,8 +19,8 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
   askFor: function () {
     var done = this.async();
 
-    // have Yeoman greet the user
-    this.log(this.yeoman);
+    // // have Yeoman greet the user
+    // this.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
     this.log(chalk.magenta('You\'re using the fantastic Globegraphic generator.'));
@@ -118,9 +118,7 @@ var GlobegraphicGenerator = yeoman.generators.Base.extend({
     //   this.copy('img/b-richblack-48w.png');
     // }
 
-  },
-
-  projectfiles: function () {}
+  }
 });
 
 module.exports = GlobegraphicGenerator;

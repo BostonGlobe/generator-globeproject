@@ -22,12 +22,12 @@ var template       = require('gulp-template-compile');
 var browserSync    = require('browser-sync');
 var argv           = require('yargs').argv;
 
-var rewriteMiddleware;
-var graphic;
+var REWRITE_MIDDLEWARE;
+var GRAPHIC;
 
 function initMiddleware() {
 
-	rewriteMiddleware = rewriteModule.getMiddleware(JSON.parse(fs.readFileSync('middleware.json', 'utf8')));
+	REWRITE_MIDDLEWARE = rewriteModule.getMiddleware(JSON.parse(fs.readFileSync('middleware.json', 'utf8')));
 }
 
 gulp.task('clean', function() {
@@ -38,7 +38,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('compile-stylesheets', function() {
-	return gulp.src(['graphics/' + graphic + '/css/*'])
+	return gulp.src(['graphics/' + GRAPHIC + '/css/*'])
 		.pipe(sass({compass: true}))
 		.pipe(gulp.dest('.tmp'))
 		.pipe(browserSync.reload({stream:true}));
@@ -47,7 +47,7 @@ gulp.task('compile-stylesheets', function() {
 gulp.task('compile-templates', function() {
 	return gulp.src([
 			                  'common/js/templates/*.template',
-			'graphics/' + graphic + '/js/templates/*.template'
+			'graphics/' + GRAPHIC + '/js/templates/*.template'
 		])
 		.pipe(template({
 			templateSettings: {
@@ -61,7 +61,7 @@ gulp.task('compile-templates', function() {
 });
 
 gulp.task('build-html', function() {
-	return gulp.src('graphics/' + graphic + '/template.html')
+	return gulp.src('graphics/' + GRAPHIC + '/template.html')
 		.pipe(fileinclude())
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('.'))
@@ -72,37 +72,37 @@ gulp.task('browser-sync', function() {
 
 	// watch for changes to html
 	gulp.watch([
-		'graphics/' + graphic + '/template.html',
-		'graphics/' + graphic + '/html/*'
+		'graphics/' + GRAPHIC + '/template.html',
+		'graphics/' + GRAPHIC + '/html/*'
 	], ['build-html']);
 
 	// watch for changes to scss
 	gulp.watch([
 		                  'common/css/*',
-		'graphics/' + graphic + '/css/*'
+		'graphics/' + GRAPHIC + '/css/*'
 	], ['compile-stylesheets']);
 
 	// watch for changes to templates
 	gulp.watch([
 		                  'common/js/templates/*.template',
-		'graphics/' + graphic + '/js/templates/*.template'
+		'graphics/' + GRAPHIC + '/js/templates/*.template'
 	], ['compile-templates']);
 
 	browserSync({
 		server: {
 			baseDir: './',
-			middleware: rewriteMiddleware
+			middleware: REWRITE_MIDDLEWARE
 		},
 		files: [
 			                          '.tmp/*.js',
-			'graphics/' + graphic + '/js/**/*.js'
+			'graphics/' + GRAPHIC + '/js/**/*.js'
 		],
 		port: 5000
 	});
 });
 
 gulp.task('build-html-prod', function() {
-	return gulp.src('graphics/' + graphic + '/template-prod.html')
+	return gulp.src('graphics/' + GRAPHIC + '/template-prod.html')
 		.pipe(fileinclude())
 		.pipe(rename('PROD.jpt'))
 		.pipe(gulp.dest('.'));
@@ -185,7 +185,13 @@ function prodBuild() {
 
 gulp.task('default', function() {
 
-	graphic = argv.graphic;
+	GRAPHIC = argv.graphic;
+
+	if (!GRAPHIC) {
+		console.log('ERROR: please specify a <graphic> parameter. E.g. gulp --graphic=myGraphic');
+		process.exit(1);
+	}
+
 	if (argv.env === 'prod') {
 		prodBuild();
 	} else {
