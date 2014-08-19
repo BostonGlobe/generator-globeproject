@@ -1,0 +1,50 @@
+<div id="bg-forecast" class="mod bg-forecast">
+
+	<div class="mod fc-lead">
+		<h1 class="alert-title">Weather</h1>
+		<h2 class="alert-sub">Five-day forecast</h2>
+                                    
+		<p><a class="exp-more" href="http://boston.com/weather/?p1=BG_HP_WeatherBox">More <b><i>weather</i> on Boston.com</b> →</a> <a href="#" class="exp-close">Remove this weather alert</a></p>
+	</div><!-- /end .mod.fc-lead -->
+
+	<div class="mod fc-day">
+		<h3 class="fc-day-name">Today<b>: </b> <i class="fc-date"><abbr title="August">August</abbr> 17</i></h3>
+		<p class="fc-status"><i><img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/16s.gif" alt="A t-storm in spots"></i> <em>A t-storm in spots</em></p>
+		<ul>
+			<li class="fc-temp temp-hi"><i>High of</i> 79<abbr title="Degrees">°</abbr></li>
+			<li class="fc-temp temp-lo"><i>Low of</i> 62<abbr title="Degrees">°</abbr></li>
+		</ul>
+	</div><!-- /end .mod.fc-lead -->
+	<div class="mod fc-day">
+		<h3 class="fc-day-name">Monday<b>: </b> <i class="fc-date"><abbr title="August">August</abbr> 18</i></h3>
+		<p class="fc-status"><i><img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/02s.gif" alt="Mostly sunny"></i> <em>Mostly sunny</em></p>
+		<ul>
+			<li class="fc-temp temp-hi"><i>High of</i> 75<abbr title="Degrees">°</abbr></li>
+			<li class="fc-temp temp-lo"><i>Low of</i> 59<abbr title="Degrees">°</abbr></li>
+		</ul>
+	</div><!-- /end .mod.fc-lead -->	
+	<div class="mod fc-day">
+		<h3 class="fc-day-name">Tuesday<b>: </b> <i class="fc-date"><abbr title="August">August</abbr> 19</i></h3>
+		<p class="fc-status"><i><img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/02s.gif" alt="Mostly sunny"></i> <em>Mostly sunny</em></p>
+		<ul>
+			<li class="fc-temp temp-hi"><i>High of</i> 74<abbr title="Degrees">°</abbr></li>
+			<li class="fc-temp temp-lo"><i>Low of</i> 61<abbr title="Degrees">°</abbr></li>
+		</ul>
+	</div><!-- /end .mod.fc-lead -->
+	<div class="mod fc-day">
+		<h3 class="fc-day-name">Wednesday<b>: </b> <i class="fc-date"><abbr title="August">August</abbr> 20</i></h3>
+		<p class="fc-status"><i><img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/02s.gif" alt="Sunshine and nice"></i> <em>Sunshine and nice</em></p>
+		<ul>
+			<li class="fc-temp temp-hi"><i>High of</i> 76<abbr title="Degrees">°</abbr></li>
+			<li class="fc-temp temp-lo"><i>Low of</i> 62<abbr title="Degrees">°</abbr></li>
+		</ul>
+	</div><!-- /end .mod.fc-lead -->
+	<div class="mod fc-day fc-last">
+		<h3 class="fc-day-name">Thursday<b>: </b> <i class="fc-date"><abbr title="August">August</abbr> 21</i></h3>
+		<p class="fc-status"><i><img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/03s.gif" alt="A t-storm in spots"></i> <em>Partly sunny; nice</em></p>
+		<ul>
+			<li class="fc-temp temp-hi"><i>High of</i> 74<abbr title="Degrees">°</abbr></li>
+			<li class="fc-temp temp-lo"><i>Low of</i> 63<abbr title="Degrees">°</abbr></li>
+		</ul>
+	</div><!-- /end .mod.fc-lead.fc-last -->
+</div>

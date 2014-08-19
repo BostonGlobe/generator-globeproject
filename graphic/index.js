@@ -23,7 +23,7 @@ var GraphicGenerator = yeoman.generators.Base.extend({
       name: 'graphicType',
       type: 'list',
       message: 'Choose the graphic type:',
-      choices: ['igraphic']
+      choices: ['igraphic', 'homepage']
     // }, {
     //   name: 'includeMobileTemplate',
     //   type: 'confirm',
