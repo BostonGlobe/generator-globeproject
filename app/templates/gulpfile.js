@@ -1,27 +1,28 @@
-var gulp           = require('gulp');
-var gulpif         = require('gulp-if');
-var rename         = require('gulp-rename');
-var runSequence    = require('run-sequence');
-var fileinclude    = require('gulp-file-include');
-var rewriteModule  = require('http-rewrite-middleware');
-var sass           = require('gulp-ruby-sass');
-var useref         = require('gulp-useref');
-var uglify         = require('gulp-uglify');
-var csso           = require('gulp-csso');
-var rimraf         = require('gulp-rimraf');
-var jshint_stylish = require('jshint-stylish');
-var jshint         = require('gulp-jshint');
-var smoosher       = require('gulp-smoosher');
-var through        = require('through2');
+var browserSync    = require('browser-sync');
 var cheerio        = require('cheerio');
+var gulp           = require('gulp');
+var concat         = require('gulp-concat');
+var csso           = require('gulp-csso');
+var fileinclude    = require('gulp-file-include');
+var gulpif         = require('gulp-if');
+var jshint         = require('gulp-jshint');
+var rename         = require('gulp-rename');
+var rimraf         = require('gulp-rimraf');
+var sass           = require('gulp-ruby-sass');
+var smoosher       = require('gulp-smoosher');
+var template       = require('gulp-template-compile');
+var uglify         = require('gulp-uglify');
+var useref         = require('gulp-useref');
 var gutil          = require('gulp-util');
+var rewriteModule  = require('http-rewrite-middleware');
+var inquirer       = require('inquirer');
+var jshint_stylish = require('jshint-stylish');
+var runSequence    = require('run-sequence');
+var through        = require('through2');
+var argv           = require('yargs').argv;
+
 var fs             = require('fs');
 var path           = require('path');
-var concat         = require('gulp-concat');
-var template       = require('gulp-template-compile');
-var browserSync    = require('browser-sync');
-var argv           = require('yargs').argv;
-var inquirer       = require('inquirer');
 
 var REWRITE_MIDDLEWARE;
 var GRAPHIC;
@@ -145,11 +146,13 @@ gulp.task('jshint', function() {
 
 gulp.task('minify', function() {
 
+	var assets = useref.assets();
+
 	return gulp.src('PROD.jpt')
-		.pipe(useref.assets())
+		.pipe(assets)
 		.pipe(gulpif('*.js', uglify()))
 		.pipe(gulpif('*.css', csso(true)))
-		.pipe(useref.restore())
+		.pipe(assets.restore())
 		.pipe(useref())
 		.pipe(gulp.dest('.'));
 });
