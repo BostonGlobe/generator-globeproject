@@ -23,8 +23,12 @@
 
 
 
-/* style subtitle --------------------------------------------------------- */
-#gf p.subtitle {
+/* style hed subtitle --------------------------------------------------------- */
+.header .main-hed,
+.gf p.subtitle {
+	text-align: center;
+}
+.gf p.subtitle {
 	font-family: $serifStrong;
 	@include adjust-font-size-to(20px, 1.25);
 }
