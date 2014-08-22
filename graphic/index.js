@@ -61,7 +61,6 @@ var GraphicGenerator = yeoman.generators.Base.extend({
     this.mkdir(thisDir);
     this.copy('js/templates/blank.template', thisDir + '/' + 'templates' + '/' + 'blank.template');
     this.template('js/_globe.graphic.js', thisDir + '/' + 'globe.graphic.js');
-    this.template('js/_init.js', thisDir + '/' + 'init.js');
 
     this.template('_template-prod.html', baseDir + '/' + 'template-prod.html');
     this.template('_' + this.graphicType + '.html', baseDir + '/' + 'template.html'); 

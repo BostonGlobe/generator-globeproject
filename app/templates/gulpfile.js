@@ -41,15 +41,15 @@ function initMiddleware() {
 
 gulp.task('clean', function() {
 	return gulp.src([
-		'.tmp',
-		'PROD.jpt'
+		'graphics/' + GRAPHIC + '/.tmp',
+		'graphics/' + GRAPHIC + '/PROD.jpt'
 	], {read:false}).pipe(rimraf());
 });
 
 gulp.task('compile-stylesheets', function() {
 	return gulp.src(['graphics/' + GRAPHIC + '/css/*'])
 		.pipe(sass({compass: true}))
-		.pipe(gulp.dest('.tmp'))
+		.pipe(gulp.dest('graphics/' + GRAPHIC + '/.tmp'))
 		.pipe(browserSync.reload({stream:true}));
 });
 
@@ -65,7 +65,7 @@ gulp.task('compile-templates', function() {
 			}
 		}))
 		.pipe(concat('templates.js'))
-		.pipe(gulp.dest('.tmp'))
+		.pipe(gulp.dest('graphics/' + GRAPHIC + '/.tmp'))
 		.pipe(browserSync.reload({stream:true}));
 });
 
@@ -73,7 +73,7 @@ gulp.task('build-html', function() {
 	return gulp.src('graphics/' + GRAPHIC + '/template.html')
 		.pipe(fileinclude())
 		.pipe(rename('index.html'))
-		.pipe(gulp.dest('.'))
+		.pipe(gulp.dest('graphics/' + GRAPHIC))
 		.pipe(browserSync.reload({stream:true}));
 });
 
@@ -102,11 +102,11 @@ gulp.task('browser-sync', function() {
 			baseDir: './',
 			middleware: REWRITE_MIDDLEWARE
 		},
+		startPath: 'graphics/' + GRAPHIC,
 		files: [
-			                          '.tmp/*.js',
+			'graphics/' + GRAPHIC + '/.tmp/*.js',
 			'graphics/' + GRAPHIC + '/js/**/*.js'
-		],
-		port: 5000
+		]
 	});
 });
 
