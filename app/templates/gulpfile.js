@@ -5,7 +5,6 @@ var concat         = require('gulp-concat');
 var csso           = require('gulp-csso');
 var fileinclude    = require('gulp-file-include');
 var gulpif         = require('gulp-if');
-var jshint         = require('gulp-jshint');
 var rename         = require('gulp-rename');
 var rimraf         = require('gulp-rimraf');
 var sass           = require('gulp-ruby-sass');
@@ -16,7 +15,6 @@ var useref         = require('gulp-useref');
 var gutil          = require('gulp-util');
 var rewriteModule  = require('http-rewrite-middleware');
 var inquirer       = require('inquirer');
-var jshint_stylish = require('jshint-stylish');
 var runSequence    = require('run-sequence');
 var through        = require('through2');
 var argv           = require('yargs').argv;
@@ -40,16 +38,16 @@ function initMiddleware() {
 }
 
 gulp.task('clean', function() {
-	return gulp.src([
-		'graphics/' + GRAPHIC + '/.tmp',
-		'graphics/' + GRAPHIC + '/PROD.jpt'
-	], {read:false}).pipe(rimraf());
+	return gulp.src(['.tmp','PROD.jpt'], {
+		read: false,
+		cwd: 'graphics/' + GRAPHIC
+	}).pipe(rimraf());
 });
 
 gulp.task('compile-stylesheets', function() {
-	return gulp.src(['graphics/' + GRAPHIC + '/css/*'])
+	return gulp.src('css/*', {cwd: 'graphics/' + GRAPHIC})
 		.pipe(sass({compass: true}))
-		.pipe(gulp.dest('graphics/' + GRAPHIC + '/.tmp'))
+		.pipe(gulp.dest('.tmp', {cwd: 'graphics/' + GRAPHIC}))
 		.pipe(browserSync.reload({stream:true}));
 });
 
@@ -65,7 +63,7 @@ gulp.task('compile-templates', function() {
 			}
 		}))
 		.pipe(concat('templates.js'))
-		.pipe(gulp.dest('graphics/' + GRAPHIC + '/.tmp'))
+		.pipe(gulp.dest('.tmp', {cwd: 'graphics/' + GRAPHIC}))
 		.pipe(browserSync.reload({stream:true}));
 });
 
@@ -102,6 +100,7 @@ gulp.task('browser-sync', function() {
 			baseDir: './',
 			middleware: REWRITE_MIDDLEWARE
 		},
+		ghostMode: false,
 		startPath: 'graphics/' + GRAPHIC,
 		files: [
 			'graphics/' + GRAPHIC + '/.tmp/*.js',
@@ -111,62 +110,35 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('build-html-prod', function() {
-	return gulp.src('graphics/' + GRAPHIC + '/template-prod.html')
+	return gulp.src('template-prod.html', {cwd: 'graphics/' + GRAPHIC})
 		.pipe(fileinclude())
 		.pipe(rename('PROD.jpt'))
-		.pipe(gulp.dest('.'));
-});
-
-gulp.task('jshint', function() {
-
-	return gulp.src('PROD.jpt')
-		.pipe(through.obj(function(file, enc, callback) {
-
-			var input = String(file.contents);
-
-			var $ = cheerio.load(input);
-
-			var self = this;
-			var files = $('script').map(function(index, element) {
-				var src = $(element).attr('src');
-				var filepath = path.join(__dirname, src);
-				var contents = fs.readFileSync(filepath, 'utf8');
-				var file = new gutil.File({
-					path: filepath,
-					contents: new Buffer(contents)
-				});
-				self.push(file);
-			});
-
-			callback(null);
-		}))
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'));
+		.pipe(gulp.dest('./', {cwd: 'graphics/' + GRAPHIC}));
 });
 
 gulp.task('minify', function() {
 
 	var assets = useref.assets();
 
-	return gulp.src('PROD.jpt')
+	return gulp.src('PROD.jpt', {cwd: 'graphics/' + GRAPHIC})
 		.pipe(assets)
 		.pipe(gulpif('*.js', uglify()))
 		.pipe(gulpif('*.css', csso(true)))
 		.pipe(assets.restore())
 		.pipe(useref())
-		.pipe(gulp.dest('.'));
+		.pipe(gulp.dest('./', {cwd: 'graphics/' + GRAPHIC}));
 });
 
 gulp.task('smoosher', function() {
 
-	return gulp.src('PROD.jpt')
+	return gulp.src('PROD.jpt', {cwd: 'graphics/' + GRAPHIC})
 		.pipe(smoosher({
 			cssTags: {
 				begin: '<p:style>',
 				end: '</p:style>'
 			}
 		}))
-		.pipe(gulp.dest('.'));
+		.pipe(gulp.dest('./', {cwd: 'graphics/' + GRAPHIC}));
 });
 
 function build() {
@@ -178,7 +150,6 @@ function build() {
 			,'compile-stylesheets'
 			,'compile-templates'
 			,'build-html-prod'
-			,'jshint'
 			,'minify'
 			,'smoosher'
 		);
