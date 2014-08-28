@@ -103,6 +103,7 @@ gulp.task('browser-sync', function() {
 		ghostMode: false,
 		startPath: 'graphics/' + GRAPHIC,
 		files: [
+			'common/js/*.js',
 			'graphics/' + GRAPHIC + '/.tmp/*.js',
 			'graphics/' + GRAPHIC + '/js/**/*.js'
 		]
