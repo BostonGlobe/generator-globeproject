@@ -1,5 +1,5 @@
-(function() { globe.onDefine('window.jQuery && $(".gf.<%= graphicName %>").length', function() {
+(function() { globe.onDefine('window.jQuery && $(".<%= graphicType %>-graphic.<%= graphicName %>").length', function() {
 
-	var master = $('.gf.<%= graphicName %>');
+	var master = $('.<%= graphicType %>-graphic.<%= graphicName %>');
 
 }); }());
