@@ -53,7 +53,7 @@ var GraphicGenerator = yeoman.generators.Base.extend({
 
     thisDir = baseDir + '/' + 'html';
     this.mkdir(thisDir);
-    this.template('html/_html.html', thisDir + '/' + 'html.html');
+    this.template('html/_' + this.graphicType + '.html', thisDir + '/' + 'html.html');
     this.template('html/_js.html', thisDir + '/' + 'js.html');
     this.copy('html/css.html', thisDir + '/' + 'css.html');
 

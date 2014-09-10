@@ -2448,6 +2448,1668 @@ function pluralize( word, qty ) {
 	
 }( this ));
 
+/*!
+ * jQuery BBQ: Back Button & Query Library - v1.2.1 - 2/17/2010
+ * http://benalman.com/projects/jquery-bbq-plugin/
+ * 
+ * Copyright (c) 2010 "Cowboy" Ben Alman
+ * Dual licensed under the MIT and GPL licenses.
+ * http://benalman.com/about/license/
+ */
+
+// Script: jQuery BBQ: Back Button & Query Library
+//
+// *Version: 1.2.1, Last updated: 2/17/2010*
+// 
+// Project Home - http://benalman.com/projects/jquery-bbq-plugin/
+// GitHub       - http://github.com/cowboy/jquery-bbq/
+// Source       - http://github.com/cowboy/jquery-bbq/raw/master/jquery.ba-bbq.js
+// (Minified)   - http://github.com/cowboy/jquery-bbq/raw/master/jquery.ba-bbq.min.js (4.0kb)
+// 
+// About: License
+// 
+// Copyright (c) 2010 "Cowboy" Ben Alman,
+// Dual licensed under the MIT and GPL licenses.
+// http://benalman.com/about/license/
+// 
+// About: Examples
+// 
+// These working examples, complete with fully commented code, illustrate a few
+// ways in which this plugin can be used.
+// 
+// Basic AJAX     - http://benalman.com/code/projects/jquery-bbq/examples/fragment-basic/
+// Advanced AJAX  - http://benalman.com/code/projects/jquery-bbq/examples/fragment-advanced/
+// jQuery UI Tabs - http://benalman.com/code/projects/jquery-bbq/examples/fragment-jquery-ui-tabs/
+// Deparam        - http://benalman.com/code/projects/jquery-bbq/examples/deparam/
+// 
+// About: Support and Testing
+// 
+// Information about what version or versions of jQuery this plugin has been
+// tested with, what browsers it has been tested in, and where the unit tests
+// reside (so you can test it yourself).
+// 
+// jQuery Versions - 1.3.2, 1.4.1, 1.4.2
+// Browsers Tested - Internet Explorer 6-8, Firefox 2-3.7, Safari 3-4,
+//                   Chrome 4-5, Opera 9.6-10.1.
+// Unit Tests      - http://benalman.com/code/projects/jquery-bbq/unit/
+// 
+// About: Release History
+// 
+// 1.2.1 - (2/17/2010) Actually fixed the stale window.location Safari bug from
+//         <jQuery hashchange event> in BBQ, which was the main reason for the
+//         previous release!
+// 1.2   - (2/16/2010) Integrated <jQuery hashchange event> v1.2, which fixes a
+//         Safari bug, the event can now be bound before DOM ready, and IE6/7
+//         page should no longer scroll when the event is first bound. Also
+//         added the <jQuery.param.fragment.noEscape> method, and reworked the
+//         <hashchange event (BBQ)> internal "add" method to be compatible with
+//         changes made to the jQuery 1.4.2 special events API.
+// 1.1.1 - (1/22/2010) Integrated <jQuery hashchange event> v1.1, which fixes an
+//         obscure IE8 EmulateIE7 meta tag compatibility mode bug.
+// 1.1   - (1/9/2010) Broke out the jQuery BBQ event.special <hashchange event>
+//         functionality into a separate plugin for users who want just the
+//         basic event & back button support, without all the extra awesomeness
+//         that BBQ provides. This plugin will be included as part of jQuery BBQ,
+//         but also be available separately. See <jQuery hashchange event>
+//         plugin for more information. Also added the <jQuery.bbq.removeState>
+//         method and added additional <jQuery.deparam> examples.
+// 1.0.3 - (12/2/2009) Fixed an issue in IE 6 where location.search and
+//         location.hash would report incorrectly if the hash contained the ?
+//         character. Also <jQuery.param.querystring> and <jQuery.param.fragment>
+//         will no longer parse params out of a URL that doesn't contain ? or #,
+//         respectively.
+// 1.0.2 - (10/10/2009) Fixed an issue in IE 6/7 where the hidden IFRAME caused
+//         a "This page contains both secure and nonsecure items." warning when
+//         used on an https:// page.
+// 1.0.1 - (10/7/2009) Fixed an issue in IE 8. Since both "IE7" and "IE8
+//         Compatibility View" modes erroneously report that the browser
+//         supports the native window.onhashchange event, a slightly more
+//         robust test needed to be added.
+// 1.0   - (10/2/2009) Initial release
+
+(function($,window){
+  '$:nomunge'; // Used by YUI compressor.
+  
+  // Some convenient shortcuts.
+  var undefined,
+    aps = Array.prototype.slice,
+    decode = decodeURIComponent,
+    
+    // Method / object references.
+    jq_param = $.param,
+    jq_param_fragment,
+    jq_deparam,
+    jq_deparam_fragment,
+    jq_bbq = $.bbq = $.bbq || {},
+    jq_bbq_pushState,
+    jq_bbq_getState,
+    jq_elemUrlAttr,
+    jq_event_special = $.event.special,
+    
+    // Reused strings.
+    str_hashchange = 'hashchange',
+    str_querystring = 'querystring',
+    str_fragment = 'fragment',
+    str_elemUrlAttr = 'elemUrlAttr',
+    str_location = 'location',
+    str_href = 'href',
+    str_src = 'src',
+    
+    // Reused RegExp.
+    re_trim_querystring = /^.*\?|#.*$/g,
+    re_trim_fragment = /^.*\#/,
+    re_no_escape,
+    
+    // Used by jQuery.elemUrlAttr.
+    elemUrlAttr_cache = {};
+  
+  // A few commonly used bits, broken out to help reduce minified file size.
+  
+  function is_string( arg ) {
+    return typeof arg === 'string';
+  };
+  
+  // Why write the same function twice? Let's curry! Mmmm, curry..
+  
+  function curry( func ) {
+    var args = aps.call( arguments, 1 );
+    
+    return function() {
+      return func.apply( this, args.concat( aps.call( arguments ) ) );
+    };
+  };
+  
+  // Get location.hash (or what you'd expect location.hash to be) sans any
+  // leading #. Thanks for making this necessary, Firefox!
+  function get_fragment( url ) {
+    return url.replace( /^[^#]*#?(.*)$/, '$1' );
+  };
+  
+  // Get location.search (or what you'd expect location.search to be) sans any
+  // leading #. Thanks for making this necessary, IE6!
+  function get_querystring( url ) {
+    return url.replace( /(?:^[^?#]*\?([^#]*).*$)?.*/, '$1' );
+  };
+  
+  // Section: Param (to string)
+  // 
+  // Method: jQuery.param.querystring
+  // 
+  // Retrieve the query string from a URL or if no arguments are passed, the
+  // current window.location.
+  // 
+  // Usage:
+  // 
+  // > jQuery.param.querystring( [ url ] );
+  // 
+  // Arguments:
+  // 
+  //  url - (String) A URL containing query string params to be parsed. If url
+  //    is not passed, the current window.location is used.
+  // 
+  // Returns:
+  // 
+  //  (String) The parsed query string, with any leading "?" removed.
+  //
+  
+  // Method: jQuery.param.querystring (build url)
+  // 
+  // Merge a URL, with or without pre-existing query string params, plus any
+  // object, params string or URL containing query string params into a new URL.
+  // 
+  // Usage:
+  // 
+  // > jQuery.param.querystring( url, params [, merge_mode ] );
+  // 
+  // Arguments:
+  // 
+  //  url - (String) A valid URL for params to be merged into. This URL may
+  //    contain a query string and/or fragment (hash).
+  //  params - (String) A params string or URL containing query string params to
+  //    be merged into url.
+  //  params - (Object) A params object to be merged into url.
+  //  merge_mode - (Number) Merge behavior defaults to 0 if merge_mode is not
+  //    specified, and is as-follows:
+  // 
+  //    * 0: params in the params argument will override any query string
+  //         params in url.
+  //    * 1: any query string params in url will override params in the params
+  //         argument.
+  //    * 2: params argument will completely replace any query string in url.
+  // 
+  // Returns:
+  // 
+  //  (String) Either a params string with urlencoded data or a URL with a
+  //    urlencoded query string in the format 'a=b&c=d&e=f'.
+  
+  // Method: jQuery.param.fragment
+  // 
+  // Retrieve the fragment (hash) from a URL or if no arguments are passed, the
+  // current window.location.
+  // 
+  // Usage:
+  // 
+  // > jQuery.param.fragment( [ url ] );
+  // 
+  // Arguments:
+  // 
+  //  url - (String) A URL containing fragment (hash) params to be parsed. If
+  //    url is not passed, the current window.location is used.
+  // 
+  // Returns:
+  // 
+  //  (String) The parsed fragment (hash) string, with any leading "#" removed.
+  
+  // Method: jQuery.param.fragment (build url)
+  // 
+  // Merge a URL, with or without pre-existing fragment (hash) params, plus any
+  // object, params string or URL containing fragment (hash) params into a new
+  // URL.
+  // 
+  // Usage:
+  // 
+  // > jQuery.param.fragment( url, params [, merge_mode ] );
+  // 
+  // Arguments:
+  // 
+  //  url - (String) A valid URL for params to be merged into. This URL may
+  //    contain a query string and/or fragment (hash).
+  //  params - (String) A params string or URL containing fragment (hash) params
+  //    to be merged into url.
+  //  params - (Object) A params object to be merged into url.
+  //  merge_mode - (Number) Merge behavior defaults to 0 if merge_mode is not
+  //    specified, and is as-follows:
+  // 
+  //    * 0: params in the params argument will override any fragment (hash)
+  //         params in url.
+  //    * 1: any fragment (hash) params in url will override params in the
+  //         params argument.
+  //    * 2: params argument will completely replace any query string in url.
+  // 
+  // Returns:
+  // 
+  //  (String) Either a params string with urlencoded data or a URL with a
+  //    urlencoded fragment (hash) in the format 'a=b&c=d&e=f'.
+  
+  function jq_param_sub( is_fragment, get_func, url, params, merge_mode ) {
+    var result,
+      qs,
+      matches,
+      url_params,
+      hash;
+    
+    if ( params !== undefined ) {
+      // Build URL by merging params into url string.
+      
+      // matches[1] = url part that precedes params, not including trailing ?/#
+      // matches[2] = params, not including leading ?/#
+      // matches[3] = if in 'querystring' mode, hash including leading #, otherwise ''
+      matches = url.match( is_fragment ? /^([^#]*)\#?(.*)$/ : /^([^#?]*)\??([^#]*)(#?.*)/ );
+      
+      // Get the hash if in 'querystring' mode, and it exists.
+      hash = matches[3] || '';
+      
+      if ( merge_mode === 2 && is_string( params ) ) {
+        // If merge_mode is 2 and params is a string, merge the fragment / query
+        // string into the URL wholesale, without converting it into an object.
+        qs = params.replace( is_fragment ? re_trim_fragment : re_trim_querystring, '' );
+        
+      } else {
+        // Convert relevant params in url to object.
+        url_params = jq_deparam( matches[2] );
+        
+        params = is_string( params )
+          
+          // Convert passed params string into object.
+          ? jq_deparam[ is_fragment ? str_fragment : str_querystring ]( params )
+          
+          // Passed params object.
+          : params;
+        
+        qs = merge_mode === 2 ? params                              // passed params replace url params
+          : merge_mode === 1  ? $.extend( {}, params, url_params )  // url params override passed params
+          : $.extend( {}, url_params, params );                     // passed params override url params
+        
+        // Convert params object to a string.
+        qs = jq_param( qs );
+        
+        // Unescape characters specified via $.param.noEscape. Since only hash-
+        // history users have requested this feature, it's only enabled for
+        // fragment-related params strings.
+        if ( is_fragment ) {
+          qs = qs.replace( re_no_escape, decode );
+        }
+      }
+      
+      // Build URL from the base url, querystring and hash. In 'querystring'
+      // mode, ? is only added if a query string exists. In 'fragment' mode, #
+      // is always added.
+      result = matches[1] + ( is_fragment ? '#' : qs || !matches[1] ? '?' : '' ) + qs + hash;
+      
+    } else {
+      // If URL was passed in, parse params from URL string, otherwise parse
+      // params from window.location.
+      result = get_func( url !== undefined ? url : window[ str_location ][ str_href ] );
+    }
+    
+    return result;
+  };
+  
+  jq_param[ str_querystring ]                  = curry( jq_param_sub, 0, get_querystring );
+  jq_param[ str_fragment ] = jq_param_fragment = curry( jq_param_sub, 1, get_fragment );
+  
+  // Method: jQuery.param.fragment.noEscape
+  // 
+  // Specify characters that will be left unescaped when fragments are created
+  // or merged using <jQuery.param.fragment>, or when the fragment is modified
+  // using <jQuery.bbq.pushState>. This option only applies to serialized data
+  // object fragments, and not set-as-string fragments. Does not affect the
+  // query string. Defaults to ",/" (comma, forward slash).
+  // 
+  // Note that this is considered a purely aesthetic option, and will help to
+  // create URLs that "look pretty" in the address bar or bookmarks, without
+  // affecting functionality in any way. That being said, be careful to not
+  // unescape characters that are used as delimiters or serve a special
+  // purpose, such as the "#?&=+" (octothorpe, question mark, ampersand,
+  // equals, plus) characters.
+  // 
+  // Usage:
+  // 
+  // > jQuery.param.fragment.noEscape( [ chars ] );
+  // 
+  // Arguments:
+  // 
+  //  chars - (String) The characters to not escape in the fragment. If
+  //    unspecified, defaults to empty string (escape all characters).
+  // 
+  // Returns:
+  // 
+  //  Nothing.
+  
+  jq_param_fragment.noEscape = function( chars ) {
+    chars = chars || '';
+    var arr = $.map( chars.split(''), encodeURIComponent );
+    re_no_escape = new RegExp( arr.join('|'), 'g' );
+  };
+  
+  // A sensible default. These are the characters people seem to complain about
+  // "uglifying up the URL" the most.
+  jq_param_fragment.noEscape( ',/' );
+  
+  // Section: Deparam (from string)
+  // 
+  // Method: jQuery.deparam
+  // 
+  // Deserialize a params string into an object, optionally coercing numbers,
+  // booleans, null and undefined values; this method is the counterpart to the
+  // internal jQuery.param method.
+  // 
+  // Usage:
+  // 
+  // > jQuery.deparam( params [, coerce ] );
+  // 
+  // Arguments:
+  // 
+  //  params - (String) A params string to be parsed.
+  //  coerce - (Boolean) If true, coerces any numbers or true, false, null, and
+  //    undefined to their actual value. Defaults to false if omitted.
+  // 
+  // Returns:
+  // 
+  //  (Object) An object representing the deserialized params string.
+  
+  $.deparam = jq_deparam = function( params, coerce ) {
+    var obj = {},
+      coerce_types = { 'true': !0, 'false': !1, 'null': null };
+    
+    // Iterate over all name=value pairs.
+    $.each( params.replace( /\+/g, ' ' ).split( '&' ), function(j,v){
+      var param = v.split( '=' ),
+        key = decode( param[0] ),
+        val,
+        cur = obj,
+        i = 0,
+        
+        // If key is more complex than 'foo', like 'a[]' or 'a[b][c]', split it
+        // into its component parts.
+        keys = key.split( '][' ),
+        keys_last = keys.length - 1;
+      
+      // If the first keys part contains [ and the last ends with ], then []
+      // are correctly balanced.
+      if ( /\[/.test( keys[0] ) && /\]$/.test( keys[ keys_last ] ) ) {
+        // Remove the trailing ] from the last keys part.
+        keys[ keys_last ] = keys[ keys_last ].replace( /\]$/, '' );
+        
+        // Split first keys part into two parts on the [ and add them back onto
+        // the beginning of the keys array.
+        keys = keys.shift().split('[').concat( keys );
+        
+        keys_last = keys.length - 1;
+      } else {
+        // Basic 'foo' style key.
+        keys_last = 0;
+      }
+      
+      // Are we dealing with a name=value pair, or just a name?
+      if ( param.length === 2 ) {
+        val = decode( param[1] );
+        
+        // Coerce values.
+        if ( coerce ) {
+          val = val && !isNaN(val)            ? +val              // number
+            : val === 'undefined'             ? undefined         // undefined
+            : coerce_types[val] !== undefined ? coerce_types[val] // true, false, null
+            : val;                                                // string
+        }
+        
+        if ( keys_last ) {
+          // Complex key, build deep object structure based on a few rules:
+          // * The 'cur' pointer starts at the object top-level.
+          // * [] = array push (n is set to array length), [n] = array if n is 
+          //   numeric, otherwise object.
+          // * If at the last keys part, set the value.
+          // * For each keys part, if the current level is undefined create an
+          //   object or array based on the type of the next keys part.
+          // * Move the 'cur' pointer to the next level.
+          // * Rinse & repeat.
+          for ( ; i <= keys_last; i++ ) {
+            key = keys[i] === '' ? cur.length : keys[i];
+            cur = cur[key] = i < keys_last
+              ? cur[key] || ( keys[i+1] && isNaN( keys[i+1] ) ? {} : [] )
+              : val;
+          }
+          
+        } else {
+          // Simple key, even simpler rules, since only scalars and shallow
+          // arrays are allowed.
+          
+          if ( $.isArray( obj[key] ) ) {
+            // val is already an array, so push on the next value.
+            obj[key].push( val );
+            
+          } else if ( obj[key] !== undefined ) {
+            // val isn't an array, but since a second value has been specified,
+            // convert val into an array.
+            obj[key] = [ obj[key], val ];
+            
+          } else {
+            // val is a scalar.
+            obj[key] = val;
+          }
+        }
+        
+      } else if ( key ) {
+        // No value was defined, so set something meaningful.
+        obj[key] = coerce
+          ? undefined
+          : '';
+      }
+    });
+    
+    return obj;
+  };
+  
+  // Method: jQuery.deparam.querystring
+  // 
+  // Parse the query string from a URL or the current window.location,
+  // deserializing it into an object, optionally coercing numbers, booleans,
+  // null and undefined values.
+  // 
+  // Usage:
+  // 
+  // > jQuery.deparam.querystring( [ url ] [, coerce ] );
+  // 
+  // Arguments:
+  // 
+  //  url - (String) An optional params string or URL containing query string
+  //    params to be parsed. If url is omitted, the current window.location
+  //    is used.
+  //  coerce - (Boolean) If true, coerces any numbers or true, false, null, and
+  //    undefined to their actual value. Defaults to false if omitted.
+  // 
+  // Returns:
+  // 
+  //  (Object) An object representing the deserialized params string.
+  
+  // Method: jQuery.deparam.fragment
+  // 
+  // Parse the fragment (hash) from a URL or the current window.location,
+  // deserializing it into an object, optionally coercing numbers, booleans,
+  // null and undefined values.
+  // 
+  // Usage:
+  // 
+  // > jQuery.deparam.fragment( [ url ] [, coerce ] );
+  // 
+  // Arguments:
+  // 
+  //  url - (String) An optional params string or URL containing fragment (hash)
+  //    params to be parsed. If url is omitted, the current window.location
+  //    is used.
+  //  coerce - (Boolean) If true, coerces any numbers or true, false, null, and
+  //    undefined to their actual value. Defaults to false if omitted.
+  // 
+  // Returns:
+  // 
+  //  (Object) An object representing the deserialized params string.
+  
+  function jq_deparam_sub( is_fragment, url_or_params, coerce ) {
+    if ( url_or_params === undefined || typeof url_or_params === 'boolean' ) {
+      // url_or_params not specified.
+      coerce = url_or_params;
+      url_or_params = jq_param[ is_fragment ? str_fragment : str_querystring ]();
+    } else {
+      url_or_params = is_string( url_or_params )
+        ? url_or_params.replace( is_fragment ? re_trim_fragment : re_trim_querystring, '' )
+        : url_or_params;
+    }
+    
+    return jq_deparam( url_or_params, coerce );
+  };
+  
+  jq_deparam[ str_querystring ]                    = curry( jq_deparam_sub, 0 );
+  jq_deparam[ str_fragment ] = jq_deparam_fragment = curry( jq_deparam_sub, 1 );
+  
+  // Section: Element manipulation
+  // 
+  // Method: jQuery.elemUrlAttr
+  // 
+  // Get the internal "Default URL attribute per tag" list, or augment the list
+  // with additional tag-attribute pairs, in case the defaults are insufficient.
+  // 
+  // In the <jQuery.fn.querystring> and <jQuery.fn.fragment> methods, this list
+  // is used to determine which attribute contains the URL to be modified, if
+  // an "attr" param is not specified.
+  // 
+  // Default Tag-Attribute List:
+  // 
+  //  a      - href
+  //  base   - href
+  //  iframe - src
+  //  img    - src
+  //  input  - src
+  //  form   - action
+  //  link   - href
+  //  script - src
+  // 
+  // Usage:
+  // 
+  // > jQuery.elemUrlAttr( [ tag_attr ] );
+  // 
+  // Arguments:
+  // 
+  //  tag_attr - (Object) An object containing a list of tag names and their
+  //    associated default attribute names in the format { tag: 'attr', ... } to
+  //    be merged into the internal tag-attribute list.
+  // 
+  // Returns:
+  // 
+  //  (Object) An object containing all stored tag-attribute values.
+  
+  // Only define function and set defaults if function doesn't already exist, as
+  // the urlInternal plugin will provide this method as well.
+  $[ str_elemUrlAttr ] || ($[ str_elemUrlAttr ] = function( obj ) {
+    return $.extend( elemUrlAttr_cache, obj );
+  })({
+    a: str_href,
+    base: str_href,
+    iframe: str_src,
+    img: str_src,
+    input: str_src,
+    form: 'action',
+    link: str_href,
+    script: str_src
+  });
+  
+  jq_elemUrlAttr = $[ str_elemUrlAttr ];
+  
+  // Method: jQuery.fn.querystring
+  // 
+  // Update URL attribute in one or more elements, merging the current URL (with
+  // or without pre-existing query string params) plus any params object or
+  // string into a new URL, which is then set into that attribute. Like
+  // <jQuery.param.querystring (build url)>, but for all elements in a jQuery
+  // collection.
+  // 
+  // Usage:
+  // 
+  // > jQuery('selector').querystring( [ attr, ] params [, merge_mode ] );
+  // 
+  // Arguments:
+  // 
+  //  attr - (String) Optional name of an attribute that will contain a URL to
+  //    merge params or url into. See <jQuery.elemUrlAttr> for a list of default
+  //    attributes.
+  //  params - (Object) A params object to be merged into the URL attribute.
+  //  params - (String) A URL containing query string params, or params string
+  //    to be merged into the URL attribute.
+  //  merge_mode - (Number) Merge behavior defaults to 0 if merge_mode is not
+  //    specified, and is as-follows:
+  //    
+  //    * 0: params in the params argument will override any params in attr URL.
+  //    * 1: any params in attr URL will override params in the params argument.
+  //    * 2: params argument will completely replace any query string in attr
+  //         URL.
+  // 
+  // Returns:
+  // 
+  //  (jQuery) The initial jQuery collection of elements, but with modified URL
+  //  attribute values.
+  
+  // Method: jQuery.fn.fragment
+  // 
+  // Update URL attribute in one or more elements, merging the current URL (with
+  // or without pre-existing fragment/hash params) plus any params object or
+  // string into a new URL, which is then set into that attribute. Like
+  // <jQuery.param.fragment (build url)>, but for all elements in a jQuery
+  // collection.
+  // 
+  // Usage:
+  // 
+  // > jQuery('selector').fragment( [ attr, ] params [, merge_mode ] );
+  // 
+  // Arguments:
+  // 
+  //  attr - (String) Optional name of an attribute that will contain a URL to
+  //    merge params into. See <jQuery.elemUrlAttr> for a list of default
+  //    attributes.
+  //  params - (Object) A params object to be merged into the URL attribute.
+  //  params - (String) A URL containing fragment (hash) params, or params
+  //    string to be merged into the URL attribute.
+  //  merge_mode - (Number) Merge behavior defaults to 0 if merge_mode is not
+  //    specified, and is as-follows:
+  //    
+  //    * 0: params in the params argument will override any params in attr URL.
+  //    * 1: any params in attr URL will override params in the params argument.
+  //    * 2: params argument will completely replace any fragment (hash) in attr
+  //         URL.
+  // 
+  // Returns:
+  // 
+  //  (jQuery) The initial jQuery collection of elements, but with modified URL
+  //  attribute values.
+  
+  function jq_fn_sub( mode, force_attr, params, merge_mode ) {
+    if ( !is_string( params ) && typeof params !== 'object' ) {
+      // force_attr not specified.
+      merge_mode = params;
+      params = force_attr;
+      force_attr = undefined;
+    }
+    
+    return this.each(function(){
+      var that = $(this),
+        
+        // Get attribute specified, or default specified via $.elemUrlAttr.
+        attr = force_attr || jq_elemUrlAttr()[ ( this.nodeName || '' ).toLowerCase() ] || '',
+        
+        // Get URL value.
+        url = attr && that.attr( attr ) || '';
+      
+      // Update attribute with new URL.
+      that.attr( attr, jq_param[ mode ]( url, params, merge_mode ) );
+    });
+    
+  };
+  
+  $.fn[ str_querystring ] = curry( jq_fn_sub, str_querystring );
+  $.fn[ str_fragment ]    = curry( jq_fn_sub, str_fragment );
+  
+  // Section: History, hashchange event
+  // 
+  // Method: jQuery.bbq.pushState
+  // 
+  // Adds a 'state' into the browser history at the current position, setting
+  // location.hash and triggering any bound <hashchange event> callbacks
+  // (provided the new state is different than the previous state).
+  // 
+  // If no arguments are passed, an empty state is created, which is just a
+  // shortcut for jQuery.bbq.pushState( {}, 2 ).
+  // 
+  // Usage:
+  // 
+  // > jQuery.bbq.pushState( [ params [, merge_mode ] ] );
+  // 
+  // Arguments:
+  // 
+  //  params - (String) A serialized params string or a hash string beginning
+  //    with # to merge into location.hash.
+  //  params - (Object) A params object to merge into location.hash.
+  //  merge_mode - (Number) Merge behavior defaults to 0 if merge_mode is not
+  //    specified (unless a hash string beginning with # is specified, in which
+  //    case merge behavior defaults to 2), and is as-follows:
+  // 
+  //    * 0: params in the params argument will override any params in the
+  //         current state.
+  //    * 1: any params in the current state will override params in the params
+  //         argument.
+  //    * 2: params argument will completely replace current state.
+  // 
+  // Returns:
+  // 
+  //  Nothing.
+  // 
+  // Additional Notes:
+  // 
+  //  * Setting an empty state may cause the browser to scroll.
+  //  * Unlike the fragment and querystring methods, if a hash string beginning
+  //    with # is specified as the params agrument, merge_mode defaults to 2.
+  
+  jq_bbq.pushState = jq_bbq_pushState = function( params, merge_mode ) {
+    if ( is_string( params ) && /^#/.test( params ) && merge_mode === undefined ) {
+      // Params string begins with # and merge_mode not specified, so completely
+      // overwrite window.location.hash.
+      merge_mode = 2;
+    }
+    
+    var has_args = params !== undefined,
+      // Merge params into window.location using $.param.fragment.
+      url = jq_param_fragment( window[ str_location ][ str_href ],
+        has_args ? params : {}, has_args ? merge_mode : 2 );
+    
+    // Set new window.location.href. If hash is empty, use just # to prevent
+    // browser from reloading the page. Note that Safari 3 & Chrome barf on
+    // location.hash = '#'.
+    window[ str_location ][ str_href ] = url + ( /#/.test( url ) ? '' : '#' );
+  };
+  
+  // Method: jQuery.bbq.getState
+  // 
+  // Retrieves the current 'state' from the browser history, parsing
+  // location.hash for a specific key or returning an object containing the
+  // entire state, optionally coercing numbers, booleans, null and undefined
+  // values.
+  // 
+  // Usage:
+  // 
+  // > jQuery.bbq.getState( [ key ] [, coerce ] );
+  // 
+  // Arguments:
+  // 
+  //  key - (String) An optional state key for which to return a value.
+  //  coerce - (Boolean) If true, coerces any numbers or true, false, null, and
+  //    undefined to their actual value. Defaults to false.
+  // 
+  // Returns:
+  // 
+  //  (Anything) If key is passed, returns the value corresponding with that key
+  //    in the location.hash 'state', or undefined. If not, an object
+  //    representing the entire 'state' is returned.
+  
+  jq_bbq.getState = jq_bbq_getState = function( key, coerce ) {
+    return key === undefined || typeof key === 'boolean'
+      ? jq_deparam_fragment( key ) // 'key' really means 'coerce' here
+      : jq_deparam_fragment( coerce )[ key ];
+  };
+  
+  // Method: jQuery.bbq.removeState
+  // 
+  // Remove one or more keys from the current browser history 'state', creating
+  // a new state, setting location.hash and triggering any bound
+  // <hashchange event> callbacks (provided the new state is different than
+  // the previous state).
+  // 
+  // If no arguments are passed, an empty state is created, which is just a
+  // shortcut for jQuery.bbq.pushState( {}, 2 ).
+  // 
+  // Usage:
+  // 
+  // > jQuery.bbq.removeState( [ key [, key ... ] ] );
+  // 
+  // Arguments:
+  // 
+  //  key - (String) One or more key values to remove from the current state,
+  //    passed as individual arguments.
+  //  key - (Array) A single array argument that contains a list of key values
+  //    to remove from the current state.
+  // 
+  // Returns:
+  // 
+  //  Nothing.
+  // 
+  // Additional Notes:
+  // 
+  //  * Setting an empty state may cause the browser to scroll.
+  
+  jq_bbq.removeState = function( arr ) {
+    var state = {};
+    
+    // If one or more arguments is passed..
+    if ( arr !== undefined ) {
+      
+      // Get the current state.
+      state = jq_bbq_getState();
+      
+      // For each passed key, delete the corresponding property from the current
+      // state.
+      $.each( $.isArray( arr ) ? arr : arguments, function(i,v){
+        delete state[ v ];
+      });
+    }
+    
+    // Set the state, completely overriding any existing state.
+    jq_bbq_pushState( state, 2 );
+  };
+  
+  // Event: hashchange event (BBQ)
+  // 
+  // Usage in jQuery 1.4 and newer:
+  // 
+  // In jQuery 1.4 and newer, the event object passed into any hashchange event
+  // callback is augmented with a copy of the location.hash fragment at the time
+  // the event was triggered as its event.fragment property. In addition, the
+  // event.getState method operates on this property (instead of location.hash)
+  // which allows this fragment-as-a-state to be referenced later, even after
+  // window.location may have changed.
+  // 
+  // Note that event.fragment and event.getState are not defined according to
+  // W3C (or any other) specification, but will still be available whether or
+  // not the hashchange event exists natively in the browser, because of the
+  // utility they provide.
+  // 
+  // The event.fragment property contains the output of <jQuery.param.fragment>
+  // and the event.getState method is equivalent to the <jQuery.bbq.getState>
+  // method.
+  // 
+  // > $(window).bind( 'hashchange', function( event ) {
+  // >   var hash_str = event.fragment,
+  // >     param_obj = event.getState(),
+  // >     param_val = event.getState( 'param_name' ),
+  // >     param_val_coerced = event.getState( 'param_name', true );
+  // >   ...
+  // > });
+  // 
+  // Usage in jQuery 1.3.2:
+  // 
+  // In jQuery 1.3.2, the event object cannot to be augmented as in jQuery 1.4+,
+  // so the fragment state isn't bound to the event object and must instead be
+  // parsed using the <jQuery.param.fragment> and <jQuery.bbq.getState> methods.
+  // 
+  // > $(window).bind( 'hashchange', function( event ) {
+  // >   var hash_str = $.param.fragment(),
+  // >     param_obj = $.bbq.getState(),
+  // >     param_val = $.bbq.getState( 'param_name' ),
+  // >     param_val_coerced = $.bbq.getState( 'param_name', true );
+  // >   ...
+  // > });
+  // 
+  // Additional Notes:
+  // 
+  // * Due to changes in the special events API, jQuery BBQ v1.2 or newer is
+  //   required to enable the augmented event object in jQuery 1.4.2 and newer.
+  // * See <jQuery hashchange event> for more detailed information.
+  
+  jq_event_special[ str_hashchange ] = $.extend( jq_event_special[ str_hashchange ], {
+    
+    // Augmenting the event object with the .fragment property and .getState
+    // method requires jQuery 1.4 or newer. Note: with 1.3.2, everything will
+    // work, but the event won't be augmented)
+    add: function( handleObj ) {
+      var old_handler;
+      
+      function new_handler(e) {
+        // e.fragment is set to the value of location.hash (with any leading #
+        // removed) at the time the event is triggered.
+        var hash = e[ str_fragment ] = jq_param_fragment();
+        
+        // e.getState() works just like $.bbq.getState(), but uses the
+        // e.fragment property stored on the event object.
+        e.getState = function( key, coerce ) {
+          return key === undefined || typeof key === 'boolean'
+            ? jq_deparam( hash, key ) // 'key' really means 'coerce' here
+            : jq_deparam( hash, coerce )[ key ];
+        };
+        
+        old_handler.apply( this, arguments );
+      };
+      
+      // This may seem a little complicated, but it normalizes the special event
+      // .add method between jQuery 1.4/1.4.1 and 1.4.2+
+      if ( $.isFunction( handleObj ) ) {
+        // 1.4, 1.4.1
+        old_handler = handleObj;
+        return new_handler;
+      } else {
+        // 1.4.2+
+        old_handler = handleObj.handler;
+        handleObj.handler = new_handler;
+      }
+    }
+    
+  });
+  
+})(jQuery,this);
+
+/*!
+ * jQuery hashchange event - v1.2 - 2/11/2010
+ * http://benalman.com/projects/jquery-hashchange-plugin/
+ * 
+ * Copyright (c) 2010 "Cowboy" Ben Alman
+ * Dual licensed under the MIT and GPL licenses.
+ * http://benalman.com/about/license/
+ */
+
+// Script: jQuery hashchange event
+//
+// *Version: 1.2, Last updated: 2/11/2010*
+// 
+// Project Home - http://benalman.com/projects/jquery-hashchange-plugin/
+// GitHub       - http://github.com/cowboy/jquery-hashchange/
+// Source       - http://github.com/cowboy/jquery-hashchange/raw/master/jquery.ba-hashchange.js
+// (Minified)   - http://github.com/cowboy/jquery-hashchange/raw/master/jquery.ba-hashchange.min.js (1.1kb)
+// 
+// About: License
+// 
+// Copyright (c) 2010 "Cowboy" Ben Alman,
+// Dual licensed under the MIT and GPL licenses.
+// http://benalman.com/about/license/
+// 
+// About: Examples
+// 
+// This working example, complete with fully commented code, illustrate one way
+// in which this plugin can be used.
+// 
+// hashchange event - http://benalman.com/code/projects/jquery-hashchange/examples/hashchange/
+// 
+// About: Support and Testing
+// 
+// Information about what version or versions of jQuery this plugin has been
+// tested with, what browsers it has been tested in, and where the unit tests
+// reside (so you can test it yourself).
+// 
+// jQuery Versions - 1.3.2, 1.4.1, 1.4.2
+// Browsers Tested - Internet Explorer 6-8, Firefox 2-3.7, Safari 3-4, Chrome, Opera 9.6-10.1.
+// Unit Tests      - http://benalman.com/code/projects/jquery-hashchange/unit/
+// 
+// About: Known issues
+// 
+// While this jQuery hashchange event implementation is quite stable and robust,
+// there are a few unfortunate browser bugs surrounding expected hashchange
+// event-based behaviors, independent of any JavaScript window.onhashchange
+// abstraction. See the following examples for more information:
+// 
+// Chrome: Back Button - http://benalman.com/code/projects/jquery-hashchange/examples/bug-chrome-back-button/
+// Firefox: Remote XMLHttpRequest - http://benalman.com/code/projects/jquery-hashchange/examples/bug-firefox-remote-xhr/
+// WebKit: Back Button in an Iframe - http://benalman.com/code/projects/jquery-hashchange/examples/bug-webkit-hash-iframe/
+// Safari: Back Button from a different domain - http://benalman.com/code/projects/jquery-hashchange/examples/bug-safari-back-from-diff-domain/
+// 
+// About: Release History
+// 
+// 1.2   - (2/11/2010) Fixed a bug where coming back to a page using this plugin
+//         from a page on another domain would cause an error in Safari 4. Also,
+//         IE6/7 Iframe is now inserted after the body (this actually works),
+//         which prevents the page from scrolling when the event is first bound.
+//         Event can also now be bound before DOM ready, but it won't be usable
+//         before then in IE6/7.
+// 1.1   - (1/21/2010) Incorporated document.documentMode test to fix IE8 bug
+//         where browser version is incorrectly reported as 8.0, despite
+//         inclusion of the X-UA-Compatible IE=EmulateIE7 meta tag.
+// 1.0   - (1/9/2010) Initial Release. Broke out the jQuery BBQ event.special
+//         window.onhashchange functionality into a separate plugin for users
+//         who want just the basic event & back button support, without all the
+//         extra awesomeness that BBQ provides. This plugin will be included as
+//         part of jQuery BBQ, but also be available separately.
+
+(function($,window,undefined){
+  '$:nomunge'; // Used by YUI compressor.
+  
+  // Method / object references.
+  var fake_onhashchange,
+    jq_event_special = $.event.special,
+    
+    // Reused strings.
+    str_location = 'location',
+    str_hashchange = 'hashchange',
+    str_href = 'href',
+    
+    // IE6/7 specifically need some special love when it comes to back-button
+    // support, so let's do a little browser sniffing..
+    browser = $.browser,
+    mode = document.documentMode,
+    is_old_ie = browser.msie && ( mode === undefined || mode < 8 ),
+    
+    // Does the browser support window.onhashchange? Test for IE version, since
+    // IE8 incorrectly reports this when in "IE7" or "IE8 Compatibility View"!
+    supports_onhashchange = 'on' + str_hashchange in window && !is_old_ie;
+  
+  // Get location.hash (or what you'd expect location.hash to be) sans any
+  // leading #. Thanks for making this necessary, Firefox!
+  function get_fragment( url ) {
+    url = url || window[ str_location ][ str_href ];
+    return url.replace( /^[^#]*#?(.*)$/, '$1' );
+  };
+  
+  // Property: jQuery.hashchangeDelay
+  // 
+  // The numeric interval (in milliseconds) at which the <hashchange event>
+  // polling loop executes. Defaults to 100.
+  
+  $[ str_hashchange + 'Delay' ] = 100;
+  
+  // Event: hashchange event
+  // 
+  // Fired when location.hash changes. In browsers that support it, the native
+  // window.onhashchange event is used (IE8, FF3.6), otherwise a polling loop is
+  // initialized, running every <jQuery.hashchangeDelay> milliseconds to see if
+  // the hash has changed. In IE 6 and 7, a hidden Iframe is created to allow
+  // the back button and hash-based history to work.
+  // 
+  // Usage:
+  // 
+  // > $(window).bind( 'hashchange', function(e) {
+  // >   var hash = location.hash;
+  // >   ...
+  // > });
+  // 
+  // Additional Notes:
+  // 
+  // * The polling loop and Iframe are not created until at least one callback
+  //   is actually bound to 'hashchange'.
+  // * If you need the bound callback(s) to execute immediately, in cases where
+  //   the page 'state' exists on page load (via bookmark or page refresh, for
+  //   example) use $(window).trigger( 'hashchange' );
+  // * The event can be bound before DOM ready, but since it won't be usable
+  //   before then in IE6/7 (due to the necessary Iframe), recommended usage is
+  //   to bind it inside a $(document).ready() callback.
+  
+  jq_event_special[ str_hashchange ] = $.extend( jq_event_special[ str_hashchange ], {
+    
+    // Called only when the first 'hashchange' event is bound to window.
+    setup: function() {
+      // If window.onhashchange is supported natively, there's nothing to do..
+      if ( supports_onhashchange ) { return false; }
+      
+      // Otherwise, we need to create our own. And we don't want to call this
+      // until the user binds to the event, just in case they never do, since it
+      // will create a polling loop and possibly even a hidden Iframe.
+      $( fake_onhashchange.start );
+    },
+    
+    // Called only when the last 'hashchange' event is unbound from window.
+    teardown: function() {
+      // If window.onhashchange is supported natively, there's nothing to do..
+      if ( supports_onhashchange ) { return false; }
+      
+      // Otherwise, we need to stop ours (if possible).
+      $( fake_onhashchange.stop );
+    }
+    
+  });
+  
+  // fake_onhashchange does all the work of triggering the window.onhashchange
+  // event for browsers that don't natively support it, including creating a
+  // polling loop to watch for hash changes and in IE 6/7 creating a hidden
+  // Iframe to enable back and forward.
+  fake_onhashchange = (function(){
+    var self = {},
+      timeout_id,
+      iframe,
+      set_history,
+      get_history;
+    
+    // Initialize. In IE 6/7, creates a hidden Iframe for history handling.
+    function init(){
+      // Most browsers don't need special methods here..
+      set_history = get_history = function(val){ return val; };
+      
+      // But IE6/7 do!
+      if ( is_old_ie ) {
+        
+        // Create hidden Iframe after the end of the body to prevent initial
+        // page load from scrolling unnecessarily.
+        iframe = $('<iframe src="javascript:0"/>').hide().insertAfter( 'body' )[0].contentWindow;
+        
+        // Get history by looking at the hidden Iframe's location.hash.
+        get_history = function() {
+          return get_fragment( iframe.document[ str_location ][ str_href ] );
+        };
+        
+        // Set a new history item by opening and then closing the Iframe
+        // document, *then* setting its location.hash.
+        set_history = function( hash, history_hash ) {
+          if ( hash !== history_hash ) {
+            var doc = iframe.document;
+            doc.open().close();
+            doc[ str_location ].hash = '#' + hash;
+          }
+        };
+        
+        // Set initial history.
+        set_history( get_fragment() );
+      }
+    };
+    
+    // Start the polling loop.
+    self.start = function() {
+      // Polling loop is already running!
+      if ( timeout_id ) { return; }
+      
+      // Remember the initial hash so it doesn't get triggered immediately.
+      var last_hash = get_fragment();
+      
+      // Initialize if not yet initialized.
+      set_history || init();
+      
+      // This polling loop checks every $.hashchangeDelay milliseconds to see if
+      // location.hash has changed, and triggers the 'hashchange' event on
+      // window when necessary.
+      (function loopy(){
+        var hash = get_fragment(),
+          history_hash = get_history( last_hash );
+        
+        if ( hash !== last_hash ) {
+          set_history( last_hash = hash, history_hash );
+          
+          $(window).trigger( str_hashchange );
+          
+        } else if ( history_hash !== last_hash ) {
+          window[ str_location ][ str_href ] = window[ str_location ][ str_href ].replace( /#.*/, '' ) + '#' + history_hash;
+        }
+        
+        timeout_id = setTimeout( loopy, $[ str_hashchange + 'Delay' ] );
+      })();
+    };
+    
+    // Stop the polling loop, but only if an IE6/7 Iframe wasn't created. In
+    // that case, even if there are no longer any bound event handlers, the
+    // polling loop is still necessary for back/next to work at all!
+    self.stop = function() {
+      if ( !iframe ) {
+        timeout_id && clearTimeout( timeout_id );
+        timeout_id = 0;
+      }
+    };
+    
+    return self;
+  })();
+  
+})(jQuery,this);
+
+if(brightcove==undefined){var brightcove={};brightcove.getExperience=function(){alert("Please import APIModules_all.js in order to use the API.");};}
+if(brightcove.experiences==undefined){brightcove.servicesURL='http://c.brightcove.com/services';brightcove.cdnURL='http://admin.brightcove.com';brightcove.secureCDNURL='https://sadmin.brightcove.com';brightcove.secureServicesURL='https://secure.brightcove.com/services';brightcove.pubHost='c.$pubcode$.$zoneprefix$$zone$';brightcove.pubSecureHost='secure.$pubcode$.$zoneprefix$$zone$';brightcove.pubSubdomain='ariessaucetown.local';brightcove.experiences={};brightcove.experienceObjects={};brightcove.timeouts={};brightcove.flashTimeoutInterval=10000;brightcove.htmlTimeoutInterval=10000;brightcove.experienceNum=0;brightcove.majorVersion=9;brightcove.majorRevision=0;brightcove.minorRevision=28;brightcove.servlet={AS3:"federated_f9",HTML:"htmlFederated"};brightcove.playerType={FLASH:"flash",HTML:"html",INSTALLER:"installer",NO_SUPPORT:"nosupport"};brightcove.errorCodes={UNKNOWN:0,DOMAIN_RESTRICTED:1,GEO_RESTRICTED:2,INVALID_ID:3,NO_CONTENT:4,UNAVAILABLE_CONTENT:5,UPGRADE_REQUIRED_FOR_VIDEO:6,UPGRADE_REQUIRED_FOR_PLAYER:7,SERVICE_UNAVAILABLE:8};brightcove.defaultParam={};brightcove.defaultParam.width='100%';brightcove.defaultParam.height='100%';brightcove.defaultFlashParam={};brightcove.defaultFlashParam.allowScriptAccess='always';brightcove.defaultFlashParam.includeAPI='true';brightcove.defaultFlashParam.templateLoadHandler='myTemplateLoaded';brightcove.defaultFlashParam.allowFullScreen='true';brightcove.defaultFlashParam.seamlessTabbing=false;brightcove.defaultFlashParam.swliveconnect=true;brightcove.defaultFlashParam.wmode='window';brightcove.defaultFlashParam.quality='high';brightcove.defaultFlashParam.bgcolor='#999999';brightcove.isIE=(window.ActiveXObject!=undefined);brightcove.userAgent=navigator.userAgent;brightcove._queuedAPICalls=[];var brightcoveJS=brightcove;brightcove.createExperiences=function(pEvent,pElementID){var experiences=[];var params;var experience;var requestedMinorRevision;var requestedMajorVersion;var flashSupport=brightcove.checkFlashSupport();var htmlSupport=brightcove.checkHtmlSupport();if(pElementID!=null){experiences.push(document.getElementById(pElementID));}else{experiences=brightcove.collectExperiences();}
+if(brightcove.isIE){params=document.getElementsByTagName('param');}
+var urlParams=brightcove.cacheUrlParams();var numExperiences=experiences.length;for(var i=0;i<numExperiences;i++){experience=experiences[i];experience=brightcove.copyDefaultParams(experience);experience=brightcove.copySnippetParams(experience,params);experience=brightcove.copyUrlParams(experience,urlParams,numExperiences);var playerType=brightcove.determinePlayerType(experience,flashSupport,htmlSupport);var secureConnections=(experience.params.secureConnections=="true");if(playerType==brightcove.playerType.HTML){secureConnections=false;}
+if(playerType==brightcove.playerType.NO_SUPPORT){brightcove.renderInstallGif(experience,secureConnections);brightcove.reportUpgradeRequired(experience);continue;}
+if(playerType==brightcove.playerType.HTML){delete experience.params.linkBaseURL;}else{if(experience.params.includeAPI&&experience.params.templateReadyHandler!=null){experience.params.originalTemplateReadyHandler=experience.params.templateReadyHandler;var handlerName="templateReadyHandler"+experience.id;brightcove[handlerName]=(function(id){return function(event){if(brightcove.internal!=null&&brightcove.internal._instances[id]!=null){brightcove._addModuleToEvent(id,event);}
+var player=brightcove.experienceObjects[id];brightcove.callHandlerForPlayer(player,"originalTemplateReadyHandler",event);};})(experience.id);experience.params.templateReadyHandler="brightcove."+handlerName;}}
+var file=brightcove.generateRequestUrl(experience,playerType,secureConnections);if(document.location.protocol=="http:"){var event='http://goku.brightcove.com/1pix.gif?';var gokuParams=["dcsuri=/viewer/player_load_req","playerType="+playerType,"playerURL="+encodeURIComponent(document.location||"")];var image=brightcove.createElement('image');for(var j in experience.params){gokuParams.push([encodeURIComponent(j)+"="+encodeURIComponent(experience.params[j])]);}
+event+=gokuParams.join('&');image.src=event;}
+brightcove.renderExperience(experience,file,playerType,secureConnections);}};brightcove.collectExperiences=function(){var experiences=[];var allObjects=document.getElementsByTagName('object');var numObjects=allObjects.length;for(var i=0;i<numObjects;i++){if(/\bBrightcoveExperience\b/.test(allObjects[i].className)){if(allObjects[i].type!='application/x-shockwave-flash'){experiences.push(allObjects[i]);}}}
+return experiences;};brightcove.cacheUrlParams=function(){var urlParams={};urlParams.playerKey=decodeURIComponent(brightcove.getParameter("bckey"));urlParams.playerID=brightcove.getParameter("bcpid");urlParams.titleID=brightcove.getParameter("bctid");urlParams.lineupID=brightcove.getParameter("bclid");urlParams.autoStart=brightcove.getParameter("autoStart");urlParams.debuggerID=brightcove.getParameter("debuggerID");urlParams.forceHTML=brightcove.getParameter("forceHTML");urlParams.debug=brightcove.getParameter("debug");return urlParams;};brightcove.copyDefaultParams=function(experience){if(!experience.params)experience.params={};if(!experience.flashParams)experience.flashParams={};for(var i in brightcove.defaultParam){experience.params[i]=brightcove.defaultParam[i];}
+for(var j in brightcove.defaultFlashParam){experience.flashParams[j]=brightcove.defaultFlashParam[j];}
+if(experience.id.length>0){experience.params.flashID=experience.id;}else{experience.id=experience.params.flashID='bcExperienceObj'+(brightcove.experienceNum++);}
+return experience;};brightcove.copySnippetParams=function(experience,params){if(!brightcove.isIE){params=experience.getElementsByTagName('param');}
+var numParams=params.length;var param;for(var j=0;j<numParams;j++){param=params[j];if(brightcove.isIE&&param.parentNode.id!=experience.id){continue;}
+experience.params[param.name]=param.value;}
+if(experience.params.bgcolor!=undefined)experience.flashParams.bgcolor=experience.params.bgcolor;if(experience.params.wmode!=undefined)experience.flashParams.wmode=experience.params.wmode;if(experience.params.seamlessTabbing!=undefined)experience.flashParams.seamlessTabbing=experience.params.seamlessTabbing;return experience;};brightcove.copyUrlParams=function(experience,urlParams,numExperiences){if(experience.params.autoStart==undefined&&urlParams.autoStart!=undefined){experience.params.autoStart=urlParams.autoStart;}
+if(urlParams.debuggerID!=undefined){experience.params.debuggerID=urlParams.debuggerID;}
+if(urlParams.forceHTML!=undefined&&urlParams.forceHTML!=''){experience.params.forceHTML=urlParams.forceHTML;}
+if(urlParams.debug!=undefined&&urlParams.debug!=''){experience.params.debug=urlParams.debug;}
+var overrideContent=(urlParams.playerID.length<1&&urlParams.playerKey.length<1)||(urlParams.playerID==experience.params.playerID)||(urlParams.playerKey==experience.params.playerKey);if(overrideContent){if(urlParams.titleID.length>0){experience.params.videoID=urlParams.titleID;experience.params["@videoPlayer"]=urlParams.titleID;experience.params.autoStart=(experience.params.autoStart!="false"&&urlParams.autoStart!="false");}
+if(urlParams.lineupID.length>0){experience.params.lineupID=urlParams.lineupID;}}
+return experience;};brightcove.determinePlayerType=function(experience,flashSupport,htmlSupport){if(flashSupport==null&&htmlSupport==false){return brightcove.playerType.NO_SUPPORT;}
+if(experience.params.forceHTML){if(window.console){var message="The forceHTML parameter was used for the Brightcove player. This value should ONLY be used for";message+=" development and testing purposes and is not supported in production environments.";console.log(message);}
+return brightcove.playerType.HTML;}
+if(flashSupport!=null){if(brightcove.isFlashVersionSufficient(experience,flashSupport)){return brightcove.playerType.FLASH;}else{return brightcove.playerType.INSTALLER;}}
+if(htmlSupport){if(brightcove.isSupportedHTMLDevice()||experience.params.htmlFallback){return brightcove.playerType.HTML;}}
+return brightcove.playerType.NO_SUPPORT;};brightcove.isFlashVersionSufficient=function(experience,flashSupport){if(flashSupport==null)return false;var setMajorVersion=false;var requestedMajorVersion;var requestedMajorRevision;var requestedMinorRevision;if(experience.params.majorVersion!=undefined){requestedMajorVersion=parseInt(experience.params.majorVersion,10);setMajorVersion=true;}else{requestedMajorVersion=brightcove.majorVersion;}
+if(experience.params.majorRevision!=undefined){requestedMajorRevision=parseInt(experience.params.majorRevision,10);}else{if(setMajorVersion){requestedMajorRevision=0;}else{requestedMajorRevision=brightcove.majorRevision;}}
+if(experience.params.minorRevision!=undefined){requestedMinorRevision=parseInt(experience.params.minorRevision,10);}else{if(setMajorVersion){requestedMinorRevision=0;}else{requestedMinorRevision=brightcove.minorRevision;}}
+if(flashSupport.majorVersion>requestedMajorVersion||(flashSupport.majorVersion==requestedMajorVersion&&flashSupport.majorRevision>requestedMajorRevision)||(flashSupport.majorVersion==requestedMajorVersion&&flashSupport.majorRevision==requestedMajorRevision&&flashSupport.minorRevision>=requestedMinorRevision)){return true;}
+return false;};brightcove.generateRequestUrl=function(experience,playerType,secureConnections){var file;if(playerType==brightcove.playerType.INSTALLER){file=brightcove.cdnURL+"/viewer/playerProductInstall.swf";var MMPlayerType=brightcove.isIE?"ActiveX":"PlugIn";document.title=document.title.slice(0,47)+" - Flash Player Installation";var MMdoctitle=document.title;file+="?&MMredirectURL="+window.location+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle;brightcove.reportUpgradeRequired(experience);}else{if(secureConnections){file=brightcove.getPubURL(brightcove.secureServicesURL,brightcove.pubSecureHost,experience.params.pubCode);}else{file=brightcove.getPubURL(brightcove.servicesURL,brightcove.pubHost,experience.params.pubCode);}
+var servlet=(playerType==brightcove.playerType.HTML)?brightcove.servlet.HTML:brightcove.servlet.AS3;file+=('/viewer/'+servlet+'?'+brightcove.getOverrides());for(var config in experience.params){file+='&'+encodeURIComponent(config)+'='+encodeURIComponent(experience.params[config]);}}
+return file;};brightcove.renderInstallGif=function(experience,secureConnections){var containerID='_container'+experience.id;var container=brightcove.createElement('span');if(experience.params.height.charAt(experience.params.height.length-1)=="%"){container.style.display='block';}else{container.style.display='block';}//inline-block
+container.id=containerID;var cdnURL=secureConnections?brightcove.secureCDNURL:brightcove.cdnURL;var linkHTML="<a href='http://www.adobe.com/go/getflash/' target='_blank'><img src='"+cdnURL+"/viewer/upgrade_flash_player2.gif' alt='Get Flash Player' width='314' height='200' border='0'></a>";experience.parentNode.replaceChild(container,experience);document.getElementById(containerID).innerHTML=linkHTML;};brightcove.renderExperience=function(experience,file,playerType,secureConnections){var experienceElement;var experienceID=experience.id;var container;var containerID='_container'+experienceID;var timeout=brightcove.flashTimeoutInterval;if(experience.params.playerKey||experience.params.playerID||experience.params.playerId||experience.params.playerid){brightcove.experienceObjects[experienceID]=experience;var unminified=(brightcove.getParameter("unminified")=="true")||(experience.params.unminified==="true");if(experience.params.includeAPI==="true"&&!(brightcove._apiRequested||brightcove.api)){var source="/js/api/";if(unminified){source+="unminified/";}
+source+="SmartPlayerAPI.js";var apiInclude=brightcove.createElement('script');apiInclude.type="text/javascript";var cdnURL=secureConnections?brightcove.secureCDNURL:brightcove.cdnURL;apiInclude.src=cdnURL+source;experience.parentNode.appendChild(apiInclude);brightcove._apiRequested=true;}
+if(playerType===brightcove.playerType.FLASH){file+="&startTime="+new Date().getTime();}
+if(playerType===brightcove.playerType.HTML){timeout=brightcove.htmlTimeoutInterval;file+="&startTime="+new Date().getTime();file+="&refURL="+(window.document.referrer?window.document.referrer:'not available');if(unminified){file+="&unminified=true";}
+experienceElement=brightcove.createElement('iframe');experienceElement.id=experienceID;experienceElement.width=experience.params.width;experienceElement.height=experience.params.height;experienceElement.className=experience.className;experienceElement.frameborder=0;experienceElement.scrolling="no";experienceElement.style.borderStyle="none";experience.parentNode.replaceChild(experienceElement,experience);brightcove.experiences[experienceID]=experienceElement;experience.element=experienceElement;if(experience.params.videoID||experience.params.videoId){file+="&"+encodeURIComponent("@videoPlayer")+"="+encodeURIComponent(experience.params.videoID||experience.params.videoId);}
+experienceElement.src=file;}else{if(brightcove.isIE){container=brightcove.createElement('span');if(experience.params.height.charAt(experience.params.height.length-1)=="%"){container.style.display='block';}else{container.style.display='block';}//inline-block
+container.id=containerID;experience.flashParams.movie=file;var options='';for(var pOption in experience.flashParams){options+='<param name="'+pOption+'" value="'+experience.flashParams[pOption]+'" />';}
+var protocol=secureConnections?"https":"http";var experienceHTML='<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'
++' codebase="'+protocol+'://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version='+brightcove.majorVersion+','+brightcove.majorRevision+','+brightcove.minorRevision+',0"'
++' id="'+experienceID+'"'
++' width="'+experience.params.width+'"'
++' height="'+experience.params.height+'"'
++' type="application/x-shockwave-flash"'
++' class="BrightcoveExperience">'
++options
++'</object>';experience.parentNode.replaceChild(container,experience);document.getElementById(containerID).innerHTML=experienceHTML;brightcove.experiences[experienceID]=container;}else{experienceElement=brightcove.createElement('object');experienceElement.type='application/x-shockwave-flash';experienceElement.data=file;experienceElement.id=experience.params.flashID;experienceElement.width=experience.params.width;experienceElement.height=experience.params.height;experienceElement.className=experience.className;experienceElement.setAttribute("seamlesstabbing",experience.flashParams.seamlessTabbing);var tempParam;for(var config in experience.flashParams){tempParam=brightcove.createElement('param');tempParam.name=config;tempParam.value=experience.flashParams[config];experienceElement.appendChild(tempParam);}
+experience.parentNode.replaceChild(experienceElement,experience);brightcove.experiences[experienceID]=experienceElement;}}
+brightcove.timeouts[experience.id]=setTimeout(function(){brightcove.handleExperienceTimeout(experienceID);},timeout);}};brightcove.handleExperienceTimeout=function(pID){brightcove.executeErrorHandlerForExperience(brightcove.experienceObjects[pID],{type:"templateError",errorType:"serviceUnavailable",code:brightcove.errorCodes.SERVICE_UNAVAILABLE,info:pID});};brightcove.reportPlayerLoad=function(pID){var timeout=brightcove.timeouts[pID];if(timeout){clearTimeout(timeout);}};brightcove.reportUpgradeRequired=function(pExperience){brightcove.executeErrorHandlerForExperience(pExperience,{type:"templateError",errorType:"upgradeRequiredForPlayer",code:brightcove.errorCodes.UPGRADE_REQUIRED_FOR_PLAYER,info:pExperience.id});};brightcove.checkFlashSupport=function(){var isIE=(window.ActiveXObject!=undefined);var versions=(isIE)?brightcove.checkFlashSupportIE():brightcove.checkFlashSupportStandard();return versions;};brightcove.checkFlashSupportIE=function(){var versions;try{var flash=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");var version=flash.GetVariable('$version');versions=/ ([0-9]+),([0-9]+),([0-9]+),/.exec(version);}catch(exception){return null;}
+return{majorVersion:versions[1],majorRevision:versions[2],minorRevision:versions[3]};};brightcove.checkFlashSupportStandard=function(){var versions;var majorVersion;var majorRevision;var minorRevision;try{if(typeof navigator.plugins!='undefined'&&navigator.plugins.length>0){if(navigator.plugins["Shockwave Flash 2.0"]||navigator.plugins["Shockwave Flash"]){var swfVersion=navigator.plugins["Shockwave Flash 2.0"]?" 2.0":"";var description=navigator.plugins["Shockwave Flash"+swfVersion].description;var filename=navigator.plugins["Shockwave Flash"+swfVersion].filename;if(filename.match){if(filename.toLowerCase().match(/lite/)){throw new Error();}}
+versions=description.split(" ");majorVersion=versions[2].split(".")[0];majorRevision=versions[2].split(".")[1];minorRevision=versions[3];if(minorRevision==""){minorRevision=versions[4];}
+if(minorRevision[0]=="d"){minorRevision=minorRevision.substring(1);}else if(minorRevision[0]=="r"){minorRevision=minorRevision.substring(1);if(minorRevision.indexOf("d")>0){minorRevision=minorRevision.substring(0,minorRevision.indexOf("d"));}}}else{throw new Error();}}else{return null;}}catch(exception){return null;}
+return{majorVersion:majorVersion,majorRevision:majorRevision,minorRevision:minorRevision};};brightcove.checkHtmlSupport=function(){var v=brightcove.createElement('video');var c=brightcove.createElement('canvas');var videoSupport=true;if(!brightcove.userAgent.match(new RegExp("android","i"))){videoSupport=!!(v.canPlayType&&v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/,''));}
+if(brightcove.userAgent.match(/BlackBerry.*Version\/6\.0/)){return false;}
+var canvasSupport=!!brightcove.createElement('canvas').getContext;return videoSupport&&canvasSupport;};brightcove.isSupportedHTMLDevice=function(pUAString){var types=["iPad","iPhone","iPod","android"];var numTypes=types.length;var uaString=pUAString||brightcove.userAgent;for(var i=0;i<numTypes;i++){if(uaString.match(new RegExp(types[i],"i"))){return true;}}
+return false;};brightcove.getTechnology=function(pExperienceId){for(var id in brightcove.experiences){if(pExperienceId==id){return(brightcove.experiences[id].tagName=="object")?brightcove.playerType.FLASH:brightcove.playerType.HTML;}}
+return brightcove.playerType.NO_SUPPORT;};brightcove.respondToMessages=function(pMessage){if(brightcove.verifyMessage(pMessage)){var messageParts=pMessage.data.split("::");var type=messageParts[1];var messageJson=messageParts[2].split("\n").join(" ");var messageDataObject;if(window.JSON){messageDataObject=window.JSON.parse(messageJson);}else{messageDataObject=brightcove.json_parse(messageJson);}
+switch(type){case"error":brightcove.executeMessageCallback(messageDataObject,brightcove.executeErrorHandlerForExperience);break;case"api":brightcove.handleAPICallForHTML(messageDataObject);break;case"handler":var event=brightcove.internal._convertDates(messageDataObject.event);try{brightcove.internal._handlers[messageDataObject.handler](event);}catch(e){}
+break;case"asyncGetter":var data=brightcove.internal._convertDates(messageDataObject.data);brightcove.internal._handlers[messageDataObject.handler](data);break;}}};brightcove.verifyMessage=function(pMessage){return pMessage.data.match(/brightcove.player/);};brightcove.handleAPICallForHTML=function(pMessageObject){var experience=brightcove.experienceObjects[pMessageObject.id];if(experience==null){return;}
+var id=experience.id;var method=pMessageObject.method;switch(method){case"initializeBridge":brightcove.reportPlayerLoad(id);if(pMessageObject.arguments[0]){if(brightcove.internal!=null){brightcove.internal._setAPICallback(id,null,pMessageObject.arguments[1]);brightcove.callHandlerForPlayer(experience,"templateLoadHandler",id);}else if(brightcove._apiRequested){brightcove._queuedAPICalls.push(pMessageObject);}}
+break;case"callTemplateReady":if(brightcove._apiRequested&&!brightcove.internal){brightcove._queuedAPICalls.push(pMessageObject);}else{var event=pMessageObject.arguments;brightcove._addModuleToEvent(id,event);brightcove.callHandlerForPlayer(experience,"templateReadyHandler",event);}
+break;}};brightcove._addModuleToEvent=function(pID,pEvent){if(pEvent.type!=null&&brightcove.api){var experience=brightcove.api.getExperience(pID);if(experience){var module=experience.getModule("experience");pEvent.target=module;}}};brightcove.callHandlerForPlayer=function(pExperience,pHandler,pArgument){if(pExperience&&pExperience.params&&pExperience.params[pHandler]){var namespaceArray=pExperience.params[pHandler].split(".");var namespaces;if((namespaces=namespaceArray.length)>1){var trace=window;for(var i=0;i<namespaces;i++){trace=trace[namespaceArray[i]];}
+if(typeof trace==="function"){trace(pArgument);}}else{window[pExperience.params[pHandler]](pArgument);}}};brightcove.executeErrorHandlerForExperience=function(pExperience,pErrorObject){brightcove.callHandlerForPlayer(pExperience,"templateErrorHandler",pErrorObject);};brightcove.executeMessageCallback=function(pMessageDataObject,pCallback){var experience;for(var experienceKey in brightcove.experienceObjects){experience=brightcove.experienceObjects[experienceKey];if(experience.element.src===pMessageDataObject.__srcUrl){delete pMessageDataObject.__srcUrl;pCallback(experience,pMessageDataObject);break;}}};brightcove.createExperience=function(pElement,pParentOrSibling,pAppend){if(!pElement.id||pElement.id.length<1){pElement.id='bcExperienceObj'+(brightcove.experienceNum++);}
+if(pAppend){pParentOrSibling.appendChild(pElement);}else{pParentOrSibling.parentNode.insertBefore(pElement,pParentOrSibling);}
+brightcove.createExperiences(null,pElement.id);};brightcove.removeExperience=function(pID){if(brightcove.experiences[pID]!=null){brightcove.experiences[pID].parentNode.removeChild(brightcove.experiences[pID]);}};brightcove.getURL=function(){var url;if(typeof window.location.search!='undefined'){url=window.location.search;}else{url=/(\?.*)$/.exec(document.location.href);}
+return url;};brightcove.getOverrides=function(){var url=brightcove.getURL();var query=new RegExp('@[\\w\\.]+=[^&]+','g');var value=query.exec(url);var overrides="";while(value!=null){overrides+="&"+value;value=query.exec(url);}
+return overrides;};brightcove.getParameter=function(pName,pDefaultValue){if(pDefaultValue==null)pDefaultValue="";var url=brightcove.getURL();var query=new RegExp(pName+'=([^&]*)');var value=query.exec(url);if(value!=null){return value[1];}else{return pDefaultValue;}};brightcove.createElement=function(el){if(document.createElementNS){return document.createElementNS('http://www.w3.org/1999/xhtml',el);}else{return document.createElement(el);}};brightcove.i18n={'BROWSER_TOO_OLD':'The browser you are using is too old. Please upgrade to the latest version of your browser.'};brightcove.removeListeners=function(){if(/KHTML/i.test(navigator.userAgent)){clearInterval(checkLoad);document.removeEventListener('load',brightcove.createExperiences,false);}
+if(typeof document.addEventListener!='undefined'){document.removeEventListener('DOMContentLoaded',brightcove.createExperiences,false);document.removeEventListener('load',brightcove.createExperiences,false);}else if(typeof window.attachEvent!='undefined'){window.detachEvent('onload',brightcove.createExperiences);}};brightcove.getPubURL=function(source,host,pubCode){if(!pubCode||pubCode=="")return source;var re=/^([htps]{4,5}\:\/\/)([^\/\:]+)/i;host=host.replace("$pubcode$",pubCode).replace("$zoneprefix$$zone$",brightcove.pubSubdomain);return source.replace(re,"$1"+host);};brightcove.createExperiencesPostLoad=function(){brightcove.removeListeners();brightcove.createExperiences();};brightcove.encode=function(string){string=escape(string);string=string.replace(/\+/g,"%2B");string=string.replace(/\-/g,"%2D");string=string.replace(/\*/g,"%2A");string=string.replace(/\//g,"%2F");string=string.replace(/\./g,"%2E");string=string.replace(/_/g,"%5F");string=string.replace(/@/g,"%40");return string;};if(/KHTML/i.test(navigator.userAgent)){var checkLoad=setInterval(function(){if(/loaded|complete/.test(document.readyState)){clearInterval(checkLoad);brightcove.createExperiencesPostLoad();}},70);document.addEventListener('load',brightcove.createExperiencesPostLoad,false);}
+if(typeof document.addEventListener!='undefined'){document.addEventListener('DOMContentLoaded',brightcove.createExperiencesPostLoad,false);document.addEventListener('load',brightcove.createExperiencesPostLoad,false);window.addEventListener("message",brightcove.respondToMessages,false);}else if(typeof window.attachEvent!='undefined'){window.attachEvent('onload',brightcove.createExperiencesPostLoad);}else{alert(brightcove.i18n.BROWSER_TOO_OLD);}}
+brightcove.json_parse=(function(){"use strict";var state,stack,container,key,value,escapes={'\\':'\\','"':'"','/':'/','t':'\t','n':'\n','r':'\r','f':'\f','b':'\b'},string={go:function(){state='ok';},firstokey:function(){key=value;state='colon';},okey:function(){key=value;state='colon';},ovalue:function(){state='ocomma';},firstavalue:function(){state='acomma';},avalue:function(){state='acomma';}},number={go:function(){state='ok';},ovalue:function(){state='ocomma';},firstavalue:function(){state='acomma';},avalue:function(){state='acomma';}},action={'{':{go:function(){stack.push({state:'ok'});container={};state='firstokey';},ovalue:function(){stack.push({container:container,state:'ocomma',key:key});container={};state='firstokey';},firstavalue:function(){stack.push({container:container,state:'acomma'});container={};state='firstokey';},avalue:function(){stack.push({container:container,state:'acomma'});container={};state='firstokey';}},'}':{firstokey:function(){var pop=stack.pop();value=container;container=pop.container;key=pop.key;state=pop.state;},ocomma:function(){var pop=stack.pop();container[key]=value;value=container;container=pop.container;key=pop.key;state=pop.state;}},'[':{go:function(){stack.push({state:'ok'});container=[];state='firstavalue';},ovalue:function(){stack.push({container:container,state:'ocomma',key:key});container=[];state='firstavalue';},firstavalue:function(){stack.push({container:container,state:'acomma'});container=[];state='firstavalue';},avalue:function(){stack.push({container:container,state:'acomma'});container=[];state='firstavalue';}},']':{firstavalue:function(){var pop=stack.pop();value=container;container=pop.container;key=pop.key;state=pop.state;},acomma:function(){var pop=stack.pop();container.push(value);value=container;container=pop.container;key=pop.key;state=pop.state;}},':':{colon:function(){if(Object.hasOwnProperty.call(container,key)){throw new SyntaxError('Duplicate key "'+key+'"');}
+state='ovalue';}},',':{ocomma:function(){container[key]=value;state='okey';},acomma:function(){container.push(value);state='avalue';}},'true':{go:function(){value=true;state='ok';},ovalue:function(){value=true;state='ocomma';},firstavalue:function(){value=true;state='acomma';},avalue:function(){value=true;state='acomma';}},'false':{go:function(){value=false;state='ok';},ovalue:function(){value=false;state='ocomma';},firstavalue:function(){value=false;state='acomma';},avalue:function(){value=false;state='acomma';}},'null':{go:function(){value=null;state='ok';},ovalue:function(){value=null;state='ocomma';},firstavalue:function(){value=null;state='acomma';},avalue:function(){value=null;state='acomma';}}};function debackslashify(text){return text.replace(/\\(?:u(.{4})|([^u]))/g,function(a,b,c){return b?String.fromCharCode(parseInt(b,16)):escapes[c];});}
+return function(source,reviver){var r,tx=/^[\x20\t\n\r]*(?:([,:\[\]{}]|true|false|null)|(-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)|"((?:[^\r\n\t\\\"]|\\(?:["\\\/trnfb]|u[0-9a-fA-F]{4}))*)")/;state='go';stack=[];try{for(;;){r=tx.exec(source);if(!r){break;}
+if(r[1]){action[r[1]][state]();}else if(r[2]){value=+r[2];number[state]();}else{value=debackslashify(r[3]);string[state]();}
+source=source.slice(r[0].length);}}catch(e){state=e;}
+if(state!=='ok'||(/[^\x20\t\n\r]/).test(source)){throw state instanceof SyntaxError?state:new SyntaxError('JSON');}
+return typeof reviver==='function'?(function walk(holder,key){var k,v,value=holder[key];if(value&&typeof value==='object'){for(k in value){if(Object.prototype.hasOwnProperty.call(value,k)){v=walk(value,k);if(v!==undefined){value[k]=v;}else{delete value[k];}}}}
+return reviver.call(holder,key,value);}({'':value},'')):value;};}());
+
+var BCReadAPIToken = "mSs7049lqF2NZe_nAJNIDg1FQDco9YtZEk8YfbwYAEo.";
+
+// Overriding (remove) default Brightcove functionality of clearing ads when done.
+onAdComplete = function(){};
+
+// jQuery videoPlayer "plugin"
+(function($){
+  
+  var default_type = 'article',
+      totalWidth =  $('.videoplayer').parent().width(),
+      //vidWidth = (screen.availWidth < screen.availHeight ) ? screen.availWidth : screen.availHeight,                            
+    //totalWidth = ( vidWidth > 630 ) ? 630 : vidWidth - 20,
+    totalHeight = Math.round(totalWidth * 0.56),
+    
+    // Schema revisions (1-based).
+    schemas = [
+      {
+        _default: {
+          build_mode: 'brightcove',
+          _init: init_brightcove,
+          className: 'BrightcoveExperience',
+          params: {
+            wmode: 'transparent',
+            bgcolor: '#FFFFFF',
+            publisherID: '245991542',
+            isVid: 'true',
+            isUI: 'true',
+            dynamicStreaming: 'true',
+            adServerURL: function(options){
+              var loc = window.location;
+              var baseUrl = 'http://pubads.g.doubleclick.net/gampad/ads?';
+              var buildCustomParams = function() {
+                var keyValuePairs = globe.dfp.keyValuePairs;
+                var customParamString = 'pos=preroll&';
+                for ( var key in keyValuePairs ) {
+                  customParamString += key + '=' + keyValuePairs[key] + '&';
+                }
+                return encodeURIComponent( customParamString.slice( 0, customParamString.length - 1 ) );
+              };
+              var additionalParams = [
+                'env=vp',
+                '&gdfp_req=1',
+                '&impl=s',
+                '&output=xml_vast2',
+                '&cmsid=5699',
+                '&iu=61381659/' + globe.dfp.adUnit,
+                '&sz=640x480',
+                '&unviewed_position_start=1',
+                '&description_url=' + encodeURIComponent('http://bostonglobe.com'),
+                '&cust_params=' + buildCustomParams(),
+                '&ciu_szs=300x250'
+              ].join('');
+              return baseUrl + additionalParams;
+            } // End adServerURL
+          }
+        },
+        article: {
+          params: {
+            width: totalWidth,
+            height: totalHeight,
+            playerID: '876399703001',
+            autoStart: false
+          }
+        },
+        multiclip: {
+          params: {
+            width: totalWidth,
+            height: totalHeight + 200,
+            playerID: '1117076191001',
+        playerKey: 'AQ~~,AAAAAA6piHY~,DqRT40XOAr_sSabUiNgaZ9mK5Pcm4CDN'
+          }
+        }
+      }
+      // Future schema revisions go here!
+    ];
+  
+  $.fn.videoPlayer = function( opts ){
+    return this.each(function(){
+      
+     
+      
+      var widget = $(this),
+        data,
+        matches,
+        
+        child = widget.children().eq(0),
+        style = child.attr( 'style' ) || '',
+        
+        // Get schema rev and type from from data- attributes.
+        rev = widget.attr('data-schema') || 1,
+        type = widget.attr('data-player') || default_type,
+        
+        defaults = [ {
+          'reload' : false
+        }],
+        
+        settings = $.extend( defaults, opts);
+        
+        // Init options from attributes.
+        options = $.extend( {}, {
+          params: $.deparam( widget.attr('data-params') || '' ),
+          flashvars: $.deparam( widget.attr('data-flashvars') || '' ), // not yet used
+          attributes: $.deparam( widget.attr('data-attributes') || '' ) // not yet used
+        }, $.deparam( widget.attr('data-options') || '' ) );
+      
+      // Init element data if not already initialized.
+      widget.data( 'videoPlayer', data = widget.data( 'videoPlayer' ) || {} );
+      
+    
+           
+      // Don't re-initialize an already-initializied video player!
+      if ( data.ready && !settings.reload ) {
+       return;
+      }
+      
+     
+      
+      // For this widget, we only want to merge schemas array items from
+      // 0 <= N < rev.
+      $.each( schemas, function(i,v){
+        defaults[i] = v;
+        return i < rev - 1;
+      });
+      
+      // Shallow merge defaults from end to beginning, overriding older defaults
+      // with newer defaults.
+      defaults = $.extend.apply( null, [ {} ].concat( defaults ) );
+      
+      // Override default width / height with any inline style width / height.
+      if ( matches = style.match( /(?:^|\s|;)width\s*:\s*(\d+)px/i ) ) {
+        options.params.width = child.width() || matches[ 1 ];
+      }
+      if ( matches = style.match( /(?:^|\s|;)height\s*:\s*(\d+)px/i ) ) {
+        options.params.height = child.height() || matches[ 1 ];
+      }
+      
+      // Merge explicit data-options + width + height -> type-specific defaults 
+      // -> global (_default) defaults.
+      options = $.extend( true, {}, defaults._default, defaults[ type ], options, opts );
+      
+      // Deep-recurse into options object, executing any functions (except for
+      // the _init function).
+      (function revive( obj ) {
+        var k, v;
+        for ( k in obj ) {
+          v = obj[ k ];
+          if ( Object.prototype.toString.call( v ) === '[object Object]' ) {
+            revive( v );
+          } else if ( $.isFunction( v ) && k !== '_init' ){
+            obj[ k ] = v( options );
+          }
+        }
+      })( options );
+      
+      //console.log( 'options', options );
+      
+      // If an init function is specified, run it now. If init function doesn't
+      // return false, assume success and set flag in widget data to prevent
+      // re-initialization.
+      if ( $.isFunction( options._init ) ) {
+        data.ready = options._init.call( widget, options ) !== false;
+      }
+    });
+  };
+  
+  var brightcove_player_id = 0;
+  function init_brightcove( options ) {
+    // In IE6/7, since brightcove.createExperiences() breaks when called before
+    // DOM ready, abort if DOM is readyn't.
+    if ( !$.isReady && $.browser.msie && $.browser.version < 8 ) {
+      return false;
+    }
+    
+    // Create object.
+    var id = 'myExperience' + ++brightcove_player_id,
+      obj = $('<object/>')
+        .attr( 'id', id )
+        .addClass( options.className )
+        .get(0);
+    
+    // Create params.
+    $.each( options.params, function( name, value ) {
+      var param = $('<param/>')
+        .attr( 'name', name.toString().replace( /"/g, '&quot;' ) )
+        .attr( 'value', value.toString().replace( /"/g, '&quot;' ) )
+        .get(0);
+      
+      obj.appendChild( param ); // Apparently jQuery 1.3.2 has a bug with $('obj').append(...)
+    });
+
+    // Append it!
+    this.html( obj );
+
+    brightcove.createExperiences();
+  };
+  
+})(jQuery);
+
+// On DOM ready, init any videos that haven't already been initialized.
+$(function(){
+
+  $('.videoplayer').videoPlayer();
+  
+  // Initialize BrightCove.
+  brightcove.createExperiences();
+
+
+  // Attempt to resize video on resize.
+  // Resize event polling shouldn't be overly burdensome on the client
+  // becuase this should only affect one or two objects in the DOM, which we cache
+  var debounce = function (func, threshold, execAsap) {
+    var timeout;
+    return function debounced () {
+        var obj = this, args = arguments;
+        function delayed () {
+            if (!execAsap)
+                func.apply(obj, args);
+            timeout = null; 
+        };
+
+        if (timeout)
+            clearTimeout(timeout);
+        else if (execAsap)
+            func.apply(obj, args);
+
+        timeout = setTimeout(delayed, threshold || 200); 
+    };
+  };
+
+
+  var doc = window.document,
+    docElem = doc.documentElement,
+    $vidEl = $('.videoplayer').children().eq(0);
+  
+  // This should use the jquery throttledresize plugin instead of this debounce func. Will add later
+  $(window).resize(debounce(function(){
+    var height = docElem.clientHeight,
+      width = docElem.clientWidth,
+      availWidth = $('.videoplayer').parent().width();
+  
+    $vidEl.prop('width', availWidth);
+  
+  }) );
+ 
+});
+
+/*! This carousel IS NOT the carousel on the homepage that contains stories. This carousel is for WISHABI only and has been augmented to not conflict.
+
+ * jCarousel - Riding carousels with jQuery
+ *   http://sorgalla.com/jcarousel/
+ *
+ * Copyright (c) 2006 Jan Sorgalla (http://sorgalla.com)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Built on top of the jQuery library
+ *   http://jquery.com
+ *
+ * Inspired by the "Carousel Component" by Bill Scott
+ *   http://billwscott.com/carousel/
+ */
+
+(function(g){var q={vertical:!1,rtl:!1,start:1,offset:1,size:null,scroll:3,visible:null,animation:"normal",easing:"swing",auto:0,wrap:null,initCallback:null,setupCallback:null,reloadCallback:null,itemLoadCallback:null,itemFirstInCallback:null,itemFirstOutCallback:null,itemLastInCallback:null,itemLastOutCallback:null,itemVisibleInCallback:null,itemVisibleOutCallback:null,animationStepCallback:null,buttonNextHTML:"<div></div>",buttonPrevHTML:"<div></div>",buttonNextEvent:"click",buttonPrevEvent:"click", buttonNextCallback:null,buttonPrevCallback:null,itemFallbackDimension:null},m=!1;g(window).bind("load.jcarousel",function(){m=!0});g.jcarousel=function(a,c){this.options=g.extend({},q,c||{});this.autoStopped=this.locked=!1;this.buttonPrevState=this.buttonNextState=this.buttonPrev=this.buttonNext=this.list=this.clip=this.container=null;if(!c||c.rtl===void 0)this.options.rtl=(g(a).attr("dir")||g("html").attr("dir")||"").toLowerCase()=="rtl";this.wh=!this.options.vertical?"width":"height";this.lt=!this.options.vertical? this.options.rtl?"right":"left":"top";for(var b="",d=a.className.split(" "),f=0;f<d.length;f++)if(d[f].indexOf("jcarousel-skin")!=-1){g(a).removeClass(d[f]);b=d[f];break}a.nodeName.toUpperCase()=="UL"||a.nodeName.toUpperCase()=="OL"?(this.list=g(a),this.clip=this.list.parents(".jcarousel-clip"),this.container=this.list.parents(".jcarousel-container")):(this.container=g(a),this.list=this.container.find("ul,ol").eq(0),this.clip=this.container.find(".jcarousel-clip"));if(this.clip.size()===0)this.clip= this.list.wrap("<div></div>").parent();if(this.container.size()===0)this.container=this.clip.wrap("<div></div>").parent();b!==""&&this.container.parent()[0].className.indexOf("jcarousel-skin")==-1&&this.container.wrap('<div class=" '+b+'"></div>');this.buttonPrev=g(".jcarousel-prev",this.container);if(this.buttonPrev.size()===0&&this.options.buttonPrevHTML!==null)this.buttonPrev=g(this.options.buttonPrevHTML).appendTo(this.container);this.buttonPrev.addClass(this.className("jcarousel-prev"));this.buttonNext= g(".jcarousel-next",this.container);if(this.buttonNext.size()===0&&this.options.buttonNextHTML!==null)this.buttonNext=g(this.options.buttonNextHTML).appendTo(this.container);this.buttonNext.addClass(this.className("jcarousel-next"));this.clip.addClass(this.className("jcarousel-clip")).css({position:"relative"});this.list.addClass(this.className("jcarousel-list")).css({overflow:"hidden",position:"relative",top:0,margin:0,padding:0}).css(this.options.rtl?"right":"left",0);this.container.addClass(this.className("jcarousel-container")).css({position:"relative"}); !this.options.vertical&&this.options.rtl&&this.container.addClass("jcarousel-direction-rtl").attr("dir","rtl");var j=this.options.visible!==null?Math.ceil(this.clipping()/this.options.visible):null,b=this.list.children("li"),e=this;if(b.size()>0){var h=0,i=this.options.offset;b.each(function(){e.format(this,i++);h+=e.dimension(this,j)});this.list.css(this.wh,h+100+"px");if(!c||c.size===void 0)this.options.size=b.size()}this.container.css("display","block");this.buttonNext.css("display","block");this.buttonPrev.css("display", "block");this.funcNext=function(){e.next()};this.funcPrev=function(){e.prev()};this.funcResize=function(){e.resizeTimer&&clearTimeout(e.resizeTimer);e.resizeTimer=setTimeout(function(){e.reload()},100)};this.options.initCallback!==null&&this.options.initCallback(this,"init");!m&&g.browser.safari?(this.buttons(!1,!1),g(window).bind("load.jcarousel",function(){e.setup()})):this.setup()};var f=g.jcarousel;f.fn=f.prototype={jcarousel:"0.2.8"};f.fn.extend=f.extend=g.extend;f.fn.extend({setup:function(){this.prevLast= this.prevFirst=this.last=this.first=null;this.animating=!1;this.tail=this.resizeTimer=this.timer=null;this.inTail=!1;if(!this.locked){this.list.css(this.lt,this.pos(this.options.offset)+"px");var a=this.pos(this.options.start,!0);this.prevFirst=this.prevLast=null;this.animate(a,!1);g(window).unbind("resize.jcarousel",this.funcResize).bind("resize.jcarousel",this.funcResize);this.options.setupCallback!==null&&this.options.setupCallback(this)}},reset:function(){this.list.empty();this.list.css(this.lt, "0px");this.list.css(this.wh,"10px");this.options.initCallback!==null&&this.options.initCallback(this,"reset");this.setup()},reload:function(){this.tail!==null&&this.inTail&&this.list.css(this.lt,f.intval(this.list.css(this.lt))+this.tail);this.tail=null;this.inTail=!1;this.options.reloadCallback!==null&&this.options.reloadCallback(this);if(this.options.visible!==null){var a=this,c=Math.ceil(this.clipping()/this.options.visible),b=0,d=0;this.list.children("li").each(function(f){b+=a.dimension(this, c);f+1<a.first&&(d=b)});this.list.css(this.wh,b+"px");this.list.css(this.lt,-d+"px")}this.scroll(this.first,!1)},lock:function(){this.locked=!0;this.buttons()},unlock:function(){this.locked=!1;this.buttons()},size:function(a){if(a!==void 0)this.options.size=a,this.locked||this.buttons();return this.options.size},has:function(a,c){if(c===void 0||!c)c=a;if(this.options.size!==null&&c>this.options.size)c=this.options.size;for(var b=a;b<=c;b++){var d=this.get(b);if(!d.length||d.hasClass("jcarousel-item-placeholder"))return!1}return!0}, get:function(a){return g(">.jcarousel-item-"+a,this.list)},add:function(a,c){var b=this.get(a),d=0,p=g(c);if(b.length===0)for(var j,e=f.intval(a),b=this.create(a);;){if(j=this.get(--e),e<=0||j.length){e<=0?this.list.prepend(b):j.after(b);break}}else d=this.dimension(b);p.get(0).nodeName.toUpperCase()=="LI"?(b.replaceWith(p),b=p):b.empty().append(c);this.format(b.removeClass(this.className("jcarousel-item-placeholder")),a);p=this.options.visible!==null?Math.ceil(this.clipping()/this.options.visible): null;d=this.dimension(b,p)-d;a>0&&a<this.first&&this.list.css(this.lt,f.intval(this.list.css(this.lt))-d+"px");this.list.css(this.wh,f.intval(this.list.css(this.wh))+d+"px");return b},remove:function(a){var c=this.get(a);if(c.length&&!(a>=this.first&&a<=this.last)){var b=this.dimension(c);a<this.first&&this.list.css(this.lt,f.intval(this.list.css(this.lt))+b+"px");c.remove();this.list.css(this.wh,f.intval(this.list.css(this.wh))-b+"px")}},next:function(){this.tail!==null&&!this.inTail?this.scrollTail(!1): this.scroll((this.options.wrap=="both"||this.options.wrap=="last")&&this.options.size!==null&&this.last==this.options.size?1:this.first+this.options.scroll)},prev:function(){this.tail!==null&&this.inTail?this.scrollTail(!0):this.scroll((this.options.wrap=="both"||this.options.wrap=="first")&&this.options.size!==null&&this.first==1?this.options.size:this.first-this.options.scroll)},scrollTail:function(a){if(!this.locked&&!this.animating&&this.tail){this.pauseAuto();var c=f.intval(this.list.css(this.lt)), c=!a?c-this.tail:c+this.tail;this.inTail=!a;this.prevFirst=this.first;this.prevLast=this.last;this.animate(c)}},scroll:function(a,c){!this.locked&&!this.animating&&(this.pauseAuto(),this.animate(this.pos(a),c))},pos:function(a,c){var b=f.intval(this.list.css(this.lt));if(this.locked||this.animating)return b;this.options.wrap!="circular"&&(a=a<1?1:this.options.size&&a>this.options.size?this.options.size:a);for(var d=this.first>a,g=this.options.wrap!="circular"&&this.first<=1?1:this.first,j=d?this.get(g): this.get(this.last),e=d?g:g-1,h=null,i=0,k=!1,l=0;d?--e>=a:++e<a;){h=this.get(e);k=!h.length;if(h.length===0&&(h=this.create(e).addClass(this.className("jcarousel-item-placeholder")),j[d?"before":"after"](h),this.first!==null&&this.options.wrap=="circular"&&this.options.size!==null&&(e<=0||e>this.options.size)))j=this.get(this.index(e)),j.length&&(h=this.add(e,j.clone(!0)));j=h;l=this.dimension(h);k&&(i+=l);if(this.first!==null&&(this.options.wrap=="circular"||e>=1&&(this.options.size===null||e<= this.options.size)))b=d?b+l:b-l}for(var g=this.clipping(),m=[],o=0,n=0,j=this.get(a-1),e=a;++o;){h=this.get(e);k=!h.length;if(h.length===0){h=this.create(e).addClass(this.className("jcarousel-item-placeholder"));if(j.length===0)this.list.prepend(h);else j[d?"before":"after"](h);if(this.first!==null&&this.options.wrap=="circular"&&this.options.size!==null&&(e<=0||e>this.options.size))j=this.get(this.index(e)),j.length&&(h=this.add(e,j.clone(!0)))}j=h;l=this.dimension(h);if(l===0)throw Error("jCarousel: No width/height set for items. This will cause an infinite loop. Aborting..."); this.options.wrap!="circular"&&this.options.size!==null&&e>this.options.size?m.push(h):k&&(i+=l);n+=l;if(n>=g)break;e++}for(h=0;h<m.length;h++)m[h].remove();i>0&&(this.list.css(this.wh,this.dimension(this.list)+i+"px"),d&&(b-=i,this.list.css(this.lt,f.intval(this.list.css(this.lt))-i+"px")));i=a+o-1;if(this.options.wrap!="circular"&&this.options.size&&i>this.options.size)i=this.options.size;if(e>i){o=0;e=i;for(n=0;++o;){h=this.get(e--);if(!h.length)break;n+=this.dimension(h);if(n>=g)break}}e=i-o+ 1;this.options.wrap!="circular"&&e<1&&(e=1);if(this.inTail&&d)b+=this.tail,this.inTail=!1;this.tail=null;if(this.options.wrap!="circular"&&i==this.options.size&&i-o+1>=1&&(d=f.intval(this.get(i).css(!this.options.vertical?"marginRight":"marginBottom")),n-d>g))this.tail=n-g-d;if(c&&a===this.options.size&&this.tail)b-=this.tail,this.inTail=!0;for(;a-- >e;)b+=this.dimension(this.get(a));this.prevFirst=this.first;this.prevLast=this.last;this.first=e;this.last=i;return b},animate:function(a,c){if(!this.locked&& !this.animating){this.animating=!0;var b=this,d=function(){b.animating=!1;a===0&&b.list.css(b.lt,0);!b.autoStopped&&(b.options.wrap=="circular"||b.options.wrap=="both"||b.options.wrap=="last"||b.options.size===null||b.last<b.options.size||b.last==b.options.size&&b.tail!==null&&!b.inTail)&&b.startAuto();b.buttons();b.notify("onAfterAnimation");if(b.options.wrap=="circular"&&b.options.size!==null)for(var c=b.prevFirst;c<=b.prevLast;c++)c!==null&&!(c>=b.first&&c<=b.last)&&(c<1||c>b.options.size)&&b.remove(c)}; this.notify("onBeforeAnimation");if(!this.options.animation||c===!1)this.list.css(this.lt,a+"px"),d();else{var f=!this.options.vertical?this.options.rtl?{right:a}:{left:a}:{top:a},d={duration:this.options.animation,easing:this.options.easing,complete:d};if(g.isFunction(this.options.animationStepCallback))d.step=this.options.animationStepCallback;this.list.animate(f,d)}}},startAuto:function(a){if(a!==void 0)this.options.auto=a;if(this.options.auto===0)return this.stopAuto();if(this.timer===null){this.autoStopped= !1;var c=this;this.timer=window.setTimeout(function(){c.next()},this.options.auto*1E3)}},stopAuto:function(){this.pauseAuto();this.autoStopped=!0},pauseAuto:function(){if(this.timer!==null)window.clearTimeout(this.timer),this.timer=null},buttons:function(a,c){if(a==null&&(a=!this.locked&&this.options.size!==0&&(this.options.wrap&&this.options.wrap!="first"||this.options.size===null||this.last<this.options.size),!this.locked&&(!this.options.wrap||this.options.wrap=="first")&&this.options.size!==null&& this.last>=this.options.size))a=this.tail!==null&&!this.inTail;if(c==null&&(c=!this.locked&&this.options.size!==0&&(this.options.wrap&&this.options.wrap!="last"||this.first>1),!this.locked&&(!this.options.wrap||this.options.wrap=="last")&&this.options.size!==null&&this.first==1))c=this.tail!==null&&this.inTail;var b=this;this.buttonNext.size()>0?(this.buttonNext.unbind(this.options.buttonNextEvent+".jcarousel",this.funcNext),a&&this.buttonNext.bind(this.options.buttonNextEvent+".jcarousel",this.funcNext), this.buttonNext[a?"removeClass":"addClass"](this.className("jcarousel-next-disabled")).attr("disabled",a?!1:!0),this.options.buttonNextCallback!==null&&this.buttonNext.data("jcarouselstate")!=a&&this.buttonNext.each(function(){b.options.buttonNextCallback(b,this,a)}).data("jcarouselstate",a)):this.options.buttonNextCallback!==null&&this.buttonNextState!=a&&this.options.buttonNextCallback(b,null,a);this.buttonPrev.size()>0?(this.buttonPrev.unbind(this.options.buttonPrevEvent+".jcarousel",this.funcPrev), c&&this.buttonPrev.bind(this.options.buttonPrevEvent+".jcarousel",this.funcPrev),this.buttonPrev[c?"removeClass":"addClass"](this.className("jcarousel-prev-disabled")).attr("disabled",c?!1:!0),this.options.buttonPrevCallback!==null&&this.buttonPrev.data("jcarouselstate")!=c&&this.buttonPrev.each(function(){b.options.buttonPrevCallback(b,this,c)}).data("jcarouselstate",c)):this.options.buttonPrevCallback!==null&&this.buttonPrevState!=c&&this.options.buttonPrevCallback(b,null,c);this.buttonNextState= a;this.buttonPrevState=c},notify:function(a){var c=this.prevFirst===null?"init":this.prevFirst<this.first?"next":"prev";this.callback("itemLoadCallback",a,c);this.prevFirst!==this.first&&(this.callback("itemFirstInCallback",a,c,this.first),this.callback("itemFirstOutCallback",a,c,this.prevFirst));this.prevLast!==this.last&&(this.callback("itemLastInCallback",a,c,this.last),this.callback("itemLastOutCallback",a,c,this.prevLast));this.callback("itemVisibleInCallback",a,c,this.first,this.last,this.prevFirst, this.prevLast);this.callback("itemVisibleOutCallback",a,c,this.prevFirst,this.prevLast,this.first,this.last)},callback:function(a,c,b,d,f,j,e){if(!(this.options[a]==null||typeof this.options[a]!="object"&&c!="onAfterAnimation")){var h=typeof this.options[a]=="object"?this.options[a][c]:this.options[a];if(g.isFunction(h)){var i=this;if(d===void 0)h(i,b,c);else if(f===void 0)this.get(d).each(function(){h(i,this,d,b,c)});else for(var a=function(a){i.get(a).each(function(){h(i,this,a,b,c)})},k=d;k<=f;k++)k!== null&&!(k>=j&&k<=e)&&a(k)}}},create:function(a){return this.format("<li></li>",a)},format:function(a,c){for(var a=g(a),b=a.get(0).className.split(" "),d=0;d<b.length;d++)b[d].indexOf("jcarousel-")!=-1&&a.removeClass(b[d]);a.addClass(this.className("jcarousel-item")).addClass(this.className("jcarousel-item-"+c)).css({"float":this.options.rtl?"right":"left","list-style":"none"}).attr("jcarouselindex",c);return a},className:function(a){return a+" "+a+(!this.options.vertical?"-horizontal":"-vertical")}, dimension:function(a,c){var b=g(a);if(c==null)return!this.options.vertical?b.outerWidth(!0)||f.intval(this.options.itemFallbackDimension):b.outerHeight(!0)||f.intval(this.options.itemFallbackDimension);else{var d=!this.options.vertical?c-f.intval(b.css("marginLeft"))-f.intval(b.css("marginRight")):c-f.intval(b.css("marginTop"))-f.intval(b.css("marginBottom"));g(b).css(this.wh,d+"px");return this.dimension(b)}},clipping:function(){return!this.options.vertical?this.clip[0].offsetWidth-f.intval(this.clip.css("borderLeftWidth"))- f.intval(this.clip.css("borderRightWidth")):this.clip[0].offsetHeight-f.intval(this.clip.css("borderTopWidth"))-f.intval(this.clip.css("borderBottomWidth"))},index:function(a,c){if(c==null)c=this.options.size;return Math.round(((a-1)/c-Math.floor((a-1)/c))*c)+1}});f.extend({defaults:function(a){return g.extend(q,a||{})},intval:function(a){a=parseInt(a,10);return isNaN(a)?0:a},windowLoaded:function(){m=!0}});g.fn.jcarousel=function(a){if(typeof a=="string"){var c=g(this).data("jcarousel"),b=Array.prototype.slice.call(arguments, 1);return c[a].apply(c,b)}else return this.each(function(){var b=g(this).data("jcarousel");b?(a&&g.extend(b.options,a),b.reload()):g(this).data("jcarousel",new f(this,a))})}})(jQuery);
+;
+
+$(document).ready(function(){
+	// wishabi module id
+	
+	// namespace
+	window.wishabi = window.wishabi || {};
+	window.wishabi.module = window.wishabi.module || {};
+	window.wishabi.module.wm_261 = window.wishabi.module.wm_261 || {};
+	
+	// globals
+	window.wishabi.module.wm_261.flyer_view_track_images = {};
+	window.wishabi.module.wm_261.track_images = [];
+	
+	// IE6 & 7 fix
+	window.wishabi.module.wm_261.render_count = 0;
+	
+	window.wishabi.module.wm_261.carousel_initCallback = function(carousel){
+	    // Pause autoscrolling if the user moves with the cursor over the clip.
+	    carousel.clip.hover(function() {
+	        carousel.stopAuto();
+	    }, function() {
+	        carousel.startAuto();
+	    });
+	};
+	
+	window.wishabi.module.wm_261.flyer_type_view_and_click_track = function(flyer_type_id, flyer_type_li_object) {
+	  // trigger a flyer view and hook up the click event (if not already sent for current flyer type)
+	  if (window.wishabi.module.wm_261.flyer_view_track_images[flyer_type_id] === undefined) {
+	    var image = new Image(1,1);
+	    image.src = ("http://editorials.wishabi.com/track.gif?type=3" + 
+	                 "&tid=" + flyer_type_id +
+	                 "&mid=" + "177" +
+	                 "&t=" + new Date().getTime());
+	
+	    window.wishabi.module.wm_261.flyer_view_track_images[flyer_type_id] = image;
+	    
+	    $('a', flyer_type_li_object).click(function(event){   
+	      var image = new Image(1,1);
+	      image.src = ("http://editorials.wishabi.com/track.gif?type=4" + 
+	                   "&tid=" + flyer_type_id +
+	                   "&mid=" + "177" +
+	                   "&t=" + new Date().getTime()); 
+	      window.wishabi.module.wm_261.track_images.push(image); 
+	
+	      var destination_url = this.href;
+	      
+	      setTimeout(function(){document.location = destination_url;}, 100);
+	      return false;        
+	    });
+	  }
+	
+	};
+	
+	
+	window.wishabi.module.wm_261.carousel_itemVisibleIn = function(carousel, object, index, state){
+	
+	  var thumbnail_classname = $('a.thumbnail', object).first().attr('class');
+	  if (thumbnail_classname == undefined) {
+	    return;
+	  }
+	  
+	  var regex = 'flyertown_flyer_link_';
+	  var flyer_type_id = thumbnail_classname.substring((thumbnail_classname.search(new RegExp(regex)) + regex.length));
+	
+	  window.wishabi.module.wm_261.flyer_type_view_and_click_track(flyer_type_id, object);  
+	}
+	
+	window.wishabi.module.wm_261.render_widget_module = function(data){
+		if (data && window.wishabi.module.wm_261.render_count < 1) {
+		  window.wishabi.module.wm_261.render_count++;
+		  
+		  if (data.flyers.length < 2){
+		    return; // we requre a filled module (i.e. 2 flyers) for carousel to work
+		  }
+	
+			var widget_data = "";
+			if (data.titleString) {
+			  widget_data += "<div class='heading'>";
+			  if (data.titleURL) {
+			    widget_data += "<a id='title_flyertown_link' href='" + data.titleURL +"'>" + data.titleString + "</a>";
+		    } else {
+		      widget_data += "<span>" + data.titleString + "</span>";
+		    }
+			  widget_data += "</div>";
+			  $("#circularhub_module_261").append(widget_data);
+	  
+	      $('#title_flyertown_link').click(function(event){
+	        var image = new Image(1,1);
+	        image.src = ("http://editorials.wishabi.com/track.gif?type=6" + 
+	                     "&mid=177" +
+	                     "&a=1" +
+	                     "&t=" + new Date().getTime()); 
+	        window.wishabi.module.wm_261.track_images.push(image); 
+	
+	        var destination_url = this.href;
+	        setTimeout(function(){document.location = destination_url;}, 100);
+	        return false;        
+	      });
+			}
+			
+		  $("#circularhub_module_261").append("<div class='flyer_types'><ul id='flyer_type_list' class='jcarousel-skin-widget_js_format_1'></ul></div>");
+			
+	    $.each(data.flyers, function(index, value) {
+	     var flyer_thumb         = value.imageSource;
+	     var flyer_thumb_link    = value.imageLink;
+	     var flyer_title         = value.flyerText;
+	     var flyer_title_link    = value.flyerTextLink;
+	     var flyer_subtitle      = value.flyerSubText;
+	     var flyer_subtitle_link = value.flyerSubTextLink;
+	    
+	     var flyer_data = "<li class='flyer_type'>";
+	     if (flyer_thumb && flyer_thumb_link)  { flyer_data += "<a class='thumbnail flyertown_flyer_link_" + value.flyer_type + "' href='"+ flyer_thumb_link +"'><img src='"+ flyer_thumb +"'/></a>";}
+	     if (flyer_title && flyer_title_link) { flyer_data += "<div class='title'><a href='" + flyer_title_link + "'>" + flyer_title + "</a></div>"; }
+	     if (flyer_subtitle && flyer_subtitle_link) { flyer_data += "<div class='sub_title'><a href='"+ flyer_subtitle_link +"'>" + flyer_subtitle + "</a></div>"; }
+	     flyer_data += "</li>";
+	    
+	     $("#flyer_type_list").append(flyer_data);
+	     
+	     // queue up the tracking here for first two flyers (due to potential for delay in jcarousel visible in callback on page load)
+	     if (index < 2) {
+	       var li_object = $("#flyer_type_list li").last();
+	       window.wishabi.module.wm_261.flyer_type_view_and_click_track(value.flyer_type, li_object);
+	     }
+	     
+	    });
+	
+	    setTimeout(function(){
+	      $('#flyer_type_list').jcarousel({
+	          	wrap: 'circular',
+	          	scroll: 2,
+	          	buttonNextHTML: null,
+	          	buttonPrevHTML: null,
+	          	auto: (data.flyers.length == 2) ? 0 : 5,
+	          	initCallback: window.wishabi.module.wm_261.carousel_initCallback,
+	          	itemVisibleInCallback: window.wishabi.module.wm_261.carousel_itemVisibleIn
+	      });      
+	    }, 500);
+	
+	    if (data.moreText) {
+	      var widget_footer_data = "";
+	      widget_footer_data += "<div class='footer'>";
+	      widget_footer_data += "<a id='more_flyertown_link' href='" + data.moreTextLink +"'>" + data.moreText + "</a>";
+	      widget_footer_data += "</div>";
+	      $("#circularhub_module_261").append(widget_footer_data);
+	
+	      $('#more_flyertown_link').click(function(event){
+	        var image = new Image(1,1);
+	        image.src = ("http://editorials.wishabi.com/track.gif?type=6" + 
+	                     "&mid=177" +
+	                     "&a=2" +
+	                     "&t=" + new Date().getTime()); 
+	        window.wishabi.module.wm_261.track_images.push(image); 
+	        var destination_url = this.href;
+	
+	        setTimeout(function(){document.location = destination_url;}, 100);
+	        return false;        
+	      });
+	    }
+	
+	    var image = new Image(1,1);
+	    image.src = ("http://editorials.wishabi.com/track.gif?type=5" + 
+	                 "&mid=" + "177" +
+	                 "&t=" + new Date().getTime());
+	    window.wishabi.module.wm_261.track_images.push(image);
+		}
+	}
+	
+	var api_url = "http://api.flyertown.ca";
+	
+	$.ajax({
+	  url: api_url + "/flyermodules",
+	  data: {mtypeid : "177", key: "840df3e7ffe609d1", t: new Date().getTime()},
+	  crossDomain: true,
+	  dataType: "jsonp",
+	  jsonpCallback: 'window.wishabi.module.wm_261.render_widget_module',
+	  success: window.wishabi.module.wm_261.render_widget_module
+	});
+});
+
 (function (win, undefined) {
 
   /*

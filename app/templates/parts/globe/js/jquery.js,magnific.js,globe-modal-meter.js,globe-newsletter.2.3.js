@@ -2193,7 +2193,7 @@ bglobe.meterMonster = (function(){
                 src: $('#modal_takeover')
             },
             fixedBgPos: true,
-            fixedContentPos: false,
+            fixedContentPos: true,
             modal: false
         })
     };
@@ -2209,7 +2209,11 @@ bglobe.meterMonster = (function(){
             fixedBgPos: true,
             fixedContentPos: true,
             modal: true
-        })
+        });
+        if (optimizely.activeExperiments[0] === "1712880278")
+        {
+            $('#meter-limit-met-popup').hide();
+        }
     };
 
     // Schema revisions
@@ -2220,7 +2224,7 @@ bglobe.meterMonster = (function(){
             modalId: '#modal_1'
         },
         {
-            freeviewCount: 2,
+            freeviewCount: 3,
             _init: module.renderMeterModalFS,
             modalId: '#modal_takeover'
         },

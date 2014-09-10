@@ -1959,9 +1959,15 @@ Boston Globe Common JS Scripting
 	
 })(this);
 
+// non-jQuery functions
+function pluralize( word, qty ) {
+	qty = qty || 0;
+	word = word || 'unit';
 
+	var suffix = ( ( qty === 0 ) || ( qty > 1 ) ? 's' : '' );
 
-
+	return word + suffix;
+}
 
 (function( $, undefined ){
 	$( function(){
