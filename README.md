@@ -32,7 +32,7 @@ Every graphic in your project has various folders and files. Here's a guide to t
 
 ### Editing HTML
 
-Put your graphic's html in `graphics/<graphic>/html/graphic.html`, specifically inside `<div class='gf <graphic>'></div>`.
+Put your graphic's html in `graphics/<graphic>/html/graphic.html`, specifically inside `<div class='<graphicType>-<graphic>'></div>`.
 
 ### Editing CSS
 
