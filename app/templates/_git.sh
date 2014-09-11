@@ -31,6 +31,8 @@ select gbn in "GitHub" "Bitbucket" "None"; do
 	esac
 done
 
+cd parts; make update; cd ../;
+
 echo "Next steps:"
 echo "1. run <npm install>."
 echo "2. run <yo globeproject:graphic> to add a new graphic to your project."
