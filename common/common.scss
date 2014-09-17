@@ -1,0 +1,45 @@
+.article-graphic,
+.homepage-graphic,
+.igraphic-graphic {
+
+	*,
+	*:before,
+	*:after {
+		   -moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+
+	.source-and-credit {
+		width: 100%;
+		overflow: hidden;
+		margin-top: 1em;
+
+		> p {
+			margin: 0;
+			text-align: right;
+		}
+
+		.source span {
+			font-size: 0.75em;
+			font-weight: bold;
+		}
+
+		.credit span {
+			color: #999;
+			text-transform: uppercase;
+			font-size: 0.6em;
+			letter-spacing: 0.05em;
+		}
+
+		@media (min-width: 600px) {
+			.source {
+				float: left;
+			}
+
+			.credit {
+				float: right;
+			}
+		}
+	}
+}

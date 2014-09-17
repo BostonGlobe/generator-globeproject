@@ -1,0 +1,33 @@
+#main .article div.article-body {
+	width: 100%;
+	margin-top: 0;
+}
+
+.header .main-hed,
+.igraphic-graphic p.subtitle {
+	text-align: center;
+}
+
+.igraphic-graphic p.subtitle {
+	font-family: "Miller Headline Roman", "Times New Roman", Times, Georgia, serif;
+	font-size: 1.25em;
+	line-height: 1.5em;
+}
+
+.section-nav {
+	display: none;
+}
+
+.article > .byline,
+.article header .byline {
+	display: none;
+}
+
+.aside {
+	display:none;
+}
+
+a.global-bar,
+a.bar-yellow {
+	display: none !important;
+}
