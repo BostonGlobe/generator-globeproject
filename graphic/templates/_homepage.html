@@ -7,7 +7,7 @@
 <head>
     <script type="text/javascript">
     var methode = {};
-    methode.freeviewCount = 1;
+    methode.freeviewCount = 0;
     methode.freeviewCountIncremented = false;
     methode.showPaywall = false;
     methode.subscribed = false;
@@ -15,11 +15,11 @@
     <!-- / -->
     <title>The Boston Globe</title>
     <!-- Methode uuid: "483d0324-acb5-11e0-b0f1-7f46ddf534c2" -->
-    <meta name="eomportal-instanceid" content="16" />
-    <meta name="eomportal-id" content="21" />
+    <meta name="eomportal-instanceid" content="17" />
+    <meta name="eomportal-id" content="11" />
     <meta name="eomportal-loid" content="1.0.123723696" />
     <meta name="eomportal-uuid" content="483d0324-acb5-11e0-b0f1-7f46ddf534c2" />
-    <meta name="eomportal-lastUpdate" content="Wed Sep 10 18:51:45 EDT 2014" />
+    <meta name="eomportal-lastUpdate" content="Wed Sep 17 14:56:36 EDT 2014" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="A leading news source for Massachusetts, breaking news,
             business, sports, health, arts & entertainment, politics,
@@ -32,7 +32,7 @@
     <meta http-equiv="Refresh" content="900;url=?refresh=true">
     <!-- sDate Sun Aug 25 00:01:00 EDT 2013-->
     <!-- eDate Mon Aug 26 23:59:00 EDT 2013-->
-    <!-- current date is Wed Sep 10 18:51:55 EDT 2014-->
+    <!-- current date is Wed Sep 17 14:56:57 EDT 2014-->
     <meta property="flashsale" id="flashsale" content="false" />
     <link rel="apple-touch-icon" href="//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png" />
     <link rel="shortcut icon" type="image/gif" href="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/favicon.ico" />
@@ -109,7 +109,6 @@
 " />
     <link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=2.3
 " />
-    <link rel="stylesheet" type="text/css" href="/r/SysConfig/WebPortal/BostonGlobe/Framework/skins/components/scoreboard/scoreboard.css" />
     <link rel='stylesheet' type="text/css" href='http://www.boston.com/multimedia/graphics/projectFiles/lib/css/0.0.2/common.css'></link>
     <link rel="stylesheet" type="text/css" href="/parts/globe/css/globe-fonts.css" />
     @@include('html/css.html')
@@ -201,18 +200,18 @@
                     </a>
                 </h1>
                 <p class="bg-issuedate">
-                    <time datetime="2014-09-10">
+                    <time datetime="2014-09-17">
                         <span class="day">Wednesday,</span>
-                        September 10, 2014</time>
+                        September 17, 2014</time>
                 </p>
             </div>
             <div class="weather">
                 <a class="weather-info" href="tmpl-weather.html#bg-forecast" data-after="/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/frameset/header/weather-forecast.jpt" data-target="#masthead">
                     <h2 class="a11y-only">Weather:</h2>
-                    <img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/03s.gif" alt="Clearing">
+                    <img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/03s.gif" alt="Sunny and pleasant">
 
                     <p>
-                        <span class="weather-temp">66
+                        <span class="weather-temp">68
                             <span>&deg;</span>
                         </span>
                         <span class="weather-cond">Partly sunny</span>
@@ -326,38 +325,11 @@
 
 
         <div class="mod live-update">
-            <div id="bg-scores" class="bg-scores">
-                <div id="score-redsox" class="mod live-scores score-active">
-                    <div class="score-update">
-                        <h2>
-                            <a href="http://live.bostonglobe.com/Event/Red_Sox_2014_season_updates">
-                                <b>Red Sox</b>
-                                Live
-                            </a>
-                        </h2>
-
-                        <div class="scores">
-                            <p class="score-first">
-                                <span class="logo team-logo mlb-bal"></span>
-                                <span class="score">10</span>
-                            </p>
-                            <p class="score-second">
-
-                                <span class="logo team-logo mlb-bos"></span>
-                                <span class="score">6</span>
-                            </p>
-                        </div>
-
-                        <p class="score-stats">
-                            <span class="period">Final</span>
-                        </p>
-                    </div>
-
-                </div>
-                <!-- /end .live-scores -->
-
+            <div class="mod bg-alert bg-breaking">
+                <h2>Live video</h2>
+                <p class="story-title"> <a href="http://www.bostonglobe.com/news/politics/livestream">Kerry  testifies before Senate panel on strategy to fight ISIS</a> &nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.bostonglobe.com/news/world/2014/09/17/kerry-testifies-before-senate-panel-isis/bizzIXwNFRFbm3vpcWW1HL/story.html">Story</a> 
+                </p>
             </div>
-            <!-- /end .bg-scores -->
         </div>
         <!-- /live-update -->
 
@@ -366,161 +338,24 @@
                 <div class="col bg-col-ab">
 
                     <div class="stories-top">
+
                         <div class="mod l-60-40">
-                            <div class="group p-more">
-
-                                <div class="story first-story">
-
-                                    <a href="/sports/2014/09/10/nfl-was-sent-ray-rice-video-april-official-says/ev4W6dGcqB5sPhJpFVNoBO/story.html" class="story-perm" data-uuid="ccdea2b6-392c-11e4-8786-92d7a50b5930">
-                                        <p class="hed-cat">
-                                        </p>
-                                        <h2 class="story-title hed-lead">NFL was sent Ray Rice video in April, official says</h2>
-                                    </a>
-
-                                    <div class="figure lead-figure">
-                                        <a href="/sports/2014/09/10/nfl-was-sent-ray-rice-video-april-official-says/ev4W6dGcqB5sPhJpFVNoBO/story.html">
-                                            <img src="//www.bostonglobe.com/rf/image_r/Boston/2011-2020/2014/09/10/BostonGlobe.com/Sports/Images/453709934.r.jpg" data-fullsrc="//c.o0bg.com/rf/image_585w/Boston/2011-2020/2014/09/10/BostonGlobe.com/Sports/Images/453709934.jpg" alt="Ray Rice
-">
-                                        </a>
-                                        <div class="figcaption">
-                                            <p class="credit">
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="excerpt">
-                                        <p>A law enforcement official said he sent copy of the video to an NFL executive five months ago.
-                                            <time datetime="2014-09-10T16:55:29" class="stamp" data-pubtime="20140910205529">&nbsp;</time>
-                                        </p>
-                                    </div>
-
-
-                                    <ul class="related-stories">
-                                        <li><a href="/lifestyle/health-wellness/2014/09/10/whyistayed-has-led-complex-twitter-conversation-about-domestic-violence/WLEoYZjRNaU55l7s3uxOYN/story.html" class="">#WhyIStayed spurs Twitter conversation</a>
-                                        </li>
-                                        <li><a href="/sports/2014/09/10/members-congress-question-goodell-actions-rice-video/Wjy9qTUz7dzFAmHGf3ABUP/story.html" class="">Congress questions Goodell’s actions</a>
-                                        </li>
-                                        <li><a href="/sports/2014/09/10/now-calls-for-roger-goodell-resign/iFYpUu37684OO73K8PvTDM/story.html" class="">NOW calls for Goodell to resign</a>
-                                        </li>
-                                        <li><a href="/sports/2014/09/09/nfl-gambled-that-ray-rice-video-would-remain-concealed-and-lost/MALPXu3G3DQUA9cfsk3ovN/story.html" class="">Gasper: NFL lost its gamble</a>
-                                        </li>
-                                        <!-- raw hyperlink -->
-                                        <!-- related headline == '' -->
-                                    </ul>
-                                    <!-- /end .related-stories -->
-                                </div>
-                                <!-- /end .story -->
-                                <div class="story">
-
-                                    <a href="/magazine/2014/09/10/how-parents-make-teachers-miserable/uDcDfgqhJDoXJuPQF5sEtK/story.html" class="story-perm" data-uuid="6074e782-391a-11e4-8786-92d7a50b5930">
-                                        <i class="figure rel"><img alt="
-" src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/08/BostonGlobe.com/Magazine/Images/mag0914essayA1.jpg"></i>
-                                        <p class="hed-cat">Magazine
-                                        </p>
-                                        <h2 class="story-title">How parents make teachers miserable</h2>
-                                    </a>
-                                    <div class="excerpt">
-                                        <p>Standardized testing can be difficult for educators, but moms and dads can really make the job impossible.</p>
-                                    </div>
-
-                                    <ul class="related-stories">
-                                        <li><a href="/magazine/2014/05/03/how-parents-are-ruining-youth-sports/vbRln8qYXkrrNFJcsuvNyM/story.html" class="">Parents ruining youth sports?</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /end .related-stories -->
-                                </div>
-                                <!-- /end .story -->
-                                <div class="story">
-                                    <p class="hed-cat">2014 Primaries | Evan Horowitz</p>
-                                    <h2 class="story-title">
-                                        <a href="/metro/2014/09/10/why-were-polls-far-off/6h0LoifTFnYNVrCx6qIg2L/story.html" data-uuid="865140be-38fb-11e4-8786-92d7a50b5930" class="story-perm">
-                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Politics/Images/horowitz-098.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Politics/Images/horowitz-098.jpg"></i>
-                                            Why were the primary polls so far off?</a>
-                                    </h2>
-                                    <div class="excerpt">
-                                        <p>Polls in major races were wrong in important ways.
-                                            <time datetime="2014-09-10T16:04:56" class="stamp" data-pubtime="20140910200456">&nbsp;</time>
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- Standard header for the story JPTs -->
-                                <div class="story">
-
-                                    <a href="/metro/2014/09/10/democrats-stand-together-unity-breakfast-take-aim-baker/O7uOXLyud4QzyJG5KwUnFK/story.html" class="story-perm" data-uuid="4b8df530-390a-11e4-8786-92d7a50b5930">
-                                        <i class="figure rel"><img alt="Steve Grossman greeted Martha Coakley, as Governor Deval Patrick and Boston Mayor Marty Walsh looked on." src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Metro/Images/tlumacki_democratunitybreakfast_metro521[1]--90x90.jpg"></i>
-                                        <p class="hed-cat">
-
-                                        </p>
-                                        <h2 class="story-title">Democrats stand together at ‘Unity Breakfast’</h2>
-                                    </a>
-                                    <div class="excerpt">
-                                        <p>Primary winners and losers stood shoulder to shoulder in a ritual of forced smiles and strained compliments.
-                                            <time datetime="2014-09-10T12:48:29" class="stamp" data-pubtime="20140910164829">&nbsp;</time>
-                                        </p>
-                                    </div>
-
-                                    <ul class="related-stories">
-                                        <li><a href="/metro/2014/09/10/charlie-baker-gop-nominee-for-governor-greets-south-station-commuters/AoYiNHBgaOY8IlSZvtLXZN/story.html" class="">Baker begins campaigning as nominee</a>
-                                        </li>
-                                        <li><a href="/metro/2014/09/10/mayor-walsh-meets-maura-healey-savin-hill-diner-after-healey-beats-walsh-choice-race/u7SAnGlxIJVgWPe3PbRhWL/story.html" class="">Walsh meets AG nominee Healey at diner</a>
-                                        </li>
-                                        <!-- raw hyperlink -->
-                                        <li><a href="http://www.bostonglobe.com/news/politics/elections/2014/governor/primary">Gubernatorial primary results by town</a>
-                                        </li>
-                                        <!-- raw hyperlink -->
-                                        <li><a href="http://www.bostonglobe.com/news/politics">Results of other key races</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /end .related-stories -->
-                                </div>
-                                <!-- /end .story -->
-                            </div>
                             <div class="group-alt p-less">
 
                                 @@include('html/html.html')
                                 @@include('html/js.html')
 
-                                <!-- Standard header for the story JPTs -->
                                 <div class="story">
 
-                                    <a href="/news/nation/2014/09/10/obama-prepared-order-airstrikes-syria-official-says/0INhApKfGhLmOXj4oMp9RK/story.html" class="story-perm" data-uuid="521ad2a4-38f8-11e4-8786-92d7a50b5930">
-                                        <i class="figure rel"><img alt="President Obama is ready to take the battle against the Sunni militant group, the Islamic State, into Syria, a senior administration official said." src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/National/Images/a947cd4772374a41a4166f67cf363fee-a947cd4772374a41a4166f67cf363fee-0.jpg"></i>
-                                        <p class="hed-cat">
+                                    <p class="hed-cat">
+                                    </p>
+                                    <h2 class="story-title hed-lead">
+                                        <a href="/business/2014/09/17/fed-signals-plan-keep-key-interest-rate-record-low/9N0JmzZNnNd9JjB4b6xzxL/story.html" data-uuid="83d5f2f4-3e95-11e4-b647-c1f5f970dbab">Fed to keep key interest rate at record low</a>
+                                    </h2>
 
-                                        </p>
-                                        <h2 class="story-title">Obama seeks OK to arm Syrian rebels</h2>
-                                    </a>
                                     <div class="excerpt">
-                                        <p>The move comes as President Obama prepares a high-stakes address to the nation over the US response to the Islamic State.
-                                            <time datetime="2014-09-10T16:33:08" class="stamp" data-pubtime="20140910203308">&nbsp;</time>
-                                        </p>
-                                    </div>
-
-                                    <ul class="related-stories">
-                                        <li><a href="/news/nation/2014/09/10/gop-rejects-obama-request-train-syrian-rebels/WnU5eYJ22zXjS1N5f5mkhK/story.html" class="">Reid calls for vote</a>
-                                        </li>
-                                        <li><a href="/news/nation/2014/09/09/with-plans-expand-war-islamic-state-questions-about-level-military-commitment/GnSELjDHw4ALlR9bEZqqUN/story.html" class="">Legislators fear ground war</a>
-                                        </li>
-                                        <li><a href="/news/world/2014/09/10/kerry-iraq-meet-with-new-iraqi-prime-minister/I6DOGHgieM5tE20KThlCFI/story.html" class="">Kerry pledges US support</a>
-                                        </li>
-                                        <li><a href="/opinion/2014/09/10/editorial-cartoon-obama-talks-isis/Yuzpd9BGpNdi8WFpbXX9cI/story.html" class="">Editorial cartoon: Obama and Islamic militants</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /end .related-stories -->
-                                </div>
-                                <!-- /end .story -->
-                                <!-- Standard header for the story JPTs -->
-                                <div class="story">
-
-                                    <a href="/sports/2014/09/10/dustin-pedroia-will-have-hand-surgery-thursday/ybFsIw143PaDes4Vu7cIaI/story.html" class="story-perm" data-uuid="14b4b5e0-393b-11e4-8786-92d7a50b5930">
-                                        <i class="figure rel"><img alt="The Red Sox would like to see Dustin Pedroia slide this way instead of headfirst. AP Photo/Elise Amendola" src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Sports/Images/22b2971b2a614eddbb0f5ffa0887f48f-22b2971b2a614eddbb0f5ffa0887f48f-0.jpg"></i>
-                                        <p class="hed-cat">
-
-                                        </p>
-                                        <h2 class="story-title">Dustin Pedroia will have hand surgery Thursday</h2>
-                                    </a>
-                                    <div class="excerpt">
-                                        <p>The surgery ends his season, but Pedroia does not expect it to hamper his usual offseason work.
-                                            <time datetime="2014-09-11T00:00:00" class="stamp" data-pubtime="20140911040000">&nbsp;</time>
+                                        <p>While the Federal Reserve will continue to cut the pace of bond-buying, it well keep a benchmark rate low &ldquo;for a considerable time.&rdquo;
+                                            <time datetime="2014-09-17T14:19:24" class="stamp" data-pubtime="20140917181924">&nbsp;</time>
                                         </p>
                                     </div>
 
@@ -534,34 +369,31 @@
                                     </ul>
                                     <!-- /end .related-stories -->
                                 </div>
-                                <!-- /end .story -->
+                                <div class="story">
+                                    <p class="hed-cat">
+                                    </p>
+                                    <h2 class="story-title">
+                                        <a href="/metro/2014/09/17/gambling-commission-officially-approves-wynn-casino-everett/Nnzmbb73MP80P2HcaSXMsN/story.html" data-uuid="c2900b72-3e74-11e4-b647-c1f5f970dbab" class="story-perm">
+                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/casino150-10443.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/casino150-10443.jpg"></i>
+                                            Walsh says he will speak with Wynn project officials</a>
+                                    </h2>
+                                    <div class="excerpt">
+                                        <p>Boston Mayor Martin Walsh was unable in the past to reach an agreement mitigating the impact of a casino in Everett.
+                                            <time datetime="2014-09-17T14:38:40" class="stamp" data-pubtime="20140917183840">&nbsp;</time>
+                                        </p>
+                                    </div>
+                                </div>
                                 <div class="story">
 
                                     <p class="hed-cat">
                                     </p>
                                     <h2 class="story-title">
-                                        <a href="/metro/2014/09/10/cooperating-witness-case-dzhokhar-tsarnaev-friend-was-paid-more-than-feds/M4X7rHLnOMa23T4YygBc4J/story.html" data-uuid="45a0df0e-3930-11e4-8786-92d7a50b5930">US paid witness in case against friend of Dzhokhar Tsarnaev</a>
+                                        <a href="/metro/2014/09/17/leadership-changes-announced-sex-offender-registry-board/rEMtIYb5H3SRgsQju3XD7K/story.html" data-uuid="67dd4ffe-3e8e-11e4-b647-c1f5f970dbab">Leadership changes announced at Sex Offender Registry Board</a>
                                     </h2>
 
                                     <div class="excerpt">
-                                        <p>The witness, whom authorities would not identify, was paid more than $66,000 for his assistance, records show.</p>
-                                    </div>
-
-                                </div>
-                                <!-- /end .story -->
-                                <!-- Standard header for the story JPTs -->
-                                <div class="story">
-
-                                    <a href="/business/2014/09/10/patient-perceptions-becoming-more-important-guide-for-neurologists-and-drug-makers/6LBnqr5KjtGwZKrGinU1uJ/story.html" class="story-perm" data-uuid="408b947a-3933-11e4-8786-92d7a50b5930">
-                                        <i class="figure rel"><img alt="Convention-goers arrived a the MSBoston2014 conference at the Hynes Convention Center Wednesday." src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Business/Images/Boghosian_11ms6_BIZ.jpg"></i>
-                                        <p class="hed-cat">
-
-                                        </p>
-                                        <h2 class="story-title">Convention for MS researchers opens in Boston</h2>
-                                    </a>
-                                    <div class="excerpt">
-                                        <p>MSBoston2014 is the largest multiple sclerosis scientific meeting ever, with more than 8,500 people registered.
-                                            <time datetime="2014-09-11T00:00:00" class="stamp" data-pubtime="20140911040000">&nbsp;</time>
+                                        <p>In an abrupt move, the state shook up the top leadership of the board today.
+                                            <time datetime="2014-09-17T13:16:47" class="stamp" data-pubtime="20140917171647">&nbsp;</time>
                                         </p>
                                     </div>
 
@@ -580,13 +412,13 @@
                                     <p class="hed-cat">
                                     </p>
                                     <h2 class="story-title">
-                                        <a href="/metro/2014/09/10/death-pizza-delivery-man-hyde-park-home-described-boston-courthouse-today/SlCaXk2lJmCYmVDGJrQkRI/story.html" data-uuid="102c8b16-3908-11e4-8786-92d7a50b5930" class="story-perm">
-                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Metro/Images/pizza-10089.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Metro/Images/pizza-10089.jpg"></i>
-                                            Killing of pizza delivery man detailed at trial</a>
+                                        <a href="/metro/2014/09/17/charlie-baker-packages-tax-cuts-other-ideas-designed-help-economy/xVRid5sBLLX2HNll7cECmL/story.html" data-uuid="7d94c942-3e90-11e4-b647-c1f5f970dbab" class="story-perm">
+                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/baker150-10434.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/baker150-10434.jpg"></i>
+                                            Charlie Baker offers plan for job creation in Mass.</a>
                                     </h2>
                                     <div class="excerpt">
-                                        <p>Two men face first-degree murder charges for allegedly stabbing and robbing Richel Nova at a vacant Hyde Park home in 2010.
-                                            <time datetime="2014-09-10T17:36:36" class="stamp" data-pubtime="20140910213636">&nbsp;</time>
+                                        <p>The Martha Coakley campaign responded to Baker&rsquo;s proposals by declaring, &ldquo;Charlie Baker&rsquo;s math just doesn&rsquo;t add up.&rdquo;
+                                            <time datetime="2014-09-17T13:31:42" class="stamp" data-pubtime="20140917173142">&nbsp;</time>
                                         </p>
                                     </div>
                                 </div>
@@ -595,17 +427,105 @@
                                         <h1 class="hed-cat">More headlines</h1>
                                         <ol id="most-viewed">
                                             <li class="saveable">
-                                                <a href="/news/nation/2014/09/10/ferguson-protesters-planning-road-shutdown-arrested/y5QMr5DiSn70l6yHjaXhKP/story.html" data-uuid="f2700858-3931-11e4-8786-92d7a50b5930">Ferguson protesters planning road shutdown arrested</a>
+                                                <a href="/news/nation/2014/09/17/obama-reaffirms-opposition-combat-iraq/fwLK7JaoitRMLqwT53h8oN/story.html" data-uuid="c0dac890-3e87-11e4-b647-c1f5f970dbab">Obama reaffirms opposition to combat in Iraq </a>
                                             </li>
                                             <li class="saveable">
-                                                <a href="/metro/2014/09/10/local-observances-mark-anniversary-sept-terrorist-attacks/M0Pqg51rYuVhyu0HGwoKfO/story.html" data-uuid="dc83f814-3923-11e4-8786-92d7a50b5930">Local observances to mark anniversary of Sept. 11 </a>
+                                                <a href="/business/2014/09/17/towersale/ZHCHDrXjWbtsWCQLUEH5yL/story.html" data-uuid="84693b64-3e85-11e4-b647-c1f5f970dbab">Norwegian bank buys stake in Boston office towers</a>
                                             </li>
                                         </ol>
                                     </nav>
                                 </div>
                             </div>
+
+                            <div class="group p-more">
+                                <div class="story first-story">
+
+                                    <a href="/news/science/2014/09/17/war-innate-chimpanzees-lethal-attacks-may-provide-advantage-eliminating-rivals/V3lwx38s1RId3ZACQmnuiJ/story.html" data-uuid="3a20edaa-3e8e-11e4-b647-c1f5f970dbab" class="story-perm">
+
+                                        <div class="figure lead-figure">
+                                            <img src="//www.bostonglobe.com/rf/image_r/Boston/2011-2020/2014/09/16/BostonGlobe.com/HealthScience/Images/Mitani_Ngogo_chimps_listening_to_distant_calls.r.jpg" data-fullsrc="//c.o0bg.com/rf/image_585w/Boston/2011-2020/2014/09/16/BostonGlobe.com/HealthScience/Images/Mitani_Ngogo_chimps_listening_to_distant_calls.jpg" alt="Caption: Adult males from the Ngogo community in Uganda, studied since 1995, listening to vocalizations from distant members of a rival community.
+">
+                                            <div class="figcaption">
+                                                <p class="credit">courtesy of John Mitani
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p class="hed-cat">
+                                        </p>
+                                        <h2 class="story-title">Is war innate or a modern human invention?</h2>
+                                    </a>
+
+                                    <div class="excerpt">
+                                        <p>Chimpanzee research suggests the unsavory side of human nature appears to be something we share with our closest ape relatives.
+                                            <time datetime="2014-09-17T13:15:29" class="stamp" data-pubtime="20140917171529">&nbsp;</time>
+                                        </p>
+                                    </div>
+
+                                    <ul class="related-stories">
+                                        <!-- raw hyperlink -->
+                                        <!-- related headline == '' -->
+                                        <!-- raw hyperlink -->
+                                        <!-- related headline == '' -->
+                                        <!-- raw hyperlink -->
+                                        <!-- related headline == '' -->
+                                    </ul>
+                                    <!-- /end .related-stories -->
+                                </div>
+                                <div class="story">
+                                    <p class="hed-cat">video</p>
+                                    <h2 class="story-title">
+                                        <a href="http://www.bostonglobe.com/magazine/2014/09/17/boston-globe-magazine-cooling-trend/9Bub5W8bsVd2Xeb5xn0kLM/story.html" data-uuid="61b1b4a4-3e8d-11e4-b647-c1f5f970dbab" class="story-perm">
+                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Lifestyle/Images/stylemagcover-5070--90x90.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Lifestyle/Images/stylemagcover-5070--90x90.jpg"></i>
+                                            Behind-the-scenes of the fall Style magazine</a>
+                                    </h2>
+                                    <div class="excerpt">
+                                        <p>Go behind the scenes and see what&rsquo;s coming in Sunday&rsquo;s Style magazine.
+                                            <time datetime="2014-09-17T13:09:27" class="stamp" data-pubtime="20140917170927">&nbsp;</time>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="story">
+                                    <p class="hed-cat">
+                                    </p>
+                                    <h2 class="story-title">
+                                        <a href="/metro/2014/09/17/happy-birthday-boston-here-city-oldest-document/fABtzK2zv93Ot5xWntb5cI/story.html" data-uuid="162f38cc-3e87-11e4-b647-c1f5f970dbab" class="story-perm">
+                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/Screen%20Shot%202014-09-17%20at%202.28.35%20PM.png" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/Screen%20Shot%202014-09-17%20at%202.28.35%20PM.png"></i>
+                                            Happy birthday, Boston. Here’s the city’s oldest document</a>
+                                    </h2>
+                                    <div class="excerpt">
+                                        <p>Boston&rsquo;s storied history began 384 years ago. At least on paper, it starts with a minor crisis.
+                                            <time datetime="2014-09-17T12:24:23" class="stamp" data-pubtime="20140917162423">&nbsp;</time>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="story">
+
+                                    <a href="/sports/2014/09/17/vikings-owner-says-team-made-mistake-adrian-peterson/XWWJZBTCwOLo9xYjreLueO/story.html" class="story-perm" data-uuid="dc4a0b04-3e87-11e4-b647-c1f5f970dbab">
+                                        <i class="figure rel"><img alt="Vikings owner Zygi Wilf spoke to the media during a press conference on Wednesday." src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Sports/Images/vikings150-8394.jpg"></i>
+                                        <p class="hed-cat">
+
+                                        </p>
+                                        <h2 class="story-title">Vikings owner says team ‘made a mistake’ on Peterson</h2>
+                                    </a>
+                                    <div class="excerpt">
+                                        <p>The Vikings had initially brought back their star running back following his indictment on a felony child-abuse charge in Texas.</p>
+                                    </div>
+
+                                    <ul class="related-stories">
+                                        <!-- raw hyperlink -->
+                                        <!-- related headline == '' -->
+                                        <!-- raw hyperlink -->
+                                        <!-- related headline == '' -->
+                                        <!-- raw hyperlink -->
+                                        <!-- related headline == '' -->
+                                    </ul>
+                                    <!-- /end .related-stories -->
+                                </div>
+                                <!-- /end .story -->
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="col bg-col-c">
 
@@ -623,15 +543,15 @@
                             <div class="content">
 
                                 <div class="story">
-                                    <p class="hed-cat">SCOT LEHIGH</p>
+                                    <p class="hed-cat">Alan M. Dershowitz</p>
                                     <h2 class="story-title">
-                                        <a href="/opinion/2014/09/09/showing-that-raises-doubts-about-coakley/guT4eylfzH6KqFIbXzgNNM/story.html" data-uuid="91498966-3899-11e4-8786-92d7a50b5930" class="story-perm">
-                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/EditorialOpinion/Images/lehigh-1138.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/EditorialOpinion/Images/lehigh-1138.jpg"></i>
-                                            A showing that raises doubts about Coakley</a>
+                                        <a href="/opinion/2014/09/16/targeted-killings-and-rule-law/hrwkmfwmEZ4kZH7KUJGafL/story.html" data-uuid="7a13b156-3e1e-11e4-b647-c1f5f970dbab" class="story-perm">
+                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/16/BostonGlobe.com/EditorialOpinion/Images/0917oped_bg_dershowitz4.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/16/BostonGlobe.com/EditorialOpinion/Images/0917oped_bg_dershowitz4.jpg"></i>
+                                            Targeted killings and the rule of law</a>
                                     </h2>
                                     <div class="excerpt">
-                                        <p>Martha Coakley&rsquo;s modest lead over Steven Grossman should send a shiver of unease up Democratic spines.
-                                            <time datetime="2014-09-10T01:59:41" class="stamp" data-pubtime="20140910055941">&nbsp;</time>
+                                        <p>The legal system needs to catch up with military technology.
+                                            <time datetime="2014-09-17T14:25:37" class="stamp" data-pubtime="20140917182537">&nbsp;</time>
                                         </p>
                                     </div>
                                 </div>
@@ -643,16 +563,16 @@
                                 <h1 class="hed-cat">More in Opinion</h1>
                                 <ol id="most-viewed">
                                     <li class="saveable">
-                                        <a href="/opinion/2014/09/09/what-baker-needs-win-vote/yV2GGFecszzT1oAX8fwy9K/story.html" data-uuid="69545c12-389c-11e4-8786-92d7a50b5930">What Baker needs to do to win my vote</a>
+                                        <a href="/opinion/2014/09/17/ebola-outbreak-liberia-health-care-infrastructure-underdeveloped/lTN5s8n77upOQkMclDIseK/story.html" data-uuid="58d8200c-3e88-11e4-b647-c1f5f970dbab">Liberia after Ebola</a>
                                     </li>
                                     <li class="saveable">
-                                        <a href="/opinion/2014/09/09/moulton-toughness-beats-out-tierney/0eCCkoQrqif4HxnKjH7BFM/story.html" data-uuid="8cf2ded4-389a-11e4-8786-92d7a50b5930">Moulton’s toughness beats out Tierney</a>
+                                        <a href="/opinion/2014/09/16/gov-patrick-should-elevate-his-game/XMbKTdk83Dc6k6tFIHsWpM/story.html" data-uuid="a0344e1c-3e1f-11e4-b647-c1f5f970dbab">Patrick should elevate his game</a>
                                     </li>
                                     <li class="saveable">
-                                        <a href="/opinion/2014/09/10/guinness-like-all-alcohol-really-good-for-you/o0403sxuEthkSPfVVq9WaM/story.html" data-uuid="9841eb7e-38b6-11e4-8786-92d7a50b5930">Why can’t alcohol labels tout benefits?</a>
+                                        <a href="/opinion/2014/09/16/bristol-overboard-climate-change/PeaW2euNynL6F8PwpXLjqM/story.html" data-uuid="a0d74360-3e1f-11e4-b647-c1f5f970dbab">Bristol County DA overboard on climate change </a>
                                     </li>
                                     <li class="saveable">
-                                        <a href="/opinion/2014/09/09/voters-have-option-other-than/KnDvkLVyiAL07gtqZGNbRL/story.html" data-uuid="72aac9be-389b-11e4-8786-92d7a50b5930">Voters have option other than ‘D’</a>
+                                        <a href="/opinion/2014/09/16/the-end-world-nah-just-people/zyh1UewagXttfdVd8wOkoM/story.html" data-uuid="9fca3cd4-3e1f-11e4-b647-c1f5f970dbab">The inglorious end of the world? Nah, just people</a>
                                     </li>
                                 </ol>
                             </nav>
@@ -666,15 +586,16 @@
                             <div class="content">
 
                                 <div class="story">
-                                    <p class="hed-cat">BetaBoston</p>
+                                    <p class="hed-cat">
+                                    </p>
                                     <h2 class="story-title">
-                                        <a href="http://betaboston.com/news/2014/09/10/amid-huge-apple-news-macworld-ending-its-print-run-and-slashing-staff/" data-uuid="4ab4e084-3931-11e4-8786-92d7a50b5930" class="story-perm">
-                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Business/Images/macworld-580x352.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/10/BostonGlobe.com/Business/Images/macworld-580x352.jpg"></i>
-                                            Macworld ending its print run and slashing staff</a>
+                                        <a href="http://betaboston.com/news/2014/09/17/cyphy-works-irobot-win-army-contracts-to-build-small-robot-bomb-detectors/" data-uuid="e0f8681e-3e76-11e4-b647-c1f5f970dbab" class="story-perm">
+                                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Business/Images/robot150-4822.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/17/BostonGlobe.com/Business/Images/robot150-4822.jpg"></i>
+                                            CyPhy Works, iRobot win US Army contracts</a>
                                     </h2>
                                     <div class="excerpt">
-                                        <p>Following Apple&rsquo;s biggest day of new product announcements in years, Macworld announced it would move to an all-digital format.
-                                            <time datetime="2014-09-10T17:27:38" class="stamp" data-pubtime="20140910212738">&nbsp;</time>
+                                        <p>The Boston-area companies have received contracts to build emergency robots that can find and diffuse explosives in pipes.
+                                            <time datetime="2014-09-17T10:28:22" class="stamp" data-pubtime="20140917142822">&nbsp;</time>
                                         </p>
                                     </div>
                                 </div>
@@ -694,108 +615,106 @@
 
                     <div class="content" data-carousel="standard">
                         <div class="feat-thumb">
-                            <a href="/opinion/2014/09/06/how-got-here/5Npe9ungSPbZ4V6FqE9sMI/story.html" data-uuid="0d9947aa-34a2-11e4-8ea0-5ec3b01893e3">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/06/BostonGlobe.com/EditorialOpinion/Images/israel-palestine-mitchell.jpg" alt="Smoke and debris rose after an Israeli strike hit Gaza City in the northern Gaza Strip on Aug. 19." />
-                                <h3 class="hed-cat">George Mitchell</h3>
-                                <h4 class="story-title">How we got here</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/business/2014/09/09/overhaul-planned-for-faneuil-hall-marketplace/KH5QlqWjpdISz3MYuqINwI/story.html" data-uuid="20679c34-3889-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Business/Images/plan150.jpg" alt="The plan calls for giving the food court a more open floor plan." />
+                            <a href="/metro/2014/09/16/blackstone/PsfNsBhI4Bglst1Jr7OIHJ/story.html" data-uuid="2b7de5e6-3dc6-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/home-bigh.jpg" alt="A view through kitchen window of the vermin-infested home from which four children, ages 5 months to 13 years, were removed and the remains of three infants were found. Crews spent four days cleaning the house before boarding it up." />
                                 <h3 class="hed-cat">
                                 </h3>
-                                <h4 class="story-title">Makeover eyed at Faneuil marketplace</h4>
+                                <h4 class="story-title">Boyfriend said to be clueless on 2 children</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/news/science/2014/09/10/earth-ozone-layer-recovering-scientists-say/w44mEw4LLyekK6YqH8XpqM/story.html" data-uuid="a0e4d626-3922-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/National/Images/bb264ea0115344539f8dbae0acb5ba2c-bb264ea0115344539f8dbae0acb5ba2c-0-1496--150x150.jpg" alt="An image provided by NASA shows the Earth’s ozone layer over the years." />
+                            <a href="/lifestyle/food-dining/2014/09/16/charlestown-legal-oysteria-embraces-italy/L8SU3yvxbYyIXjPN5mxcWK/story.html" data-uuid="54793ece-3d25-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/12/BostonGlobe.com/Lifestyle/Images/taylor_17dinpic_lifestyle_008A.jpg" alt="Seafood antipasto of shrimp, squid, octopus, and olives." />
+                                <h3 class="hed-cat">dining out</h3>
+                                <h4 class="story-title">Legal Oysteria embraces Italy</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/news/science/2014/09/17/king-richard-iii-died-painfully-battlefield/jWf3Jr9UrTyArjdmSHz19L/story.html" data-uuid="8a365efe-3e7c-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Lifestyle/Images/2014-09-16T231755Z_496881391_GM1EA9H0K0301_RTRMADP_3_BRITAIN-SCIENCE-RICHARDIII.jpg" alt="A facial reconstruction of King Richard III displayed during a news conference in central London on Feb, 5, 2013." />
                                 <h3 class="hed-cat">
                                 </h3>
-                                <h4 class="story-title">Ozone layer is recovering, scientists say</h4>
+                                <h4 class="story-title">King Richard III died painfully on battlefield</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/sports/2014/09/09/nfl-gambled-that-ray-rice-video-would-remain-concealed-and-lost/MALPXu3G3DQUA9cfsk3ovN/story.html" data-uuid="c465745c-388c-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/gasper.png" alt="Ray Rice hitting his wife can’t be condoned under any circumstances, but the incident can be a catalyst for the issue of domestic violence being taken more seriously by the NFL. File/Mel Evans/Associated Press" />
-                                <h3 class="hed-cat">Christopher L. Gasper</h3>
-                                <h4 class="story-title">NFL lost its gamble on Ray Rice video</h4>
+                            <a href="/news/world/2014/09/17/why-scotch-distillers-are-jittery-about-independent-scotland/dlIh0qaq92KdXuYa8hxUDM/story.html" data-uuid="8c0cc61c-3e7e-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Lifestyle/Images/04390681.jpg" alt="Scotch is one of the country's biggest exports along with petroleum and smoked salmon." />
+                                <h3 class="hed-cat">
+                                </h3>
+                                <h4 class="story-title">Why scotch distillers are jittery</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/arts/2014/09/10/surgery-center-rush-save-joan-rivers-life/2VVIxCaTZsK3ONUQWHUdIK/story.html" data-uuid="4d0f0dc6-38fc-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Arts/Images/rivers150-3918.jpg" alt="
+                            <a href="/business/2014/09/17/new-york-agency-devito-verdi-puts-bite-boston-campaigns/7ypANl2mbtBELnBSLJLA2L/story.html" data-uuid="860b5160-3e2a-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Business/Images/ad150.jpg" alt="Ellis Verdi (left) and Sal Devito are able to relax in a Japanese garden they created on a terrace at their offices on 5th Avenue in New York." />
+                                <h3 class="hed-cat">
+                                </h3>
+                                <h4 class="story-title">Two ad men capture Boston’s attention</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/sports/2014/09/16/red-sox-pirates-both-benefited-from-brock-holt-trade/1VKfNZ0dIkfKaSlkOxNyeL/story.html" data-uuid="79c0cfce-3e03-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Sports/Images/2014-09-05T005904Z_1567496008_NOCID_RTRMADP_3_MLB-BOSTON-RED-SOX-AT-NEW-YORK-YANKEES.jpg" alt="Brock Holt rounded the bases in the fifth inning Sept. 4 after hitting a home run at Yankee Stadium. " />
+                                <h3 class="hed-cat">Nick Cafardo | On baseball</h3>
+                                <h4 class="story-title">Trade for Brock Holt a big hit for Red Sox, Pirates</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/lifestyle/food-dining/2014/09/16/house-speaker-john-boehner/XItq0ablpMtxAo93lywyLP/story.html" data-uuid="f31dcb6e-3df0-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/16/BostonGlobe.com/Lifestyle/Images/Boehner.jpg" alt="
 " />
+                                <h3 class="hed-cat">My Morning Cup</h3>
+                                <h4 class="story-title">House Speaker John Boehner</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/sports/2014/09/16/amid-turmoil-and-outrage-nfl-keeps-counting-its-money/1r1teKwWsN7L3WcItzHKkK/story.html" data-uuid="5bbbb8aa-3dfd-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/shaughnessy.png" alt="Are NFL fans willing to send a message by boycotting games? It doesn’t seem likely. Jeff Wheeler/AP/Star Tribune
+ " />
+                                <h3 class="hed-cat">DAN SHAUGHNESSY</h3>
+                                <h4 class="story-title">Amid outrage, NFL keeps counting its money</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/metro/2014/09/16/coakley-baker-neck-and-neck-but-baker-has-bigger-war-chest/RljxGYZejqc6tisuSx0ROI/story.html" data-uuid="0e6d3dae-3e10-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/15/BostonGlobe.com/Metro/Images/gov150.jpg" alt="Gubernatorial candidates Martha Coakley (left) and Charlie Baker" />
                                 <h3 class="hed-cat">
                                 </h3>
-                                <h4 class="story-title">Inside the effort to save Joan Rivers’s life</h4>
+                                <h4 class="story-title">Martha Coakley tries to close cash gap</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/news/science/2014/09/10/snot-harvesting-drone-could-help-researchers-study-whales/IAaSZuecM6Msbtm0ZASq6M/story.html" data-uuid="a9617c8c-3909-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/09/BostonGlobe.com/HealthScience/Images/140801-EM-OTG-SnotBot-IMG_0202[9].jpg" alt="
-" />
+                            <a href="/metro/2014/09/16/northborough-pastor-helps-his-community-say-farewell-fallen-soldier/15cHVvGF8niegzdCCHWc4N/story.html" data-uuid="c90f049a-3e0f-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/farragher.png" alt="Firefighters saluted the procession at the funeral for Specialist Brian Arsenault, which was held in St. Rose of Lima Roman Catholic Church in Northborough on Tuesday. Hundreds of people arrived to express gratitude for his service, and people lined the route to the cemetery." />
+                                <h3 class="hed-cat">Thomas Farragher</h3>
+                                <h4 class="story-title">For broken-hearted, healing words of hope</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/arts/movies/2014/09/16/rory-kennedy-looks-lessons-war-with-new-documentary-last-days-vietnam/R74yqhaAddpujw7U8dKXlJ/story.html" data-uuid="3b8492b8-3e12-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/RoryKennedy_MG_9835Aa.jpg" alt=" Rory Kennedy’s latest documentary, “Last Days in Vietnam,” focuses on Saigon in the waning days of April 1975, when US officials began final evacuations." />
                                 <h3 class="hed-cat">
                                 </h3>
-                                <h4 class="story-title">Mucus-harvesting helps whale researchers</h4>
+                                <h4 class="story-title">RFK’s daughter creates Vietnam film</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/metro/2014/09/09/incument-democrat-rep-john-tierney-faces-battle-with-seth-moulton-insurgent-campaign/uvyHfF78AGOOovKbPEAZuJ/story.html" data-uuid="404d95c6-387f-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Metro/Images/seth150.jpg" alt="Seth Moulton, a Marine veteran, appealed for change in Washington." />
-                                <h3 class="hed-cat">
-                                </h3>
-                                <h4 class="story-title">Moulton upends Rep. Tierney</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/arts/music/2014/09/10/treats-half-billion-itunes-users-its-new-free-charge/e5LRALeTPqq7cc0y35u1DI/story.html" data-uuid="08e778a6-3909-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Arts/Images/bono150.jpg" alt="Apple CEO Tim Cook, left, smiles next to U2 members, The Edge, Bono, and Larry Mullen Jr. during an announcement of new products on Tuesday, Sept. 9, 2014, in Cupertino, Calif. (AP Photo/Marcio Jose Sanchez)" />
-                                <h3 class="hed-cat">album review</h3>
-                                <h4 class="story-title">U2, ‘Songs of Innocence’</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/lifestyle/style/2014/09/09/footballunease/0CWpvgKKGPAHGdLam8D25K/story.html" data-uuid="673cdf56-38a3-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Metro/Images/perry150.jpg" alt="Katherine Perry, a New England Patriots fan, says not purchasing a team jersey this year is her way of protesting the NFL’s initial response in the Ray Rice case." />
-                                <h3 class="hed-cat">
-                                </h3>
-                                <h4 class="story-title">NFL’s troubles weigh on fans</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/sports/2014/09/09/marvin-barnes-what-talent-what-waste/cSySkkPcHZaswmWuEZSIPL/story.html" data-uuid="717210d4-385a-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/ryanr.png" alt="Marvin Barnes (seen here with the Buffalo Braves) was often the best player on the floor. AP Photo/File" />
-                                <h3 class="hed-cat">Bob Ryan</h3>
-                                <h4 class="story-title">Marvin Barnes: What a talent, what a waste</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/metro/massachusetts/2014/09/09/deliberations-continue-boston-casino-license/WfU9lLf9gvQqaMnCJeP2vI/story.html" data-uuid="2039e5f8-382c-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/09/BostonGlobe.com/Metro/Images/casinos[1].jpg" alt="The Wynn Resort casino, at left, would be in Everett. The Mohegan Sun facility, at right, is proposed for Revere." />
-                                <h3 class="hed-cat">
-                                </h3>
-                                <h4 class="story-title">Concerns detailed on casino proposals</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/business/2014/09/09/apple-goes-big/gIoSzjdkHxDSyVJtSo7RrI/story.html" data-uuid="1dcbd38c-3884-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/09/BostonGlobe.com/Business/Images/455057712.jpg" alt="Apple chief executive Tim Cook (left) greeted the crowd with U2’s The Edge (second from left) and Bono at Tuesday’s event. U2 announced that its new album, “Songs of Innocence,” is now available exclusively on iTunes for free until Oct.13. (Photo by Justin Sullivan/Getty Images)" />
-                                <h3 class="hed-cat">
-                                </h3>
-                                <h4 class="story-title">Apple unveils new iPhones, a watch</h4>
+                            <a href="/arts/music/2014/09/16/sad-soulman-smith-woos-his-fans-house-blues/To2eiPFLS6gP15RiFt9DYI/story.html" data-uuid="139b9784-3df8-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/16/BostonGlobe.com/Arts/Images/17smith_photos01.jpg" alt="Sam Smith in concert at the House of Blues. " />
+                                <h3 class="hed-cat">Music review</h3>
+                                <h4 class="story-title">Soulman Smith woos his fans at House of Blues</h4>
                             </a>
                         </div>
                     </div>
@@ -823,30 +742,30 @@
                         <!-- Using p:getPartPage -->
                         <div class="main">
                             <div class="feat-excerpt ">
-                                <a href="/sports/2014/09/10/tom-brady-hopes-loss-motivates-patriots/UGwjE2CAbnI2hG7dHRbX8I/story.html" data-uuid="26da26f2-3903-11e4-8786-92d7a50b5930">
+                                <a href="/sports/2014/09/17/tom-brady-says-patriots-trying-figure-out-their-strengths/PCOBxbfjOTdcOaI4QfurhL/story.html" data-uuid="7b49a666-3e7d-11e4-b647-c1f5f970dbab">
                                     <img alt="
-" src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Sports/Images/Capture-8224--150x150.JPG" />
+" src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Sports/Images/brady150.jpg" />
                                     <h3 class="hed-cat">
 
                                     </h3>
-                                    <h4 class="story-title">Tom Brady hopes loss motivates Patriots</h4>
+                                    <h4 class="story-title">Tom Brady says Patriots trying to figure out their strengths</h4>
                                 </a>
-                                <p>&ldquo;We hate losing. It&rsquo;s a terrible feeling. Hopefully it motivates us,&rdquo; Brady said as the Patriots prepare for Sunday&rsquo;s game in Minnesota.</p>
+                                <p>The Patriots quarterback said part of the problem is he needs to distribute the ball better to his receivers.</p>
                             </div>
                         </div>
                         <div class="in-section">
                             <nav>
                                 <h1>Latest Headlines in Sports</h1>
                                 <ul>
-                                    <li><a href="/sports/2014/09/10/bill-belichick-wary-dangerous-vikings/88F5cfT5EeNV9CEDTWLnWL/story.html" data-uuid="756b51da-3910-11e4-8786-92d7a50b5930">Bill Belichick wary of dangerous Vikings</a>
+                                    <li><a href="/sports/2014/09/17/nfl-finalizes-new-drug-policy-adds-hgh-testing/zudCv42hKKK7wfnliYRNQN/story.html" data-uuid="b3bb5920-3e7a-11e4-b647-c1f5f970dbab">NFL finalizes new drug policy, adds HGH testing</a>
                                     </li>
-                                    <li><a href="/sports/2014/09/09/bill-belichick-patriots-turn-attention-vikings/EYL07ja6hVY4hZejFX0vfO/story.html" data-uuid="dcd55746-384b-11e4-8786-92d7a50b5930">Patriots losing streaks rare under Bill Belichick</a>
+                                    <li><a href="/sports/2014/09/17/bruins-reilly-smith-expected-hold-out-start-camp/9tSIa9qSxZDQdP0OTnYcRK/story.html" data-uuid="51d20734-3e8b-11e4-b647-c1f5f970dbab">Reilly Smith expected to hold out at start of Bruins camp</a>
                                     </li>
-                                    <li><a href="/sports/2014/09/09/roger-goodell-says-nfl-didn-see-ray-rice-video-until-monday/4CdRfJf8ml4QUQ4R5J9P8K/story.html" data-uuid="68808d7c-388a-11e4-8786-92d7a50b5930">Roger Goodell insists NFL hadn’t seen Ray Rice video</a>
+                                    <li><a href="/sports/2014/09/17/chandler-jones-named-afc-defensive-player-week/Fp2m9a6Cc4r8jfkGc8W8LJ/story.html" data-uuid="2e0ea256-3e79-11e4-b647-c1f5f970dbab">Chandler Jones named AFC defensive player of the week</a>
                                     </li>
-                                    <li><a href="/sports/2014/09/09/red-sox-may-shut-down-dustin-pedroia-for-rest-season/YuNUSErg4gNF2IBJCroWnL/story.html" data-uuid="7e497ecc-3888-11e4-8786-92d7a50b5930">Dustin Pedroia considers season-ending thumb surgery</a>
+                                    <li><a href="/sports/2014/09/17/jovial-bill-belichick-ready-for-raiders/fA3YNP4xozi7OB3XHhyZNI/story.html" data-uuid="0df6ffe2-3e77-11e4-b647-c1f5f970dbab">Jovial Bill Belichick ready for the Raiders</a>
                                     </li>
-                                    <li><a href="/sports/2014/09/09/red-sox-problems-run-core/A0Smyh66xYYjJAlrBvZv8J/story.html" data-uuid="47e9f84a-3881-11e4-8786-92d7a50b5930">Red Sox need to identify their core players</a>
+                                    <li><a href="/sports/2014/09/16/patriots-piling-penalties-alarming-rate/bK5WdjeYrStfvjg5lqa6wL/story.html" data-uuid="835cc74c-3e0b-11e4-b647-c1f5f970dbab">Patriots piling up penalties at alarming rate</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -876,31 +795,70 @@
                         <!-- Using p:getPartPage -->
                         <div class="main">
                             <div class="feat-excerpt ">
-                                <a href="/metro/2014/09/10/boston-school-committee-discuss-late-buses-madison-park-schedule-glitch/y5QsPTzYDRXVntdWeJ7uSO/story.html" data-uuid="d5efb888-3925-11e4-8786-92d7a50b5930">
-                                    <img alt="About 100 Madison Park students gathered outside the school as they awaited schedules this week." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/09/BostonGlobe.com/Metro/Images/DSC_0287.jpg" />
+                                <a href="/metro/2014/09/17/determining-cause-death-for-blackstone-infants-difficult-task/lPRSTYqV5aqG1afdw0i3UJ/story.html" data-uuid="32c91d94-3e29-11e4-b647-c1f5f970dbab">
+                                    <img alt="The bodies of three infants were found in this Blackstone, Mass. house." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/National/Images/e397d7c8af964b33a2614ad14b44181f-f0a9f053517d4577b51aa5ca792f48b6-2.jpg" />
                                     <h3 class="hed-cat">
-
                                     </h3>
-                                    <h4 class="story-title">School board to discuss Madison Park schedules, late buses</h4>
+                                    <h4 class="story-title">Finding cause of death for 3 infants difficult</h4>
                                 </a>
-                                <p>The Boston School Committee will talk about two major problems as school opened.</p>
+                                <p>Working with little more than skeletal remains, the state medical examiner faces a significant challenge in Blackstone.</p>
                             </div>
                         </div>
                         <div class="in-section">
                             <nav>
                                 <h1>Latest Headlines in Metro</h1>
                                 <ul>
-                                    <li><a href="/metro/2014/09/10/arrest-made-arlington-bike-path-robbery-but-another-crime-reported-area/W1zZGlghN27wG7rqJYxs6K/story.html" data-uuid="67b042a8-3938-11e4-8786-92d7a50b5930">Arrest made in Arlington bike path robbery, but another is reported</a>
+                                    <li><a href="/metro/2014/09/17/mass-residents-awarded-macarthur-foundation-grants/9tMHNm2MoGmSXJaWeL1uNM/story.html" data-uuid="9192770c-3e6b-11e4-b647-c1f5f970dbab">4 N.E. residents awarded MacArthur Foundation grants</a>
                                     </li>
-                                    <li><a href="/metro/2014/09/10/mayor-walsh-names-dorchester-resident-new-cabinet-post-chief-civic-engagement/8e4WsmiqoZG4HIkX5TpfDK/story.html" data-uuid="4a6dd7e8-3931-11e4-8786-92d7a50b5930">Walsh creates chief of civic engagement as new cabinet post</a>
+                                    <li><a href="/metro/2014/09/17/questioning-begins-hearings-for-superior-court-judicial-nominee-joshua-wall/LcOweQzpQ2ymPXwujPPS0J/story.html" data-uuid="436cce46-3e8f-11e4-b647-c1f5f970dbab">Judicial nominee Joshua Wall faces questions at hearing</a>
                                     </li>
-                                    <li><a href="/metro/2014/09/10/man-arrested-dozen-dogs-removed-from-dilapidated-quincy-house/IEUu7HmeovOgLGeLOy1oWI/story.html" data-uuid="12dcf0e4-3917-11e4-8786-92d7a50b5930">A dozen dogs removed from dilapidated Quincy house</a>
+                                    <li><a href="/metro/2014/09/17/sunny-cool-today-and-through-weekend/rsCEfkc1FgE6zEDDR4BVkJ/story.html" data-uuid="3af83a22-3e6f-11e4-b647-c1f5f970dbab">Sunny skies, cool temperatures will last through weekend</a>
                                     </li>
-                                    <li><a href="/metro/2014/09/10/umass-endowment-rises-record-million/2BRbbjcC8lePrkhVh1edZK/story.html" data-uuid="5611c5b6-390c-11e4-8786-92d7a50b5930">UMass endowment rises to record $757 million</a>
+                                    <li><a href="/metro/2014/09/16/northborough-mourns-army-paratrooper-brian-arsenault-who-was-killed-afghanistan-sept/7oy35VTeN4witR8sbcmnIP/story.html" data-uuid="f16e5bac-3dc4-11e4-b647-c1f5f970dbab">Northborough mourns soldier killed in Afghanistan </a>
                                     </li>
-                                    <li><a href="/metro/2014/09/10/state-gambling-regulators-ponder-greater-boston-casino-license-for-day/axeifNi8DWeoQWh93Aw2eP/story.html" data-uuid="fd383140-3902-11e4-8786-92d7a50b5930">Boston-area casino bidders claim errors in state review</a>
+                                    <li><a href="/metro/2014/09/16/wpi-student-dies-fall-from-parking-garage/Tcu7jM7psmyZeFdv2k2KkK/story.html" data-uuid="5bbd5f26-3e1f-11e4-b647-c1f5f970dbab">WPI student dies in fall from parking garage</a>
                                     </li>
-                                    <li><a href="/metro/2014/09/10/prosecutors-indict-man-using-dna-testing-that-distinguishes-him-from-his-twin-brother/gKfLy3XjmxvB2OysYg0WlM/story.html" data-uuid="9e15ef0c-3904-11e4-8786-92d7a50b5930">Rape suspect indicted with cutting-edge DNA testing</a>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-well">
+
+                    <h2 class="hed-section"><a href="/politics">Politics</a>
+                    </h2>
+                    <div class="content">
+
+
+                        <!-- Using p:getPartPage -->
+                        <div class="main">
+                            <div class="feat-excerpt ">
+                                <a href="/metro/2014/09/16/martha-coakley-pegs-early-education-plan-million-per-year/XInR5CRqLEm0qtbI45kHZL/story.html" data-uuid="76bd33a2-3dff-11e4-b647-c1f5f970dbab">
+                                    <img alt="
+" src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/greenhouse_MarthaCoakley_metro.jpg" />
+                                    <h3 class="hed-cat">
+
+                                    </h3>
+                                    <h4 class="story-title">Coakley pegs early education plan at $150 million per year</h4>
+                                </a>
+                                <p>The plan would expand a state voucher program to help low-income families pay for early education for their children.</p>
+                            </div>
+                        </div>
+                        <div class="in-section">
+                            <nav>
+                                <h1>Latest Headlines in Politics</h1>
+                                <ul>
+                                    <li><a href="/metro/2014/09/14/undecideds-auburn-weigh-familiar-candidates-coakley-and-baker/VFQooXXCDKhsMWVlHLYRxL/story.html" data-uuid="838aa448-3c7e-11e4-b647-c1f5f970dbab">Many yet to be persuaded in Mass. governor’s race</a>
+                                    </li>
+                                    <li><a href="/metro/2014/09/14/where-candidates-stand-tax-increases-changes/d7LrLuaq4ArPHET33E4AzH/story.html" data-uuid="01087b7e-3c7b-11e4-b647-c1f5f970dbab">Baker, Coakley steer clear of far-reaching tax talk</a>
+                                    </li>
+                                    <li><a href="/metro/2014/09/15/tough-new-opposes-bottle-bill-expansion/tfVnwP113fZvUunSnBSVZI/story.html" data-uuid="14491a8e-3d27-11e4-b647-c1f5f970dbab">Tough new ad opposes bottle bill expansion</a>
+                                    </li>
+                                    <li><a href="/metro/2014/09/15/state-investment-council-will-meet-tuesday-amid-reports-has-sold-its-stake-general-catalyst/nsFNbezhvrzWdl2ONSMr2M/story.html" data-uuid="a744ce14-3d1d-11e4-b647-c1f5f970dbab">N.J. reported to sell investment</a>
+                                    </li>
+                                    <li><a href="/metro/2014/09/15/scott-brown-jeanne-shaheen-tied-new-senate-poll/5lLyqcHalWXMKJ2oXhALuM/story.html" data-uuid="a2c10844-3cf5-11e4-b647-c1f5f970dbab">Scott Brown, Jeanne Shaheen tied in new N.H. Senate poll</a>
+                                    </li>
+                                    <li><a href="/metro/2014/09/15/martha-coakley-launches-new/7Sf7rWsH7i89sqjCGbpt6J/story.html" data-uuid="46d6d016-3cf7-11e4-b647-c1f5f970dbab">Martha Coakley launches new TV ad</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -927,68 +885,29 @@
                         <!-- Using p:getPartPage -->
                         <div class="main">
                             <div class="feat-excerpt ">
-                                <a href="/news/world/2014/09/10/kerry-iraq-meet-with-new-iraqi-prime-minister/I6DOGHgieM5tE20KThlCFI/story.html" data-uuid="0986e06a-38ca-11e4-8786-92d7a50b5930">
-                                    <img alt="Secretary of State John Kerry spoke at the State Department in Washington, Monday." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Foreign/Images/4898a70d83664588a28c1e2430fe6ffc-4898a70d83664588a28c1e2430fe6ffc-0.jpg" />
+                                <a href="/news/world/2014/09/17/excitement-and-anxiety-mounting-across-scotland/XoTdQmzhGi3mwYmTtUYVQP/story.html" data-uuid="f583cefc-3e6e-11e4-b647-c1f5f970dbab">
+                                    <img alt="A “Yes” campaigner stood outside a campaign rally in Glasgow, Scotland, on Wednesday." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/Foreign/Images/scot150-717.jpg" />
                                     <h3 class="hed-cat">
 
                                     </h3>
-                                    <h4 class="story-title">John Kerry pledges US support against Islamic State</h4>
+                                    <h4 class="story-title">Excitement and anxiety mounting across Scotland</h4>
                                 </a>
-                                <p>The secretary of state was in Baghdad to meet with Iraq&rsquo;s new leaders.</p>
+                                <p>Wednesday marks the final day of campaigning before Thursday&rsquo;s referendum on independence.</p>
                             </div>
                         </div>
                         <div class="in-section">
                             <nav>
                                 <h1>Latest Headlines in</h1>
                                 <ul>
-                                    <li><a href="/news/nation/2014/09/10/father-allegedly-confesses-killing-five-children/0I5FL5foVRDj51m6oPyNVM/story.html" data-uuid="95877ce0-3920-11e4-8786-92d7a50b5930">S.C. father allegedly confesses to killing five children</a>
+                                    <li><a href="/news/world/2014/09/17/iraqi-prime-minister-says-foreign-troops-not-needed/RJzIcRHtpSGjeRVdYdw9MN/story.html" data-uuid="b206cf38-3e75-11e4-b647-c1f5f970dbab">Iraqi prime minister says foreign troops not needed</a>
                                     </li>
-                                    <li><a href="/news/nation/2014/09/09/with-plans-expand-war-islamic-state-questions-about-level-military-commitment/GnSELjDHw4ALlR9bEZqqUN/story.html" data-uuid="b61a5b22-387f-11e4-8786-92d7a50b5930">Strategy in Iraq shifting; concerns steadfast</a>
+                                    <li><a href="/news/nation/2014/09/17/general-open-ground-force-option-iraq/Xe29IZudSSwljBm1P7sJEO/story.html" data-uuid="ce32eb40-3e2c-11e4-b647-c1f5f970dbab">US general won’t rule out US ground forces in Iraq</a>
                                     </li>
-                                    <li><a href="/news/nation/2014/09/09/veterans-watchdog-managers-lied-about-delays/yb1MqVIiqmAeMgRTPXak0I/story.html" data-uuid="22b93b02-3887-11e4-8786-92d7a50b5930">Veterans watchdog: VA managers lied about delays</a>
+                                    <li><a href="/news/world/2014/09/16/obama-urges-world-powers-bolster-ebola-response/JFd5gorAcF3T3Q1xLf4WvJ/story.html" data-uuid="40d0ade6-3e0e-11e4-b647-c1f5f970dbab">Obama issues Ebola challenge</a>
                                     </li>
-                                    <li><a href="/news/world/2014/09/09/report-finds-missile-strike-likely-crash-flight/yhIWhUUCmzTICi94djhMtO/story.html" data-uuid="e3f36dee-388f-11e4-8786-92d7a50b5930">Report finds missile strike likely in crash of flight 17</a>
+                                    <li><a href="/news/world/2014/09/16/west-bank-settler-group-boasts-rapid-growth/9TjFJXTydM6EFQndZ5TpML/story.html" data-uuid="70235408-3e05-11e4-b647-c1f5f970dbab">Israel’s West Bank population grows, drawing Palestinian ire</a>
                                     </li>
-                                    <li><a href="/news/world/2014/09/09/with-surge-liberia-ebola-case-toll-above/IKX6RD28dYK1iEtfV8hOaP/story.html" data-uuid="fac1806c-388d-11e4-8786-92d7a50b5930">With surge in Liberia, Ebola case toll above 4,200</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature-well">
-
-                    <h2 class="hed-section"><a href="/politics">Politics</a>
-                    </h2>
-                    <div class="content">
-
-
-                        <!-- Using p:getPartPage -->
-                        <div class="main">
-                            <div class="feat-excerpt ">
-                                <a href="/metro/2014/09/10/scott-brown-jeanne-shaheen-race-general-election-campaign-gets-underway-early/o2xe2Et2qt8mQWsB29l73I/story.html" data-uuid="2482f848-3917-11e4-8786-92d7a50b5930">
-                                    <img alt="Republican candidate for the US Senate Scott Brown." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Metro/Images/2014-09-10T132230Z_825850279_TM3EA9A0PXE01_RTRMADP_3_USA-ELECTION-NEW-HAMPSHIRE.jpg" />
-                                    <h3 class="hed-cat">
-
-                                    </h3>
-                                    <h4 class="story-title">Brown, Shaheen battle gets underway early</h4>
-                                </a>
-                                <p>Scott Brown faced hostile questions at an early morning campaign stop, some from people allied with Democrats.</p>
-                            </div>
-                        </div>
-                        <div class="in-section">
-                            <nav>
-                                <h1>Latest Headlines in Politics</h1>
-                                <ul>
-                                    <li><a href="/metro/2014/09/10/charlie-baker-gop-nominee-for-governor-greets-south-station-commuters/AoYiNHBgaOY8IlSZvtLXZN/story.html" data-uuid="b896088c-38f3-11e4-8786-92d7a50b5930">Charlie Baker greets South Station commuters</a>
-                                    </li>
-                                    <li><a href="/metro/2014/09/10/charlie-baker-launches-first-race-against-martha-coakley-begins/KFkGBOLNJ7FPB24wOMdAtO/story.html" data-uuid="e3d90452-38d7-11e4-8786-92d7a50b5930">Charlie Baker launches first TV ad of general election</a>
-                                    </li>
-                                    <li><a href="/2014/09/09/governor/E05iS1vFgw0XmhBgHSpYoL/story.html" data-uuid="7ed58f4e-387d-11e4-8786-92d7a50b5930">For governor, it’s Coakley vs. Baker</a>
-                                    </li>
-                                    <li><a href="/metro/2014/09/10/with-primaries-over-baker-coakley-begins-earnest/KJSMBeToSfRwAXgLJQ3FQN/story.html" data-uuid="b3ab2dd8-38ae-11e4-8786-92d7a50b5930">Coakley, Baker hope to rebound from subpar 2010</a>
-                                    </li>
-                                    <li><a href="/metro/2014/09/09/scott-brown-hopes-for-new-hampshire-primary-win-set-senate-return/8aQxDOmctDMuhVM191pI5H/story.html" data-uuid="04477d0c-3871-11e4-8786-92d7a50b5930">In N.H., Scott Brown wins Senate bid</a>
+                                    <li><a href="/news/nation/2014/09/16/judge-extends-grand-jury-ferguson-case/RX6E0i71QaVlUODS0uLyvK/story.html" data-uuid="61e7b95a-3e10-11e4-b647-c1f5f970dbab">Judge extends grand jury in Ferguson case</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -1000,102 +919,102 @@
 
                     <div class="content" data-carousel="standard">
                         <div class="feat-thumb">
-                            <a href="/sports/2014/09/09/marvin-barnes-what-talent-what-waste/cSySkkPcHZaswmWuEZSIPL/story.html" data-uuid="717210d4-385a-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/ryanr.png" alt="Marvin Barnes (seen here with the Buffalo Braves) was often the best player on the floor. AP Photo/File" />
-                                <h3 class="hed-cat">Bob Ryan</h3>
-                                <h4 class="story-title">Marvin Barnes: What a talent, what a waste</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/opinion/2014/09/09/showing-that-raises-doubts-about-coakley/guT4eylfzH6KqFIbXzgNNM/story.html" data-uuid="91498966-3899-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/lehigh.png" alt="Martha Coakley addressed supporters at the Fairmont Copley Hotel." />
-                                <h3 class="hed-cat">SCOT LEHIGH</h3>
-                                <h4 class="story-title">A showing that raises doubts about Coakley</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/metro/2014/09/09/records-details-about-suspect-disappearance-quincy-woman/4EYKboHhcCpy5OLH1UMh5O/story.html" data-uuid="ea7ca2c8-387d-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/farragher.png" alt="Evelin Valibayova’s parents said precious days were lost in the immediate aftermath of her disappearance when they said Quincy police downplayed the urgency of the case." />
+                            <a href="/metro/2014/09/16/northborough-pastor-helps-his-community-say-farewell-fallen-soldier/15cHVvGF8niegzdCCHWc4N/story.html" data-uuid="c90f049a-3e0f-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/farragher.png" alt="Firefighters saluted the procession at the funeral for Specialist Brian Arsenault, which was held in St. Rose of Lima Roman Catholic Church in Northborough on Tuesday. Hundreds of people arrived to express gratitude for his service, and people lined the route to the cemetery." />
                                 <h3 class="hed-cat">Thomas Farragher</h3>
-                                <h4 class="story-title">Parents’ hope runs deep</h4>
+                                <h4 class="story-title">For broken-hearted, healing words of hope</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/business/2014/09/09/tis-season-for-bad-speech-enter-ted-talk-which-can-change-future-public-speaking/KjxJBdJxmte6kDB3kG5ssK/story.html" data-uuid="604531ca-38a4-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/leung.png" alt="
-" />
+                            <a href="/business/2014/09/16/chef-daniel-boulud-takes-bite-out-boston/1BM3OT3RcUOpbNImtMY7FK/story.html" data-uuid="4bb9d7a2-3e25-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/leung.png" alt="Boulud and assistant chef Randi Martin plated a scallop and sausage dish." />
                                 <h3 class="hed-cat">Shirley Leung</h3>
-                                <h4 class="story-title">TED’s a good prescription for making a point</h4>
+                                <h4 class="story-title">Boulud takes a bite out of Boston</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/opinion/2014/09/09/voters-have-option-other-than/KnDvkLVyiAL07gtqZGNbRL/story.html" data-uuid="72aac9be-389b-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/EditorialOpinion/Images/keane.png" alt="
-" />
-                                <h3 class="hed-cat">Tom Keane</h3>
-                                <h4 class="story-title">Voters have option other than ‘D’</h4>
+                            <a href="/sports/2014/09/16/amid-turmoil-and-outrage-nfl-keeps-counting-its-money/1r1teKwWsN7L3WcItzHKkK/story.html" data-uuid="5bbbb8aa-3dfd-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/shaughnessy.png" alt="Are NFL fans willing to send a message by boycotting games? It doesn’t seem likely. Jeff Wheeler/AP/Star Tribune
+ " />
+                                <h3 class="hed-cat">DAN SHAUGHNESSY</h3>
+                                <h4 class="story-title">Amid outrage, NFL keeps counting its money</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/sports/2014/09/09/nfl-gambled-that-ray-rice-video-would-remain-concealed-and-lost/MALPXu3G3DQUA9cfsk3ovN/story.html" data-uuid="c465745c-388c-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/gasper.png" alt="Ray Rice hitting his wife can’t be condoned under any circumstances, but the incident can be a catalyst for the issue of domestic violence being taken more seriously by the NFL. File/Mel Evans/Associated Press" />
-                                <h3 class="hed-cat">Christopher L. Gasper</h3>
-                                <h4 class="story-title">NFL lost its gamble on Ray Rice video</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/opinion/2014/09/10/guinness-like-all-alcohol-really-good-for-you/o0403sxuEthkSPfVVq9WaM/story.html" data-uuid="9841eb7e-38b6-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/jacoby.png" alt="
-" />
+                            <a href="/opinion/2014/09/16/bristol-overboard-climate-change/PeaW2euNynL6F8PwpXLjqM/story.html" data-uuid="a0d74360-3e1f-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/jacoby.png" alt="Bristol County District Attorney Sam Sutter holds up an issue of Rolling Stone containing Bill McKibben’s climate change piece." />
                                 <h3 class="hed-cat">JEFF JACOBY</h3>
-                                <h4 class="story-title">Why can’t alcohol labels tout benefits?</h4>
+                                <h4 class="story-title">Bristol DA overboard on climate change</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/opinion/2014/09/09/moulton-toughness-beats-out-tierney/0eCCkoQrqif4HxnKjH7BFM/story.html" data-uuid="8cf2ded4-389a-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/vennochi.png" alt="John Tierney conceded at his election night party at the Hawthorne Hotel in Salem." />
-                                <h3 class="hed-cat">JOAN VENNOCHI</h3>
-                                <h4 class="story-title">Moulton’s toughness beats out Tierney</h4>
+                            <a href="/business/2014/09/16/fight-for-boston-casino-license-there-one-big-winner-and-long-list-losers/NFg5v2YrWBefYj3DSbsKfJ/story.html" data-uuid="383b52ba-3dfc-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/leung.png" alt="A rendering of Steve Wynn’s proposed casino complex in Everett." />
+                                <h3 class="hed-cat">shirley Leung</h3>
+                                <h4 class="story-title">One big winner and a long list of losers</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/metro/2014/09/08/the-red-bandanna/6VqHDgzdueX73AMqTmud3J/story.html" data-uuid="451cfbda-37b9-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/09/BostonGlobe.com/Metro/Images/cullen-9943.jpg" alt="Welles Remy Crowther" />
-                                <h3 class="hed-cat">KEVIN CULLEN</h3>
-                                <h4 class="story-title">A symbol of selflessness</h4>
+                            <a href="/opinion/2014/09/16/gov-patrick-should-elevate-his-game/XMbKTdk83Dc6k6tFIHsWpM/story.html" data-uuid="a0344e1c-3e1f-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/lehigh.png" alt="On primary night, speaking at Martha Coakley’s celebration, Governor Deval Patrick fired a blast of bombast into Charlie Baker’s backside." />
+                                <h3 class="hed-cat">SCOT LEHIGH</h3>
+                                <h4 class="story-title">Patrick should elevate his game</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/sports/2014/09/08/ray-rice-case-was-one-failure-after-another/WL8y1WGO6qZniCskhtgoyI/story.html" data-uuid="21b2dfa6-376a-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/shaughnessy.png" alt="Running back Ray Rice was cut by the Baltimore Ravens and suspended indefinitely by the NFL on Monday." />
-                                <h3 class="hed-cat">Dan Shaughnessy</h3>
-                                <h4 class="story-title">In Rice case, one failure after another</h4>
-                            </a>
-                        </div>
-
-                        <div class="feat-thumb">
-                            <a href="/business/2014/09/08/new-genzyme-drug-comes-high-price/AuP687X9lU947JlbgCcKhK/story.html" data-uuid="5a256ef6-37c1-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/syre.png" alt="
+                            <a href="/opinion/2014/09/16/the-end-world-nah-just-people/zyh1UewagXttfdVd8wOkoM/story.html" data-uuid="9fca3cd4-3e1f-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/17/BostonGlobe.com/EditorialOpinion/Images/Alex_Beam_150px-1164.png" alt="
 " />
-                                <h3 class="hed-cat">Boston Capital</h3>
-                                <h4 class="story-title">New drug comes at a high price</h4>
+                                <h3 class="hed-cat">Alex Beam</h3>
+                                <h4 class="story-title">The inglorious end of the world?</h4>
                             </a>
                         </div>
 
                         <div class="feat-thumb">
-                            <a href="/metro/2014/09/07/either-everett-revere-will-lose-casino-bid-commission-both-cities-have-case-but-rooting-against-carlo-demaria/sKCSKUE8Apdcgh3yRDk8gM/story.html" data-uuid="9bc22b0e-36fb-11e4-8786-92d7a50b5930">
-                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/walkera.png" alt="Everett Mayor Carlo DeMaria is the mayor who has been accused by a string of women of harassment. " />
-                                <h3 class="hed-cat">Adrian Walker</h3>
-                                <h4 class="story-title">Carlo DeMaria not worth gamble</h4>
+                            <a href="/opinion/2014/09/16/ballots-bullets/R1nbmnwPJVmEtKhV7DHlkN/story.html" data-uuid="be88d710-3d67-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/stockman.png" alt="A Palestinian argues with Israeli police in East Jerusalem Sept. 8." />
+                                <h3 class="hed-cat">Farah Stockman</h3>
+                                <h4 class="story-title">Two strategies for rights</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/metro/2014/09/15/all-welles-that-ends-welles/7eDOXrSOoG1uy8vZuAPqTL/story.html" data-uuid="73db031a-3d43-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/cullen.png" alt="Welles Remy Crowther" />
+                                <h3 class="hed-cat">KEVIN CULLEN</h3>
+                                <h4 class="story-title">Brimming with pride</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/opinion/2014/09/16/the-end-civilization/DkOJmBN1579CPTnwbT51iN/story.html" data-uuid="bd9e4a56-3d67-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/16/BostonGlobe.com/EditorialOpinion/Images/keane-1158.png" alt="
+" />
+                                <h3 class="hed-cat">TOM KEANE</h3>
+                                <h4 class="story-title">Pelosi should apologize to Republicans</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/opinion/2014/09/16/alzheimer-didn-rob-family-memories/fS6vo0drJFMnxVj65VjMjN/story.html" data-uuid="bdcb7792-3d67-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/jackson.png" alt="
+" />
+                                <h3 class="hed-cat">Derrick z. jackson</h3>
+                                <h4 class="story-title">Alzheimer’s didn’t rob family memories</h4>
+                            </a>
+                        </div>
+
+                        <div class="feat-thumb">
+                            <a href="/business/2014/09/15/nfl-needs-new-commissioner-domestic-abuse-scandal/txqJEE4NPe9E370svUnyLJ/story.html" data-uuid="2df9546a-3d42-11e4-b647-c1f5f970dbab">
+                                <img src="//c.o0bg.com/rf/image_150x150/Boston/Library/Staff/Caricatures/syre.png" alt="Roger Goodell has laid out ambitious revenue growth goals for the NFL. " />
+                                <h3 class="hed-cat">Opinion | Steven Syre</h3>
+                                <h4 class="story-title">For NFL, real issue is bottom line</h4>
                             </a>
                         </div>
                     </div>
@@ -1119,29 +1038,29 @@
                         <!-- Using p:getPartPage -->
                         <div class="main">
                             <div class="feat-excerpt ">
-                                <a href="/business/2014/09/09/airbnb-for-student-notes-cengage-creates-digital-marketplace-for-classroom-study-guides/iNyaPCzJBiPz2oe9rT5WNK/story.html" data-uuid="4fa76270-388b-11e4-8786-92d7a50b5930">
-                                    <img alt="Boston startup Flashnotes allows students to buy and sell study materials." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/10/BostonGlobe.com/Business/Images/notes150.jpg" />
+                                <a href="/business/2014/09/16/house-panel-safety-agency-mishandled-recall/PQLaYpq9nZxiB4AdRszFQI/story.html" data-uuid="0f624758-3e07-11e4-b647-c1f5f970dbab">
+                                    <img alt="David Friedman has met with automakers to emphasize there’s ‘‘zero tolerance’’ for withholding safety information." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/16/BostonGlobe.com/Business/Images/2014-09-15T221833Z_569580769_TM3EA9F1EPN01_RTRMADP_3_GM-RECALL-NHTSA.jpg" />
                                     <h3 class="hed-cat">
 
                                     </h3>
-                                    <h4 class="story-title">Big business in students’ notes</h4>
+                                    <h4 class="story-title">House panel: Safety agency mishandled GM recall</h4>
                                 </a>
-                                <p>A new digital marketplace allows students at more than 900 universities to buy and sell study materials.</p>
+                                <p>The committee found that many of the bureaucratic mistakes that plagued GM are also problems at the highway safety agency.</p>
                             </div>
                         </div>
                         <div class="in-section">
                             <nav>
                                 <h1>Latest Headlines in Business</h1>
                                 <ul>
-                                    <li><a href="/2014/09/10/boston-city-council-approves-landsmark-nomination-bra-board/2FbR87QrzJkD4JzPqwybjL/story.html" data-uuid="7c361fd0-390c-11e4-8786-92d7a50b5930">City Council approves Landsmark for BRA board</a>
+                                    <li><a href="/business/2014/09/17/airport-workers-take-crucial-step-toward-forming-union/lrTspNzdoDNkgPd45Qh5sL/story.html" data-uuid="813c279a-3e89-11e4-b647-c1f5f970dbab">Airport workers take crucial step toward forming union</a>
                                     </li>
-                                    <li><a href="/business/2014/09/09/schneider-electric-move-headquarters-andover/WPGmpC9U3sx6o68anD5ZZN/story.html" data-uuid="b89c025e-3877-11e4-8786-92d7a50b5930">Schneider Electric to move US headquarters to Andover</a>
+                                    <li><a href="/business/2014/09/16/allston-apartment-buildings-sale-highlights-hot-real-estate-market/bQsCPpfXJu5njGLLZHDTPP/story.html" data-uuid="f4f70434-3dfd-11e4-b647-c1f5f970dbab">Allston sale highlights hot city housing market</a>
                                     </li>
-                                    <li><a href="/business/2014/09/09/weston-mansion-wine-cellar-and-hidden-bar-included-hits-market-for-million/UcPbzq4yA1OwvOwW1J8nsO/story.html" data-uuid="e3a7c812-3853-11e4-8786-92d7a50b5930">Weston mansion hits market for $24 million</a>
+                                    <li><a href="/business/2014/09/16/sonos-moves-resurgent-downtown-crossing-real-estate-market/XqOwRXu2gTXzSVlzvm6iwL/story.html" data-uuid="832963b2-3dfb-11e4-b647-c1f5f970dbab">Sonos is latest tech firm to head to Downtown Crossing</a>
                                     </li>
-                                    <li><a href="/business/2014/09/09/recovery-drives-dollar-sharply-higher/4aBxvED0XvGS8Zqtgz0erK/story.html" data-uuid="5f9ebdfa-387b-11e4-8786-92d7a50b5930">US recovery drives the dollar sharply higher</a>
+                                    <li><a href="/business/2014/09/16/oecd-calls-for-coordinated-fight-against-corporate-tax-avoidance/lha4yei4jaZmddcG2zpG2K/story.html" data-uuid="653e2ccc-3e08-11e4-b647-c1f5f970dbab">Nations back plan to deter corporate tax manipulation</a>
                                     </li>
-                                    <li><a href="/business/2014/09/09/boston-scientific-loses-million-first-mesh-case-defeat/cCc7uVncjh9ScmgXVHhfVK/story.html" data-uuid="53f78f68-3880-11e4-8786-92d7a50b5930">Boston Scientific loses $73 million in first mesh case defeat</a>
+                                    <li><a href="/business/2014/09/16/eastern-bank-brands-mass-pike-atms/hfYlPrzj9pSmU6mwo8e66H/story.html" data-uuid="053c2e10-3df3-11e4-b647-c1f5f970dbab">Eastern Bank brands Mass Pike ATMs</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -1173,28 +1092,28 @@
                         <!-- Using p:getPartPage -->
                         <div class="main">
                             <div class="feat-excerpt ">
-                                <a href="/arts/music/2014/09/09/friedman-mesmerizes-with-wind-and-water-foster/ib5UYiWvYm6DuQgIjbCtOI/story.html" data-uuid="0ea8bb9e-3795-11e4-8786-92d7a50b5930">
-                                    <img alt="Georgie Friedman’s installation “Hovering Hurricane: Sandy 2012.”" src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/08/BostonGlobe.com/Arts/Images/GFforGlobeHurricane.jpg" />
-                                    <h3 class="hed-cat">GAlleries
+                                <a href="/arts/television/2014/09/16/red-band-society-too-much-sentiment-could-fatal/rAypsqA39usPeIEPRHd0GK/story.html" data-uuid="4c325d8e-3d18-11e4-b647-c1f5f970dbab">
+                                    <img alt="Griffin Gluck and Octavia Spencer (above) and (below, from left) Brian Bradley, Nolan Sotillo, Gluck, and Charlie Rowe in Fox’s young adult drama “Red Band Society,” set in a pediatric hospital ward with teenagers facing serious illnesses." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/11/BostonGlobe.com/Arts/Images/RBS_03-21-14_0011_hires2-001.jpg" />
+                                    <h3 class="hed-cat">television review
                                     </h3>
-                                    <h4 class="story-title">Friedman mesmerizes at Foster</h4>
+                                    <h4 class="story-title">‘Red Band Society’: Too much sentiment could be fatal</h4>
                                 </a>
-                                <p>In Boston-area galleries this week, Georgie Friedman wrings poetic images from weather at Foster Gallery.</p>
+                                <p>This new young-adult Fox series is certainly going to divide audiences.</p>
                             </div>
                         </div>
                         <div class="in-section">
                             <nav>
                                 <h1>Latest Headlines in Arts</h1>
                                 <ul>
-                                    <li><a href="/arts/movies/2014/09/09/documentary-about-terrible-events-afghanistan/2JRNhHhnNDmFw0wT5lkrjM/story.html" data-uuid="9d33fd6c-377f-11e4-8786-92d7a50b5930">‘The Kill Team’ relives terrible events in Afghanistan</a>
+                                    <li><a href="/arts/television/2014/09/16/only-mystery-about-mysteries-why-isn-better/JNd32rbMTiopS0MsbceroK/story.html" data-uuid="5e2365d4-3d2b-11e4-b647-c1f5f970dbab">Only mystery about ‘Mysteries’ is why it isn’t better</a>
                                     </li>
-                                    <li><a href="/arts/movies/2014/09/09/documentary-about-eclectic-crew-that-sailed-greenland/cs5FL8Ixzz6Vds4Yen0sCP/story.html" data-uuid="ee4bcc1a-3780-11e4-8786-92d7a50b5930">An eclectic crew and ‘Expedition to the End of the World’</a>
+                                    <li><a href="/arts/movies/2014/09/16/jealousy-heals-child-within/NrbvytVTTmz2w7GbfMYedJ/story.html" data-uuid="375709d4-3d11-11e4-b647-c1f5f970dbab">‘Jealousy’ heals the child within </a>
                                     </li>
-                                    <li><a href="/arts/books/2014/09/09/book-review-read-how-the-great-gatsby-came-and-why-endures-maureen-corrigan/MC4xVA8MS3kHAS2M12otmI/story.html" data-uuid="1b621914-3783-11e4-8786-92d7a50b5930">‘So We Read On’ by Maureen Corrigan</a>
+                                    <li><a href="/arts/theater-art/2014/09/16/greek-artists-interpret-newsmaking-events-grossman/RjgMyLJ6s6XLfY9cnfSeSJ/story.html" data-uuid="31828016-3d24-11e4-b647-c1f5f970dbab">Greek artists interpret newsmaking events at Grossman</a>
                                     </li>
-                                    <li><a href="/arts/theater-art/2014/09/08/lyric-sweeney-todd-serves-revenge-one-customer-time/aZu8LuHVwEPzfRfRTTlniI/story.html" data-uuid="19362cba-3798-11e4-8786-92d7a50b5930">Lyric’s ‘Sweeney Todd’ serves up revenge</a>
+                                    <li><a href="/arts/books/2014/09/16/book-review-accidents-marriage-randy-susan-meyers/DA2gZcRBuDkC6ttvfu4xjL/story.html" data-uuid="7c667986-3d09-11e4-b647-c1f5f970dbab">‘Accidents of Marriage’ by Randy Susan Meyers</a>
                                     </li>
-                                    <li><a href="/arts/music/2014/09/08/boston-calling-closes-high-note/mBZr6F7mfOfkeX0PT12WSO/story.html" data-uuid="d5bb0d94-378c-11e4-8786-92d7a50b5930">Boston Calling closes on high note</a>
+                                    <li><a href="http://www.bostonglobe.com/arts/television" data-uuid="d1d12608-3b9e-11e4-8786-92d7a50b5930">Fall Television Preview</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -1211,68 +1130,28 @@
                         <!-- Using p:getPartPage -->
                         <div class="main">
                             <div class="feat-excerpt ">
-                                <a href="/lifestyle/food-dining/2014/09/09/start-from-scratch/UekB9apTVqapny3eiu6EBL/story.html" data-uuid="69ff6614-379a-11e4-8786-92d7a50b5930">
-                                    <img alt="" src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/03/BostonGlobe.com/Lifestyle/Images/suarez_10sourdoughpix_G_004.jpg" />
-                                    <h3 class="hed-cat">
-
+                                <a href="/lifestyle/food-dining/2014/09/16/tacos-flautas-burritos-and-more-somerville-spot/Nf9NblSi7Hu37hABTZQaCO/story.html" data-uuid="cd47c6c2-3d0c-11e4-b647-c1f5f970dbab">
+                                    <img alt="Customers at Taco Loco Mexican Grill in Somerville eye the offerings, which include beef tongue tacos (below left) and the flauta plate (right)." src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/12/BostonGlobe.com/Lifestyle/Images/kreiter_taco10_g.jpg" />
+                                    <h3 class="hed-cat">Cheap Eats
                                     </h3>
-                                    <h4 class="story-title">Do-it-yourself sourdough</h4>
+                                    <h4 class="story-title">Tacos, flautas, and burritos at Taco Loco</h4>
                                 </a>
-                                <p>Composed of little more than flour, water, salt, and a fermented starter, the chewy loaves are perfect for lunchbox sandwiches.</p>
+                                <p>The Somerville spot is serving up some of the best Mexican food in the area.</p>
                             </div>
                         </div>
                         <div class="in-section">
                             <nav>
                                 <h1>Latest Headlines in Food & dining</h1>
                                 <ul>
-                                    <li><a href="/lifestyle/food-dining/2014/09/09/local-farm-table-feast-serves-fundraiser/QoOv5XoWULcCBCuLUd6FbM/story.html" data-uuid="98a4464c-379a-11e4-8786-92d7a50b5930">Farm-to-table feast serves as fund-raiser</a>
+                                    <li><a href="/lifestyle/food-dining/2014/09/16/canbesmart-curry-and-other-unusual-recipes-from-noble-cookbook/TW5ixD1LHmOvo6maBOw6gO/story.html" data-uuid="dd74ee7a-3d08-11e4-b647-c1f5f970dbab">CanBeSmart Curry and other unusual recipes from ‘Ig Nobel Cookbook’</a>
                                     </li>
-                                    <li><a href="/lifestyle/food-dining/2014/09/09/middle-eastern-flavors-and-wellesley-flair-new-restaurant-juniper/mVnbpX4LgN87CW9x4n2a0L/story.html" data-uuid="8536695c-37a7-11e4-8786-92d7a50b5930">Middle Eastern flavors, Wellesley flair at Juniper</a>
+                                    <li><a href="/lifestyle/food-dining/2014/09/16/updated-steak-and-eggs-then-egg-salad-with-buckwheat-pancakes/LIqbQleOisWQfMhghccdjL/story.html" data-uuid="7c39b674-3d01-11e4-b647-c1f5f970dbab">Updated steak and eggs, then egg salad with pancakes</a>
                                     </li>
-                                    <li><a href="/lifestyle/food-dining/2014/09/09/hot-pot-and-other-asian-specialties-east-cambridge/cS6Yl0HOaBefUdKzljIfzI/story.html" data-uuid="2225fe8e-3786-11e4-8786-92d7a50b5930">A hot pot delight at Shabu & Mein</a>
+                                    <li><a href="/lifestyle/food-dining/2014/09/16/for-these-deli-owners-jewish-holiday-food-comes-from-their-own-menus/VHXxTLF4kBLtj8JOeqmUxI/story.html" data-uuid="20ffa730-3d1c-11e4-b647-c1f5f970dbab">For deli owners, Jewish holiday food comes from their own menus </a>
                                     </li>
-                                    <li><a href="/lifestyle/food-dining/2014/09/09/long-forgotten-heirloom-apples-joining-newer-varieties/q9Y4SSxBFQxS2ZPaXjjvPI/story.html" data-uuid="0f35f204-3789-11e4-8786-92d7a50b5930">Long-forgotten apples are ripe for discussion</a>
+                                    <li><a href="/lifestyle/food-dining/2014/09/16/the-quest-learn-make-perfect-baguette/lZKuOzPLO8lVveF5kWwThK/story.html" data-uuid="5a39d826-3d0e-11e4-b647-c1f5f970dbab">Samuel Fromartz’s quest to make the perfect baguette</a>
                                     </li>
-                                    <li><a href="/lifestyle/food-dining/2014/09/09/doughnut-hybrids-take-chicago-storm/WdBGMuzF2fTI71rsO3FRGM/story.html" data-uuid="8d9bab6a-378f-11e4-8786-92d7a50b5930">Doughnut hybrids storm into Chicago</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature-well">
-
-                    <h2 class="hed-section"><a href="http://www.bostonglobe.com/arts/specials/2014fallarts">Fall Arts Preview</a>
-                    </h2>
-                    <div class="content">
-
-
-                        <!-- Using p:getPartPage -->
-                        <div class="main">
-                            <div class="feat-excerpt ">
-                                <a href="http://www.bostonglobe.com/arts/specials/2014fallarts" data-uuid="5db04136-362c-11e4-8ea0-5ec3b01893e3">
-                                    <img alt="
-" src="//c.o0bg.com/rf/image_150x150/Boston/2011-2020/2014/09/06/BostonGlobe.com/Arts/Images/fallarspreviewo-4521--150x150.jpg" />
-                                    <h3 class="hed-cat">special section
-                                    </h3>
-                                    <h4 class="story-title">Fall arts preview</h4>
-                                </a>
-                                <p>A play revisits a polarizing New England figure, Cambridge dance centers go for a spin, and more fall offerings.</p>
-                            </div>
-                        </div>
-                        <div class="in-section">
-                            <nav>
-                                <h1>Latest Headlines in</h1>
-                                <ul>
-                                    <li><a href="/arts/movies/2014/09/06/fall-movies-aim-high/J1bxWE1MgokjqHL2GChrxN/story.html" data-uuid="c57a8e94-35c2-11e4-8ea0-5ec3b01893e3">Fall movies aim high</a>
-                                    </li>
-                                    <li><a href="http://www.bostonglobe.com/2014/09/06/fall-arts-preview-critics-picks/fYpWkE18M4mSV2mSzT462I/story.html" data-uuid="9a70770c-361e-11e4-8ea0-5ec3b01893e3">Fall Arts Preview: Critics’ picks</a>
-                                    </li>
-                                    <li><a href="/arts/music/2014/09/06/fall-arts-preview-upcoming-albums/VDn7L5jqVAPi2yiXyxJD4K/story.html" data-uuid="6645d05e-3483-11e4-8ea0-5ec3b01893e3">Critic’s picks: Upcoming albums</a>
-                                    </li>
-                                    <li><a href="/arts/theater-art/2014/09/06/tufts-exhibit-celebrates-storied-elephant-mascot-jumbo/P6gr0vdgVUCiLxxCheaXhP/story.html" data-uuid="fe8a99b0-3467-11e4-8ea0-5ec3b01893e3">Tufts celebrates storied elephant mascot Jumbo</a>
-                                    </li>
-                                    <li><a href="/arts/theater-art/2014/09/06/cambridge-dance-complex-green-street-studios-team-for-benefit-performance/V7D5sWXnZwRzioYLGAlEfI/story.html" data-uuid="17529396-345c-11e4-8ea0-5ec3b01893e3">Cambridge’s Dance Complex, Green Street Studios team up</a>
+                                    <li><a href="/lifestyle/food-dining/2014/09/16/inventive-asian-food-far-from-outlets-kittery/7278T17GeDHQzFAXTWXGpI/story.html" data-uuid="1ca3243e-3d1a-11e4-b647-c1f5f970dbab">Kimchi at the core of Kittery noodle bar</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -1294,13 +1173,13 @@
                             <div class="story">
                                 <p class="hed-cat">design new england</p>
                                 <h2 class="story-title">
-                                    <a href="/lifestyle/2014/09/04/leap-faith-martha-vineyard/t9SL8qaYvFKJFnR3FOj6bI/story.html" data-uuid="15aa01e6-3452-11e4-8ea0-5ec3b01893e3" class="story-perm">
-                                        <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/02/BostonGlobe.com/Lifestyle/Images/1405Recon_A.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/02/BostonGlobe.com/Lifestyle/Images/1405Recon_A.jpg"></i>
-                                        A leap of faith in Martha’s Vineyard</a>
+                                    <a href="http://digital.designnewengland.com/designnewengland/september_october_2014#pg35" data-uuid="8e01eff0-3de4-11e4-b647-c1f5f970dbab" class="story-perm">
+                                        <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/03/BostonGlobe.com/Lifestyle/Images/1405Gill_A.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/03/BostonGlobe.com/Lifestyle/Images/1405Gill_A.jpg"></i>
+                                        The test of time in Chatham</a>
                                 </h2>
                                 <div class="excerpt">
-                                    <p>A painstaking restoration transforms a landmark church into an eclectic family getaway.
-                                        <time datetime="2014-09-04T12:39:37" class="stamp" data-pubtime="20140904163937">&nbsp;</time>
+                                    <p>As an apprentice to Frank Lloyd Wright, Grattan Gill designed a house for his parents&rsquo; retirement. Now he&rsquo;s retired there himself.
+                                        <time datetime="2014-09-16T17:00:56" class="stamp" data-pubtime="20140916210056">&nbsp;</time>
                                     </p>
                                 </div>
                             </div>
@@ -1340,6 +1219,24 @@
 
                     <div class="content" data-carousel="standard">
                         <div class="slide">
+                            <a href="/magazine/2014/09/14" class="cover secondary">
+                                <img alt="The cover for the September 14 2014 issue" src="//c.o0bg.com/rf/pdf_160x193/Boston/2011-2020/2014/09/14/FrontPages/001RXMXXX0914F.jpg" />
+                            </a>
+
+                            <p class="date">
+                                <time datetime="2014-09-14">
+                                    <abbr title="September">Sep</abbr>
+                                    14, 2014</time>
+                            </p>
+
+                            <div class="latest-headlines">
+                                <nav>
+                                    <ul>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="slide">
                             <a href="/magazine/2014/09/07" class="cover secondary">
                                 <img alt="The cover for the September 7 2014 issue" src="//c.o0bg.com/rf/pdf_160x193/Boston/2011-2020/2014/09/07/FrontPages/001RXMXXX0907F.jpg" />
                             </a>
@@ -1350,26 +1247,9 @@
                                     7, 2014</time>
                             </p>
 
-                            <a href="/magazine/2014/09/06/hamilton-carriage-house-english-style-kitchen/vuIcfr9ztncv5t4cIOkMKI/story.html" class="story-perm">
-                                <h3 class="story-title">
-                                    In a Hamilton carriage house, an English-style kitchen</h3>
-
-                                <p>
-                                    <tgb:getTease var="tease" echo="true" path="/Boston/2011-2020/2014/08/18/BostonGlobe.com/Magazine/Stories/090714hamilton.xml" />
-                                </p>
-                            </a>
-                            <ul class="story-discuss">
-
-                            </ul>
                             <div class="latest-headlines">
                                 <nav>
                                     <ul>
-                                        <li>
-                                            <a href="/magazine/2014/09/03/ideas-for-environmentally-friendly-kitchen/LattGrhI5mraIy1WtwP29O/story.html">25 ideas for an environmentally friendly kitchen</a>
-                                        </li>
-                                        <li>
-                                            <a href="/magazine/2014/09/06/clever-bathroom-makeover-south-end/j047slom8nKSxQHacxo77H/story.html">A smart place for the bathtub</a>
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -1385,26 +1265,9 @@
                                     24, 2014</time>
                             </p>
 
-                            <a href="/magazine/2014/08/21/how-brother-life-ended-with-fentanyl-overdose/GRadSSKf0fKnrH7qnPCEmL/story.html" class="story-perm">
-                                <h3 class="story-title">
-                                    My brother’s life ended with an overdose</h3>
-
-                                <p>
-                                    <tgb:getTease var="tease" echo="true" path="/Boston/2011-2020/2014/08/07/BostonGlobe.com/Magazine/Stories/082414brother.xml" />
-                                </p>
-                            </a>
-                            <ul class="story-discuss">
-
-                            </ul>
                             <div class="latest-headlines">
                                 <nav>
                                     <ul>
-                                        <li>
-                                            <a href="/magazine/2014/08/22/learning-college-mom/MSLiYQa8aOPQSumRkTdmqL/story.html">Learning to be a college mom</a>
-                                        </li>
-                                        <li>
-                                            <a href="/magazine/2014/08/23/plan-broker-peace-between-drivers-and-cyclists/qfEjOI8C1hHBinfwOlkRPO/story.html">A plan to broker peace between drivers and cyclists </a>
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -1420,61 +1283,9 @@
                                     17, 2014</time>
                             </p>
 
-                            <a href="/magazine/2014/08/14/care-com-big-business-babysitting/4Fjpf5q3YUSw3rMn9GraOM/story.html" class="story-perm">
-                                <h3 class="story-title">
-                                    Care.com, the big business of babysitting</h3>
-
-                                <p>
-                                    <tgb:getTease var="tease" echo="true" path="/Boston/2011-2020/2014/08/01/BostonGlobe.com/Magazine/Stories/081714Care.com.xml" />
-                                </p>
-                            </a>
-                            <ul class="story-discuss">
-
-                            </ul>
                             <div class="latest-headlines">
                                 <nav>
                                     <ul>
-                                        <li>
-                                            <a href="/magazine/2014/08/13/boston-best-bbq-joints/YVnbvDCZrBlcUHTgqhUY7O/story.html">Boston’s 10 best BBQ joints </a>
-                                        </li>
-                                        <li>
-                                            <a href="/magazine/2014/08/13/which-america-great-barbecue-regions-does-best/OcjcooK6M0qMHISRD66T7O/story.html">Which of America’s great barbecue regions does it best?</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <a href="/magazine/2014/08/10" class="cover secondary">
-                                <img alt="The cover for the August 10 2014 issue" src="//c.o0bg.com/rf/pdf_160x193/Boston/2011-2020/2014/08/10/FrontPages/001RXMXXX0810F.jpg" />
-                            </a>
-
-                            <p class="date">
-                                <time datetime="2014-08-10">
-                                    <abbr title="August">Aug</abbr>
-                                    10, 2014</time>
-                            </p>
-
-                            <a href="/magazine/2014/08/09/revere-beach-photos-its-messy-unapologetic-kaleidoscopic-charm/T7b7Ct4mhkXJo0fXc6PM7N/story.html" class="story-perm">
-                                <h3 class="story-title">
-                                    Revere Beach in photos: Its messy, unapologetic, kaleidoscopic charm</h3>
-
-                                <p>
-                                    <tgb:getTease var="tease" echo="true" path="/Boston/2011-2020/2014/07/21/BostonGlobe.com/Magazine/Stories/081014revere.xml" />
-                                </p>
-                            </a>
-                            <ul class="story-discuss">
-
-                            </ul>
-                            <div class="latest-headlines">
-                                <nav>
-                                    <ul>
-                                        <li>
-                                            <a href="/magazine/2014/08/07/why-you-should-stop-watching-football/FYbCW73jay4MzeMQ6pC5TK/story.html">Why you should stop watching football</a>
-                                        </li>
-                                        <li>
-                                            <a href="/magazine/2014/08/09/mother-daughter-your-period-way/HVX1GSApcEmwlExbzIu0fN/story.html">Mother to daughter: ‘Is your period on the way?’</a>
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -1495,15 +1306,14 @@
                         <div class="box">
 
                             <div class="story">
-                                <p class="hed-cat">Ideas</p>
                                 <h2 class="story-title">
-                                    <a href="/ideas/2014/09/07/the-trouble-from-start/1zXlqgo1akwEOkAUzX04yO/story.html" data-uuid="e6fab550-3660-11e4-8ea0-5ec3b01893e3" class="story-perm">
-                                        <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/03/BostonGlobe.com/Ideas/Images/AP347989679981.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/03/BostonGlobe.com/Ideas/Images/AP347989679981.jpg"></i>
-                                        The VA: Trouble from the start</a>
+                                    <a href="/ideas/2014/09/13/energy-what-americans-really-want/SdM914A5hoIK4rKP2rKn3O/story.html" data-uuid="e97a5f98-3b9b-11e4-8786-92d7a50b5930" class="story-perm">
+                                        <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/13/BostonGlobe.com/Ideas/Images/Energy3b-626--90x90.jpg" alt="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/13/BostonGlobe.com/Ideas/Images/Energy3b-626--90x90.jpg"></i>
+                                        Energy: What Americans really want</a>
                                 </h2>
                                 <div class="excerpt">
-                                    <p>Created to save money, the agency has only ended up illuminating the human cost of war.
-                                        <time datetime="2014-09-07T03:30:39" class="stamp" data-pubtime="20140907073039">&nbsp;</time>
+                                    <p>A massive survey shows we&rsquo;re not as divided as we think.
+                                        <time datetime="2014-09-14T00:00:00" class="stamp" data-pubtime="20140914040000">&nbsp;</time>
                                     </p>
                                 </div>
                             </div>
@@ -1516,15 +1326,15 @@
                         <nav>
                             <h1 class="a11y-only">Latest Headlines in Opinion</h1>
                             <ul>
-                                <li><a href="/opinion/2014/09/06/how-got-here/5Npe9ungSPbZ4V6FqE9sMI/story.html" data-uuid="0d9947aa-34a2-11e4-8ea0-5ec3b01893e3">How we got here</a>
+                                <li><a href="/opinion/2014/09/13/fighting-terrorism-under-democracy-rule-law/QCfj8ChnNjusw60PEoFvJO/story.html" data-uuid="d12b0476-3bbc-11e4-8786-92d7a50b5930">War of principles</a>
                                 </li>
-                                <li><a href="/ideas/2014/09/05/bring-back-strange-apples/XATyDHvETNLG2BBmKX0tBP/story.html" data-uuid="edc64f24-3549-11e4-8ea0-5ec3b01893e3">Bring back the strange apples! </a>
+                                <li><a href="/ideas/2014/09/13/cheese-and-crackers-meal-for-ages/av1K91Kxd8dbUPKBzRcItM/story.html" data-uuid="a233c7b4-3ac9-11e4-8786-92d7a50b5930">Cheese and crackers: a meal for the ages</a>
                                 </li>
-                                <li><a href="/ideas/2014/09/07/the-dream-behind-boston-forbidding-government-service-center/zmTu4rsTtcfTqQKjy8sbtO/story.html" data-uuid="e414a79c-3660-11e4-8ea0-5ec3b01893e3">The dream behind Boston’s forbidding Government Service Center </a>
+                                <li><a href="/ideas/2014/09/13/your-body-mostly-microbes-actually-have-idea/qlcoKot4wfUXecjeVaFKFN/story.html" data-uuid="ade00620-3ba2-11e4-8786-92d7a50b5930">Is your body mostly microbes? Actually, we have no idea</a>
                                 </li>
-                                <li><a href="/ideas/2014/09/07/jesus-consummate-storyteller/Zxb4Gztcl0lt5srotUywmO/story.html" data-uuid="e08d2054-3660-11e4-8ea0-5ec3b01893e3">Jesus, the consummate storyteller</a>
+                                <li><a href="/ideas/2014/09/13/the-penobscot-project/44cVEt6Lbft8ul7dAEtdPI/story.html" data-uuid="0f0ee4ac-3ba3-11e4-8786-92d7a50b5930">In Maine, the Penobscot dictionary project rises again </a>
                                 </li>
-                                <li><a href="/ideas/2014/09/07/the-romantic-life-short-man/DaVYcWCPFhyMAh7Ky137kO/story.html" data-uuid="df960eb8-3660-11e4-8ea0-5ec3b01893e3">The romantic life of the short man</a>
+                                <li><a href="/ideas/2014/09/13/had-sex-forgot-about-church/mfcVyb0s6P6LOaDbXEFOcJ/story.html" data-uuid="36abaf72-3ba3-11e4-8786-92d7a50b5930">Had sex, forgot about church</a>
                                 </li>
                             </ul>
                         </nav>
@@ -1607,14 +1417,15 @@
                     </li>
                     <li><a href="http://www.bostonglobe.com/2014/03/07/your-choices/dwLYdic9FdW82vCiUsS4eL/story.html">Your Ad Choices</a>
                     </li>
-                    <li><a href="https://services.bostonglobe.com/aboutus/career/default.aspx?id=7098">Work here</a>
+                    <li><a href="http://www.boston.com/digitaljobs/">Digital Jobs at Boston Globe Media</a>
+                    </li>
+                    <li><a href="https://services.bostonglobe.com/aboutus/career/default.aspx?id=7098">View All Jobs at BGM</a>
                     </li>
                 </ul>
             </nav>
             <p class="bg-copy">&copy; 2014 Boston Globe Media Partners, LLC</p>
         </div>
     </footer>
-    <!-- Ellen Biewald - Small Meter Modal -->
     <div style="display:none;">
 
         <!-- Start small meter popup - first story visit -->
@@ -1723,7 +1534,7 @@
         <div id="modal_takeover" class="white-popup-block paywall-square-meter">
             <div class="inner">
                 <div class="header-text">
-                    <button title="Close (Esc)" type="button" class="mfp-close" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 3 - Close')">×</button>
+                    <button title="Close (Esc)" type="button" class="mfp-close" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Close')">×</button>
 
                     <h1>Read it all, now.</h1>
                 </div>
@@ -1740,7 +1551,7 @@
                 <footer>
 
                     <div class="button-section">
-                        <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113967" alt="desktop" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 3 - Get Access Now')">
+                        <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113967" alt="desktop" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Get Access Now')">
                             <button class="paywall-full-access-button">SIGN UP</button>
                         </a>
                     </div>
@@ -1749,8 +1560,8 @@
                     </div>
                     <div class="meter-links">
                         <ul>
-                            <li class="left">No thanks, <a href="#" class="mfp-close" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 3 - Back to Article')">take me to my article</a>.</li>
-                            <li class="right"><a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp" onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 3 - Login');">Subscribers log in here.</a>
+                            <li class="left">No thanks, <a href="#" class="mfp-close" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Back to Article')">take me to my article</a>.</li>
+                            <li class="right"><a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp" onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Login');">Subscribers log in here.</a>
                             </li>
                         </ul>
                     </div>
@@ -1927,12 +1738,19 @@
 
 
 
+    <!-- Determine sprop_3 -->
+
+
+
+
+
 
 
     <script>
     var sPageName = 'News | BGC Homepage';
     var sChannel = 'News';
     var sProp1 = 'News | BGC Homepage';
+    var sProp3 = '';
     var sProp6 = 'BGC Homepage';
     if (methode.showPaywall) {
         sChannel = 'Member Center';
@@ -1952,6 +1770,7 @@
         'pageName': sPageName,
         'channel': sChannel,
         'prop1': sProp1,
+        'prop3': sProp3,
         'prop6': sProp6,
 
         'prop35': 'logged out',
