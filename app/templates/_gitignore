@@ -8,3 +8,4 @@ globeproject.sublime-workspace
 data/<%= _.slugify(projectName) %>.html
 data/<%= _.slugify(projectName) %>_files
 libs
+parts/globe
