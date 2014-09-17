@@ -67,6 +67,8 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
     this.mkdir('data');
     this.template('data/_analysis.Rmd', 'data/' + _.slugify(this.projectName) + '.Rmd');
 
+    this.mkdir('graphics');
+
     this.directory('parts');
 
     this.mkdir('libs');

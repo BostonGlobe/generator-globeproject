@@ -1,61 +1,14 @@
-update:
+setup:
 
-	rm -rf globe; mkdir globe;
-	rm -rf globe/images; mkdir globe/images;
-	rm -rf globe/css; mkdir globe/css;
-	rm -rf globe/js; mkdir globe/js;
+	rm -rf globe;       mkdir globe;
+	rm -rf globe/css;   mkdir globe/css;
 	rm -rf globe/fonts; mkdir globe/fonts;
-	rm -rf globe/jpt; mkdir globe/jpt;
+	rm -rf globe/jpt;   mkdir globe/jpt;
+	rm -rf globe/js;    mkdir globe/js;
+	rm -rf globe/xml;   mkdir globe/xml;
 
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/01s.gif -O globe/images/01s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/02s.gif -O globe/images/02s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/03s.gif -O globe/images/03s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/04s.gif -O globe/images/04s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/06s.gif -O globe/images/06s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/12s.gif -O globe/images/12s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/13s.gif -O globe/images/13s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/15s.gif -O globe/images/15s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/weather/16s.gif -O globe/images/16s.gif;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/epaper_thumb.jpg -O globe/images/epaper_thumb.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg.png -O globe/images/logo-bg.png;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/White-B-Logo-non-transparent.jpg -O globe/images/White-B-Logo-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Globe-Logo-non-transparent.jpg -O globe/images/Globe-Logo-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Device-LockUp-non-transparent.jpg -O globe/images/Device-LockUp-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Device-LockUp-Mobile-non-transparent.jpg -O globe/images/Device-LockUp-Mobile-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg.png -O globe/images/logo-bg.png;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/White-B-Logo-non-transparent.jpg -O globe/images/White-B-Logo-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Globe-Logo-non-transparent.jpg -O globe/images/Globe-Logo-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Device-LockUp-non-transparent.jpg -O globe/images/Device-LockUp-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Device-LockUp-Mobile-non-transparent.jpg -O globe/images/Device-LockUp-Mobile-non-transparent.jpg;
-	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/form-password-eye-show.png -O globe/images/form-password-eye-show.png;
-
-	wget http://bostonglobe.com/css/icon-svg-data.css -O globe/css/icon-svg-data.css;
-	wget http://bostonglobe.com/css/icon-svg-data.css.map -O globe/css/icon-svg-data.css.map;
-	wget http://bostonglobe.com/css/globe-basic.css -O globe/css/globe-basic.css;
-	wget http://bostonglobe.com/css/globe-basic.css.map -O globe/css/globe-basic.css.map;
 	wget http://bostonglobe.com/css/globe-fonts.css -O globe/css/globe-fonts.css;
 	wget http://bostonglobe.com/css/globe-fonts.css.map -O globe/css/globe-fonts.css.map;
-	wget http://bostonglobe.com/css/globe-fonts.css,wishabi.css -O globe/css/globe-fonts.css,wishabi.css;
-	wget http://bostonglobe.com/css/wishabi.css -O globe/css/wishabi.css;
-	wget http://bostonglobe.com/css/wishabi.css.map -O globe/css/wishabi.css.map;
-	wget http://bostonglobe.com/css/globe-print.css?v=2.3 -O globe/css/globe-print.2.3.css;
-	wget http://bostonglobe.com/css/globe-trialHeaders.css -O globe/css/globe-trialHeaders.css;
-	wget http://bostonglobe.com/css/globe-trialHeaders.css.map -O globe/css/globe-trialHeaders.css.map;
-	wget http://bostonglobe.com/css/state.css.map -O globe/css/state.css.map;
-	wget http://bostonglobe.com/css/globe-print.css.map -O globe/css/globe-print.css.map;
-	wget http://bostonglobe.com/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-saved.css,globe-main.css,globe-footer.css,globe-trialHeaders.css,modal-login.css,globe-polldaddy.css,article.css,gallery.css,shame.css,state.css?v=2.3 -O globe/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-saved.css,globe-main.css,globe-footer.css,globe-trialHeaders.css,modal-login.css,globe-polldaddy.css,article.css,gallery.css,shame.css,state.2.3.css;
-	wget http://bostonglobe.com/r/SysConfig/WebPortal/BostonGlobe/Framework/skins/components/scoreboard/scoreboard.css -O globe/css/scoreboard.css;
-
-	wget http://bostonglobe.com/js/lib/jquery.js,lib/magnific.js,globe-modal-meter.js,globe-newsletter.js?v=2.3 -O globe/js/jquery.js,magnific.js,globe-modal-meter.js,globe-newsletter.2.3.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.ETC.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,lib/jquery.touch.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.touch.ETC.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,lib/jquery.touch.js,globe-videoplayer.js,lib/wishabi-carousel.js,wishabi-261.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.touch.ETC_v2.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,globe-videoplayer.js,globe-scoreboard.js,lib/wishabi-carousel.js,wishabi-261.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.homepage.ETC.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,globe-videoplayer.js,lib/wishabi-carousel.js,wishabi-261.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.homepage.ETC_v2.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,globe-scoreboard.js,lib/wishabi-carousel.js,wishabi-261.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.homepage.ETC_v3.js;
-	wget http://bostonglobe.com/js/lib/jquery.js,globe-analytics.js,lib/jquery.throttledresize.js,lib/jquery.carousel.js,lib/jquery.collapsible.js,lib/jquery.stickyscroll.js,lib/jquery.delayedenter.min.js,lib/jquery-ajax-include.js,globe-statusmsg.js,globe-common.js,globe-masthead.js,lib/picturefill.js,globe-scoreboard.js,globe-adcatalog.js,globe-adinclude.js,globe-contentinclude.js -O globe/js/jquery.js,globe-analytics.igraphic.ETC_v1.js;
-	wget http://bostonglobe.com/js/lib/psswrd.js -O globe/js/psswrd.js;
-	wget http://bostonglobe.com/js/lib/rwd-images.js,lib/respond.min.js,lib/modernizr.custom.min.js,globe-define.js,globe-controller.js -O globe/js/rwd-images.js,respond.min.js,modernizr.custom.min.js,globe-define.js,globe-controller.js;
 
 	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/BentonSans-Black/cd378061-6625-4ff0-8a52-906e943df050-2.eot -O globe/fonts/cd378061-6625-4ff0-8a52-906e943df050-2.eot;
 	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/BentonSans-Black/cd378061-6625-4ff0-8a52-906e943df050-3.woff -O globe/fonts/cd378061-6625-4ff0-8a52-906e943df050-3.woff;
@@ -78,6 +31,11 @@ update:
 	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerGlobeHead-CondLarge/07ac6474-5c01-4c20-adf5-813ccbd172de-1.ttf -O globe/fonts/07ac6474-5c01-4c20-adf5-813ccbd172de-1.ttf;
 	wget http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerGlobeHead-CondLarge/07ac6474-5c01-4c20-adf5-813ccbd172de-4.svg -O globe/fonts/07ac6474-5c01-4c20-adf5-813ccbd172de-4.svg;
 
-	wget http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/frameset/header/weather-forecast.jpt -O globe/jpt/weather-forecast.jpt;
-	wget http://bostonglobe.com/_ajax/scores/json.jpt -O globe/jpt/json.jpt;
 	wget http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/ajaxsamples/global-nav-menus.jpt -O globe/jpt/global-nav-menus.jpt;
+	wget http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/most_viewed_right.jpt -O globe/jpt/most_viewed_right.jpt;
+	wget http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/most_popular_right.jpt -O globe/jpt/most_popular_right.jpt;
+	wget http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/most_comment_right.jpt -O globe/jpt/most_comment_right.jpt;
+
+	wget http://bostonglobe.com/commons/js/portal.js -O globe/js/portal.js;
+
+	wget http://bostonglobe.com/ugc/topics -O globe/xml/topics.xml;

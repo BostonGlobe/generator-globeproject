@@ -10,7 +10,6 @@ git add common
 git add config.rb
 git add data
 git add globeproject.sublime-project
-git add graphics
 git add gulpfile.js
 git add middleware.json
 git add package.json
@@ -31,7 +30,7 @@ select gbn in "GitHub" "Bitbucket" "None"; do
 	esac
 done
 
-cd parts; make update; cd ../;
+cd parts; make setup; cd ../;
 
 echo "Next steps:"
 echo "1. run <npm install>."
