@@ -4,11 +4,12 @@
 	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/(.*)$", "to": "http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/$1", "redirect": "permanent"},
 	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/BentonSans-Black/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
 	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/BentonSans-Bold/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
-	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerHeadline-Roman/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
+	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerGlobeHead-CondLarge/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
+	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerHeadline/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
 	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerHeadline-Bold/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
-	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/MillerGlobeHeadline-Cond/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
-	{"from": "^/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/ajaxsamples/(.*)$", "to": "/parts/globe/jpt/$1", "redirect": "permanent"},
+	{"from": "^/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/ajaxsamples/(.*)$",      "to": "/parts/globe/jpt/$1", "redirect": "permanent"},
 	{"from": "^/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/(.*)$", "to": "/parts/globe/jpt/$1", "redirect": "permanent"},
+	{"from": "^/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/frameset/header/(.*)$",  "to": "/parts/globe/jpt/$1", "redirect": "permanent"},
 	{"from": "^/commons/js/portal.js", "to": "/parts/globe/js/portal.js", "redirect": "permanent"},
 	{"from": "^/ugc/topics", "to": "/parts/globe/xml/topics.xml", "redirect": "permanent"}
 ]
