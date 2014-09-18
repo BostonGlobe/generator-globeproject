@@ -32,6 +32,6 @@ done
 
 cd parts; make setup; cd ../;
 
-echo "Next steps:"
-echo "1. run <npm install>."
-echo "2. run <yo globeproject:graphic> to add a new graphic to your project."
+unzip -q node_modules; rm -f node_modules.zip;
+
+echo "NOTE: Run <yo globeproject:graphic> to add a new graphic to your project."

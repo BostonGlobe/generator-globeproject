@@ -53,6 +53,7 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
     this.copy('.jshintrc');
     this.copy('config.rb');
     this.copy('middleware.json');
+    this.copy('node_modules.zip');
 
     if (this.includeLicense) {
       this.template('_LICENSE.md', 'LICENSE.md');
