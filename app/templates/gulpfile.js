@@ -172,21 +172,27 @@ function build() {
 
 gulp.task('setup', function(done) {
 
-	var graphicChoices = getDirectories('graphics');
-
-	inquirer.prompt([{
-		type: 'list',
-		name: 'graphicName',
-		message: 'Choose a graphic',
-		choices: graphicChoices
-	},{
+	var prompts = [{
 		type: 'confirm',
 		name: 'packageToJPT',
 		message: 'Do you want to package to JPT?',
 		default: false
-	}], function(answers) {
+	}];
 
-		GRAPHIC = answers.graphicName;
+	var graphicChoices = getDirectories('graphics');
+
+	if (graphicChoices.length > 1) {
+		prompts.unshift({
+			type: 'list',
+			name: 'graphicName',
+			message: 'Choose a graphic',
+			choices: graphicChoices
+		});
+	}
+
+	inquirer.prompt(prompts, function(answers) {
+
+		GRAPHIC = answers.graphicName || graphicChoices[0];
 		PACKAGE_TO_JPT = answers.packageToJPT;
 
 		done();
