@@ -1,6 +1,6 @@
 .sass-cache
 .tmp
-node_modules
+/node_modules
 PROD.jpt
 git.sh
 index.html
