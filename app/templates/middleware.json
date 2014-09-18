@@ -1,5 +1,6 @@
 [
 	{"from": "^/js/(.*)$", "to": "http://bostonglobe.com/js/$1", "redirect": "permanent"},
+	{"from": "^/css/globe-fonts.css(.*)$", "to": "/parts/globe/css/globe-fonts.css$1", "redirect": "permanent"},
 	{"from": "^/css/((globe-fonts.css)*)(.*)$", "to": "http://bostonglobe.com/css/$3", "redirect": "permanent"},
 	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/(.*)$", "to": "http://bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/$1", "redirect": "permanent"},
 	{"from": "^/rw/SysConfig/WebPortal/BostonGlobe/Framework/type/BentonSans-Black/", "to": "/parts/globe/fonts/", "redirect": "permanent"},
