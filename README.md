@@ -32,7 +32,7 @@ Every graphic in your project has various folders and files. Here's a guide to t
 
 ### Editing HTML
 
-Put your graphic's html in `graphics/<graphic>/html/graphic.html`, specifically inside `<div class='<graphicType>-<graphic>'></div>`.
+Put your graphic's html in `graphics/<graphic>/html/html.html`, specifically inside `<div class='<graphicType>-<graphic>'></div>`.
 
 ### Editing CSS
 
@@ -40,7 +40,7 @@ Put your CSS in `graphics/<graphic>/css/_layout.scss`.
 
 ### Editing JavaScript
 
-Put your JavaScript in `graphics/<graphic>/js/globe.graphic.js`, specifically inside the `globe.graphic` function. If you need to load external libraries (e.g. [D3](http://d3js.org/)):
+Put your JavaScript in `graphics/<graphic>/js/main.js`. If you need to load external libraries (e.g. [D3](http://d3js.org/)):
 
 1. Use [Bower](http://bower.io/). If you're not familiar with this tool,
 2. Download the library manually. Place it in the `libs` folder.
