@@ -4,14 +4,8 @@
 }
 
 .header .main-hed,
-.igraphic-graphic p.subtitle {
+.article .subhed {
 	text-align: center;
-}
-
-.igraphic-graphic p.subtitle {
-	font-family: "Miller Headline Roman", "Times New Roman", Times, Georgia, serif;
-	font-size: 1.25em;
-	line-height: 1.5em;
 }
 
 .section-nav {
@@ -21,10 +15,6 @@
 .article > .byline,
 .article header .byline {
 	display: none;
-}
-
-.article .subhed {
-	text-align: center;
 }
 
 .aside {
