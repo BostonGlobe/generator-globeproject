@@ -14,6 +14,23 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
 
     var self = this;
 
+    process.stdout.write("Making sure you're running the latest version... ");
+
+    var latestVersion = _(exec('npm view generator-globeproject version', {silent:true}).output.split('\n'))
+      .filter(function(value) {
+        return value.length > 0;
+      })
+      .last();
+
+    var installedVersion = this.pkg.version;
+
+    if (installedVersion === latestVersion) {
+      process.stdout.write(' OK.\n');
+    } else {
+      process.stdout.write('\nYour generator is outdated. Please update it by running the following command in your terminal:\nsudo npm update -g generator-globeproject');
+      exit(1);
+    }
+
     function printError(library) {
       self.log(chalk.red("Looks like you didn't install " + library + ". Make sure to install all prerequisites, as detailed in " + chalk.underline.red('https://github.com/BostonGlobe/generator-globeproject#prerequisites.')));
     }
