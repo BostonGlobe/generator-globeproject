@@ -1,12 +1,12 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var _ = require('lodash');
-_.str = require('underscore.string');
+var util     = require('util');
+var path     = require('path');
+var yeoman   = require('yeoman-generator');
+var chalk    = require('chalk');
+var _        = require('lodash');
+_.str        = require('underscore.string');
 _.mixin(_.str.exports());
-var shelljs = require('shelljs/global');
+var shelljs  = require('shelljs/global');
 
 var GlobeprojectGenerator = yeoman.generators.Base.extend({
   init: function () {
