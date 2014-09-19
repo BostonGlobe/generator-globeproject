@@ -6,10 +6,32 @@ var chalk = require('chalk');
 var _ = require('lodash');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
+var shelljs = require('shelljs/global');
 
 var GlobeprojectGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
+
+    var self = this;
+
+    function printError(library) {
+      self.log(chalk.red("Looks like you didn't install " + library + ". Make sure to install all prerequisites, as detailed in " + chalk.underline.red('https://github.com/BostonGlobe/generator-globeproject#prerequisites.')));
+    }
+
+    ['hub', 'wget'].forEach(function(value) {
+      if (!which(value)) {
+        printError(value);
+        exit(1);
+      }
+    });
+
+    ['sass', 'compass', 'breakpoint'].forEach(function(value) {
+      var printout = exec('gem list ' + value + ' | grep ' + value + '', {silent:true}).output;
+      if (!printout.length) {
+        printError(value);
+        exit(1);
+      }
+    });
 
     this.on('end', function () {
       this.spawnCommand('sh', ['git.sh']);
