@@ -24,11 +24,14 @@ var GraphicGenerator = yeoman.generators.Base.extend({
       type: 'list',
       message: 'Choose the graphic type:',
       choices: ['igraphic', 'homepage', 'article']
-    // }, {
-    //   name: 'includeMobileTemplate',
-    //   type: 'confirm',
-    //   message: 'Go full-screen on touch devices?',
-    //   default: false
+    },{
+      when: function(response) {
+        return response.graphicType === 'igraphic';
+      },
+      name: 'fullScreenOnMobile',
+      type: 'confirm',
+      message: 'Go full-screen on touch devices?',
+      default: false
     }];
 
     this.prompt(prompts, function(props) {
@@ -43,6 +46,10 @@ var GraphicGenerator = yeoman.generators.Base.extend({
   files: function () {
 
     var baseDir = 'graphics' + '/' + this.graphicName;
+
+    if (this.fullScreenOnMobile) {
+      this.directory('img');
+    }
 
     this.mkdir(baseDir);
 
