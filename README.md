@@ -80,6 +80,10 @@ Run `gulp` and follow all prompts.
 
 - Run `gulp render-templates` to render all .template files in the precompile folder, output will be <filename>.html. Now you can just copy that over to your graphic html file.
 
+### Google spreadsheet data to JSON
+- Run `gulp spreadsheet` and follow the instructions on screen.
+- Results will be put the data folder as both csv and JSON.
+- Note: to use this, you must publish your spreadsheet, and make it public to the web via the share options. The sheet key can be found in the url, as well as the gid for the different tabs.
 
 ## License
 
