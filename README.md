@@ -82,7 +82,7 @@ Run `gulp` and follow all prompts.
 
 ### Google spreadsheet data to JSON
 - Run `gulp spreadsheet` and follow the instructions on screen.
-- Results will be put the data folder as both csv and JSON.
+- Results will be put in the data folder as both csv and JSON.
 - Note: to use this, you must publish your spreadsheet, and make it public to the web via the share options. The sheet key can be found in the url, as well as the gid for the different tabs.
 
 ## License
