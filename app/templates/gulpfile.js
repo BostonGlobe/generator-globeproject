@@ -3,6 +3,7 @@ var cheerio        = require('cheerio');
 var gulp           = require('gulp');
 var concat         = require('gulp-concat');
 var csso           = require('gulp-csso');
+var csv2json	   = require('gulp-csv2json');
 var fileinclude    = require('gulp-file-include');
 var gulpif         = require('gulp-if');
 var rename         = require('gulp-rename');
@@ -15,6 +16,7 @@ var useref         = require('gulp-useref');
 var gutil          = require('gulp-util');
 var rewriteModule  = require('http-rewrite-middleware');
 var inquirer       = require('inquirer');
+var request		   = require('request');
 var runSequence    = require('run-sequence');
 var through        = require('through2');
 var argv           = require('yargs').argv;
@@ -205,4 +207,46 @@ gulp.task('default', ['setup'], function() {
 
 	build();
 
+});
+
+
+// get spreadsheet data from 
+gulp.task('spreadsheet', function(cb) {
+
+    //get info from user
+    inquirer.prompt([{
+        type: 'input',
+        name: 'filename',
+        message: 'Name the data file',
+        default: 'sheet-data'
+    },{
+        type: 'input',
+        name: 'key',
+        message: 'Sheet key'
+    },{
+        type: 'input',
+        name: 'gid',
+        message: 'gid tab id',
+        default: 0
+    }], function(result) {
+
+            var filepath = 'data/' + result.filename + '.csv';
+            var url = 'https://docs.google.com/spreadsheets/d/' + result.key  + '/export?gid=' + result.gid + '&format=csv';
+
+            //clear old file
+            fs.writeFile(filepath, '', function (err) {
+                //pull down csv file from google
+                request.get(url)
+                    .pipe(stream);
+            });
+
+            //write data to file csv then convert to json
+            var stream = fs.createWriteStream(filepath, {flags: 'a'})
+                .on('finish', function() {
+                    gulp.src(filepath)
+                        .pipe(csv2json())
+                        .pipe(rename({extname: '.json'}))
+                        .pipe(gulp.dest('data'));
+                });
+        });
 });
