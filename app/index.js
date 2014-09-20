@@ -113,6 +113,8 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
 
     this.mkdir('libs');
 
+    this.mkdir('precompile');
+
     this.directory('node_modules');
   }
 });

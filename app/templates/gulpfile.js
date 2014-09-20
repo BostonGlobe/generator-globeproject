@@ -4,12 +4,14 @@ var gulp           = require('gulp');
 var concat         = require('gulp-concat');
 var csso           = require('gulp-csso');
 var csv2json	   = require('gulp-csv2json');
+var data 		   = require('gulp-data');
 var fileinclude    = require('gulp-file-include');
 var gulpif         = require('gulp-if');
 var rename         = require('gulp-rename');
 var rimraf         = require('gulp-rimraf');
 var sass           = require('gulp-ruby-sass');
 var smoosher       = require('gulp-smoosher');
+var renderTemplate = require('gulp-template');
 var template       = require('gulp-template-compile');
 var uglify         = require('gulp-uglify');
 var useref         = require('gulp-useref');
@@ -249,4 +251,20 @@ gulp.task('spreadsheet', function(cb) {
                         .pipe(gulp.dest('data'));
                 });
         });
+});
+
+// precompile lodash templates from json data
+gulp.task('render-templates', function () {
+    return gulp.src('precompile/*.template')
+        .pipe(data(function(file) {
+            return require('./precompile/' + path.basename(file.path, '.template') + '.json');
+        }))
+        .pipe(renderTemplate(null, {
+            interpolate: /{{([\s\S]+?)}}/g,
+            evaluate:    /{=([\s\S]+?)=}/g
+        }))
+        .pipe(rename(function (file) {
+    		file.extname = '.html'
+		}))
+        .pipe(gulp.dest('precompile'));
 });
