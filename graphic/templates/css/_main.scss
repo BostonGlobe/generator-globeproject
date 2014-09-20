@@ -4,3 +4,9 @@
 
 @import "common/css/_type";
 @import "graphics/<%= graphicName %>/css/_layout";
+<% if (fullScreenOnMobile) { %>
+@import "common/css/_fullScreenOnMobile";
+<% } %>
+
+
+

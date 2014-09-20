@@ -34,4 +34,5 @@ cd parts; make setup; cd ../;
 
 unzip -q node_modules; rm -f node_modules.zip;
 
+echo ""
 echo "NOTE: Run <yo globeproject:graphic> to add a new graphic to your project."

@@ -24,16 +24,20 @@ var GraphicGenerator = yeoman.generators.Base.extend({
       type: 'list',
       message: 'Choose the graphic type:',
       choices: ['igraphic', 'homepage', 'article']
-    // }, {
-    //   name: 'includeMobileTemplate',
-    //   type: 'confirm',
-    //   message: 'Go full-screen on touch devices?',
-    //   default: false
+    },{
+      when: function(response) {
+        return response.graphicType === 'igraphic';
+      },
+      name: 'fullScreenOnMobile',
+      type: 'confirm',
+      message: 'Go full-screen on touch devices?',
+      default: false
     }];
 
     this.prompt(prompts, function(props) {
       this.graphicName = props.graphicName;
       this.graphicType = props.graphicType;
+      this.fullScreenOnMobile = props.fullScreenOnMobile;
 
       done();
     }.bind(this));
@@ -60,11 +64,21 @@ var GraphicGenerator = yeoman.generators.Base.extend({
     thisDir = baseDir + '/' + 'js';
     this.mkdir(thisDir);
     this.copy('js/templates/blank.template', thisDir + '/' + 'templates' + '/' + 'blank.template');
+    if (this.fullScreenOnMobile) {
+      this.copy('js/templates/mobile.template', thisDir + '/' + 'templates' + '/' + 'mobile.template');
+    }
     this.template('js/_main.js', thisDir + '/' + 'main.js');
 
     this.template('_template-prod.html', baseDir + '/' + 'template-prod.html');
     this.template('_' + this.graphicType + '.html', baseDir + '/' + 'template.html'); 
     this.template('_git.sh', baseDir + '/' + 'git.sh');
+
+    if (this.fullScreenOnMobile) {
+      thisDir = 'common' + '/' + 'img';
+      this.mkdir(thisDir);
+      this.copy('img/b-richblack-48w.png', thisDir + '/' + 'b-richblack-48w.png');
+    }
+
   }
 });
 
