@@ -1,6 +1,6 @@
 {
   "name": "generator-globeproject",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
