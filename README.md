@@ -62,6 +62,29 @@ Run `gulp` and follow all prompts.
 
 - [Lodash templates are cool!](http://lodash.com/docs#template) And this generator supports them out of the box. Create a lodash template, place it in `graphics/<graphic>/js/templates`, and make sure to name it `*.template` (e.g. `graphics/<graphic>/js/templates/table.template`). The generator will automatically compile all templates to `js/templates/templates.js`. Add this file to `graphics/<graphic>/html/js.html`, and done! To reference the template: `window.JST['story.template']({name: "gabriel"})`.
 
+### Precompiled Lodash templates
+
+- If you want to create some html based on data, but don't want to do it in the client, you can precompile and render them to html. Uses the same Lodash templating style as our js templates.
+- To use, create a <filename>.template file in the precompile folder. Create a JSON file with the same filename in the same folder.
+
+```javascript
+{"name": "jira", "age": 19}
+```
+
+```html
+<p>Welcome {{name}}</p>
+{= if(age < 21) { =}
+	<p>You are too young to view this code</p>
+{= } =}
+```
+
+- Run `gulp render-templates` to render all .template files in the precompile folder, output will be <filename>.html. Now you can just copy that over to your graphic html file.
+
+### Google spreadsheet data to JSON
+- Run `gulp spreadsheet` and follow the instructions on screen.
+- Results will be put in the data folder as both csv and JSON.
+- Note: to use this, you must publish your spreadsheet, and make it public to the web via the share options. The sheet key can be found in the url, as well as the gid for the different tabs.
+
 ## License
 
 MIT © [The Boston Globe](http://github.com/BostonGlobe)
