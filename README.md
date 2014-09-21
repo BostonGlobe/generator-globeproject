@@ -22,7 +22,6 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 - Create the folder and cd into it: `mkdir myProject && cd $_`.
 - Invoke the generator: `yo globeproject`.
 - Follow all prompts.
-- Once the generator finishes scaffolding, run `npm install`.
 - To add a new graphic to your project, run `yo globeproject:graphic`.
 - NOTE: if you get an error mentioning "Please try running this command again as root/Administrator.", try running the same command as **super-user**. E.g. `sudo bower install`.
 
