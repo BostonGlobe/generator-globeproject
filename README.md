@@ -88,6 +88,8 @@ Run `gulp` and follow all prompts.
 
 - Gabriel Florit
 - Russell Goldenberg
+- Cecilia Reyes
+- Andrew Tran
 
 ## License
 
