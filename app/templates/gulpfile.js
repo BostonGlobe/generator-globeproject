@@ -3,8 +3,8 @@ var cheerio        = require('cheerio');
 var gulp           = require('gulp');
 var concat         = require('gulp-concat');
 var csso           = require('gulp-csso');
-var csv2json	   = require('gulp-csv2json');
-var data 		   = require('gulp-data');
+var csv2json       = require('gulp-csv2json');
+var data           = require('gulp-data');
 var fileinclude    = require('gulp-file-include');
 var gulpif         = require('gulp-if');
 var rename         = require('gulp-rename');
@@ -18,7 +18,7 @@ var useref         = require('gulp-useref');
 var gutil          = require('gulp-util');
 var rewriteModule  = require('http-rewrite-middleware');
 var inquirer       = require('inquirer');
-var request		   = require('request');
+var request        = require('request');
 var runSequence    = require('run-sequence');
 var through        = require('through2');
 var argv           = require('yargs').argv;
@@ -57,7 +57,7 @@ gulp.task('compile-stylesheets', function() {
 
 gulp.task('compile-templates', function() {
 	return gulp.src([
-			                  'common/js/templates/*.template',
+							  'common/js/templates/*.template',
 			'graphics/' + GRAPHIC + '/js/templates/*.template'
 		])
 		.pipe(template({
@@ -89,13 +89,13 @@ gulp.task('browser-sync', function() {
 
 	// watch for changes to scss
 	gulp.watch([
-		                  'common/css/*',
+						  'common/css/*',
 		'graphics/' + GRAPHIC + '/css/*'
 	], ['compile-stylesheets']);
 
 	// watch for changes to templates
 	gulp.watch([
-		                  'common/js/templates/*.template',
+						  'common/js/templates/*.template',
 		'graphics/' + GRAPHIC + '/js/templates/*.template'
 	], ['compile-templates']);
 
@@ -215,56 +215,56 @@ gulp.task('default', ['setup'], function() {
 // get spreadsheet data from 
 gulp.task('spreadsheet', function(cb) {
 
-    //get info from user
-    inquirer.prompt([{
-        type: 'input',
-        name: 'filename',
-        message: 'Name the data file',
-        default: 'sheet-data'
-    },{
-        type: 'input',
-        name: 'key',
-        message: 'Sheet key'
-    },{
-        type: 'input',
-        name: 'gid',
-        message: 'gid tab id',
-        default: 0
-    }], function(result) {
+	//get info from user
+	inquirer.prompt([{
+		type: 'input',
+		name: 'filename',
+		message: 'Name the data file',
+		default: 'sheet-data'
+	},{
+		type: 'input',
+		name: 'key',
+		message: 'Sheet key'
+	},{
+		type: 'input',
+		name: 'gid',
+		message: 'gid tab id',
+		default: 0
+	}], function(result) {
 
-            var filepath = 'data/' + result.filename + '.csv';
-            var url = 'https://docs.google.com/spreadsheets/d/' + result.key  + '/export?gid=' + result.gid + '&format=csv';
+			var filepath = 'data/' + result.filename + '.csv';
+			var url = 'https://docs.google.com/spreadsheets/d/' + result.key  + '/export?gid=' + result.gid + '&format=csv';
 
-            //clear old file
-            fs.writeFile(filepath, '', function (err) {
-                //pull down csv file from google
-                request.get(url)
-                    .pipe(stream);
-            });
+			//clear old file
+			fs.writeFile(filepath, '', function (err) {
+				//pull down csv file from google
+				request.get(url)
+					.pipe(stream);
+			});
 
-            //write data to file csv then convert to json
-            var stream = fs.createWriteStream(filepath, {flags: 'a'})
-                .on('finish', function() {
-                    gulp.src(filepath)
-                        .pipe(csv2json())
-                        .pipe(rename({extname: '.json'}))
-                        .pipe(gulp.dest('data'));
-                });
-        });
+			//write data to file csv then convert to json
+			var stream = fs.createWriteStream(filepath, {flags: 'a'})
+				.on('finish', function() {
+					gulp.src(filepath)
+						.pipe(csv2json())
+						.pipe(rename({extname: '.json'}))
+						.pipe(gulp.dest('data'));
+				});
+		});
 });
 
 // precompile lodash templates from json data
 gulp.task('render-templates', function () {
-    return gulp.src('precompile/*.template')
-        .pipe(data(function(file) {
-            return require('./precompile/' + path.basename(file.path, '.template') + '.json');
-        }))
-        .pipe(renderTemplate(null, {
-            interpolate: /{{([\s\S]+?)}}/g,
-            evaluate:    /{=([\s\S]+?)=}/g
-        }))
-        .pipe(rename(function (file) {
-    		file.extname = '.html'
+	return gulp.src('precompile/*.template')
+		.pipe(data(function(file) {
+			return require('./precompile/' + path.basename(file.path, '.template') + '.json');
 		}))
-        .pipe(gulp.dest('precompile'));
+		.pipe(renderTemplate(null, {
+			interpolate: /{{([\s\S]+?)}}/g,
+			evaluate:    /{=([\s\S]+?)=}/g
+		}))
+		.pipe(rename(function (file) {
+			file.extname = '.html'
+		}))
+		.pipe(gulp.dest('precompile'));
 });

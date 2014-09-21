@@ -85,6 +85,11 @@ Run `gulp` and follow all prompts.
 - Results will be put in the data folder as both csv and JSON.
 - Note: to use this, you must publish your spreadsheet, and make it public to the web via the share options. The sheet key can be found in the url, as well as the gid for the different tabs.
 
+## Contributors
+
+- Gabriel Florit
+- Russell Goldenberg
+
 ## License
 
 MIT © [The Boston Globe](http://github.com/BostonGlobe)
