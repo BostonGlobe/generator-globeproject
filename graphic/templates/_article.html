@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 7 ]> <html itemscope itemtype="http://schema.org/NewsArticle" itemid="http://dev.iptc.org/rnews/sample_story.html" lang="en" class="ie ie7"> <![endif]-->
-<!--[if IE 8 ]> <html itemscope itemtype="http://schema.org/NewsArticle" itemid="http://dev.iptc.org/rnews/sample_story.html" lang="en" class="ie ie8"> <![endif]-->
-<!--[if IE 9 ]> <html itemscope itemtype="http://schema.org/NewsArticle" itemid="http://dev.iptc.org/rnews/sample_story.html" lang="en" class="ie ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]> <html itemscope itemtype="http://schema.org/NewsArticle" itemid="http://dev.iptc.org/rnews/sample_story.html" lang="en"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
 
 <head>
     <script type="text/javascript">
@@ -15,11 +17,11 @@
     <!-- / -->
     <title>Maine bear hunt challenged on ballot - Metro - The Boston Globe</title>
     <!-- Methode uuid: "a5ec26b4-30b3-11e4-a676-4e95eeb89fbd" -->
-    <meta name="eomportal-instanceid" content="15" />
-    <meta name="eomportal-id" content="1278869" />
+    <meta name="eomportal-instanceid" content="16" />
+    <meta name="eomportal-id" content="2472518" />
     <meta name="eomportal-loid" content="3.3.768193550" />
     <meta name="eomportal-uuid" content="a5ec26b4-30b3-11e4-a676-4e95eeb89fbd" />
-    <meta name="eomportal-lastUpdate" content="Wed Sep 17 14:53:57 EDT 2014" />
+    <meta name="eomportal-lastUpdate" content="Mon Sep 22 18:41:52 EDT 2014" />
     <meta property="og:latitude" content="45.5792004" />
     <meta property="og:longitude" content="-69.52435960000002" />
     <meta property="og:streetaddress" content="Lily Bay Rd" />
@@ -36,7 +38,7 @@
     <meta property="article:publisher" content="https://www.facebook.com/globe" />
     <!-- sDate Sun Aug 25 00:01:00 EDT 2013-->
     <!-- eDate Mon Aug 26 23:59:00 EDT 2013-->
-    <!-- current date is Wed Sep 17 14:53:57 EDT 2014-->
+    <!-- current date is Mon Sep 22 18:41:52 EDT 2014-->
     <meta property="flashsale" id="flashsale" content="false" />
     <link rel="apple-touch-icon" href="//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png" />
     <link rel="shortcut icon" type="image/gif" href="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/favicon.ico" />
@@ -112,6 +114,7 @@
 " />
     <link rel='stylesheet' type="text/css" href='http://cache.boston.com/multimedia/graphics/projectFiles/lib/css/0.0.3/common.css'></link>
     @@include('html/css.html')
+
     <!-- webtype is story section is  adPageType article oas_sitepage /metro/homepage-->
 
     <!-- taxonomy: News/US/Maine rank: 60000 lowestRank: 60000 section: /metro -->
@@ -187,7 +190,9 @@
     </script>
 </head>
 
-<body class="type-internal type-article section-metro">
+<body itemscope itemtype="http://schema.org/WebPage" class="type-internal type-article section-metro metro type-metro">
+
+
     <!-- empty statusBar  -->
     <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113960&p1=BGMessageBar" class="global-bar bar-yellow" onClick="var s=s_gi('nytbostonglobecom,nytbgglobal');s.tl(this,'o','BG Header - Smart Bar');">   
             You can now read 10 articles in a month for free on BostonGlobe.com. Read as much as you want anywhere and anytime for just 99¢.
@@ -195,30 +200,40 @@
     <div id="contain">
 
         <!-- Page header -->
-        <header id="masthead">
+        <div class="masthead-spacer"></div>
+        <header id="masthead" role="banner">
             <h2 class="logo-bg">
                 <a href="/">
                     <img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg.png" alt="The Boston Globe" />
                 </a>
             </h2>
 
-            <h1 class="section"><a href="/metro">Metro</a>
+            <h1 class="section">
+                <a href="/metro">Metro</a>
             </h1>
             <div class="bg-high-value">
-                <p><a class="bostoncom" href="http://www.boston.com/?p1=BGHeader_NonHP_BComLogo"><b>Boston.com</b></a>
+                <p>
+                    <a class="bostoncom" href="http://www.boston.com/?p1=BGHeader_NonHP_BComLogo">
+                        <b>Boston.com</b>
+                    </a>
                 </p>
 
                 <div class="bg-classifieds mini-menu">
                     <nav>
-                        <p class="title">Classifieds<i>:</i>
+                        <p class="title">
+                            Classifieds
+                            <i>:</i>
                         </p>
 
                         <ul>
-                            <li><a href="http://www.boston.com/cars/?p1=BGHeader_NonHP_Cars">Cars</a>
+                            <li>
+                                <a href="http://www.boston.com/cars/?p1=BGHeader_NonHP_Cars">Cars</a>
                             </li>
-                            <li><a href="http://www.boston.com/jobs/?p1=BGHeader_NonHP_Jobs">Jobs</a>
+                            <li>
+                                <a href="http://www.boston.com/jobs/?p1=BGHeader_NonHP_Jobs">Jobs</a>
                             </li>
-                            <li class="last"><a href="http://www.boston.com/realestate/?p1=BGHeader_NonHP_RE">Real Estate</a>
+                            <li class="last">
+                                <a href="http://www.boston.com/realestate/?p1=BGHeader_NonHP_RE">Real Estate</a>
                             </li>
                         </ul>
                     </nav>
@@ -231,19 +246,22 @@
                 <p class="a11y-only no-border"><a class="top" href="/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp?p1=BGHeader_LogIn" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar27,events';s.linkTrackEvents='event15';s.eVar27='BG Header';s.events='event15';s.tl(this,'o','BG Header - Log In');">Log In</a>
                 </p>
                 <ul>
-                    <li class="headerSubscribe no-border">Subscribe:</li>
-                    <li class="headerSubscribe no-border"><a href="http://digitalaccess.bostonglobe.com/da/2/1?eglobe_rc=WW111946&globe_rc=WW111947&p1=BGHeader_DigitalSubscription" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar25,events';s.linkTrackEvents='event13';s.eVar25='BG Header';s.events='event13';s.tl(this,'o','BG Header - Subscribe');">Digital</a>
-                        <li class="headerSubscribe"><a href="http://homedelivery.bostonglobe.com/hd/control/order/zip/?rc=WW011964&p1=BGHeader_HomeDeliverySubscription" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar25,events';s.linkTrackEvents='event13';s.eVar25='BG Header';s.events='event13';s.tl(this,'o','BG Header - Subscribe');">Home Delivery</a>
-                        </li>
-                        <li class="my-account logged-out"><a class="top" href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp?p1=BGHeader_LogIn" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar27,events';s.linkTrackEvents='event15';s.eVar27='BG Header';s.events='event15';s.tl(this,'o','BG Header - Log In');">Log In</a>
-                        </li>
+                    <li class="headerSubscribeTag no-border">Subscribe:</li>
+                    <li class="headerSubscribe mobile-consolidated"><a href="http://digitalaccess.bostonglobe.com/da/2/1?eglobe_rc=WW111946&amp;globe_rc=WW111947&amp;p1=BGHeader_DigitalSubscription" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar25,events';s.linkTrackEvents='event13';s.eVar25='BG Header';s.events='event13';s.tl(this,'o','BG Header - Subscribe');">Subscribe</a>
+                    </li>
+                    <li class="headerSubscribe"><a href="http://digitalaccess.bostonglobe.com/da/2/1?eglobe_rc=WW111946&amp;globe_rc=WW111947&amp;p1=BGHeader_DigitalSubscription" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar25,events';s.linkTrackEvents='event13';s.eVar25='BG Header';s.events='event13';s.tl(this,'o','BG Header - Subscribe');">Digital</a>
+                    </li>
+                    <li class="headerSubscribe"><a href="http://homedelivery.bostonglobe.com/hd/control/order/zip/?rc=WW011964&amp;p1=BGHeader_HomeDeliverySubscription" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar25,events';s.linkTrackEvents='event13';s.eVar25='BG Header';s.events='event13';s.tl(this,'o','BG Header - Subscribe');">Home Delivery</a>
+                    </li>
+                    <li class="my-account logged-out"><a class="top" href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp?p1=BGHeader_LogIn" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar27,events';s.linkTrackEvents='event15';s.eVar27='BG Header';s.events='event15';s.tl(this,'o','BG Header - Log In');">Log In</a>
+                    </li>
                 </ul>
             </nav>
             <div class="nav-primary">
                 <form action="/search" class="search bg-search-primary" method="post">
                     <fieldset>
                         <label for="q">
-                            Search:
+                            Search
                         </label>
                         <div class="search-inputs">
                             <div>
@@ -254,101 +272,51 @@
                     </fieldset>
                 </form>
                 <!-- /end form.search -->
-
                 <!-- root expanded -->
-
                 <nav class="sections" data-menu-content="/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/ajaxsamples/global-nav-menus.jpt">
                     <h2 class="sections-heading">Sections</h2>
-
                     <ul>
-
-                        <!--
-                
-                -->
-
                         <li class="news" data-section="news">
                             <a href="/">News</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="metro active" data-section="metro">
                             <a href="/metro">Metro</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="arts" data-section="arts">
                             <a href="/arts">Arts</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="business" data-section="business">
                             <a href="/business">Business</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="sports" data-section="sports">
                             <a href="/sports">Sports</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="opinion" data-section="opinion">
                             <a href="/opinion">Opinion</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="politics" data-section="politics">
                             <a href="/news/politics">Politics</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="lifestyle" data-section="lifestyle">
                             <a href="/lifestyle">Lifestyle</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="magazine" data-section="magazine">
                             <a href="/magazine">Magazine</a>
                         </li>
-                        <!--
-                
-                    section: /metro, test2:/insiders
-                -->
-
                         <li class="insiders" data-section="insiders">
                             <a href="/insiders">Insiders</a>
                         </li>
-                        <!--
-                
-                -->
-
                         <li class="todayspaper" data-section="todayspaper">
                             <a href="/todayspaper">Today's Paper</a>
                         </li>
-                        <!--                
-            <li class="my-saved">
-                   <a href="/mysaved"><span class="count"><span>&nbsp;</span></span> My Saved</a>
-               </li> -->
+                        <!-- <li class="my-saved"> <a href="/mysaved"><span class="count"><span>&nbsp;</span></span> 
+                    My Saved</a> </li> -->
                     </ul>
-                    <h2 class="todays-paper"><a href="/todayspaper">Today&#8217;s Paper</a>
+                    <h2 class="todays-paper">
+                        <a href="/todayspaper">Today&#8217;s Paper</a>
                     </h2>
-                    <!--            <h2 class="my-saved"><a href="/mysaved"><span class="count"><span>&nbsp;</span></span> My Saved</a></h2> 
--->
+                    <!-- <h2 class="my-saved"><a href="/mysaved"><span class="count"><span>&nbsp;</span></span> 
+                My Saved</a></h2> -->
                 </nav>
             </div>
             <nav id="sectionnav-metro" class="section">
@@ -381,20 +349,12 @@
                 </ul>
             </nav>
         </header>
-        <div class="pencil_ad">
-            <div class="ad ad_outofpage2" id="billboard"></div>
-        </div>
         <!-- Page header ends -->
 
 
         <!-- story_default.jpt, story id:1a25ffa2-30a8-11e4-88fa-c34aa85bfbfe path:/Boston/2011-2020/2014/08/14/BostonGlobe.com/Metro/Stories -->
 
         <div class="mod live-update">
-            <div class="mod bg-alert bg-breaking">
-                <h2>Live video</h2>
-                <p class="story-title"> <a href="http://www.bostonglobe.com/news/politics/livestream">Kerry  testifies before Senate panel on strategy to fight ISIS</a> &nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.bostonglobe.com/news/world/2014/09/17/kerry-testifies-before-senate-panel-isis/bizzIXwNFRFbm3vpcWW1HL/story.html">Story</a> 
-                </p>
-            </div>
         </div>
 
         <div class="feat-strip-wrapper">
@@ -402,113 +362,129 @@
                 <!-- <h1 class="hed-cat feat-strip-heading">top stories</h1> -->
                 <ul>
                     <li class="feat-strip-article">
-                        <a href="/sports/2014/09/16/amid-turmoil-and-outrage-nfl-keeps-counting-its-money/1r1teKwWsN7L3WcItzHKkK/story.html?p1=Article_FeatureStrip">
+                        <a href="/sports/2014/09/20/tommy-harper-still-haunted-time-with-red-sox/Tw0RLaFinaqTqkt8jLsYeP/story.html?p1=Article_FeatureStrip">
                             <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/17/BostonGlobe.com/Sports/Images/shaughnessy-8410.jpg">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/19/BostonGlobe.com/Sports/Images/Red%20Sox%20Coaches%203-575904.jpg">
                             </div>
                         </a>
                         <div class="feat-strip-text">
                             <h3 class="hed-cat">Sports</h3>
-                            <a href="/sports/2014/09/16/amid-turmoil-and-outrage-nfl-keeps-counting-its-money/1r1teKwWsN7L3WcItzHKkK/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Amid outrage, NFL keeps counting its money</h2>
+                            <a href="/sports/2014/09/20/tommy-harper-still-haunted-time-with-red-sox/Tw0RLaFinaqTqkt8jLsYeP/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Tommy Harper still haunted by time with Red Sox</h2>
                             </a>
                         </div>
                     </li>
 
                     <li class="feat-strip-article">
-                        <a href="/metro/2014/09/16/blackstone/PsfNsBhI4Bglst1Jr7OIHJ/story.html?p1=Article_FeatureStrip">
+                        <a href="/metro/2014/09/20/wynn/DEQGK883ISMtLTSIt3VGGI/story.html?p1=Article_FeatureStrip">
                             <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/17/BostonGlobe.com/Metro/Images/home-bigh.jpg">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/19/BostonGlobe.com/Metro/Advance/Images/wynn.jpg">
                             </div>
                         </a>
                         <div class="feat-strip-text">
                             <h3 class="hed-cat">Metro</h3>
-                            <a href="/metro/2014/09/16/blackstone/PsfNsBhI4Bglst1Jr7OIHJ/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Boyfriend said to be clueless on 2 children</h2>
+                            <a href="/metro/2014/09/20/wynn/DEQGK883ISMtLTSIt3VGGI/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Steve Wynn takes conciliatory tone</h2>
                             </a>
                         </div>
                     </li>
 
                     <li class="feat-strip-article">
-                        <a href="/sports/2014/09/16/red-sox-pirates-both-benefited-from-brock-holt-trade/1VKfNZ0dIkfKaSlkOxNyeL/story.html?p1=Article_FeatureStrip">
+                        <a href="/metro/2014/09/20/maine-climate-change-taking-toll/P41vVDd9v3knTUeDH2U6SP/story.html?p1=Article_FeatureStrip">
                             <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/17/BostonGlobe.com/Sports/Images/2014-09-05T005904Z_1567496008_NOCID_RTRMADP_3_MLB-BOSTON-RED-SOX-AT-NEW-YORK-YANKEES.jpg">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/08/20/BostonGlobe.com/Metro/Advance/Images/Acadia1a.jpg">
                             </div>
                         </a>
                         <div class="feat-strip-text">
-                            <h3 class="hed-cat">Sports</h3>
-                            <a href="/sports/2014/09/16/red-sox-pirates-both-benefited-from-brock-holt-trade/1VKfNZ0dIkfKaSlkOxNyeL/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Trade for Brock Holt a big hit for Red Sox, Pirates</h2>
+                            <h3 class="hed-cat">Metro</h3>
+                            <a href="/metro/2014/09/20/maine-climate-change-taking-toll/P41vVDd9v3knTUeDH2U6SP/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">In Maine, climate change is taking a toll</h2>
                             </a>
                         </div>
                     </li>
 
                     <li class="feat-strip-article">
-                        <a href="/business/2014/09/16/chef-daniel-boulud-takes-bite-out-boston/1BM3OT3RcUOpbNImtMY7FK/story.html?p1=Article_FeatureStrip">
+                        <a href="http://www.bostonglobe.com/lifestyle/style/specials/2014fallstyle
+?p1=Article_FeatureStrip">
                             <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/17/BostonGlobe.com/Business/Images/leung-4827.jpg">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/15/BostonGlobe.com/ReceivedContent/Images/FSMAG0921_Fash7603.jpg">
+                            </div>
+                        </a>
+                        <div class="feat-strip-text">
+                            <h3 class="hed-cat"></h3>
+                            <a href="http://www.bostonglobe.com/lifestyle/style/specials/2014fallstyle
+?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Style magazine: Fall style</h2>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="feat-strip-article">
+                        <a href="/news/world/2014/09/19/unswayed-independence-calls-scots-vote-keep-united-kingdom-together/hb2p722y3cw4GxJpZZmy6I/story.html?p1=Article_FeatureStrip">
+                            <div class="feat-strip-img">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/19/BostonGlobe.com/Foreign/Images/macquarrie_edinburgh.JPG">
+                            </div>
+                        </a>
+                        <div class="feat-strip-text">
+                            <h3 class="hed-cat">World</h3>
+                            <a href="/news/world/2014/09/19/unswayed-independence-calls-scots-vote-keep-united-kingdom-together/hb2p722y3cw4GxJpZZmy6I/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Scotland votes to remain part of UK</h2>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="feat-strip-article">
+                        <a href="/business/2014/09/18/kane-donuts-expanding-downtown-boston/LSb1uTsox0IRuEYbonChLL/story.html?p1=Article_FeatureStrip">
+                            <div class="feat-strip-img">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/19/BostonGlobe.com/Business/Images/donuts150-4696.jpg">
                             </div>
                         </a>
                         <div class="feat-strip-text">
                             <h3 class="hed-cat">Business</h3>
-                            <a href="/business/2014/09/16/chef-daniel-boulud-takes-bite-out-boston/1BM3OT3RcUOpbNImtMY7FK/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Boulud takes a bite out of Boston</h2>
+                            <a href="/business/2014/09/18/kane-donuts-expanding-downtown-boston/LSb1uTsox0IRuEYbonChLL/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Kane’s Donuts widening its horizons</h2>
                             </a>
                         </div>
                     </li>
 
                     <li class="feat-strip-article">
-                        <a href="/opinion/2014/09/16/targeted-killings-and-rule-law/hrwkmfwmEZ4kZH7KUJGafL/story.html?p1=Article_FeatureStrip">
+                        <a href="/metro/2014/09/18/scott-brown-closing-jeanne-shaheen/nWCnqQdhlCzct3GgeXTUZI/story.html?p1=Article_FeatureStrip">
                             <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/16/BostonGlobe.com/EditorialOpinion/Images/0917oped_bg_dershowitz4.jpg">
-                            </div>
-                        </a>
-                        <div class="feat-strip-text">
-                            <h3 class="hed-cat">Opinion</h3>
-                            <a href="/opinion/2014/09/16/targeted-killings-and-rule-law/hrwkmfwmEZ4kZH7KUJGafL/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Targeted killings and the rule of law</h2>
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="feat-strip-article">
-                        <a href="/metro/2014/09/17/determining-cause-death-for-blackstone-infants-difficult-task/lPRSTYqV5aqG1afdw0i3UJ/story.html?p1=Article_FeatureStrip">
-                            <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/17/BostonGlobe.com/National/Images/e397d7c8af964b33a2614ad14b44181f-f0a9f053517d4577b51aa5ca792f48b6-2.jpg">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/18/BostonGlobe.com/Metro/Images/davis_capitol1_met.jpg">
                             </div>
                         </a>
                         <div class="feat-strip-text">
                             <h3 class="hed-cat">Metro</h3>
-                            <a href="/metro/2014/09/17/determining-cause-death-for-blackstone-infants-difficult-task/lPRSTYqV5aqG1afdw0i3UJ/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Finding cause of death for 3 infants difficult</h2>
+                            <a href="/metro/2014/09/18/scott-brown-closing-jeanne-shaheen/nWCnqQdhlCzct3GgeXTUZI/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Brown riding an anti-Obama wave</h2>
                             </a>
                         </div>
                     </li>
 
                     <li class="feat-strip-article">
-                        <a href="/metro/2014/09/15/one-year-after-its-auction-boston-harbor-graves-island-light-station-getting-eye-catching-makeover/prMFDbj5fRtOOa0m3bgDYN/story.html?p1=Article_FeatureStrip">
+                        <a href="/business/2014/09/18/give-suffolk-downs-one-more-season-and-think-big-and-bold-next-chapter/7AOdIFRsznJHgTvLQrbG4J/story.html?p1=Article_FeatureStrip">
                             <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/02/BostonGlobe.com/Metro/Images/maeda_GravesMakeover_g6.jpg">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/19/BostonGlobe.com/Business/Images/leung-4779.jpg">
+                            </div>
+                        </a>
+                        <div class="feat-strip-text">
+                            <h3 class="hed-cat">Business</h3>
+                            <a href="/business/2014/09/18/give-suffolk-downs-one-more-season-and-think-big-and-bold-next-chapter/7AOdIFRsznJHgTvLQrbG4J/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">Whoa, there’s no rush to close Suffolk Downs</h2>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="feat-strip-article">
+                        <a href="/metro/2014/09/18/kibby/zUWB3RIcyz3cVshBzO6D5K/story.html?p1=Article_FeatureStrip">
+                            <div class="feat-strip-img">
+                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/18/BostonGlobe.com/Metro/Images/kibby150-10579.jpg">
                             </div>
                         </a>
                         <div class="feat-strip-text">
                             <h3 class="hed-cat">Metro</h3>
-                            <a href="/metro/2014/09/15/one-year-after-its-auction-boston-harbor-graves-island-light-station-getting-eye-catching-makeover/prMFDbj5fRtOOa0m3bgDYN/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Lighthouse’s renovation inches forward</h2>
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="feat-strip-article">
-                        <a href="/sports/2014/09/15/one-word-describes-patriots-offense-dysfunctional/FxqUqlz8toWv9Dxw6sELNM/story.html?p1=Article_FeatureStrip">
-                            <div class="feat-strip-img">
-                                <img src="//c.o0bg.com/rf/image_60x60/Boston/2011-2020/2014/09/16/BostonGlobe.com/Sports/Images/2209785795e44972aebc673b1bb24851-2209785795e44972aebc673b1bb24851-0.jpg">
-                            </div>
-                        </a>
-                        <div class="feat-strip-text">
-                            <h3 class="hed-cat">Sports</h3>
-                            <a href="/sports/2014/09/15/one-word-describes-patriots-offense-dysfunctional/FxqUqlz8toWv9Dxw6sELNM/story.html?p1=Article_FeatureStrip">
-                                <h2 class="story-title">Patriots offense is dysfunctional right now</h2>
+                            <a href="/metro/2014/09/18/kibby/zUWB3RIcyz3cVshBzO6D5K/story.html?p1=Article_FeatureStrip">
+                                <h2 class="story-title">N.H. kidnapping suspect a mystery</h2>
                             </a>
                         </div>
                     </li>
@@ -558,6 +534,7 @@
 
                 <div class="article-body">
                     <!-- position:Top -->
+                    <!-- uuid: 1a25ffa2-30a8-11e4-88fa-c34aa85bfbfe -->
                     <!--
 METADATA FOR EMTAF
       <headline>Maine puts bear baiting on the Nov. ballot</headline>
@@ -577,16 +554,16 @@ METADATA FOR EMTAF
                                     <form action="" method="post">
                                         <input type="hidden" id="story_url" name="story_url" value="http://www.bostonglobe.com/metro/2014/08/30/maine-bear-hunt-challenged-ballot/oPbtDqPxNBxtUfgB8eMZkI/story.html" />
                                         <p>
-                                            <label for="email-to-primary">To</label>
-                                            <input type="text" name="email-to-primary" id="email-to-primary" placeholder="Separate multiple addresses with a comma" />
+                                            <label for="email-to-primary-Top">To</label>
+                                            <input type="text" name="email-to-primary" id="email-to-primary-Top" placeholder="Separate multiple addresses with a comma" />
                                         </p>
                                         <p>
-                                            <label for="email-mssg-primary">Add a message</label>
-                                            <textarea name="email-mssg-primary" id="email-mssg-primary" maxlength="80" placeholder="80 character limit"></textarea>
+                                            <label for="email-mssg-primary-Top">Add a message</label>
+                                            <textarea name="email-mssg-primary" id="email-mssg-primary-Top" maxlength="80" placeholder="80 character limit"></textarea>
                                         </p>
                                         <p>
-                                            <label for="email-from-primary">Your e-mail</label>
-                                            <input type="text" name="email-from-primary" id="email-from-primary" />
+                                            <label for="email-from-primary-Top">Your e-mail</label>
+                                            <input type="text" name="email-from-primary" id="email-from-primary-Top" />
                                         </p>
                                         <input type="submit" value="Send" class="bg-button" onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','ArticleTools_Send_Top');" />
                                     </form>
@@ -596,16 +573,16 @@ METADATA FOR EMTAF
                             </li>
                             <!-- /end li.email -->
                             <li class="share-button">
-                                <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Top" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&t=Maine puts bear baiting on the Nov. ballot" target="_blank"></a>
+                                <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Top" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&amp;t=Maine+puts+bear+baiting+on+the+Nov.+ballot" target="_blank"></a>
                             </li>
                             <li class="share-button">
-                                <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Top" href="http://twitter.com/intent/tweet?text=Maine puts bear baiting on the Nov. ballot&url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&via=BostonGlobe" target="_blank"></a>
+                                <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Top" href="http://twitter.com/intent/tweet?text=Maine+puts+bear+baiting+on+the+Nov.+ballot&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank"></a>
                             </li>
                             <li class="share-button">
-                                <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Top" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" alt="Share on Google+"></a>
+                                <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Top" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" title="Share on Google+"></a>
                             </li>
                             <li class="share-button">
-                                <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Top" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&title=Maine puts bear baiting on the Nov. ballot" target="_blank"></a>
+                                <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Top" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&amp;title=Maine+puts+bear+baiting+on+the+Nov.+ballot&amp;summary=Baiting+is+either+the+problem+with+bear+hunting+in+Maine+or+the+solution+for+bear+management%2C+depending+on+whom+you+ask." target="_blank"></a>
                             </li>
                             <li class="share-button"> <a class="social-icon print" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','ArticleTools_Print_Top')" href="javascript:print();">Print</a> 
                             </li>
@@ -617,6 +594,20 @@ METADATA FOR EMTAF
                         </a>
 
                     </aside>
+                    <div class="sticky-tools">
+                        <a class="sticky-tools__button sticky-tools__button--home" href="/">
+                            <span>The Boston Globe</span>
+                        </a>
+                        <a class="sticky-tools__button sticky-tools__button--share tw" data-omniture="BG Article Share Tools - Twitter - Sticky" href="http://twitter.com/intent/tweet?text=Maine+puts+bear+baiting+on+the+Nov.+ballot&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank">
+                            <span>Tweet</span>
+                        </a>
+                        <a class="sticky-tools__button sticky-tools__button--share fb" data-omniture="BG Article Share Tools - Facebook - Sticky" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25%3Fevent%3Devent25&amp;tMaine+puts+bear+baiting+on+the+Nov.+ballot" target="_blank">
+                            <span>Share</span>
+                        </a>
+                        <a class="sticky-tools__button sticky-tools__button--share whatsapp" data-omniture="BG Article Share Tools - Whatsapp - Sticky" href="whatsapp://send?text=Maine+puts+bear+baiting+on+the+Nov.+ballot&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25">
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
                     <!-- Header Tabs Section -->
 
                     <!-- Big leading photo -->
@@ -639,12 +630,10 @@ METADATA FOR EMTAF
                         <content>
                             <p id="U741084529002LmD" style="">KOKADJO, MAINE &mdash; It&rsquo;s 9:30 at night, deep in the woods of northern Maine, and about a dozen people are waiting with excitement as Wayne Plummer backs a white pickup truck to the game pole at his hunting lodge on First Roach Pond.</p>
                             <p>It&rsquo;s the first night of Maine&rsquo;s bear hunting season, and in the back of the truck is a black bear, the first kill of the season for the hunters who pay Plummer $2,000 a week to guide them to a clear shot.</p>
-
                             <div class='multimedia-template'>
                                 @@include('html/html.html')
                                 @@include('html/js.html')
                             </div>
-
                             <p class="skip-nav article-more">
                                 <a href="#skip-target1">Continue reading below</a>
                             </p>
@@ -724,6 +713,7 @@ METADATA FOR EMTAF
                     <!-- end article-text -->
                     <!-- Story tools -->
                     <!-- position:Bottom -->
+                    <!-- uuid: 1a25ffa2-30a8-11e4-88fa-c34aa85bfbfe -->
                     <!--
 METADATA FOR EMTAF
       <headline>Maine puts bear baiting on the Nov. ballot</headline>
@@ -743,16 +733,16 @@ METADATA FOR EMTAF
                                     <form action="" method="post">
                                         <input type="hidden" id="story_url" name="story_url" value="http://www.bostonglobe.com/metro/2014/08/30/maine-bear-hunt-challenged-ballot/oPbtDqPxNBxtUfgB8eMZkI/story.html" />
                                         <p>
-                                            <label for="email-to-primary">To</label>
-                                            <input type="text" name="email-to-primary" id="email-to-primary" placeholder="Separate multiple addresses with a comma" />
+                                            <label for="email-to-primary-Bottom">To</label>
+                                            <input type="text" name="email-to-primary" id="email-to-primary-Bottom" placeholder="Separate multiple addresses with a comma" />
                                         </p>
                                         <p>
-                                            <label for="email-mssg-primary">Add a message</label>
-                                            <textarea name="email-mssg-primary" id="email-mssg-primary" maxlength="80" placeholder="80 character limit"></textarea>
+                                            <label for="email-mssg-primary-Bottom">Add a message</label>
+                                            <textarea name="email-mssg-primary" id="email-mssg-primary-Bottom" maxlength="80" placeholder="80 character limit"></textarea>
                                         </p>
                                         <p>
-                                            <label for="email-from-primary">Your e-mail</label>
-                                            <input type="text" name="email-from-primary" id="email-from-primary" />
+                                            <label for="email-from-primary-Bottom">Your e-mail</label>
+                                            <input type="text" name="email-from-primary" id="email-from-primary-Bottom" />
                                         </p>
                                         <input type="submit" value="Send" class="bg-button" onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','ArticleTools_Send_Bottom');" />
                                     </form>
@@ -762,16 +752,16 @@ METADATA FOR EMTAF
                             </li>
                             <!-- /end li.email -->
                             <li class="share-button">
-                                <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Bottom" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&t=Maine puts bear baiting on the Nov. ballot" target="_blank"></a>
+                                <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Bottom" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&amp;t=Maine+puts+bear+baiting+on+the+Nov.+ballot" target="_blank"></a>
                             </li>
                             <li class="share-button">
-                                <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Bottom" href="http://twitter.com/intent/tweet?text=Maine puts bear baiting on the Nov. ballot&url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&via=BostonGlobe" target="_blank"></a>
+                                <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Bottom" href="http://twitter.com/intent/tweet?text=Maine+puts+bear+baiting+on+the+Nov.+ballot&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank"></a>
                             </li>
                             <li class="share-button">
-                                <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Bottom" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" alt="Share on Google+"></a>
+                                <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Bottom" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" title="Share on Google+"></a>
                             </li>
                             <li class="share-button">
-                                <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Bottom" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&title=Maine puts bear baiting on the Nov. ballot" target="_blank"></a>
+                                <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Bottom" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F30%2Fmaine-bear-hunt-challenged-ballot%2FoPbtDqPxNBxtUfgB8eMZkI%2Fstory.html%3Fevent%3Devent25&amp;title=Maine+puts+bear+baiting+on+the+Nov.+ballot&amp;summary=Baiting+is+either+the+problem+with+bear+hunting+in+Maine+or+the+solution+for+bear+management%2C+depending+on+whom+you+ask." target="_blank"></a>
                             </li>
                             <li class="share-button"> <a class="social-icon print" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','ArticleTools_Print_Bottom')" href="javascript:print();">Print</a> 
                             </li>
@@ -1020,27 +1010,26 @@ METADATA FOR EMTAF
                         <p class="meter-bold">Get full access today for just 99¢</p>
 
                     </div>
-                    <!-- /paywall-section-2 -->
                     <div class="paywall-clearfix"></div>
-
-
                     <footer>
 
                         <div class="button-section">
-                            <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113967" alt="desktop" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Get Access Now')">
+                            <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113967" title="desktop" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Get Access Now')">
                                 <button class="paywall-full-access-button">SIGN UP</button>
                             </a>
                         </div>
                         <div class="paywall-logo-img">
                             <img src="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/Globe-Logo-non-transparent.jpg">
                         </div>
-                        <div class="meter-links">
-                            <ul>
-                                <li class="left">No thanks, <a href="#" class="mfp-close" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Back to Article')">take me to my article</a>.</li>
-                                <li class="right"><a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp" onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Meter 2 - Login');">Subscribers log in here.</a>
-                                </li>
-                            </ul>
-                        </div>
+
+                        <p>No thanks, <a href="#">take me to my article</a>.</p>
+
+                        <p> <a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp" alt="mobile" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Fullpage Paywall Login');">Subscribers log in here</a>
+                        </p>
+
+
+
+
                     </footer>
                 </div>
             </div>
