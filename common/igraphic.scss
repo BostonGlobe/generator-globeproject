@@ -20,15 +20,12 @@
 			text-decoration: underline;
 		}
 	}
-
-	.byline {
-		display: none;
-	}
 }
 
 .section-nav,
-.article > .byline,
 .aside,
+aside.tools,
+.byline,
 a.global-bar,
 a.bar-yellow {
 	display: none !important;
