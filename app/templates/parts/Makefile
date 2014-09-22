@@ -1,6 +1,5 @@
 setup:
 
-	rm -rf globe;       mkdir globe;
 	rm -rf globe/css;   mkdir globe/css;
 	rm -rf globe/fonts; mkdir globe/fonts;
 	rm -rf globe/jpt;   mkdir globe/jpt;
@@ -37,5 +36,3 @@ setup:
 	wget -q http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/frameset/header/weather-forecast.jpt -O globe/jpt/weather-forecast.jpt;
 
 	wget -q http://bostonglobe.com/commons/js/portal.js -O globe/js/portal.js;
-
-	wget -q http://bostonglobe.com/ugc/topics -O globe/xml/topics.xml;

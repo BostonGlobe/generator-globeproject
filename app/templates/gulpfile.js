@@ -72,7 +72,8 @@ gulp.task('compile-templates', function() {
 });
 
 gulp.task('build-html', function() {
-	return gulp.src('graphics/' + GRAPHIC + '/template.html')
+
+	return gulp.src('graphics/' + GRAPHIC + '/template' + GRAPHIC_TEMPLATE + '.html')
 		.pipe(fileinclude())
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('graphics/' + GRAPHIC))
@@ -83,7 +84,7 @@ gulp.task('browser-sync', function() {
 
 	// watch for changes to html
 	gulp.watch([
-		'graphics/' + GRAPHIC + '/template.html',
+		'graphics/' + GRAPHIC + '/template' + GRAPHIC_TEMPLATE + '.html',
 		'graphics/' + GRAPHIC + '/html/*'
 	], ['build-html']);
 
@@ -198,8 +199,28 @@ gulp.task('setup', function(done) {
 
 		GRAPHIC = answers.graphicName || graphicChoices[0];
 		PACKAGE_TO_JPT = answers.packageToJPT;
+		GRAPHIC_TEMPLATE = '';
 
-		done();
+		GRAPHIC_TYPE = JSON.parse(fs.readFileSync('graphics/' + GRAPHIC + '/graphicType.json', {encoding: 'utf8'})).graphicType;
+
+		if (GRAPHIC_TYPE === 'igraphic') {
+
+			// ask what kind of template we want
+			inquirer.prompt([{
+				type: 'list',
+				name: 'igraphicType',
+				message: 'Choose an igraphic template',
+				choices: ['regular', 'linked']	
+			}], function(answers) {
+
+				GRAPHIC_TEMPLATE = '-' + answers.igraphicType;
+
+				done();
+
+			});
+		} else {
+			done();
+		}
 
 	});
 

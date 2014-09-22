@@ -50,6 +50,8 @@ var GraphicGenerator = yeoman.generators.Base.extend({
 
     this.mkdir(baseDir);
 
+    this.template('_graphicType.json', baseDir + '/' + 'graphicType.json');
+
     var thisDir = baseDir + '/' + 'css';
     this.mkdir(thisDir);
     this.template('css/_main.scss', thisDir + '/' + 'main.scss');
@@ -70,7 +72,14 @@ var GraphicGenerator = yeoman.generators.Base.extend({
     this.template('js/_main.js', thisDir + '/' + 'main.js');
 
     this.template('_template-prod.html', baseDir + '/' + 'template-prod.html');
-    this.template('_' + this.graphicType + '.html', baseDir + '/' + 'template.html'); 
+
+    if (this.graphicType === 'igraphic') {
+      this.template('_igraphic_regular.html', baseDir + '/' + 'template-regular.html'); 
+      this.template('_igraphic_linked.html', baseDir + '/' + 'template-linked.html'); 
+    } else {
+      this.template('_' + this.graphicType + '.html', baseDir + '/' + 'template.html'); 
+    }
+
     this.template('_git.sh', baseDir + '/' + 'git.sh');
 
     if (this.fullScreenOnMobile) {
