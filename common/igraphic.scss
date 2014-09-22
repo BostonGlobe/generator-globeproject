@@ -3,28 +3,32 @@
 	margin-top: 0;
 }
 
-.header .main-hed,
-.article .subhed {
-	text-align: center;
+.header {
+	visibility: hidden;
 
-	a {
-		text-decoration: underline;
+	&.visible {
+		visibility: visible;
+	}
+
+	.main-hed,
+	.subhed {
+		text-align: center;
+	}
+
+	.subhed {
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	.byline {
+		display: none;
 	}
 }
 
-.section-nav {
-	display: none;
-}
-
+.section-nav,
 .article > .byline,
-.article header .byline {
-	display: none;
-}
-
-.aside {
-	display:none;
-}
-
+.aside,
 a.global-bar,
 a.bar-yellow {
 	display: none !important;

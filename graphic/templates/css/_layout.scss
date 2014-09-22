@@ -1,2 +1,8 @@
 .<%= graphicType %>-graphic.<%= graphicName %> {
+	<% if (graphicType==='igraphic') { %>
+	.hed,
+	.subhed {
+		display: none;
+	}
+	<% } %>
 }
