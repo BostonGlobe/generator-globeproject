@@ -5,7 +5,6 @@ setup:
 	rm -rf globe/fonts; mkdir globe/fonts;
 	rm -rf globe/jpt;   mkdir globe/jpt;
 	rm -rf globe/js;    mkdir globe/js;
-	rm -rf globe/xml;   mkdir globe/xml;
 
 	wget -q http://bostonglobe.com/css/globe-fonts.css -O globe/css/globe-fonts.css;
 	wget -q http://bostonglobe.com/css/globe-fonts.css.map -O globe/css/globe-fonts.css.map;
