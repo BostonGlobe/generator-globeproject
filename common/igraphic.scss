@@ -30,3 +30,9 @@ a.global-bar,
 a.bar-yellow {
 	display: none !important;
 }
+
+#masthead,
+.masthead-stuck #masthead {
+	position: absolute;
+	width: 100%;
+}
