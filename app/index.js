@@ -25,7 +25,7 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
     var installedVersion = this.pkg.version;
 
     if (installedVersion === latestVersion) {
-      process.stdout.write(' OK.\n');
+      process.stdout.write('OK.\n');
     } else {
       process.stdout.write('\nYour generator is outdated. Please update it by running the following command in your terminal:\nsudo npm update -g generator-globeproject');
       exit(1);
