@@ -63,4 +63,9 @@ globe.initMobileHeader = function(options) {
 		$('html').addClass('ipad ios7');
 	}
 
+	return {
+		expandDrawer: expandDrawer,
+		collapseDrawer: collapseDrawer
+	};
+
 };

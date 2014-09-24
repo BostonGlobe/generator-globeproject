@@ -15,8 +15,10 @@
 
 	$('.header').addClass('visible');
 <% } %><% if (fullScreenOnMobile) { %>
+	var mobileHeader;
+
 	if (Modernizr.touch) {
-		globe.initMobileHeader({
+		mobileHeader = globe.initMobileHeader({
 			bodyElements: $('.content', master),
 			drawerElements: $('.<%= graphicType %>-graphic.<%= graphicName %> .source-and-credit, .header .subhed')
 		});
