@@ -203,7 +203,7 @@ gulp.task('setup', function(done) {
 
 		GRAPHIC_TYPE = JSON.parse(fs.readFileSync('graphics/' + GRAPHIC + '/graphicType.json', {encoding: 'utf8'})).graphicType;
 
-		if (GRAPHIC_TYPE === 'igraphic') {
+		if (!PACKAGE_TO_JPT && GRAPHIC_TYPE === 'igraphic') {
 
 			// ask what kind of template we want
 			inquirer.prompt([{
