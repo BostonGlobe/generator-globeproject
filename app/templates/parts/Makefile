@@ -34,5 +34,6 @@ setup:
 	wget -q http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/most_popular_right.jpt -O globe/jpt/most_popular_right.jpt;
 	wget -q http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/most_comment_right.jpt -O globe/jpt/most_comment_right.jpt;
 	wget -q http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/frameset/header/weather-forecast.jpt -O globe/jpt/weather-forecast.jpt;
+	wget -q http://bostonglobe.com/Fragment/SysConfig/WebPortal/BostonGlobe/Framework/skins/leaf/story/in_section_bottom.jpt -O globe/jpt/in_section_bottom.jpt;
 
 	wget -q http://bostonglobe.com/commons/js/portal.js -O globe/js/portal.js;
