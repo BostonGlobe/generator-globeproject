@@ -7,6 +7,7 @@
 <!--<![endif]-->
 
 <head>
+    <meta charset="UTF-8">
     <script type="text/javascript">
     var methode = {};
     methode.freeviewCount = 1;
@@ -15,13 +16,14 @@
     methode.subscribed = false;
     </script>
     <!-- / -->
-    <title>graphic</title>
+    <title><%= graphicName %></title>
     <!-- Methode uuid: "7deabee4-2764-11e4-b51f-ca6ad698bf69" -->
-    <meta name="eomportal-instanceid" content="16" />
-    <meta name="eomportal-id" content="2137634" />
-    <meta name="eomportal-loid" content="3.3.636124487" />
-    <meta name="eomportal-uuid" content="7deabee4-2764-11e4-b51f-ca6ad698bf69" />
-    <meta name="eomportal-lastUpdate" content="Mon Sep 22 17:13:00 EDT 2014" />
+    <!-- <meta name="eomportal-instanceid" content="16"/>
+<meta name="eomportal-id" content="1056654"/>
+<meta name="eomportal-loid" content="3.3.636124487"/>
+<meta name="eomportal-uuid" content="7deabee4-2764-11e4-b51f-ca6ad698bf69"/>
+<meta name="eomportal-lastUpdate" content="Wed Oct 08 16:14:25 EDT 2014"/>
+-->
     <meta property="og:latitude" content="42.3584308" />
     <meta property="og:longitude" content="-71.0597732" />
     <meta property="og:city" content="Boston" />
@@ -36,7 +38,7 @@
     <meta property="article:publisher" content="https://www.facebook.com/globe" />
     <!-- sDate Sun Aug 25 00:01:00 EDT 2013-->
     <!-- eDate Mon Aug 26 23:59:00 EDT 2013-->
-    <!-- current date is Mon Sep 22 17:13:00 EDT 2014-->
+    <!-- current date is Wed Oct 08 16:14:37 EDT 2014-->
     <meta property="flashsale" id="flashsale" content="false" />
     <link rel="apple-touch-icon" href="//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png" />
     <link rel="shortcut icon" type="image/gif" href="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/favicon.ico" />
@@ -56,21 +58,13 @@
 
     <meta property="twitter:account_id" content="95431448" />
     <meta name="robots" content="noarchive" />
-    <meta name="content-type" content="text/html; charset=UTF-8" />
     <meta name="description" content="In study after study, Boston is lauded as one of the best cities in the country for pedestrians. But a clear picture of how dangerous the city is for those walking among the cars has been impossible to come by, because of the owing to Boston Police Department’s longstanding refusal to provide data on pedestrian accidents crashes to the Massachusetts Department of Transportation. MassDOT." />
-
     <meta name="keywords" content="traffic,fatalities,car crashes,pedestrian crashes,bicycles,dangerous intersections, Huy Nguyen,Transportation Department, Nestor Incorporated, National Highway Traffic Safety Administration, AARP, WalkBoston, Twitter, Washington Metropolitan Area Transit Authority,Nestor Incorporated|NEST|NASDAQ" />
     <meta name="news_keywords" content="traffic,fatalities,car crashes,pedestrian crashes,bicycles,dangerous intersections, Huy Nguyen,Transportation Department, Nestor Incorporated, National Highway Traffic Safety Administration" />
-
     <meta property="og:url" content="https://www.bostonglobe.com/metro/2014/08/18/some-boston-pedestrian-accidents-aren-reported-state/oY53CQ9ijoaPNF3gfIAQzL/story.html" />
-
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="BostonGlobe">
-
-
-
     <meta property="og:image" content="http://c.o0bg.com/rf/image_585w/Boston/2011-2020/2014/08/19/BostonGlobe.com/Metro/Images/greenhouse_26pedestrians-1_metroasdf.jpg" />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/css/globe-basic.css" id="basic-css">
@@ -99,13 +93,10 @@
         }, h.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
     }("/css/icon-png-sprite.css", "/css/icon-png-data.css", "/css/icon-svg-sprite.css", "/css/icon-svg-data.css");
     </script>
-
     <noscript>
         <link href="/css/icon-png-sprite.css" rel="stylesheet" type="text/css" media="all">
     </noscript>
-
-
-    <script src="   /js/lib/jquery.js,lib/magnific.js,globe-modal-meter.js,globe-newsletter.js?v=2.3"></script>
+    <script src="/js/lib/jquery.js,lib/magnific.js,lib/lo-dash-custom-2.4.1.js,globe-modal-meter.js,globe-newsletter.js?v=2.3"></script>
     <link rel="stylesheet" type="text/css" media="all" href="/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-saved.css,globe-main.css,globe-footer.css,globe-trialHeaders.css,modal-login.css,globe-polldaddy.css,article.css,gallery.css,shame.css,state.css?v=2.3
 " />
     <link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=2.3
@@ -193,7 +184,7 @@
 
     <!-- empty statusBar  -->
     <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113960&p1=BGMessageBar" class="global-bar bar-yellow" onClick="var s=s_gi('nytbostonglobecom,nytbgglobal');s.tl(this,'o','BG Header - Smart Bar');">   
-            You can now read 10 articles in a month for free on BostonGlobe.com. Read as much as you want anywhere and anytime for just 99¢.
+            You can now read 10 articles a month for free. Read as much as you want anywhere and anytime for just 99¢.
 </a>
     <div id="contain">
 
@@ -413,7 +404,7 @@ METADATA FOR EMTAF
                                         <h4>Share via e-mail</h4>
                                         <div class="email-error"></div>
                                         <form action="" method="post">
-                                            <input type="hidden" id="story_url" name="story_url" value="http://www.bostonglobe.com/metro/2014/08/18/some-boston-pedestrian-accidents-aren-reported-state/oY53CQ9ijoaPNF3gfIAQzL/story.html" />
+                                            <input type="hidden" id="story_url-Top" name="story_url" value="http://www.bostonglobe.com/metro/2014/08/18/some-boston-pedestrian-accidents-aren-reported-state/oY53CQ9ijoaPNF3gfIAQzL/story.html" />
                                             <p>
                                                 <label for="email-to-primary-Top">To</label>
                                                 <input type="text" name="email-to-primary" id="email-to-primary-Top" placeholder="Separate multiple addresses with a comma" />
@@ -434,16 +425,16 @@ METADATA FOR EMTAF
                                 </li>
                                 <!-- /end li.email -->
                                 <li class="share-button">
-                                    <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Top" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;t=Most+Boston+pedestrian+accidents+go+unreported" target="_blank"></a>
+                                    <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Top" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;t=Most+Boston+pedestrian+accidents+go+unreported" target="_blank" title="Share on Facebook">Facebook</a>
                                 </li>
                                 <li class="share-button">
-                                    <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Top" href="http://twitter.com/intent/tweet?text=Most+Boston+pedestrian+accidents+go+unreported&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank"></a>
+                                    <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Top" href="http://twitter.com/intent/tweet?text=Most+Boston+pedestrian+accidents+go+unreported&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank" title="Share on Twitter">Twitter</a>
                                 </li>
                                 <li class="share-button">
-                                    <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Top" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" title="Share on Google+"></a>
+                                    <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Top" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" title="Share on Google+">Google+</a>
                                 </li>
                                 <li class="share-button">
-                                    <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Top" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;title=Most+Boston+pedestrian+accidents+go+unreported&amp;summary=The+state%26rsquo%3Bs+records+on+pedestrian+accidents+in+Boston+capture+only+a+fraction+of+such+accidents+here%2C+putting+a+crimp+in+safety+efforts." target="_blank"></a>
+                                    <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Top" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;title=Most+Boston+pedestrian+accidents+go+unreported&amp;summary=The+state%26rsquo%3Bs+records+on+pedestrian+accidents+in+Boston+capture+only+a+fraction+of+such+accidents+here%2C+putting+a+crimp+in+safety+efforts." target="_blank" title="Share on LinkedIn">LinkedIn</a>
                                 </li>
                                 <li class="share-button"> <a class="social-icon print" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','ArticleTools_Print_Top')" href="javascript:print();">Print</a> 
                                 </li>
@@ -492,7 +483,7 @@ METADATA FOR EMTAF
                                         <h4>Share via e-mail</h4>
                                         <div class="email-error"></div>
                                         <form action="" method="post">
-                                            <input type="hidden" id="story_url" name="story_url" value="http://www.bostonglobe.com/metro/2014/08/18/some-boston-pedestrian-accidents-aren-reported-state/oY53CQ9ijoaPNF3gfIAQzL/story.html" />
+                                            <input type="hidden" id="story_url-Bottom" name="story_url" value="http://www.bostonglobe.com/metro/2014/08/18/some-boston-pedestrian-accidents-aren-reported-state/oY53CQ9ijoaPNF3gfIAQzL/story.html" />
                                             <p>
                                                 <label for="email-to-primary-Bottom">To</label>
                                                 <input type="text" name="email-to-primary" id="email-to-primary-Bottom" placeholder="Separate multiple addresses with a comma" />
@@ -513,16 +504,16 @@ METADATA FOR EMTAF
                                 </li>
                                 <!-- /end li.email -->
                                 <li class="share-button">
-                                    <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Bottom" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;t=Most+Boston+pedestrian+accidents+go+unreported" target="_blank"></a>
+                                    <a class="social-icon fb" data-omniture="BG Article Share Tools - Facebook - Bottom" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;t=Most+Boston+pedestrian+accidents+go+unreported" target="_blank" title="Share on Facebook">Facebook</a>
                                 </li>
                                 <li class="share-button">
-                                    <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Bottom" href="http://twitter.com/intent/tweet?text=Most+Boston+pedestrian+accidents+go+unreported&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank"></a>
+                                    <a class="social-icon tw" data-omniture="BG Article Share Tools - Twitter - Bottom" href="http://twitter.com/intent/tweet?text=Most+Boston+pedestrian+accidents+go+unreported&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;via=BostonGlobe" target="_blank" title="Share on Twitter">Twitter</a>
                                 </li>
                                 <li class="share-button">
-                                    <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Bottom" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" title="Share on Google+"></a>
+                                    <a class="social-icon goog" data-omniture="BG Article Share Tools - Google+ - Bottom" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25%26s_campaign%3dsm_gp%26hl=en-US" target="_blank" title="Share on Google+">Google+</a>
                                 </li>
                                 <li class="share-button">
-                                    <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Bottom" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;title=Most+Boston+pedestrian+accidents+go+unreported&amp;summary=The+state%26rsquo%3Bs+records+on+pedestrian+accidents+in+Boston+capture+only+a+fraction+of+such+accidents+here%2C+putting+a+crimp+in+safety+efforts." target="_blank"></a>
+                                    <a class="social-icon linkedin" data-omniture="BG Article Share Tools - Linkedin - Bottom" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.bostonglobe.com%2Fmetro%2F2014%2F08%2F18%2Fsome-boston-pedestrian-accidents-aren-reported-state%2FoY53CQ9ijoaPNF3gfIAQzL%2Fstory.html%3Fevent%3Devent25&amp;title=Most+Boston+pedestrian+accidents+go+unreported&amp;summary=The+state%26rsquo%3Bs+records+on+pedestrian+accidents+in+Boston+capture+only+a+fraction+of+such+accidents+here%2C+putting+a+crimp+in+safety+efforts." target="_blank" title="Share on LinkedIn">LinkedIn</a>
                                 </li>
                                 <li class="share-button"> <a class="social-icon print" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','ArticleTools_Print_Bottom')" href="javascript:print();">Print</a> 
                                 </li>
@@ -540,7 +531,7 @@ METADATA FOR EMTAF
         <footer class="bg-footer">
             <div class="lead">
                 <nav>
-                    <h1>Learn more</h1>
+                    <h3 class="bg-footer__lead-menu__heading">Learn more</h3>
                     <ul>
                         <li><a href="https://digitalaccess.bostonglobe.com/da/2/1?eglobe_rc=WW111927&globe_rc=WW111945">Subscribe</a>
                         </li>
@@ -555,7 +546,7 @@ METADATA FOR EMTAF
             </div>
             <div class="sub">
                 <nav>
-                    <h1>My Account</h1>
+                    <h3 class="bg-footer__sub-menu__heading">My Account</h3>
                     <ul>
                         <li><a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp">Log in</a>
                         </li>
@@ -573,7 +564,7 @@ METADATA FOR EMTAF
                     </ul>
                 </nav>
                 <nav class="even">
-                    <h1>Contact</h1>
+                    <h3 class="bg-footer__sub-menu__heading">Contact</h3>
                     <ul>
                         <li><a href="https://bostonglobe.custhelp.com/app/home">Help</a>
                         </li>
@@ -586,7 +577,7 @@ METADATA FOR EMTAF
                     </ul>
                 </nav>
                 <nav class="opt">
-                    <h1>Social</h1>
+                    <h3 class="bg-footer__sub-menu__heading">Social</h3>
                     <ul>
                         <li><a href="https://www.facebook.com/globe">Facebook</a>
                         </li>
@@ -597,7 +588,7 @@ METADATA FOR EMTAF
                     </ul>
                 </nav>
                 <nav class="even last">
-                    <h1>More</h1>
+                    <h3 class="bg-footer__sub-menu__heading">More</h3>
                     <ul>
                         <li><a href="https://secure.pqarchiver.com/boston-sub/no_default.html?ss=1&url=%2Fboston-sub%2Fadvancedsearch.html">Archives</a>
                         </li>
@@ -763,88 +754,6 @@ METADATA FOR EMTAF
 
 
     </div>
-    <div class="modal wrapper">
-        <form id="modal-login" action="/Login" method="post" class="mfp-hide white-popup-block modal-login login-form" accept-charset="utf-8" data-init-psswrd>
-            <h3>Subscriber Login</h3>
-            <div id="modal-login-errors" class='errors hidden'>
-                <div class="errorlist js-gen-error" id="form-error">
-                    <div class="error-image"></div>
-                    <div class="regi-error error-positioning">
-                        The login information you entered does not match an account in our records.
-                        <div style="clear:both"></div>
-                        To activate FREE access as a home delivery subscriber <a href="https://services.bostonglobe.com/registration/globesub/welcome.aspx">start here.</a>
-                        <div style="clear:both"></div>
-                        If you don't have a subscription, you can view our <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113970 ">digital offers here.</a>
-                    </div>
-                </div>
-            </div>
-            <fieldset style="border:0;">
-                <p>
-                    <label class="modal-login">
-                        E-mail address:
-                    </label>
-                    <input type="email" class="login" name="username" id="username" required>
-                </p>
-                <p>
-                    <label class="modal-login">
-                        Password:
-                    </label>
-                    <input type="password" class="login" name="password" id="password" data-psswrd-toggle required>
-                </p>
-                <span class="remember-checkbox">
-                    <input type="checkbox" name="remember" checked id="rememberme" value="" class="remember">
-                    <label for="rememberme" class="remember">Keep me logged in</label>
-                </span>
-                <p class="calls-to-action">
-                    <input type="submit" value="Log in" id="mc-login-submit" class="bg-button modal-login" data-auth-analytics='{"linkTrackVars": "eVar27,events", "linkTrackEvents": "event15", "eVar27": "BG Login Page", "events": "event15", "linkName": "BG Login - Log In"}'>
-                    <a href='/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/mc-forgot-password-step1.jsp' class="get-password">Forgot your password?</a>
-                </p>
-            </fieldset>
-            <p>Home delivery subscribers get free access. <a href="https://services.bostonglobe.com/registration/globesub/welcome.aspx?p1=BGC_LoginPage_StartHere" data-auth-analytics='' onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Modal Link Account');">Link Account</a>
-                <p>Customer Service Number: 1.888.MY.GLOBE</p>
-                <hr>
-                <h4>Exclusive free trial offer</h4>
-                <p>Receive free unlimited access to BostonGlobe.com for the next two weeks! <a href="https://digitalaccess.bostonglobe.com/da/54/?s_campaign=BGFreeTrial:2Week:ModalLogin">Get access</a>
-                </p>
-                </fieldset>
-                <!--  Form redirects -->
-                <input type="hidden" name="redirect" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-success.jpt" />
-                <input type="hidden" name="onerror" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-error.jpt" />
-        </form>
-        <form id="forgot" class="mfp-hide white-popup-block modal-login login-form">
-            <div class="modal-content-box">
-                <h3>Forgot Password</h3>
-                <div id="forgot-modal-errors" class='errors hidden'>
-                    <div class="errorlist js-gen-error" id="form-error">
-                        <div class="error-image"></div>
-                        <div class="regi-error error-positioning">
-                            <h4>E-mail address not found, please try again or contact customer service at 1-888-MYGLOBE</h4>
-                        </div>
-                    </div>
-                </div>
-                <div id="forgot-modal-success" class='errors hidden'>
-                    <div class="errorlist js-gen-error" id="form-error">
-                        <div class="regi-error error-positioning">
-                            <h4>Please check your e-mail for a message from BostonGlobe.com with the subject line "BostonGlobe.com password request." Click the link in the e-mail to choose a new password for BostonGlobe.com, and note that your new password will also be used for your Boston.com membership.</h4>
-                        </div>
-                    </div>
-                </div>
-                <p>Enter your e-mail address below. We’ll send you an e-mail with a link to reset your password.</p>
-                <p>
-                    <label class="modal-login">E-mail Address</label>
-                    <input type="text" class="login" id="regi_email" required>
-                    <input type="submit" value="Reset" id="mc-password-submit" class="bg-button modal-login" data-auth-analytics='' onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','Reset password modal');">
-                    <a class="popup-with-form get-password" href="#modal-login">Return to login</a>
-                </p>
-            </div>
-            <!--  Form redirects -->
-            <input type="hidden" name="redirect" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-success.jpt" />
-            <input type="hidden" name="onerror" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-error.jpt" />
-        </form>
-    </div>
-    <script src="/js/lib/psswrd.js"></script>
-
-
     <div id="meter-limit-met-popup" class="mfp-hide white-popup-block paywall-square-meter">
 
         <div class="paywall-section-1">

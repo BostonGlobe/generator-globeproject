@@ -7,6 +7,7 @@
 <!--<![endif]-->
 
 <head>
+    <meta charset="UTF-8">
     <script type="text/javascript">
     var methode = {};
     methode.freeviewCount = 1;
@@ -15,23 +16,24 @@
     methode.subscribed = false;
     </script>
     <!-- / -->
-    <title>Mass. pedestrian crashes</title>
+    <title><%= graphicName %></title>
     <!-- Methode uuid: "366807aa-1dc0-11e4-8733-4faa7274b16b" -->
-    <meta name="eomportal-instanceid" content="16" />
-    <meta name="eomportal-id" content="2586663" />
-    <meta name="eomportal-loid" content="3.3.637545180" />
-    <meta name="eomportal-uuid" content="366807aa-1dc0-11e4-8733-4faa7274b16b" />
-    <meta name="eomportal-lastUpdate" content="Mon Sep 22 19:14:05 EDT 2014" />
+    <!-- <meta name="eomportal-instanceid" content="16"/>
+<meta name="eomportal-id" content="1056515"/>
+<meta name="eomportal-loid" content="3.3.637545180"/>
+<meta name="eomportal-uuid" content="366807aa-1dc0-11e4-8733-4faa7274b16b"/>
+<meta name="eomportal-lastUpdate" content="Wed Oct 08 16:14:19 EDT 2014"/>
+-->
     <meta property="og:type" content="article" />
     <meta property="og:description" content="" />
-    <meta property="og:title" content="Mass. pedestrian crashes - The Boston Globe" />
+    <meta property="og:title" content="<%= graphicName %> - The Boston Globe" />
     <meta property="og:site_name" content="BostonGlobe.com" />
     <meta property="fb:admins" content="100001044693856,507486035" />
     <meta property="fb:app_id" content="103933749691726" />
     <meta property="article:publisher" content="https://www.facebook.com/globe" />
     <!-- sDate Sun Aug 25 00:01:00 EDT 2013-->
     <!-- eDate Mon Aug 26 23:59:00 EDT 2013-->
-    <!-- current date is Mon Sep 22 19:14:05 EDT 2014-->
+    <!-- current date is Wed Oct 08 16:14:19 EDT 2014-->
     <meta property="flashsale" id="flashsale" content="false" />
     <link rel="apple-touch-icon" href="//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/bookmark-114.png" />
     <link rel="shortcut icon" type="image/gif" href="/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/favicon.ico" />
@@ -39,35 +41,27 @@
     <!-- override sectionClass by workfolder-->
     <!-- override section by workfolder-->
     <!--[if gte IE 9 ]> 
-	<meta name="application-name" content="Homepage"/>
-	<meta name="msapplication-tooltip" content="This is the tooltip"/>
-	<meta name="msapplication-starturl" content="/?comp=9"/>
-	<![endif]-->
+    <meta name="application-name" content="Homepage"/>
+    <meta name="msapplication-tooltip" content="This is the tooltip"/>
+    <meta name="msapplication-starturl" content="/?comp=9"/>
+    <![endif]-->
 
     <!--[if lte IE 8 ]>
-	<meta name="application-name" content="Boston Globe"/> 
-	<meta name="msapplication-TileColor" content="#000000"/> 
-	<meta name="msapplication-TileImage" content="25a75e8d-4542-40a4-80aa-253aea7efc28.png"/> 
-	<link rel="stylesheet" media="print" href="$configurationURI/Framework/css/globe-ie-print.css" type="text/css" />
-	<![endif]-->
+    <meta name="application-name" content="Boston Globe"/> 
+    <meta name="msapplication-TileColor" content="#000000"/> 
+    <meta name="msapplication-TileImage" content="25a75e8d-4542-40a4-80aa-253aea7efc28.png"/> 
+    <link rel="stylesheet" media="print" href="$configurationURI/Framework/css/globe-ie-print.css" type="text/css" />
+    <![endif]-->
 
     <meta property="twitter:account_id" content="95431448" />
     <meta name="robots" content="noarchive" />
-    <meta name="content-type" content="text/html; charset=UTF-8" />
     <meta name="description" content="" />
-
     <meta name="keywords" content="" />
     <meta name="news_keywords" content="" />
-
     <meta property="og:url" content="https://www.bostonglobe.com/2014/08/19/mass-pedestrian-crashes/S93EfexbXWvj7fq8Z2kXEJ/story.html" />
-
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="BostonGlobe">
-
-
-
     <meta property="og:image" content="http://c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg-small-square.jpg" />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/css/globe-basic.css" id="basic-css">
@@ -96,22 +90,17 @@
         }, h.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
     }("/css/icon-png-sprite.css", "/css/icon-png-data.css", "/css/icon-svg-sprite.css", "/css/icon-svg-data.css");
     </script>
-
     <noscript>
         <link href="/css/icon-png-sprite.css" rel="stylesheet" type="text/css" media="all">
     </noscript>
-
-
-    <script src="/js/lib/jquery.js,lib/magnific.js,globe-modal-meter.js,globe-newsletter.js?v=2.3"></script>
+    <script src="/js/lib/jquery.js,lib/magnific.js,lib/lo-dash-custom-2.4.1.js,globe-modal-meter.js,globe-newsletter.js?v=2.3"></script>
     <link rel="stylesheet" type="text/css" media="all" href="/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-saved.css,globe-main.css,globe-footer.css,globe-trialHeaders.css,modal-login.css,globe-polldaddy.css,article.css,gallery.css,shame.css,state.css?v=2.3
 " />
     <link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=2.3
 " />
-
     <link rel="stylesheet" type="text/css" href="http://cache.boston.com/multimedia/graphics/projectFiles/lib/css/0.0.3/common.css" />
     <link rel="stylesheet" type="text/css" href="http://cache.boston.com/multimedia/graphics/projectFiles/lib/css/0.0.3/igraphic.css" />
     @@include('html/css.html')
-
     <!-- webtype is igraphic section is  adPageType other oas_sitepage -->
 
     <!--  lowestRank:  taxonomy:  section:  -->
@@ -191,8 +180,8 @@
 
 
     <!-- empty statusBar  -->
-    <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113960&p1=BGMessageBar" class="global-bar bar-yellow" onClick="var s=s_gi('nytbostonglobecom,nytbgglobal');s.tl(this,'o','BG Header - Smart Bar');"> 	
-			You can now read 10 articles in a month for free on BostonGlobe.com. Read as much as you want anywhere and anytime for just 99¢.
+    <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113960&p1=BGMessageBar" class="global-bar bar-yellow" onClick="var s=s_gi('nytbostonglobecom,nytbgglobal');s.tl(this,'o','BG Header - Smart Bar');">   
+            You can now read 10 articles a month for free. Read as much as you want anywhere and anytime for just 99¢.
 </a>
     <div id="contain">
 
@@ -307,13 +296,13 @@
                             <a href="/todayspaper">Today's Paper</a>
                         </li>
                         <!-- <li class="my-saved"> <a href="/mysaved"><span class="count"><span>&nbsp;</span></span> 
-					My Saved</a> </li> -->
+                    My Saved</a> </li> -->
                     </ul>
                     <h2 class="todays-paper">
                         <a href="/todayspaper">Today&#8217;s Paper</a>
                     </h2>
                     <!-- <h2 class="my-saved"><a href="/mysaved"><span class="count"><span>&nbsp;</span></span> 
-				My Saved</a></h2> -->
+                My Saved</a></h2> -->
                 </nav>
             </div>
             <nav id="sectionnav-metro" class="section">
@@ -370,7 +359,7 @@
                 <header>
                     <div class="header new">
                         <p class="hed-cat"></p>
-                        <h1 class="main-hed">Mass. pedestrian crashes</h1>
+                        <h1 class="main-hed"><%= graphicName %></h1>
                         <h2 class="subhed"></h2>
                     </div>
                     <!-- byline section -->
@@ -409,13 +398,403 @@
 
 
 
+                <div class="aside">
+                    <a href="/magazine/2014/10/08/the-day-screen-time-diet/XDmzilsTCCE6mL1tD4SniN/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/03/BostonGlobe.com/Magazine/Images/mag1012screenA1.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">The 7-day screen time diet</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Can a single week away from computers, smartphones, and other digital devices really make a difference to kids&rsquo; brains?</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/magazine/2014/10/08/top-chef-judge-gail-simmons-toasts-boston/Vm0NuiWimNgmrkUSFsiG7O/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/07/BostonGlobe.com/Magazine/Images/GailSimmons_AuthorPhoto1_Credit%20Melanie%20Dunea.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">‘Top Chef’ judge Gail Simmons toasts Boston</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>The food expert, also an entrepreneur in residence at Babson College, readies for the kickoff of the show's 12th season, filmed locally.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/arts/theater-art/2014/10/08/unsettling-echoes-new-rep-intense-assassins/rHvPRXQv94uw29vIhU8VzO/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/06/BostonGlobe.com/Arts/Images/Web_308_Assassins.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Unsettling echoes in New Rep’s intense ‘Assassins’</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>New Repertory Theatre&rsquo;s compelling production depicts killers and would-be killers of presidents across American history.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/business/2014/10/07/apple-orchards-report-harvest-down-this-fall/Xp9T7Iz8qZllHnxyl7HNhP/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/Business/Images/leung-4499.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Apple orchards report harvest is down this fall</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>After a bumper crop in 2013, many apple orchards across the region are having an off year and will end the picking season earlier than usual.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/metro/2014/10/07/baker-stance-global-warming-during-meeting-recalled-environmentalists/psmr0YUJyeOg5g34cIyWaO/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/Metro/Images/baker150-10164.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Environmentalists recall changes in Baker’s position on climate change</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Attendees at a 2010 meeting say Charlie Baker said he believed climate change was not the result of human causes.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/metro/2014/10/07/gubernatorial-rivals-spar-over-child-agency-health-care/po4xY99bsacrCuBOhJ8JnK/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/Metro/Images/coakley150-10161.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Gubernatorial rivals spar over child agency, health care</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>The gubernatorial front-runners argued over the state&rsquo;s troubled child protection system and spiraling health care costs.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/opinion/2014/10/07/the-edge-goes-baker/33Mb1hv8RSv2chdGJdLDvJ/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/EditorialOpinion/Images/lehigh-1189.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">The edge goes to Charlie Baker</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Using the background of Beacon Hill&rsquo;s well-documented problems, Baker underscored the need for better management.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/news/nation/2014/10/07/with-focus-iraq-and-syria-air-war-heats-afghanistan-amid-drawdown/to9wunctlsgw8LV1dJ0XtL/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-content">
+                            <h2 class="title-tease">US intensifies Afghan airstrikes as drawdown nears</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>As the US and its allies began launching airstrikes against ISIS in August, another &mdash; less public &mdash; air war was also heating up.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/metro/2014/10/07/liberians/Fi6p1vSgDXWrUXI3GX7DtO/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/Metro/Images/island150-10171.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Ebola weighs on Rhode Island’s Liberians</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>In the vibrant Liberian community, one of the nation&rsquo;s largest, the Ebola epidemic has spurred charity, grief, and fear.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/news/nation/2014/10/07/ebola-crisis-sparking-sharp-political-rhetoric/BIuh7i7UVsvA4DDgz2ahQM/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/07/BostonGlobe.com/National/Images/2014-08-10T011038Z_1888691195_GM1EA8A0PDJ01_RTRMADP_3_USA-POLITICS.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Political talk adds to Ebola apprehension</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>The rhetoric spreading fears about an American outbreak comes just weeks before the midterm elections.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/lifestyle/food-dining/2014/10/07/when-tables-are-turned/Pt5rb7CHgbjyg4XKRkIDwN/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/09/11/BostonGlobe.com/Lifestyle/Images/kreiter_opendoor6_g.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Food pantry closes the ‘meal gap’</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>While coping with illness and unemployment, a former professional chef turns to The Open Door to help feed his family.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/metro/2014/10/07/baker-coakley-agree-core-environmental-issues-disagree-specifics/5EinhgBOZ2F8OZHJNBKnqK/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-content">
+                            <h2 class="title-tease">On environmental issues, candidates agree on core issues, disagree on specifics</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Martha Coakley and Charlie Baker share many environmental views, but not all of them.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/news/nation/2014/10/07/health-providers-expand-their-ebola-precautions/J21Yo3SDBO1umKnKWYEdEK/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-content">
+                            <h2 class="title-tease">US health providers expand their Ebola precautions</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>There hasn&rsquo;t been a single confirmed case of an Ebola infection happening on US soil, but health care providers are worried enough to take a wide variety of precautions.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/lifestyle/food-dining/2014/10/07/after-years-bistro-west-medford-still-neighborhood-standby/HDkanZWrE32uRuCO0N9m0I/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/03/BostonGlobe.com/Lifestyle/Images/greenhouse_08dine-1_lifestyle.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Bistro 5 is still a neighborhood standby</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>After 15 years, West Medford is lucky to get to keep coming back to Vittorio Ettore&rsquo;s bistro.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/opinion/2014/10/07/running-from-word/NIR6sryjM7Jv4I3aMRR1JL/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/EditorialOpinion/Images/jacoby-1192.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Running from the ‘R’ word</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Charlie Baker&rsquo;s campaign is so clearly built on a strategy of being the sort of Republican Mass. voters can feel comfortable supporting.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/sports/2014/10/07/top-line-duty-sounds-fine-bruins-loui-eriksson/ZE27mnnLNd2U7IIcYyQMSI/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/Sports/Images/9a410d92356f4a5693bbe98c156fb59f-9a410d92356f4a5693bbe98c156fb59f-0[1]--90x90.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Loui Eriksson ready for Bruins’ top line</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>If coach Claude Julien puts him with David Krejci and Milan Lucic, Eriksson believes it will be a good fit.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/metro/2014/10/07/mayor-martin-walsh-threatens-veto-proposed-city-council-pay-raise/1ol3N81bO8pACrpWAqFVnO/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/Metro/Images/walsh150-10168.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Walsh threatens to veto City Council pay raise</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>On the eve of an expected vote, Mayor Walsh said that the raise is too large.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/news/world/2014/10/07/turkish-inaction-islamic-state-advance-dismays/X59PHSZmeVGjYzmPQk8pmI/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/08/BostonGlobe.com/National/Images/TS-Par7995630.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Turkey’s reluctance to join ISIS fight raises tensions</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Turkey&rsquo;s president wants the US to agree to give greater support to rebels trying to unseat the Syrian president, Bashar Assad.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/news/nation/2014/10/07/the-new-dynamics-protecting-president-most-threats-against-obama-issued-online/hKlwD4yVS7aKv3n73YEevJ/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/07/BostonGlobe.com/National/Images/aa97a78d615b4b65a73622594e330f73-42c620763a6c4a9da59852992ea09346-0.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Online threats to Obama rise, challenging Secret Service</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Lawmakers and private security officials question whether the Secret Service has sufficiently adapted to a new social-media landscape.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/business/2014/10/07/fda-commissioner-tells-medtech-execs-her-agency-trying-speed-approval-new-products/rnzR99dVnDNwBuLrrG4l2J/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/06/10/BostonGlobe.com/Wires/APOnlineImages/2014-06-10/8da572e8af2baf16560f6a706700ee8b.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">FDA aiming to speed OK of medical devices</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>The number of medical devices entering the market under the FDA&rsquo;s &ldquo;pre-market approval&rdquo; process tumbled from 41 in 2012 to 23 last year.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
+                <div class="aside">
+                    <a href="/metro/2014/10/07/trial-tsarnaev-friend-robel-phillipos-enters-second-day-district-court-boston/HPmGEG3HEZo2YpKCQwDT4O/story.html?p1=Article_InThisSection_Bottom">
+                        <div class="aside-image">
+                            <i class="figure rel"><img src="//c.o0bg.com/rf/image_90x90/Boston/2011-2020/2014/10/07/BostonGlobe.com/Metro/Images/robel150-10171.jpg"/></i>
+                        </div>
+                        <div class="aside-content">
+                            <h2 class="title-tease">Former classmate a key witness in trial of Tsarnaev friend Robel Phillipos</h2>
+                            <div class="article-body">
+                                <p>
+                                    <p>Azamat Tazhayakov said he agreed to speak in exchange for a reduced sentence on his convictions.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+
             </div>
         </div>
         <!-- Page footer -->
         <footer class="bg-footer">
             <div class="lead">
                 <nav>
-                    <h1>Learn more</h1>
+                    <h3 class="bg-footer__lead-menu__heading">Learn more</h3>
                     <ul>
                         <li><a href="https://digitalaccess.bostonglobe.com/da/2/1?eglobe_rc=WW111927&globe_rc=WW111945">Subscribe</a>
                         </li>
@@ -430,7 +809,7 @@
             </div>
             <div class="sub">
                 <nav>
-                    <h1>My Account</h1>
+                    <h3 class="bg-footer__sub-menu__heading">My Account</h3>
                     <ul>
                         <li><a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/final-login.jsp">Log in</a>
                         </li>
@@ -448,7 +827,7 @@
                     </ul>
                 </nav>
                 <nav class="even">
-                    <h1>Contact</h1>
+                    <h3 class="bg-footer__sub-menu__heading">Contact</h3>
                     <ul>
                         <li><a href="https://bostonglobe.custhelp.com/app/home">Help</a>
                         </li>
@@ -461,7 +840,7 @@
                     </ul>
                 </nav>
                 <nav class="opt">
-                    <h1>Social</h1>
+                    <h3 class="bg-footer__sub-menu__heading">Social</h3>
                     <ul>
                         <li><a href="https://www.facebook.com/globe">Facebook</a>
                         </li>
@@ -472,7 +851,7 @@
                     </ul>
                 </nav>
                 <nav class="even last">
-                    <h1>More</h1>
+                    <h3 class="bg-footer__sub-menu__heading">More</h3>
                     <ul>
                         <li><a href="https://secure.pqarchiver.com/boston-sub/no_default.html?ss=1&url=%2Fboston-sub%2Fadvancedsearch.html">Archives</a>
                         </li>
@@ -638,88 +1017,6 @@
 
 
     </div>
-    <div class="modal wrapper">
-        <form id="modal-login" action="/Login" method="post" class="mfp-hide white-popup-block modal-login login-form" accept-charset="utf-8" data-init-psswrd>
-            <h3>Subscriber Login</h3>
-            <div id="modal-login-errors" class='errors hidden'>
-                <div class="errorlist js-gen-error" id="form-error">
-                    <div class="error-image"></div>
-                    <div class="regi-error error-positioning">
-                        The login information you entered does not match an account in our records.
-                        <div style="clear:both"></div>
-                        To activate FREE access as a home delivery subscriber <a href="https://services.bostonglobe.com/registration/globesub/welcome.aspx">start here.</a>
-                        <div style="clear:both"></div>
-                        If you don't have a subscription, you can view our <a href="http://digitalaccess.bostonglobe.com/da/33/?eglobe_rc=WW113970 ">digital offers here.</a>
-                    </div>
-                </div>
-            </div>
-            <fieldset style="border:0;">
-                <p>
-                    <label class="modal-login">
-                        E-mail address:
-                    </label>
-                    <input type="email" class="login" name="username" id="username" required>
-                </p>
-                <p>
-                    <label class="modal-login">
-                        Password:
-                    </label>
-                    <input type="password" class="login" name="password" id="password" data-psswrd-toggle required>
-                </p>
-                <span class="remember-checkbox">
-                    <input type="checkbox" name="remember" checked id="rememberme" value="" class="remember">
-                    <label for="rememberme" class="remember">Keep me logged in</label>
-                </span>
-                <p class="calls-to-action">
-                    <input type="submit" value="Log in" id="mc-login-submit" class="bg-button modal-login" data-auth-analytics='{"linkTrackVars": "eVar27,events", "linkTrackEvents": "event15", "eVar27": "BG Login Page", "events": "event15", "linkName": "BG Login - Log In"}'>
-                    <a href='/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/mc-forgot-password-step1.jsp' class="get-password">Forgot your password?</a>
-                </p>
-            </fieldset>
-            <p>Home delivery subscribers get free access. <a href="https://services.bostonglobe.com/registration/globesub/welcome.aspx?p1=BGC_LoginPage_StartHere" data-auth-analytics='' onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Modal Link Account');">Link Account</a>
-                <p>Customer Service Number: 1.888.MY.GLOBE</p>
-                <hr>
-                <h4>Exclusive free trial offer</h4>
-                <p>Receive free unlimited access to BostonGlobe.com for the next two weeks! <a href="https://digitalaccess.bostonglobe.com/da/54/?s_campaign=BGFreeTrial:2Week:ModalLogin">Get access</a>
-                </p>
-                </fieldset>
-                <!--  Form redirects -->
-                <input type="hidden" name="redirect" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-success.jpt" />
-                <input type="hidden" name="onerror" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-error.jpt" />
-        </form>
-        <form id="forgot" class="mfp-hide white-popup-block modal-login login-form">
-            <div class="modal-content-box">
-                <h3>Forgot Password</h3>
-                <div id="forgot-modal-errors" class='errors hidden'>
-                    <div class="errorlist js-gen-error" id="form-error">
-                        <div class="error-image"></div>
-                        <div class="regi-error error-positioning">
-                            <h4>E-mail address not found, please try again or contact customer service at 1-888-MYGLOBE</h4>
-                        </div>
-                    </div>
-                </div>
-                <div id="forgot-modal-success" class='errors hidden'>
-                    <div class="errorlist js-gen-error" id="form-error">
-                        <div class="regi-error error-positioning">
-                            <h4>Please check your e-mail for a message from BostonGlobe.com with the subject line "BostonGlobe.com password request." Click the link in the e-mail to choose a new password for BostonGlobe.com, and note that your new password will also be used for your Boston.com membership.</h4>
-                        </div>
-                    </div>
-                </div>
-                <p>Enter your e-mail address below. We’ll send you an e-mail with a link to reset your password.</p>
-                <p>
-                    <label class="modal-login">E-mail Address</label>
-                    <input type="text" class="login" id="regi_email" required>
-                    <input type="submit" value="Reset" id="mc-password-submit" class="bg-button modal-login" data-auth-analytics='' onClick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','Reset password modal');">
-                    <a class="popup-with-form get-password" href="#modal-login">Return to login</a>
-                </p>
-            </div>
-            <!--  Form redirects -->
-            <input type="hidden" name="redirect" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-success.jpt" />
-            <input type="hidden" name="onerror" value="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/login-error.jpt" />
-        </form>
-    </div>
-    <script src="/js/lib/psswrd.js"></script>
-
-
     <div id="meter-limit-met-popup" class="mfp-hide white-popup-block paywall-square-meter">
 
         <div class="paywall-section-1">
@@ -813,7 +1110,7 @@
 
 
     <script>
-    var sPageName = ' | Mass. pedestrian crashes | Infographic';
+    var sPageName = ' | <%= graphicName %> | Infographic';
     var sChannel = '';
     var sProp1 = '';
     var sProp3 = '';
