@@ -14,6 +14,15 @@
 	}
 
 	$('.header').addClass('visible');
+<% } %><% if (fullScreenOnMobile) { %>
+	var mobileHeader = require('../../../common/js/GlobeMobileHeader.js');
+
+	if (Modernizr.touch) {
+		mobileHeader({
+			bodyElements: $('.content', master),
+			drawerElements: $('.<%= graphicType %>-graphic.<%= graphicName %> .source-and-credit, .header .subhed')
+		});
+	}
 <% } %>
 
 	require('./main.js');
