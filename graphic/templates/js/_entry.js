@@ -14,14 +14,8 @@
 	}
 
 	$('.header').addClass('visible');
-<% } %><% if (fullScreenOnMobile) { %>
-	var mobileHeader;
-
-	if (Modernizr.touch) {
-		mobileHeader = globe.initMobileHeader({
-			bodyElements: $('.content', master),
-			drawerElements: $('.<%= graphicType %>-graphic.<%= graphicName %> .source-and-credit, .header .subhed')
-		});
-	}
 <% } %>
+
+	require('./main.js');
+
 }); }());

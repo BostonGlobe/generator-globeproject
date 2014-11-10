@@ -13,6 +13,7 @@ git add globeproject.sublime-project
 git add gulpfile.js
 git add middleware.json
 git add package.json
+git add gulp
 git add parts
 
 <% if (includeLicense) { %>
@@ -33,6 +34,8 @@ done
 cd parts; make setup; cd ../;
 
 unzip node_modules; rm -f node_modules.zip;
+
+npm install;
 
 echo ""
 echo "NOTE: Run <yo globeproject:graphic> to add a new graphic to your project."
