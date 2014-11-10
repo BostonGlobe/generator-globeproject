@@ -43,7 +43,7 @@ gulp.task('webpack', function() {
 				root: [path.join(__dirname, '../../libs')]
 			}
 		}))
-		.pipe(isProd ? rename(graphic + '.js') : rename('bundle.js'))
-		.pipe(isProd ? gulp.dest('/Volumes/www_html/multimedia/graphics/projectFiles/2014/11/assets') : gulp.dest('.tmp', {cwd: config.baseDir()}))
+		.pipe(rename('bundle.js'))
+		.pipe(gulp.dest('.tmp', {cwd: config.baseDir()}))
 		.pipe(!isProd ? browserSync.reload({stream:true}) : util.noop());
 });
