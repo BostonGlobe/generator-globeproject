@@ -94,6 +94,8 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
     this.copy('middleware.json');
     this.copy('node_modules.zip');
 
+    this.directory('gulp');
+
     if (this.includeLicense) {
       this.template('_LICENSE.md', 'LICENSE.md');
     }
@@ -112,8 +114,6 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
     this.directory('parts');
 
     this.mkdir('libs');
-
-    this.mkdir('precompile');
 
     this.directory('node_modules');
   }

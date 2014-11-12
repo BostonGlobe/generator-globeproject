@@ -1,8 +1,19 @@
-globe.initMobileHeader = function(options) {
+var GlobeMobileHeader = function(options) {
 
 	var master = $('.igraphic-graphic');
 
-	master.prepend(window.JST['mobile.template']({hed: $('.main-hed').html()}));
+	var template = "" +
+		"<div class='mobile-header expanded'>" +
+			"<a class='logo' href='http://bostonglobe.com'></a>" +
+			"<h1>" + $('.main-hed').html() + "</h1>" +
+			"<div class='navicon minus'>" +
+			"	<span></span>" +
+			"</div>" +
+		"</div>" +
+		"<div class='mobile-drawer expanded'></div>" +
+		"<div class='mobile-body'></div>";
+
+	master.prepend(template);
 
 	options.drawerElements.appendTo('.mobile-drawer', master);
 	options.bodyElements.appendTo('.mobile-body', master);
@@ -69,3 +80,5 @@ globe.initMobileHeader = function(options) {
 	};
 
 };
+
+module.exports = GlobeMobileHeader;

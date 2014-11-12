@@ -69,6 +69,7 @@ var GraphicGenerator = yeoman.generators.Base.extend({
     if (this.fullScreenOnMobile) {
       this.copy('js/templates/mobile.template', thisDir + '/' + 'templates' + '/' + 'mobile.template');
     }
+    this.template('js/_entry.js', thisDir + '/' + 'entry.js');
     this.template('js/_main.js', thisDir + '/' + 'main.js');
 
     this.template('_template-prod.html', baseDir + '/' + 'template-prod.html');
