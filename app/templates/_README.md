@@ -8,6 +8,7 @@ Please note: do not reproduce Boston Globe logos or fonts without written permis
 
 - `npm install`
 - `bower install`
+- `cd parts; mkdir globe; make setup; cd ..`
 
 ## Usage
 
