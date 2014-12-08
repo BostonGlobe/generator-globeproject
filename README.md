@@ -43,10 +43,11 @@ Put your CSS in `graphics/<graphic>/css/_layout.scss`.
 
 Put your JavaScript in `graphics/<graphic>/js/main.js`. If you need to load external libraries (e.g. [D3](http://d3js.org/)):
 
-1. Use [Bower](http://bower.io/). If you're not familiar with this tool,
-2. Download the library manually. Place it in the `libs` folder.
+1. Install it with `npm` and require it, CommonJS style, like so: `var d3 = require('d3');`. If that didn't make any sense,
+2. Use [Bower](http://bower.io/). If you're not familiar with this tool,
+3. Download the library manually. Place it in the `libs` folder.
 
-Either way, you'll now have to reference the library in `graphics/<graphic>/html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
+If you chose 2 or 3, you'll now have to reference the library in `graphics/<graphic>/html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
 
 ## Usage
 
@@ -61,9 +62,9 @@ Run `gulp` and follow all prompts.
 
 ### Lodash templates
 
-- [Lodash templates are cool!](http://lodash.com/docs#template) And this generator supports them out of the box. Create a lodash template, place it in `graphics/<graphic>/js/templates`, and make sure to name it `*.template` (e.g. `graphics/<graphic>/js/templates/table.template`). The generator will automatically compile all templates to `js/templates/templates.js`. Add this file to `graphics/<graphic>/html/js.html`, and done! To reference the template: `window.JST['story.template']({name: "gabriel"})`.
+- [Lodash templates are cool!](http://lodash.com/docs#template) And this generator supports them out of the box. Create a lodash template, place it in `graphics/<graphic>/js/templates`, and make sure to name it `*.template` (e.g. `graphics/<graphic>/js/templates/table.template`). Templates are stored in `_.templates`, e.g.: `_.templates.mobile({name:"gabriel"})`.
 
-### Precompiled Lodash templates
+### Precompiled Lodash templates (DISABLED AT THE MOMENT)
 
 - If you want to create some html based on data, but don't want to do it in the client, you can precompile and render them to html. Uses the same Lodash templating style as our js templates.
 - To use, create a <filename>.template file in the precompile folder. Create a JSON file with the same filename in the same folder.
@@ -81,7 +82,7 @@ Run `gulp` and follow all prompts.
 
 - Run `gulp render-templates` to render all .template files in the precompile folder, output will be <filename>.html. Now you can just copy that over to your graphic html file.
 
-### Google spreadsheet data to JSON
+### Google spreadsheet data to JSON (DISABLED AT THE MOMENT)
 - Run `gulp spreadsheet` and follow the instructions on screen.
 - Results will be put in the data folder as both csv and JSON.
 - Note: to use this, you must publish your spreadsheet, and make it public to the web via the share options. The sheet key can be found in the url, as well as the gid for the different tabs.
