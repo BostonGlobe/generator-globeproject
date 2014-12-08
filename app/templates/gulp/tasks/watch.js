@@ -13,4 +13,9 @@ gulp.task('watch', function() {
 		'common/assets/css/*',
 		config.baseDir() + '/css/*'
 	], ['sass']);
+
+	// watch for changes to lodash templates
+	gulp.watch([
+		config.baseDir() + '/js/templates/*.template'
+	], ['compileLodashTemplates']);
 });

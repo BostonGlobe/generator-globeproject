@@ -1,5 +1,7 @@
 (function() { globe.onDefine('window.jQuery && $(".<%= graphicType %>-graphic.<%= graphicName %>").length', function() {
 
+	require('./templates/templates.js');
+
 	var masterSelector = '.<%= graphicType %>-graphic.<%= graphicName %>';
 	var master = $(masterSelector);
 <% if (graphicType === 'igraphic') { %>

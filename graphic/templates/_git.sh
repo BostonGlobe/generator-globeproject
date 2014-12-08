@@ -1,3 +1,5 @@
+git ignore graphics/<%= graphicName %>/js/templates/templates.js
+
 git add graphics/<%= graphicName %>
 
 <% if (fullScreenOnMobile) { %>

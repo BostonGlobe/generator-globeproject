@@ -7,6 +7,7 @@ gulp.task('build', function(done) {
 	if (config.getUserChoice('packageToJpt')) {
 
 		runSequence(
+			'compileLodashTemplates',
 			'sass',
 			'webpack',
 			'html',
@@ -16,6 +17,7 @@ gulp.task('build', function(done) {
 	} else {
 
 		runSequence(
+			'compileLodashTemplates',
 			'watch',
 			'html',
 			'browser-sync',

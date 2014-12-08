@@ -35,7 +35,7 @@ var GlobeprojectGenerator = yeoman.generators.Base.extend({
       self.log(chalk.red("Looks like you didn't install " + library + ". Make sure to install all prerequisites, as detailed in " + chalk.underline.red('https://github.com/BostonGlobe/generator-globeproject#prerequisites.')));
     }
 
-    ['hub', 'wget'].forEach(function(value) {
+    ['hub', 'wget', 'git-extras'].forEach(function(value) {
       if (!which(value)) {
         printError(value);
         exit(1);
