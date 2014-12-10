@@ -15,7 +15,7 @@
 		overflow: hidden;
 		margin-top: 1em;
 
-		> p {
+		p {
 			margin: 0;
 			text-align: right;
 		}
@@ -33,6 +33,15 @@
 		}
 
 		@media (min-width: 600px) {
+			.sources {
+				float: left;
+
+				.source {
+					float: none;
+					text-align: left;
+				}
+			}
+
 			.source {
 				float: left;
 			}
