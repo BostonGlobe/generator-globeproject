@@ -41,13 +41,21 @@ Put your CSS in `graphics/<graphic>/css/_layout.scss`.
 
 ### Editing JavaScript
 
-Put your JavaScript in `graphics/<graphic>/js/main.js`. If you need to load external libraries (e.g. [D3](http://d3js.org/)):
+Put your JavaScript in `graphics/<graphic>/js/main.js`.
+
+## Adding third-party libraries
+
+If you need to load external libraries (e.g. [D3](http://d3js.org/)):
 
 1. Install it with `npm` and require it, CommonJS style, like so: `var d3 = require('d3');`. If that didn't make any sense,
 2. Use [Bower](http://bower.io/). If you're not familiar with this tool,
 3. Download the library manually. Place it in the `libs` folder.
 
 If you chose 2 or 3, you'll now have to reference the library in `graphics/<graphic>/html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
+
+### Examples
+
+#### Leaflet
 
 ## Usage
 
