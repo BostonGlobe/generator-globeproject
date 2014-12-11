@@ -57,6 +57,9 @@ If you chose 2 or 3, you'll now have to reference the library in `graphics/<grap
 
 ###### Leaflet
 
+- `bower install leaflet`
+- Add the following in `js.html` (make sure it's above the **bundle.js** reference): `<script src='../../libs/highcharts/highcharts.js'></script>`
+
 ## Usage
 
 Run `gulp` and follow all prompts.
