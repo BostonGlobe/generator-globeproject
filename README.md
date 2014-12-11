@@ -43,7 +43,7 @@ Put your CSS in `graphics/<graphic>/css/_layout.scss`.
 
 Put your JavaScript in `graphics/<graphic>/js/main.js`.
 
-## Adding third-party libraries
+#### Adding third-party libraries
 
 If you need to load external libraries (e.g. [D3](http://d3js.org/)):
 
@@ -53,9 +53,9 @@ If you need to load external libraries (e.g. [D3](http://d3js.org/)):
 
 If you chose 2 or 3, you'll now have to reference the library in `graphics/<graphic>/html/js.html`. For example, for D3, add `<script src='js/libs/d3/d3.js'></script>`.
 
-### Examples
+##### Examples
 
-#### Leaflet
+###### Leaflet
 
 ## Usage
 
