@@ -5,12 +5,13 @@ gulp.task('watch', function() {
 
 	// watch for changes to html
 	gulp.watch([
+		'common/html/*',
 		config.baseDir() + '/**/*.html'
 	], ['html']);
 
 	// watch for changes to sass
 	gulp.watch([
-		'common/assets/css/*',
+		'common/css/*',
 		config.baseDir() + '/css/*'
 	], ['sass']);
 
