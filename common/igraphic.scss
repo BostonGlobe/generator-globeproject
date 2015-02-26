@@ -27,11 +27,12 @@
 aside.tools,
 .byline,
 a.global-bar,
-a.bar-yellow,
-.mfp-bg,
-.mfp-ready,
-.mfp-wrap {
+a.bar-yellow {
 	display: none !important;
+}
+
+.mfp-wrap {
+	z-index: 300000000;
 }
 
 #masthead,
@@ -44,4 +45,10 @@ a.bar-yellow,
 
 .touch body.type-internal div#contain {
 	margin-top: 0;
+}
+
+.touch #social-login .mfp-close {
+	font-size: 60px;
+	width: 40px;
+	height: 40px;
 }
