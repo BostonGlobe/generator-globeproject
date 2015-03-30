@@ -5,6 +5,7 @@
     "browser-sync": "1.3.5",
     "cheerio": "0.17.0",
     "css-loader": "0.9.0",
+    "dsv-loader": "1.0.0",
     "exports-loader": "0.6.2",
     "express": "4.8.5",
     "gulp": "3.8.7",
