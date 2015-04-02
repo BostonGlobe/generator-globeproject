@@ -31,19 +31,10 @@ gulp.task('set-user-choices', function(done) {
 
 		if (!answers.packageToJPT && graphicType === 'igraphic') {
 
-			// ask what kind of template we want
-			inquirer.prompt([{
-				type: 'list',
-				name: 'igraphicType',
-				message: 'Choose an igraphic template',
-				choices: ['regular', 'linked']	
-			}], function(answers) {
+			config.setUserChoice('graphic', chosenGraphic);
+			config.setUserChoice('graphicTemplate', '-' + 'regular');
+			done();
 
-				config.setUserChoice('graphic', chosenGraphic);
-				config.setUserChoice('graphicTemplate', '-' + answers.igraphicType);
-				done();
-
-			});
 		} else {
 
 			config.setUserChoice('graphic', chosenGraphic);
