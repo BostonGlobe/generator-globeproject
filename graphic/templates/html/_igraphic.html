@@ -1,13 +1,23 @@
 <div class='<%= graphicType %>-graphic <%= graphicName %>'>
 
-	<div class='hed'><%= graphicName %></div>
-	<div class='subhed'>
-		Lorem ipsum Mollit pariatur occaecat velit cillum minim ex consequat reprehenderit nostrud mollit enim ut ex veniam eiusmod.
-	</div>
+	<% if (fullScreenOnMobile) { %>
 
-	<div class='source-and-credit'>
-		<p class='source'><span>DATA: source</span></p>
-		<p class='credit'><span>Reporter / Globe Staff</span></p>
-	</div>
+		<div class='hed'><%= graphicName %></div>
+		<div class='subhed'>
+			Lorem ipsum Mollit pariatur occaecat velit cillum minim ex consequat reprehenderit nostrud mollit enim ut ex veniam eiusmod.
+		</div>
+
+		<div class='source-and-credit'>
+			<p class='source'><span>DATA: source</span></p>
+			<p class='credit'><span>Reporter / Globe Staff</span></p>
+		</div>
+
+	<% } else { %>
+
+		@@include('../../common/html/mast.html')
+		@@include('../../common/html/header.html')
+		@@include('../../common/html/footer.html')
+
+	<% } %>
 
 </div>

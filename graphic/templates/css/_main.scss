@@ -4,9 +4,27 @@
 
 @import "common/css/_type";
 @import "graphics/<%= graphicName %>/css/_layout";
-<% if (fullScreenOnMobile) { %>
+
+<% if (graphicType==='igraphic') { %>
+
+	<% if (fullScreenOnMobile) { %>
 @import "common/css/_fullScreenOnMobile";
+	<% } else { %>
+%centercolumn {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	@include breakpoint(640px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@import "common/css/mast";
+@import "common/css/header";
+@import "common/css/footer";
+	<% } %>
+
 <% } %>
-
-
-

@@ -1,7 +1,12 @@
 <p:style src='http://cache.boston.com/multimedia/graphics/projectFiles/lib/css/0.0.3/common.css' />
 <% if (graphicType === 'igraphic') { %>
 <p:style src='http://cache.boston.com/multimedia/graphics/projectFiles/lib/css/0.0.3/igraphic.css' />
+
+	<% if (!fullScreenOnMobile) { %>
+<link rel="stylesheet" type="text/css" href="http://cache.boston.com/multimedia/graphics/reusable/css/anti-globe.css" />
+	<% } %>
 <% } %>
+
 @@include('html/css.html')
 @@include('html/html.html')
 @@include('html/js.html')

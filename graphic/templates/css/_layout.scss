@@ -1,8 +1,8 @@
 .<%= graphicType %>-graphic.<%= graphicName %> {
-	<% if (graphicType==='igraphic') { %>
-	.hed,
-	.subhed {
-		display: none;
-	}
+	<% if (graphicType==='igraphic' && fullScreenOnMobile) { %>
+		.hed,
+		.subhed {
+			display: none;
+		}
 	<% } %>
 }
